@@ -3227,7 +3227,7 @@ table.text-center th {
 .register-logo {
   font-size: 35px;
   text-align: center;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
   font-weight: 300;
 }
 .login-logo a,
@@ -3240,8 +3240,8 @@ table.text-center th {
 }
 .login-box,
 .register-box {
-  width: 360px;
-  margin: 7% auto;
+  width: 350px;
+ 
 }
 @media (max-width: 768px) {
   .login-box,
@@ -3253,7 +3253,7 @@ table.text-center th {
 .login-box-body,
 .register-box-body {
   background: #fff;
-  padding: 20px;
+  padding: 25px;
   border-top: 0;
   color: #666;
 }
@@ -4946,5 +4946,7 @@ table.text-center th {
 }
 
 .logotipo {
-  margin-top: 50%;
+  
+  margin-left: 20%;
 }
+
