@@ -30,3 +30,4 @@ Route::group(['middleware'=>'admin','namespace'=>'Admin'],function(){
 });
 
 Route::get('/home', 'HomeController@index');
+
