@@ -149,7 +149,7 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               
               <!-- hidden-xs hides the username on small devices so only the image appears. -->
-              <span class="hidden-xs">{{ Auth::user()->name }}</span>
+              <span class="hidden-xs"></span>
             </a>
             <ul class="dropdown-menu">
               <!-- The user image in the menu -->
@@ -157,7 +157,7 @@
                 
 
                 <p>
-                  {{ Auth::user()->name }} - Cargo
+                   - Cargo
                   <small>Member since Nov. 2012</small>
                 </p>
               </li>
