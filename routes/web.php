@@ -24,3 +24,4 @@ Route::get('/mcargos', 'HomeController@Mcargos');
 Route::get('/mpcargos', 'HomeController@Mpcargos');
 Route::get('/mtequipos', 'HomeController@Mtequipos');
 Route::get('/mcemergencia', 'HomeController@Mcemergencia');
+Route::get('/resetpw', 'HomeController@Resetpw');

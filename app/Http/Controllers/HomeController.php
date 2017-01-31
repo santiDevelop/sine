@@ -56,6 +56,10 @@ class HomeController extends Controller
         return view('mcemergencia');
     }
 
+    public function Resetpw()
+    {
+        return view('resetpw');
+    }
 
 }
 
