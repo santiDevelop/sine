@@ -51,8 +51,11 @@ class RegisterController extends Controller
             'name' => 'required|max:255',
             'user' => 'required|max:10|unique:users',
             'cedula' => 'required|max:10|unique:users',
+            'cargo' => 'required',
+            'typeuser' => 'required',
+            'cbombero' => 'required',  
             'email' => 'required|email|max:255|unique:users',
-            'password' => 'required|min:6|confirmed',
+            'password' => 'required|min:6',
         ]);
     }
 
@@ -68,6 +71,9 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'user' => $data['user'],
             'cedula' => $data['cedula'],
+            'cargo' => $data['cargo'],
+            'typeuser' => $data['typeuser'],
+            'cbombero' => $data['cbombero'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
