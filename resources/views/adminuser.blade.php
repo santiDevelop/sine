@@ -24,16 +24,16 @@
       <ul class="sidebar-menu">
         <li class="header">PANEL DE CONTROL</li>
         <!-- Optionally, you can add icons to the links -->
-        <li class="active treeview">
-          <a href="/home">
+        <li>
+          <a href="#">
             <i class="fa fa-dashboard"></i> <span>Tablero</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-right pull-right"></i>
             </span>
           </a></li>
 
-          <li>
-          <a href="/adminuser">
+          <li class="active treeview">
+          <a href="#">
             <i class="fa fa-user-circle"></i> <span>Administración de usuarios</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-right pull-right"></i>
@@ -41,7 +41,7 @@
           </a></li>
 
           <li>
-          <a href="/mcbombero">
+          <a href="#">
             <i class="fa fa-fire-extinguisher"></i> <span>Maestro de cuerpo <br/>de bomberos</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-right pull-right"></i>
@@ -49,7 +49,7 @@
           </a></li>
 
           <li>
-          <a href="/mcargos">
+          <a href="#">
             <i class="fa fa-tasks"></i> <span>Maestro de cargos</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-right pull-right"></i>
@@ -57,7 +57,7 @@
           </a></li>
 
           <li>
-          <a href="/mpcargos">
+          <a href="#">
             <i class="fa fa-cogs"></i> <span>Maestro de perfil de cargos</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-right pull-right"></i>
@@ -66,7 +66,7 @@
 
 
           <li>
-          <a href="/mtequipos">
+          <a href="#">
             <i class="fa fa-wrench"></i> <span>Maestros de tipos <br/>de equipamiento</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-right pull-right"></i>
@@ -74,7 +74,7 @@
           </a></li>
 
           <li>
-          <a href="/mcemergencia">
+          <a href="#">
             <i class="fa fa-bullhorn"></i> <span>Maestro de categorización <br/>de emergencias</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-right pull-right"></i>
@@ -82,7 +82,7 @@
           </a></li>
 
           <li>
-          <a href="/resetpw">
+          <a href="#">
             <i class="fa fa-key"></i> <span>Cambio de clave</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-right pull-right"></i>
@@ -94,26 +94,23 @@
     </section>
     <!-- /.sidebar -->
   </aside>
- <!-- Content Wrapper. Contains page content -->
+<!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Tablero
-        <small>Pagina de Inicio</small>
+        Creación de Nuevo Usuario
+        <small>Formulario de Registro</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Tablero</a></li>
-        <li class="active">Inicio</li>
+        <li><a href="#">Administración de usuarios</a></li>
+        <li class="active">Nuevo Usuario</li>
       </ol>
     </section>
+  
 
-    <!-- Main content -->
-    <section class="content">
+    
 
-      <!-- Your Page Content Here -->
-
-    </section>
-    <!-- /.content -->
 
 @endsection
