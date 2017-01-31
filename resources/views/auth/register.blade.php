@@ -7,12 +7,6 @@
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
 
-      <!-- Sidebar user panel (optional) -->
-      <div class="user-panel">
-        <li class="user-header">
-        <p>{{ Auth::user()->name }}</p>
-        </li>
-      </div>
 
       <!-- search form (Optional) -->
       <form action="#" method="get" class="sidebar-form">
@@ -255,8 +249,5 @@
     </section>
     <!-- /.content -->
 
-
-
-            
 
 @endsection
