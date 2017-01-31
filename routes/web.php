@@ -19,3 +19,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 Route::get('/adminuser', 'HomeController@Adminuser');
+Route::get('/mcbombero', 'HomeController@Mcbombero');
+Route::get('/mcargos', 'HomeController@Mcargos');
+Route::get('/mpcargos', 'HomeController@Mpcargos');
+Route::get('/mtequipos', 'HomeController@Mtequipos');
+Route::get('/mcemergencia', 'HomeController@Mcemergencia');
