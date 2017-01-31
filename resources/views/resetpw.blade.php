@@ -10,8 +10,8 @@
         <small>Panel cambio de Clave</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Tablero</a></li>
-        <li><a href="#">Administración de usuarios</a></li>
+        <li><a href="/home"><i class="fa fa-dashboard"></i> Tablero</a></li>
+        <li><a href="/adminuser">Administración de usuarios</a></li>
         <li class="active">Cambio de Clave</li>
       </ol>
     </section>
