@@ -146,7 +146,7 @@
             <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
             <label for="email" class="col-md-4 control-label">Correo electrónico:</label>
                 <div class="col-md-6">
-                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
+                <input id="email" type="email" class="form-control" placeholder="Correo electrónico" name="email" value="{{ old('email') }}" required>
                     @if ($errors->has('email'))
                     <span class="help-block">
                         <strong>{{ $errors->first('email') }}</strong>
@@ -170,7 +170,10 @@
             <div class="form-group{{ $errors->has('cargo') ? ' has-error' : '' }}">
             <label for="cargo" class="col-md-4 control-label">Cargo:</label>
                 <div class="col-md-6">
-                <input id="cargo" type="text" class="form-control" name="cargo" placeholder="Cargo" value="{{ old('cargo') }}" required>
+                <select class="form-control" id="cargo" name="cargo" required>
+                        <option value="1">Cargo 1</option>
+                        <option value="2">Cargo 2</option>
+                </select>
                     @if ($errors->has('cargo'))
                     <span class="help-block">
                         <strong>{{ $errors->first('cargo') }}</strong>
@@ -214,7 +217,7 @@
                 <div class="col-md-6">
                 <select class="form-control" id="cbombero" name="cbombero" required>
                         <option value="1">Cuerpo de Bombero 1</option>
-                        <option value="2">Cuerpo de Bombero 1</option>
+                        <option value="2">Cuerpo de Bombero 2</option>
                 </select>
                     @if ($errors->has('cbombero'))
                     <span class="help-block">
