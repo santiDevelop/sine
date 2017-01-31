@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Middleware\Admin;
+namespace App\Http\Middleware;
 
 use Closure;
 
-class UserMiddleware
+class AdminMiddleware
 {
     /**
      * Handle an incoming request.
@@ -15,6 +15,9 @@ class UserMiddleware
      */
     public function handle($request, Closure $next)
     {
+
+        if (auth()->user()->typeuser!=1)
+            return redirect('home');
         return $next($request);
     }
 }

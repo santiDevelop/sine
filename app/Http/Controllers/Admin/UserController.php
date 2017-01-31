@@ -9,14 +9,10 @@ class UserController extends Controller
 {
 
 
-	 public function __construct()
-    {
-        $this->middleware('UserMiddleware');
-    }
 
 
    public function index()
     {
-        return view('home');
+        return "hola mundo";
     }
 }
