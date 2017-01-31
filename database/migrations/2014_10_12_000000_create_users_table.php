@@ -19,10 +19,10 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->integer('status')->default('1');
             $table->string('name');
-            $table->integer('cedula')->unique();
-            $table->integer('cargo');
-            $table->integer('typeuser');
-            $table->integer('cbombero');
+            $table->integer('cedula')->unique()->default('1929531');
+            $table->integer('cargo')->default('4');
+            $table->integer('typeuser')->default('3');
+            $table->integer('cbombero')->default('4');
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
