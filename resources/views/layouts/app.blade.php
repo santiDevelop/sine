@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Bootstrap 3.3.6 -->
-  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="bootstrap/css/font-awesome.min.css">
   <!-- Theme style -->
@@ -13,7 +13,7 @@
   <!-- iCheck -->
   <link rel="stylesheet" href="plugins/iCheck/square/blue.css">
   <!-- Styles -->
-  <link href="css/skins/skin-blue.min.css" rel="stylesheet">
+  <link href="css/skins/skin-blue.css" rel="stylesheet">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -29,13 +29,25 @@
 
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
+        <nav class="navbar navbar-default navbar-static-top">
+           <div class="row">
+                <div class="col-xs-9">
+                            <img src="img/gobierno-bilivariano.jpg" class="img-responsive" alt="">
+                </div>
+                <div class="col-xs-3">
+
+                            <img src="img/a-toda-vida.jpg" class="img-responsive" alt="">
+                </div>
+            
+        </nav>
+</div>
 <div class="wrapper">
 
   <!-- Main Header -->
   <header class="main-header">
 
     <!-- Logo -->
-    <a href="index2.html" class="logo">
+    <a href="/home" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>Cubo</b></span>
       <!-- logo for regular state and mobile devices -->
@@ -56,7 +68,7 @@
           <li class="dropdown user user-menu">
             <!-- Menu Toggle Button -->
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            <i class="fa fa-sign-out fa-2x"></i>
+            <i class="fa fa-sign-out"></i>
               
               <!-- hidden-xs hides the username on small devices so only the image appears. -->
               <span class="hidden-xs"></span>
@@ -87,7 +99,8 @@
       </div>
     </nav>
   </header>
-
+ 
+        @include('includes.menu')
         @yield('content')
    
 
