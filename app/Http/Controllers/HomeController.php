@@ -26,37 +26,6 @@ class HomeController extends Controller
         return view('home');
     }
 
-    public function Adminuser()
-    {
-        return view('adminuser');
-    }
-
-    public function Mcbombero()
-    {
-        return view('mcbombero');
-    }
-
-    public function Mcargos()
-    {
-        return view('mcargos');
-    }
-
-    public function Mpcargos()
-    {
-        return view('mpcargos');
-    }
-
-    public function Mtequipos()
-    {
-        return view('mtequipos');
-    }
-
-    public function Mcemergencia()
-    {
-        return view('mcemergencia');
-    }
-
-
 }
 
 

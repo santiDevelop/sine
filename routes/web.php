@@ -17,10 +17,16 @@ Route::get('/', function () {
 
 Auth::routes();
 
+
+Route::group(['middleware'=>'admin','namespace'=>'Admin'],function(){
+	Route::get('/adminuser', 'UserController@Adminuser');
+	Route::get('/mcbombero', 'UserController@Mcbombero');
+	Route::get('/mcargos', 'UserController@Mcargos');
+	Route::get('/mpcargos', 'UserController@Mpcargos');
+	Route::get('/mtequipos', 'UserController@index');
+	Route::get('/mcemergencia', 'UserController@Mcemergencia');
+
+
+});
+
 Route::get('/home', 'HomeController@index');
-Route::get('/adminuser', 'HomeController@Adminuser');
-Route::get('/mcbombero', 'HomeController@Mcbombero');
-Route::get('/mcargos', 'HomeController@Mcargos');
-Route::get('/mpcargos', 'HomeController@Mpcargos');
-Route::get('/mtequipos', 'HomeController@Mtequipos');
-Route::get('/mcemergencia', 'HomeController@Mcemergencia');
