@@ -31,7 +31,7 @@
    <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
                         {{ csrf_field() }}
       <div class="has-feedback">
-      <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+      <div class="form-group{{ $errors->has('user') ? ' has-error' : '' }}">
         <input id="user" type="text" class="form-control" name="user" value="{{ old('user') }}" placeholder="Usuario" required autofocus>
 
                                 @if ($errors->has('user'))

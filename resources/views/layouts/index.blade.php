@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Bootstrap 3.3.6 -->
-  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="bootstrap/css/font-awesome.min.css">
   <!-- Ionicons -->
@@ -20,8 +20,8 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <<!-- Styles -->
-    <link href="css/skins/skin-blue.min.css" rel="stylesheet">
+    <!-- Styles -->
+    <link href="css/skins/skin-blue.css" rel="stylesheet">
 
     <!-- Scripts -->
     <script>
@@ -30,7 +30,7 @@
         ]) !!};
     </script>
 </head>
-<body>
+<body class="hold-transition login-page">
     <div id="app">
         <nav class="navbar navbar-default navbar-static-top">
            <div class="row">
