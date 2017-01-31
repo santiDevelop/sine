@@ -23,6 +23,23 @@
                                 @endif
                             </div>
                         </div>
+<!-- Usuario-->
+<div class="form-group{{ $errors->has('user') ? ' has-error' : '' }}">
+                            <label for="user" class="col-md-4 control-label">Usuario</label>
+
+                            <div class="col-md-6">
+                                <input id="user" type="text" class="form-control" name="user" value="{{ old('user') }}" required autofocus>
+
+                                @if ($errors->has('user'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('user') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+<!-- Usuario-->
+
+
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                             <label for="email" class="col-md-4 control-label">E-Mail Address</label>
