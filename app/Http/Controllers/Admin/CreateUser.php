@@ -6,7 +6,7 @@ use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
-
+use App\maestro_cuerpo_bomberos;
 class RegisterController extends Controller
 {
     /*
@@ -27,7 +27,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/register';
+    protected $redirectTo = '/home';
 
     /**
      * Create a new controller instance.
@@ -36,9 +36,7 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-
         $this->middleware('admin');
-
     }
 
     /**
@@ -49,10 +47,9 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        
         return Validator::make($data, [
             'name' => 'required|max:255|string',
-            'user' => 'required|max:15|unique:users',
+            'user' => 'required|max:10|unique:users',
             'cedula' => 'required|min:10|unique:users|numeric',
             'cargo' => 'required|numeric',
             'typeuser' => 'required|numeric',
@@ -80,5 +77,12 @@ class RegisterController extends Controller
             'cbombero' => $data['cbombero'],
             'password' => bcrypt($data['password']),
         ]);
+    }
+
+
+    public function register()
+    {
+       $cbomberos=maestro_cuerpo_bomberos::all();
+       return view('auth/register')->with(compact('cbomberos'));
     }
 }
