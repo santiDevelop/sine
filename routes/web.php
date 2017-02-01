@@ -19,15 +19,16 @@ Auth::routes();
 
 
 Route::group(['middleware'=>'admin','namespace'=>'Admin'],function(){
-	Route::get('/adminuser', 'UserController@Adminuser');
-	Route::get('/mcbombero', 'UserController@Mcbombero');
-	Route::get('/mcargos', 'UserController@Mcargos');
-	Route::get('/mpcargos', 'UserController@Mpcargos');
-	Route::get('/mtequipos', 'UserController@index');
-	Route::get('/mcemergencia', 'UserController@Mcemergencia');
-
+	Route::get('/adminuser', 'UserController@adminuser');
+	Route::get('/mcbombero', 'UserController@mcbombero');
+	Route::get('/mcargos', 'UserController@mcargos');
+	Route::get('/mpcargos', 'UserController@mpcargos');
+	Route::get('/mtequipos', 'UserController@mtequipos');
+	Route::get('/mcemergencia', 'UserController@mcemergencia');
+	Route::get('/crearusuario', 'CreateUser@crearusuario');
+	
 
 });
-
+	
 Route::get('/home', 'HomeController@index');
 

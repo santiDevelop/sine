@@ -112,8 +112,7 @@
             <label for="cbombero" class="col-md-4 control-label">Cuerpo de Bombero Asociado:</label>
                 <div class="col-md-6">
                 <select class="form-control" id="cbombero" name="cbombero" required>
-                      <option value="1">Perfil 1</option>
-                        <option value="2">Perfil 2</option>
+                     
                 </select>
                     @if ($errors->has('cbombero'))
                     <span class="help-block">
