@@ -24,10 +24,15 @@ class UserController extends Controller
     {
         return view('crearusuario');
     }
-     public function mcbombero()
+     public function getMcbombero()
     {
         return view('mcbombero');
     }
+      public function postMcbombero()
+    {
+        return view('mcbombero');
+    }
+
      public function mcargos()
     {
         return view('mcargos');

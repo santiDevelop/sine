@@ -27,7 +27,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/register';
 
     /**
      * Create a new controller instance.
@@ -36,7 +36,7 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('admin');
     }
 
     /**
@@ -47,9 +47,10 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+        
         return Validator::make($data, [
             'name' => 'required|max:255|string',
-            'user' => 'required|max:10|unique:users',
+            'user' => 'required|max:15|unique:users',
             'cedula' => 'required|min:10|unique:users|numeric',
             'cargo' => 'required|numeric',
             'typeuser' => 'required|numeric',

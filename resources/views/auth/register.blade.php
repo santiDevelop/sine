@@ -22,8 +22,11 @@
     <section class="content">
 
       <!-- Your Page Content Here -->
-
-    
+            <!-- Mensaje de alerta si el usuario Fue creado -->
+            
+            <div class="alert alert-success">Usuario Registrado Satisfactoriamente</div>
+            <!-- Mensaje de alerta si el usuario Fue creado -->
+           
       <div class="row">
         <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
                         {{ csrf_field() }}
@@ -67,8 +70,9 @@
             <label for="cargo" class="col-md-4 control-label">Cargo:</label>
                 <div class="col-md-6">
                 <select class="form-control" id="cargo" name="cargo" required>
-                        <option value="1">Cargo 1</option>
-                        <option value="2">Cargo 2</option>
+                        @foreach ($cargos as $cargo)
+                    <option value="{{$cargo->numcargo}}">{{$cargo->cargo}}</option>
+                    @endforeach
                 </select>
                     @if ($errors->has('cargo'))
                     <span class="help-block">
@@ -97,8 +101,8 @@
             <label for="typeuser" class="col-md-4 control-label">Perfil de Usuario:</label>
                 <div class="col-md-6">
                 <select class="form-control" id="typeuser" name="typeuser" required>
-                        <option value="1">Perfil 1</option>
-                        <option value="2">Perfil 2</option>
+                        <option value="1">Administrador</option>
+                        <option value="2">Usuario</option>
                 </select>
                     @if ($errors->has('typeuser'))
                     <span class="help-block">
@@ -112,8 +116,9 @@
             <label for="cbombero" class="col-md-4 control-label">Cuerpo de Bombero Asociado:</label>
                 <div class="col-md-6">
                 <select class="form-control" id="cbombero" name="cbombero" required>
-                      <option value="1">Perfil 1</option>
-                        <option value="2">Perfil 2</option>
+                    @foreach ($cbomberos as $cbombero)
+                    <option value="{{$cbombero->numcbomb}}">{{$cbombero->nomcbombero}}</option>
+                    @endforeach
                 </select>
                     @if ($errors->has('cbombero'))
                     <span class="help-block">

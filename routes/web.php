@@ -21,7 +21,8 @@ Auth::routes();
 Route::group(['middleware'=>'admin','namespace'=>'Admin'],function(){
 	Route::get('/adminuser', 'UserController@adminuser');
 	Route::get('/mcbombero', 'UserController@mcbombero');
-	Route::get('/mcargos', 'UserController@mcargos');
+	Route::get('/mcargos', 'UserController@getMcargos');
+	Route::post('/mcargos', 'UserController@postMcargos');
 	Route::get('/mpcargos', 'UserController@mpcargos');
 	Route::get('/mtequipos', 'UserController@mtequipos');
 	Route::get('/mcemergencia', 'UserController@mcemergencia');
