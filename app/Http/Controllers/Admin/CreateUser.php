@@ -6,7 +6,7 @@ use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
-
+use App\maestro_cuerpo_bomberos;
 class RegisterController extends Controller
 {
     /*
@@ -36,7 +36,7 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('admin');
     }
 
     /**
@@ -77,5 +77,12 @@ class RegisterController extends Controller
             'cbombero' => $data['cbombero'],
             'password' => bcrypt($data['password']),
         ]);
+    }
+
+
+    public function register()
+    {
+       $cbomberos=maestro_cuerpo_bomberos::all();
+       return view('auth/register')->with(compact('cbomberos'));
     }
 }

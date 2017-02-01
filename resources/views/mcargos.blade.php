@@ -1,18 +1,17 @@
 @extends('layouts.app')
 
 @section('content')
-
  <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Tablero
-        <small>Pagina de Inicio</small>
+        Maestro de cargos
+        <small>Descripcion de la pagina</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Tablero</a></li>
-        <li class="active">Inicio</li>
+        <li><a href="/home"><i class="fa fa-dashboard"></i> Tablero</a></li>
+        <li class="active">Maestro de cargos</li>
       </ol>
     </section>
 
