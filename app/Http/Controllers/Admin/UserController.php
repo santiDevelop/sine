@@ -28,15 +28,21 @@ class UserController extends Controller
     {
         return view('mcbombero');
     }
-      public function postMcbombero()
+      public function postMcbombero(Request $request)
     {
-        return view('mcbombero');
+        ;
     }
 
-     public function mcargos()
+     public function getMcargos()
     {
         return view('mcargos');
     }
+     public function postMcargos(Request $request)
+    {
+       return $request->all();
+    }
+
+
      public function mtequipos()
     {
         return view('mtequipos');
