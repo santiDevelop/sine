@@ -143,18 +143,6 @@
                 </div>
             </div>
 
-            <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-            <label for="email" class="col-md-4 control-label">Correo electrónico:</label>
-                <div class="col-md-6">
-                <input id="email" type="email" class="form-control" placeholder="Correo electrónico" name="email" value="{{ old('email') }}" required>
-                    @if ($errors->has('email'))
-                    <span class="help-block">
-                        <strong>{{ $errors->first('email') }}</strong>
-                    </span>
-                    @endif
-                </div>
-            </div>
-
             <div class="form-group{{ $errors->has('cedula') ? ' has-error' : '' }}">
             <label for="cedula" class="col-md-4 control-label">Cédula:</label>
                 <div class="col-md-6">
@@ -187,7 +175,7 @@
                 <div class="col-md-6">
                 <select class="form-control" id="status" name="status" required>
                         <option value="1">Activo</option>
-                        <option value="2">Suspendido</option>
+                        <option value="2">Bloqueado</option>
                 </select>
                     @if ($errors->has('status'))
                     <span class="help-block">
@@ -242,7 +230,7 @@
              <div class="form-group">
                 <div class="col-md-6 col-md-offset-4">
                     <button type="submit" class="btn btn-primary">
-                        Register
+                        Registrar
                     </button>
                 </div>
             </div>
