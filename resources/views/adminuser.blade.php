@@ -31,7 +31,7 @@
             <div class="icon">
               <i class="fa fa-users"></i>
             </div>
-            <a href="/register" class="small-box-footer">Crear <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="/crearusuario" class="small-box-footer">Crear <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
 
