@@ -19,13 +19,19 @@ Auth::routes();
 
 
 Route::group(['middleware'=>'admin','namespace'=>'Admin'],function(){
-	Route::get('/adminuser', 'UserController@adminuser');
-	Route::get('/mcbombero', 'UserController@mcbombero');
+
 	Route::get('/mcargos', 'UserController@getMcargos');
 	Route::post('/mcargos', 'UserController@postMcargos');
-	Route::get('/mpcargos', 'UserController@mpcargos');
-	Route::get('/mtequipos', 'UserController@mtequipos');
-	Route::get('/mcemergencia', 'UserController@mcemergencia');
+	Route::get('/adminuser', 'UserController@getAdminuser');
+	Route::post('/adminuser', 'UserController@postAdminuser');
+	Route::get('/mcbombero', 'UserController@getMcbombero');
+	Route::post('/mcbombero', 'UserController@postMcbombero');
+	Route::get('/mpcargos', 'UserController@getMpcargos');
+	Route::post('/mpcargos', 'UserController@postMpcargos');
+	Route::get('/mtequipos', 'UserController@getMtequipos');
+	Route::post('/mtequipos', 'UserController@postMtequipos');
+	Route::get('/mcemergencia', 'UserController@getMcemergencia');
+	Route::post('/mcemergencia', 'UserController@postMcemergencia');
 	Route::get('/crearusuario', 'CreateUser@crearusuario');
 	
 
