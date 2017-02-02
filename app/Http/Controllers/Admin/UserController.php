@@ -22,7 +22,7 @@ class UserController extends Controller
         //
     }
 
-    public function adminuser()
+    public function getAdminuser()
     {
         return view('adminuser');
     }

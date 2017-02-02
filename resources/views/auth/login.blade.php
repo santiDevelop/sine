@@ -72,7 +72,7 @@
         <div class="col-md-4">
           <button type="submit" class="btn btn-primary btn-block btn-flat">Entrar</button>
         </div>
-        <a class="btn btn-link" href="{{ url('/password/reset') }}">¿Olvidaste tu Password?</a>
+        
         <!-- /.col -->
       </div>
     </form>

@@ -29,23 +29,23 @@
 
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
-        <nav class="navbar navbar-default navbar-static-top">
-           <div class="row">
-                <div class="col-xs-9">
-                            <img src="img/gobierno-bilivariano.jpg" class="img-responsive" alt="">
-                </div>
-                <div class="col-xs-3">
-
-                            <img src="img/a-toda-vida.jpg" class="img-responsive" alt="">
-                </div>
-            
-        </nav>
+        
 </div>
 <div class="wrapper">
 
   <!-- Main Header -->
   <header class="main-header">
+<nav class="navbar-default navbar-static-top">
+           <div class="row">
+                <div class="col-xs-9">
+                            <img src="img/gobierno-bilivariano.jpg" class="img-responsive" alt="">
+                </div>
+                <div class="col-xs-3 a-toda-vida">
 
+                            <img src="img/a-toda-vida.jpg" class="img-responsive" alt="">
+                </div>
+            
+        </nav>
     <!-- Logo -->
     <a href="/home" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->

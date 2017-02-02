@@ -97,7 +97,7 @@ body {
 .right-side {
   min-height: 100%;
   background-color: #ecf0f5;
-  z-index: 800;
+  z-index: 600;
 }
 .main-footer {
   background: #fff;
@@ -627,20 +627,20 @@ a:focus {
   .sidebar-mini.sidebar-collapse .sidebar-menu > li:hover > .treeview-menu {
     display: block !important;
     position: absolute;
-    width: 180px;
+    width: 230px;
     left: 50px;
   }
   .sidebar-mini.sidebar-collapse .sidebar-menu > li:hover > a > span {
     top: 0;
     margin-left: -3px;
-    padding: 12px 5px 12px 20px;
+    padding: 12px 5px 12px 25px;
     background-color: inherit;
   }
   .sidebar-mini.sidebar-collapse .sidebar-menu > li:hover > a > .pull-right-container {
     position: relative!important;
     float: right;
-    width: auto!important;
-    left: 180px !important;
+    width: 5px!important;
+    left: 230px !important;
     top: -22px !important;
     z-index: 900;
   }
@@ -4951,3 +4951,7 @@ table.text-center th {
   margin-left: 20%;
 }
 
+.a-toda-vida img {
+  float: right;
+  background-color: #fff;
+}

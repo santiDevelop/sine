@@ -24,7 +24,7 @@
       <form class="form-horizontal" role="form" method="POST" action="{{ url('/mcargos') }}">
                               {{ csrf_field() }}
                   <div class="form-group{{ $errors->has('numcargo') ? ' has-error' : '' }}">
-                  <label for="numcargo" class="col-md-4 control-label">Numero Cargo:</label>
+                  <label for="numcargo" class="col-md-2 control-label">Numero Cargo:</label>
                       <div class="col-md-6">
                       <input id="numcargo" type="text" class="form-control" placeholder="Numero Cargo" name="numcargo" value="{{ old('numcargo') }}" required autofocus>
                           @if ($errors->has('numcargo'))
@@ -36,7 +36,7 @@
                   </div>
 
                    <div class="form-group{{ $errors->has('cargo') ? ' has-error' : '' }}">
-                  <label for="cargo" class="col-md-4 control-label">Cargo:</label>
+                  <label for="cargo" class="col-md-2 control-label">Cargo:</label>
                       <div class="col-md-6">
                       <input id="cargo" type="text" class="form-control" placeholder="cargo" name="cargo" value="{{ old('cargo') }}" required autofocus>
                           @if ($errors->has('cargo'))
