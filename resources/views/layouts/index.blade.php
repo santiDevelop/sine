@@ -31,7 +31,7 @@
     </script>
 </head>
 <body class="hold-transition login-page">
-    <div id="app">
+    <div id="app container-float">
         <nav class="navbar navbar-default navbar-static-top">
            <div class="row">
                 <div class="col-xs-9">
