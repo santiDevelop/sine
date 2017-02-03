@@ -24,7 +24,7 @@
       <!-- Your Page Content Here -->
             <!-- Mensaje de alerta si el usuario Fue creado -->
             @if(session('notification'))
-            <div class="alert alert-success">{{session('notification')}}</div>
+            <div class="alert alert-success col-xs-2 col-md-offset-4">{{session('notification')}}</div>
             <!-- Mensaje de alerta si el usuario Fue creado -->
            @endif
       <div class="row">
