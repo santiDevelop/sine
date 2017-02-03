@@ -2,7 +2,7 @@
 /*!
  *   AdminLTE v2.3.8
  *   Author: Almsaeed Studio
- *	 Website: Almsaeed Studio <http://almsaeedstudio.com>
+ *   Website: Almsaeed Studio <http://almsaeedstudio.com>
  *   License: Open source - MIT
  *           Please visit http://opensource.org/licenses/MIT for more information
 !*/
@@ -97,7 +97,7 @@ body {
 .right-side {
   min-height: 100%;
   background-color: #ecf0f5;
-  z-index: 800;
+  z-index: 600;
 }
 .main-footer {
   background: #fff;
@@ -313,6 +313,12 @@ a:focus {
   position: relative;
   padding: 15px 15px 0 15px;
 }
+
+.content-header-small {
+  position: relative;
+  padding: 65px 15px 0 15px;
+}
+
 .content-header > h1 {
   margin: 0;
   font-size: 24px;
@@ -418,7 +424,7 @@ a:focus {
   position: absolute;
   top: 0;
   left: 0;
-  padding-top: 50px;
+  padding-top: 110px;
   min-height: 100%;
   width: 230px;
   z-index: 810;
@@ -430,7 +436,7 @@ a:focus {
 @media (max-width: 767px) {
   .main-sidebar,
   .left-side {
-    padding-top: 100px;
+    padding-top: 180px;
   }
 }
 @media (max-width: 767px) {
@@ -627,20 +633,20 @@ a:focus {
   .sidebar-mini.sidebar-collapse .sidebar-menu > li:hover > .treeview-menu {
     display: block !important;
     position: absolute;
-    width: 180px;
+    width: 230px;
     left: 50px;
   }
   .sidebar-mini.sidebar-collapse .sidebar-menu > li:hover > a > span {
     top: 0;
     margin-left: -3px;
-    padding: 12px 5px 12px 20px;
+    padding: 12px 5px 12px 25px;
     background-color: inherit;
   }
   .sidebar-mini.sidebar-collapse .sidebar-menu > li:hover > a > .pull-right-container {
     position: relative!important;
     float: right;
-    width: auto!important;
-    left: 180px !important;
+    width: 5px!important;
+    left: 230px !important;
     top: -22px !important;
     z-index: 900;
   }
@@ -4908,6 +4914,7 @@ table.text-center th {
   .main-header,
   .content-header {
     display: none !important;
+    margin-top: 50px;
   }
   .content-wrapper,
   .right-side,
@@ -4951,3 +4958,7 @@ table.text-center th {
   margin-left: 20%;
 }
 
+.a-toda-vida img {
+  float: right;
+  background-color: #fff;
+}

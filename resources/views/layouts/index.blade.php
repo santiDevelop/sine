@@ -31,13 +31,13 @@
     </script>
 </head>
 <body class="hold-transition login-page">
-    <div id="app">
+    <div id="app container-float">
         <nav class="navbar navbar-default navbar-static-top">
            <div class="row">
                 <div class="col-xs-9">
                             <img src="img/gobierno-bilivariano.jpg" class="img-responsive" alt="">
                 </div>
-                <div class="col-xs-3 container">
+                <div class="col-xs-3 a-toda-vida">
 
                             <img src="img/a-toda-vida.jpg" class="img-responsive" alt="">
                 </div>
