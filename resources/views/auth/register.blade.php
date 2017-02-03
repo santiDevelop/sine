@@ -23,10 +23,10 @@
 
       <!-- Your Page Content Here -->
             <!-- Mensaje de alerta si el usuario Fue creado -->
-            
-            <div class="alert alert-success">Usuario Registrado Satisfactoriamente</div>
+            @if(session('notification'))
+            <div class="alert alert-success">{{session('notification')}}</div>
             <!-- Mensaje de alerta si el usuario Fue creado -->
-           
+           @endif
       <div class="row">
         <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
                         {{ csrf_field() }}

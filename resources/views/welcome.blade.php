@@ -13,20 +13,20 @@
   <div class="login-logo">
     <div class="row">
     <div class="col-md-12 hidden-xs hidden-sm text-rigth">
-            <h1>Sigecubo <small> v.0.0.1</small></h1>
+            <h1>cubo <small> v.0.0.1</small></h1>
         </div>
         <div class="col-xs-3 visible-xs visible-sm">
             <img src="img/logo-fonbe-small.png" class="img-responsive" alt="">
         </div>
         <div class="col-sm-9 visible-xs visible-sm">
-            <h1>Sigecubo <small> v.0.0.1</small></h1>
+            <h1>cubo <small> v.0.0.1</small></h1>
         </div>
     </div>
     
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
-    <p class="login-box-msg">Ingresa sus credenciales para acceder al sistema</p>
+    <p class="login-box-msg">Ingrese sus credenciales para acceder al sistema</p>
 
    <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
                         {{ csrf_field() }}

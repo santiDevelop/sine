@@ -51,7 +51,7 @@
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>Cubo</b></span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Sigecubo </b>v.0.0.1</span>
+      <span class="logo-lg"><b>CUBO </b>v.0.0.1</span>
     </a>
 
     <!-- Header Navbar -->
@@ -79,8 +79,8 @@
                 
 
                 <p>
-                   - Cargo
-                  <small>Member since Nov. 2012</small>
+                   {{auth()->user()->user}}
+                  <small>Salir de Sistema</small>
                 </p>
               </li>
               <li>
@@ -111,7 +111,7 @@
   <footer class="main-footer">
     <!-- To the right -->
     <div class="pull-right hidden-xs">
-      Sigecubo v.0.0.1
+      cubo v.0.0.1
     </div>
     <!-- Default to the left -->
     <strong>Copyright &copy; 2017 <a href="#">Fonbe</a>.</strong> Todos los Derechos Reservados.

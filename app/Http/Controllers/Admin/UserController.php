@@ -10,11 +10,10 @@ use App\maestro_cat_emergencia;
 use App\maestro_cuerpo_bomberos;
 use App\maestro_perfiles_cargos;
 use App\maestro_tipo_equipamiento;
+use App\user;
 
 class UserController extends Controller
 {
-
-
 
 
    public function index()
@@ -24,7 +23,9 @@ class UserController extends Controller
 
     public function getAdminuser()
     {
-        return view('adminuser');
+        $users=user::all();
+        return view('adminuser')->with(compact('users'));
+        
     }
      public function crearusuario()
     {
@@ -183,4 +184,14 @@ class UserController extends Controller
         return back();
     }
 
+
+     public function editUser()
+    {
+      //inserte aqui logica para editar el usuario
+    }
+
+     public function updateUser()
+    {
+      return back();
+    }
 }

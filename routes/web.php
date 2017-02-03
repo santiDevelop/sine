@@ -32,8 +32,8 @@ Route::group(['middleware'=>'admin','namespace'=>'Admin'],function(){
 	Route::post('/mtequipos', 'UserController@postMtequipos');
 	Route::get('/mcemergencia', 'UserController@getMcemergencia');
 	Route::post('/mcemergencia', 'UserController@postMcemergencia');
-	Route::get('/crearusuario', 'CreateUser@crearusuario');
-	
+	Route::get('/register/{id}', 'UserController@editUser');
+	Route::post('/register/{id}', 'UserController@updateUser');
 
 });
 	
