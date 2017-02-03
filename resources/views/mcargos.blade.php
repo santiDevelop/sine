@@ -20,7 +20,7 @@
 
       <!-- Your Page Content Here -->
     
-<div class="row">
+<div class="row container">
       <form class="form-horizontal" role="form" method="POST" action="{{ url('/mcargos') }}">
                               {{ csrf_field() }}
                   <div class="form-group{{ $errors->has('numcargo') ? ' has-error' : '' }}">
