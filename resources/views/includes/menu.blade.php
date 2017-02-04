@@ -22,7 +22,7 @@
         <li class="header">PANEL DE CONTROL</li>
         <!-- Optionally, you can add icons to the links -->
         <!-- INICIO VISTA ADMINISTRADOR -->
-        @if (auth()->user()->typeuser==1)
+        @if (auth()->user()->is_admin)
         <li class="treeview">
           <a href="/adminuser">
             <i class="fa fa-user-circle"></i>

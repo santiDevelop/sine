@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=devie-width, initial-scale=1.0, user-scalable=no" >
     <!-- Bootstrap 3.3.6 -->
   <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
   <!-- Font Awesome -->
@@ -29,29 +29,29 @@
 
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
-        <nav class="navbar navbar-default navbar-static-top">
-           <div class="row">
-                <div class="col-xs-9">
-                            <img src="img/gobierno-bilivariano.jpg" class="img-responsive" alt="">
-                </div>
-                <div class="col-xs-3">
-
-                            <img src="img/a-toda-vida.jpg" class="img-responsive" alt="">
-                </div>
-            
-        </nav>
+        
 </div>
 <div class="wrapper">
 
   <!-- Main Header -->
   <header class="main-header">
+<nav class="navbar-default navbar-static-top">
+           <div class="row">
+                <div class="col-xs-9">
+                            <img src="img/gobierno-bilivariano.jpg" class="img-responsive" alt="">
+                </div>
+                <div class="col-xs-3 a-toda-vida">
 
+                            <img src="img/a-toda-vida.jpg" class="img-responsive" alt="">
+                </div>
+            
+        </nav>
     <!-- Logo -->
     <a href="/home" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>Cubo</b></span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Sigecubo </b>v.0.0.1</span>
+      <span class="logo-lg"><b>CUBO </b>v.0.0.1</span>
     </a>
 
     <!-- Header Navbar -->
@@ -79,8 +79,8 @@
                 
 
                 <p>
-                   - Cargo
-                  <small>Member since Nov. 2012</small>
+                   {{auth()->user()->user}}
+                  <small>Salir de Sistema</small>
                 </p>
               </li>
               <li>
@@ -111,7 +111,7 @@
   <footer class="main-footer">
     <!-- To the right -->
     <div class="pull-right hidden-xs">
-      Sigecubo v.0.0.1
+      cubo v.0.0.1
     </div>
     <!-- Default to the left -->
     <strong>Copyright &copy; 2017 <a href="#">Fonbe</a>.</strong> Todos los Derechos Reservados.

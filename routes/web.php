@@ -19,15 +19,23 @@ Auth::routes();
 
 
 Route::group(['middleware'=>'admin','namespace'=>'Admin'],function(){
-	Route::get('/adminuser', 'UserController@Adminuser');
-	Route::get('/mcbombero', 'UserController@Mcbombero');
-	Route::get('/mcargos', 'UserController@Mcargos');
-	Route::get('/mpcargos', 'UserController@Mpcargos');
-	Route::get('/mtequipos', 'UserController@index');
-	Route::get('/mcemergencia', 'UserController@Mcemergencia');
 
+	Route::get('/mcargos', 'UserController@getMcargos');
+	Route::post('/mcargos', 'UserController@postMcargos');
+	Route::get('/adminuser', 'UserController@getAdminuser');
+	Route::post('/adminuser', 'UserController@postAdminuser');
+	Route::get('/mcbombero', 'UserController@getMcbombero');
+	Route::post('/mcbombero', 'UserController@postMcbombero');
+	Route::get('/mpcargos', 'UserController@getMpcargos');
+	Route::post('/mpcargos', 'UserController@postMpcargos');
+	Route::get('/mtequipos', 'UserController@getMtequipos');
+	Route::post('/mtequipos', 'UserController@postMtequipos');
+	Route::get('/mcemergencia', 'UserController@getMcemergencia');
+	Route::post('/mcemergencia', 'UserController@postMcemergencia');
+	Route::get('/register/{id}', 'UserController@editUser');
+	Route::post('/register/{id}', 'UserController@updateUser');
 
 });
-
+	
 Route::get('/home', 'HomeController@index');
 

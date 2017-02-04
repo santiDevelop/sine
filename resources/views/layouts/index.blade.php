@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=devie-width, initial-scale=1.0, user-scalable=no" >
     <!-- Bootstrap 3.3.6 -->
   <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
   <!-- Font Awesome -->
@@ -31,13 +31,13 @@
     </script>
 </head>
 <body class="hold-transition login-page">
-    <div id="app">
+    <div id="app" class="container-float">
         <nav class="navbar navbar-default navbar-static-top">
            <div class="row">
                 <div class="col-xs-9">
                             <img src="img/gobierno-bilivariano.jpg" class="img-responsive" alt="">
                 </div>
-                <div class="col-xs-3 container">
+                <div class="col-xs-3 a-toda-vida">
 
                             <img src="img/a-toda-vida.jpg" class="img-responsive" alt="">
                 </div>
