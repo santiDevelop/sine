@@ -61,7 +61,7 @@
                   <td>{{$user->user}}</td>
                   <td>{{$user->name}}</td>
                   <td>{{$user->cedula}}</td>
-                  <td>{{$user->typeuser}}</td>
+                  <td>@if($user->typeuser==1){{"Administrador"}}@else{{"Usuario"}} @endif</td>
                   <td><a href="EditarUsuario?{{$user->id}}" title="Editar Usuario"><i class="fa fa-pencil"></i></a> <a href="BorrarUsuario?{{$user->id}}" title="Borrar Usuario"><i class="fa fa-trash"></i></a></td>
                 </tr>
                 @endforeach
