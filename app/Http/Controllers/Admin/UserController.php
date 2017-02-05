@@ -10,7 +10,7 @@ use App\maestro_cat_emergencia;
 use App\maestro_cuerpo_bomberos;
 use App\maestro_perfiles_cargos;
 use App\maestro_tipo_equipamiento;
-use App\user;
+use App\User;
 
 class UserController extends Controller
 {
@@ -188,14 +188,14 @@ class UserController extends Controller
 
      public function editUser($id)
     {
-      $users=user::find($id);
+      $users=User::find($id);
       $cargos=maestro_cargos::all();
       $cbomberos=maestro_cuerpo_bomberos::all();
       return view('editarusuario')->with(compact('users','cbomberos','cargos'));
 
     }
 
-     public function updateUser($id,Request $request)
+     public function updateUser(Request $request,$id)
     {
       
       $rules=[
@@ -209,7 +209,7 @@ class UserController extends Controller
         ];
         $this->validate($request,$rules);
 
-        $user=user::find($id);
+        $user=User::find($id);
         $user->name=$request->input('name');
         $user->cedula=$request->input('cedula');
         $user->cargo=$request->input('cargo');
@@ -218,7 +218,7 @@ class UserController extends Controller
         $user->status=$request->input('status');
         $password=$request->input('password');
         if($password)
-          $user->password=bcrypt('password'); 
+        $user->password=bcrypt($password); 
         $user->save();
         
       return back()->with('notification','Usuario Modificado Exitosamente');
