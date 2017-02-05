@@ -42,12 +42,13 @@ class UserController extends Controller
     {
         //reglas para validar el formulario y enviarlas al validador
       $rules=[
-      'numcbomb'=>'required|unique:maestro_cuerpo_bomberos',
+      'numcbomb'=>'required|unique:maestro_cuerpo_bomberos|digits_between:1,3',
       'nomcbombero'=>'required|max:100' ];
 
         // MENSAJES PERSONALIZADOS PARA EL VALIDATOR
         $messages=[
         'numcbomb.unique'=>'El número de cuerpo de bombero ya se encuentra registrado.',
+        'numcbomb.digits_between'=>'El número de cuerpo de bombero debe tener entre 1 y 3 digitos.',
         'numcbomb.required'=>'El numero de cuerpo de bombero es requerido.',
         'nomcbombero.required'=>'El campo cuerpo de bombero es requerido.',
         'nomcbombero.max'=>'El campo cuerpo de bombero tiene un maximo de 100 caracteres.',
@@ -70,12 +71,13 @@ class UserController extends Controller
     {
       //reglas para validar el formulario y enviarlas al validador
       $rules=[
-      'numcargo'=>'required|unique:maestro_cargos',
+      'numcargo'=>'required|unique:maestro_cargos|digits_between:1,3',
       'cargo'=>'required|max:100' ];
 
         // MENSAJES PERSONALIZADOS PARA EL VALIDATOR
         $messages=[
         'numcargo.unique'=>'El número de cargo ya se encuentra registrado.',
+        'numcargo.digits_between'=>'El número de cargo debe tener entre 1 y 3 digitos.',
         'numcargo.required'=>'El numero de cargo es requerido.',
         'cargo.required'=>'El campo cargo es requerido.',
         'cargo.max'=>'El campo cargo tiene un maximo de 100 caracteres.',
@@ -106,12 +108,13 @@ class UserController extends Controller
     {
          //reglas para validar el formulario y enviarlas al validador
       $rules=[
-      'numtipequip'=>'required|unique:maestro_tipo_equipamiento',
+      'numtipequip'=>'required|unique:maestro_tipo_equipamiento|digits_between:1,3',
       'nomtipequip'=>'required|max:100' ];
 
         // MENSAJES PERSONALIZADOS PARA EL VALIDATOR
         $messages=[
         'numtipequip.unique'=>'El número de tipo de equipamiento ya se encuentra registrado.',
+        'numtipequip.digits_between'=>'El número de tipo de equipamiento debe tener entre 1 y 3 digitos.',
         'numtipequip.required'=>'El numero de tipo de equipamiento es requerido.',
         'nomtipequip.required'=>'El campo nombre tipo de equipamiento es requerido.',
         'nomtipequip.max'=>'El campo nombre tipo de equipamiento tiene un maximo de 100 caracteres.',
@@ -134,12 +137,13 @@ class UserController extends Controller
     {
         //reglas para validar el formulario y enviarlas al validador
       $rules=[
-      'numcatemerg'=>'required|unique:maestro_cat_emergencia',
+      'numcatemerg'=>'required|unique:maestro_cat_emergencia|digits_between:1,3',
       'nomcatemerg'=>'required|max:100' ];
 
         // MENSAJES PERSONALIZADOS PARA EL VALIDATOR
         $messages=[
         'numcatemerg.unique'=>'El número de la categoria de emergencia ya se encuentra registrado.',
+        'numcatemerg.digits_between'=>'El número de categoria de emergencia debe tener entre 1 y 3 digitos.',
         'numcatemerg.required'=>'El numero de la categoria de emergencia es requerido.',
         'nomcatemerg.required'=>'El campo nombre de la categoria de emergencia es requerido.',
         'nomcatemerg.max'=>'El campo nombre de la categoria de emergencia tiene un maximo de 100 caracteres.',
@@ -165,12 +169,13 @@ class UserController extends Controller
     {
         //reglas para validar el formulario y enviarlas al validador
       $rules=[
-      'numpcargo'=>'required|unique:maestro_perfiles_cargos',
+      'numpcargo'=>'required|unique:maestro_perfiles_cargos|digits_between:1,3',
       'nompcargo'=>'required|max:100' ];
 
         // MENSAJES PERSONALIZADOS PARA EL VALIDATOR
         $messages=[
         'numpcargo.unique'=>'El número de perfil de cargo ya se encuentra registrado.',
+        'numpcargo.digits_between'=>'El número de perfil de cargo debe tener entre 1 y 3 digitos.',
         'numpcargo.required'=>'El numero de perfil de cargo es requerido.',
         'nompcargo.required'=>'El campo nombre del perfil de cargo es requerido.',
         'nompcargo.max'=>'El campo nombre del perfil de cargo tiene un maximo de 100 caracteres.',
@@ -201,11 +206,10 @@ class UserController extends Controller
       $rules=[
             'name' => 'required|max:255|string',
             'cedula' => 'required|min:10|numeric',
-            'cargo' => 'required|numeric',
-            'typeuser' => 'required|numeric|in:1,2',
-            'cbombero' => 'required|numeric',
+            'cargo' => 'required|numeric|digits_between:1,3',
+            'cbombero' => 'required|numeric|digits_between:1,3',
             'status' => 'required|numeric|max:2|in:1,2',   
-            'password' => 'max:99999999',
+            'password' => 'sometimes|min:6',
         ];
         $this->validate($request,$rules);
 
@@ -213,7 +217,6 @@ class UserController extends Controller
         $user->name=$request->input('name');
         $user->cedula=$request->input('cedula');
         $user->cargo=$request->input('cargo');
-        $user->typeuser=$request->input('typeuser');
         $user->cbombero=$request->input('cbombero');
         $user->status=$request->input('status');
         $password=$request->input('password');

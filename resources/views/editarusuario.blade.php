@@ -93,21 +93,7 @@
                 </div>
             </div>
 
-            <div class="form-group{{ $errors->has('typeuser') ? ' has-error' : '' }}">
-            <label for="typeuser" class="col-md-2 control-label">Perfil de Usuario:</label>
-                <div class="col-md-6">
-                <select class="form-control" id="typeuser" name="typeuser" required>
-                        <option value="2">Usuario</option>
-                        <option value="3">Reportes</option>
-                        <option value="1">Administrador</option>
-                </select>
-                    @if ($errors->has('typeuser'))
-                    <span class="help-block">
-                        <strong>{{ $errors->first('typeuser') }}</strong>
-                    </span>
-                    @endif
-                </div>
-            </div>
+          
             
             <div class="form-group{{ $errors->has('cbombero') ? ' has-error' : '' }}">
             <label for="cbombero" class="col-md-2 control-label">Cuerpo de Bombero Asociado:</label>
