@@ -59,7 +59,7 @@ class UserController extends Controller
         $maestro_cuerpo_bomberos->nomcbombero = $request->input('nomcbombero');
         $maestro_cuerpo_bomberos->user_id=auth()->user()->id;
         $maestro_cuerpo_bomberos->save();  
-        return back();
+        return back()->with('notification','Maestro de Cuerpo Bomberos Registrado Exitosamente');
     }
 
      public function getMcargos()
@@ -94,7 +94,7 @@ class UserController extends Controller
         // metodo para usar el modelo para guardar en la tabla
         $maestro_cargos->save();  
        //return $request->all();
-        return back();
+        return back()->with('notification','Cargo Registrado Exitosamente');
     }
 
 
@@ -123,7 +123,7 @@ class UserController extends Controller
         $maestro_tipo_equipamiento->nomtipequip = $request->input('nomtipequip');
         $maestro_tipo_equipamiento->user_id=auth()->user()->id;
         $maestro_tipo_equipamiento->save();  
-        return back();
+        return back()->with('notification','Maestro de Equipos Registrado Exitosamente');
     }
 
      public function getMcemergencia()
@@ -151,7 +151,8 @@ class UserController extends Controller
         $maestro_cat_emergencia->nomcatemerg = $request->input('nomcatemerg');
         $maestro_cat_emergencia->user_id=auth()->user()->id;
         $maestro_cat_emergencia->save();  
-        return back();
+        return back()->with('notification','Maestro de Emergencias Registrado Exitosamente');
+
     }
 
 
@@ -181,7 +182,7 @@ class UserController extends Controller
         $maestro_perfiles_cargos->nompcargo = $request->input('nompcargo');
         $maestro_perfiles_cargos->user_id=auth()->user()->id;
         $maestro_perfiles_cargos->save();  
-        return back();
+        return back()->with('notification','Maestro de Perfil Cargos Registrado Exitosamente');
     }
 
 

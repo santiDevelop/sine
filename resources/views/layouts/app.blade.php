@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=devie-width, initial-scale=1.0, user-scalable=no" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" >
     <!-- Bootstrap 3.3.6 -->
   <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
   <!-- Font Awesome -->
@@ -136,6 +136,9 @@
 <!-- FastClick -->
 <script src="plugins/fastclick/fastclick.js"></script>
 <!-- page script -->
+<!-- FastClick -->
+<script src="js/bootbox.min.js"></script>
+<!-- page script -->
 <script>
   $(function () {
     $("#example1").DataTable();
@@ -149,7 +152,23 @@
     });
   });
 </script>
-
+ <script>
+        $(document).on("click", ".alert", function(e) {
+            bootbox.alert("Hello world!", function() {
+                console.log("Alert Callback");
+            });
+        });
+    </script>
+      @if(session('notification'))        
+        <script type="text/javascript">
+        
+          bootbox.alert({
+          message: "<strong>{{session('notification')}}<strong>",
+          size: 'small',
+          backdrop: true
+              });
+        </script>
+          @endif
 <!-- Optionally, you can add Slimscroll and FastClick plugins.
      Both of these plugins are recommended to enhance the
      user experience. Slimscroll is required when using the
