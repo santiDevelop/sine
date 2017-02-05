@@ -192,10 +192,35 @@ class UserController extends Controller
       $cargos=maestro_cargos::all();
       $cbomberos=maestro_cuerpo_bomberos::all();
       return view('editarusuario')->with(compact('users','cbomberos','cargos'));
+
     }
 
-     public function updateUser()
+     public function updateUser($id,Request $request)
     {
-      return back();
+      
+      $rules=[
+            'name' => 'required|max:255|string',
+            'cedula' => 'required|min:10|numeric',
+            'cargo' => 'required|numeric',
+            'typeuser' => 'required|numeric|in:1,2',
+            'cbombero' => 'required|numeric',
+            'status' => 'required|numeric|max:2|in:1,2',   
+            'password' => 'max:99999999',
+        ];
+        $this->validate($request,$rules);
+
+        $user=user::find($id);
+        $user->name=$request->input('name');
+        $user->cedula=$request->input('cedula');
+        $user->cargo=$request->input('cargo');
+        $user->typeuser=$request->input('typeuser');
+        $user->cbombero=$request->input('cbombero');
+        $user->status=$request->input('status');
+        $password=$request->input('password');
+        if($password)
+          $user->password=bcrypt('password'); 
+        $user->save();
+        
+      return back()->with('notification','Usuario Modificado Exitosamente');
     }
 }

@@ -97,8 +97,9 @@
             <label for="typeuser" class="col-md-2 control-label">Perfil de Usuario:</label>
                 <div class="col-md-6">
                 <select class="form-control" id="typeuser" name="typeuser" required>
-                        <option value="1">Administrador</option>
                         <option value="2">Usuario</option>
+                        <option value="3">Reportes</option>
+                        <option value="1">Administrador</option>
                 </select>
                     @if ($errors->has('typeuser'))
                     <span class="help-block">
