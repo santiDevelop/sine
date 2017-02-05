@@ -188,7 +188,8 @@ class UserController extends Controller
 
      public function editUser()
     {
-      //inserte aqui logica para editar el usuario
+      //$users=user::find($id);
+      return view('editarusuario');//->with(compact('users'));
     }
 
      public function updateUser()

@@ -22,12 +22,7 @@
     <section class="content">
 
       <!-- Your Page Content Here -->
-            <!-- Mensaje de alerta si el usuario Fue creado -->
-            <div class="row container">
-            @if(session('notification'))
-            <div class="alert alert-success col-xs-6 col-xs-offset-2 text-center">{{session('notification')}}</div></div>
-            <!-- Mensaje de alerta si el usuario Fue creado -->
-           @endif
+       
       <div class="row container">
         <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
                         {{ csrf_field() }}
