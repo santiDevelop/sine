@@ -186,10 +186,12 @@ class UserController extends Controller
     }
 
 
-     public function editUser()
+     public function editUser($id)
     {
-      //$users=user::find($id);
-      return view('editarusuario');//->with(compact('users'));
+      $users=user::find($id);
+      $cargos=maestro_cargos::all();
+      $cbomberos=maestro_cuerpo_bomberos::all();
+      return view('editarusuario')->with(compact('users','cbomberos','cargos'));
     }
 
      public function updateUser()

@@ -5,15 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" >
     <!-- Bootstrap 3.3.6 -->
-  <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" href="/bootstrap/css/bootstrap.css">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="bootstrap/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/bootstrap/css/font-awesome.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="css/AdminLTE.css">
+  <link rel="stylesheet" href="/css/AdminLTE.css">
   <!-- iCheck -->
-  <link rel="stylesheet" href="plugins/iCheck/square/blue.css">
+  <link rel="stylesheet" href="/plugins/iCheck/square/blue.css">
   <!-- Styles -->
-  <link href="css/skins/skin-blue.css" rel="stylesheet">
+  <link href="/css/skins/skin-blue.css" rel="stylesheet">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -38,11 +38,11 @@
 <nav class="navbar-default navbar-static-top">
            <div class="row">
                 <div class="col-xs-9">
-                            <img src="img/gobierno-bilivariano.jpg" class="img-responsive" alt="">
+                            <img src="/img/gobierno-bilivariano.jpg" class="img-responsive" alt="">
                 </div>
                 <div class="col-xs-3 a-toda-vida">
 
-                            <img src="img/a-toda-vida.jpg" class="img-responsive" alt="">
+                            <img src="/img/a-toda-vida.jpg" class="img-responsive" alt="">
                 </div>
             
         </nav>
@@ -124,20 +124,20 @@
 <!-- REQUIRED JS SCRIPTS -->
 
 <!-- jQuery 2.2.3 -->
-<script src="plugins/jQuery/jquery-2.2.3.min.js"></script>
+<script src="/plugins/jQuery/jquery-2.2.3.min.js"></script>
 <!-- Bootstrap 3.3.6 -->
-<script src="bootstrap/js/bootstrap.min.js"></script>
+<script src="/bootstrap/js/bootstrap.min.js"></script>
 <!-- AdminLTE App -->
-<script src="js/app.min.js"></script>
-<script src="plugins/datatables/jquery.dataTables.min.js"></script>
-<script src="plugins/datatables/dataTables.bootstrap.min.js"></script>
+<script src="/js/app.min.js"></script>
+<script src="/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="/plugins/datatables/dataTables.bootstrap.min.js"></script>
 <!-- SlimScroll -->
-<script src="plugins/slimScroll/jquery.slimscroll.min.js"></script>
+<script src="/plugins/slimScroll/jquery.slimscroll.min.js"></script>
 <!-- FastClick -->
-<script src="plugins/fastclick/fastclick.js"></script>
+<script src="/plugins/fastclick/fastclick.js"></script>
 <!-- page script -->
 <!-- FastClick -->
-<script src="js/bootbox.min.js"></script>
+<script src="/js/bootbox.min.js"></script>
 <!-- page script -->
 <script>
   $(function () {
