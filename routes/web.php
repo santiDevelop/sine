@@ -34,6 +34,8 @@ Route::group(['middleware'=>'admin','namespace'=>'Admin'],function(){
 	Route::post('/mcemergencia', 'UserController@postMcemergencia');
 	Route::get('/editarusuario/{id}', 'UserController@editUser');
 	Route::post('/editarusuario/{id}', 'UserController@updateUser');
+	Route::post('/editarusuario/{id}', 'UserController@updateUser');
+	Route::get('/editarusuario/{id}/eliminar', 'UserController@deleteUser');
 
 });
 	

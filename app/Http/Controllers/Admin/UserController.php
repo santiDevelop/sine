@@ -226,4 +226,11 @@ class UserController extends Controller
         
       return back()->with('notification','Usuario Modificado Exitosamente');
     }
+     public function deleteUser($id)
+    {
+      $users=User::find($id);
+      $users->delete();
+      return back()->with('notification','El Usuario Ha sido Eliminado Correctamente');
+
+    }
 }

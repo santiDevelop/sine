@@ -39,8 +39,22 @@
                   </div>
               </div>
              
-              <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                <label for="password" class="col-sm-2 control-label">Nueva clave</label>
+             
+              
+              <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
+                <label for="password_confirmation"  class="col-sm-2 control-label">Nueva clave</label>
+                  <div class="col-sm-4">
+                    <input type="password" name="password_confirmation" class="form-control" id="password_confirmation" placeholder="Verificar clave">
+                     @if ($errors->has('password_confirmation'))
+                        <span class="help-block">
+                            <strong>{{ $errors->first('password_confirmation') }}</strong>
+                        </span>
+                    @endif
+                  </div>
+              </div>
+              
+               <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                <label for="password" class="col-sm-2 control-label">Verificar clave</label>
                   <div class="col-sm-4">
                     <input type="password" name="password" class="form-control" id="password" placeholder="Nueva clave">
                      @if ($errors->has('password'))
@@ -50,24 +64,11 @@
                     @endif
                   </div>
               </div>
-              
-              <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
-                <label for="password_confirmation" name="password_confirmation" class="col-sm-2 control-label">Verificar clave</label>
-                  <div class="col-sm-4">
-                    <input type="password" class="form-control" id="password_confirmation" placeholder="Verificar clave">
-                     @if ($errors->has('password_confirmation'))
-                        <span class="help-block">
-                            <strong>{{ $errors->first('password_confirmation') }}</strong>
-                        </span>
-                    @endif
-                  </div>
-              </div>
-
 
 
               <div class="form-group">
-                <div class="col-sm-offset-2 col-sm-10">
-                  <button type="submit" class="btn btn-primary">Guardar</button>
+                <div class="col-sm-offset-3 col-sm-10">
+                  <button type="submit" class="btn btn-primary">Cambiar Password</button>
                 </div>
               </div>
             </form>
