@@ -129,7 +129,7 @@
 <script src="/bootstrap/js/bootstrap.min.js"></script>
 <!-- AdminLTE App -->
 <script src="/js/app.min.js"></script>
-<script src="/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="/plugins/datatables/jquery.dataTables.js"></script>
 <script src="/plugins/datatables/dataTables.bootstrap.min.js"></script>
 <!-- SlimScroll -->
 <script src="/plugins/slimScroll/jquery.slimscroll.min.js"></script>
