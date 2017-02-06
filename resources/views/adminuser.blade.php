@@ -2,18 +2,37 @@
 
 @section('content') 
   <!-- Content Wrapper. Contains page content -->
+ 
+
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <h1>
+    
+       <div class="hidden-xs hidden-sm">
+       <section class="content-header">
+       <h1>
         Administración de usuarios
         <small>Panel de Usuarios</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Tablero</a></li>
+        <li><a href="/home"><i class="fa fa-dashboard"></i> Tablero</a></li>
         <li class="active">Administración de usuarios</li>
       </ol>
-    </section>
+      </section>
+      </div>
+      
+
+    
+    <div class="hidden-md hidden-lg">
+    <section class="content-header-small">
+       <h1>
+        Administración de usuarios
+        <small>Panel de Usuarios</small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="/home"><i class="fa fa-dashboard"></i> Tablero</a></li>
+        <li class="active">Administración de usuarios</li>
+      </ol>
+      </div>
     <!-- Main content -->
     <section class="content">
 

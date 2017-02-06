@@ -1,11 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
- <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
+
+<div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <h1>
+    
+       <div class="hidden-xs hidden-sm">
+       <section class="content-header">
+       <h1>
         Maestro de cuerpo de bomberos
         <small>Creacion de Cuerpo de Bomberos</small>
       </h1>
@@ -13,7 +15,25 @@
         <li><a href="/home"><i class="fa fa-dashboard"></i> Tablero</a></li>
         <li class="active">Maestro de cuerpo de bomberos</li>
       </ol>
-    </section>
+      </section>
+      </div>
+      
+
+    
+    <div class="hidden-md hidden-lg">
+    <section class="content-header-small">
+       <h1>
+        Maestro de cuerpo de bomberos
+        <small>Creacion de Cuerpo de Bomberos</small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="/home"><i class="fa fa-dashboard"></i> Tablero</a></li>
+        <li class="active">Maestro de cuerpo de bomberos</li>
+      </ol>
+      </div>
+
+
+
 
     <!-- Main content -->
     <section class="content">
