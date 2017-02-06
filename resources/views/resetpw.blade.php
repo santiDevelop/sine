@@ -24,25 +24,42 @@
 
     
       <div class="row">
-        <form class="form-horizontal">
-              <div class="form-group">
+        <form class="form-horizontal" role="form" method="POST" action="{{ url('/resetpw') }}">
+        {{ csrf_field() }}
+              <div class="form-group{{ $errors->has('current_password') ? ' has-error' : '' }}">
                 <label for="current_password" class="col-sm-2 control-label">Clave actual</label>
                   <div class="col-sm-4">
-                    <input type="password" class="form-control" id="current_password" placeholder="Clave actual">
+                    <input type="password" name="current_password" class="form-control" 
+                    id="current_password" placeholder="Clave actual">
+                     @if ($errors->has('current_password'))
+                        <span class="help-block">
+                            <strong>{{ $errors->first('current_password') }}</strong>
+                        </span>
+                    @endif
                   </div>
               </div>
              
-              <div class="form-group">
-                <label for="new_password" class="col-sm-2 control-label">Nueva clave</label>
+              <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                <label for="password" class="col-sm-2 control-label">Nueva clave</label>
                   <div class="col-sm-4">
-                    <input type="password" class="form-control" id="new_password" placeholder="Nueva clave">
+                    <input type="password" name="password" class="form-control" id="password" placeholder="Nueva clave">
+                     @if ($errors->has('password'))
+                        <span class="help-block">
+                            <strong>{{ $errors->first('password') }}</strong>
+                        </span>
+                    @endif
                   </div>
               </div>
               
-              <div class="form-group">
-                <label for="confirm_password" class="col-sm-2 control-label">Repetid nueva clave</label>
+              <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
+                <label for="password_confirmation" name="password_confirmation" class="col-sm-2 control-label">Verificar clave</label>
                   <div class="col-sm-4">
-                    <input type="password" class="form-control" id="confirm_password" placeholder="Repetid nueva clave">
+                    <input type="password" class="form-control" id="password_confirmation" placeholder="Verificar clave">
+                     @if ($errors->has('password_confirmation'))
+                        <span class="help-block">
+                            <strong>{{ $errors->first('password_confirmation') }}</strong>
+                        </span>
+                    @endif
                   </div>
               </div>
 

@@ -108,7 +108,7 @@ class UserController extends Controller
     {
          //reglas para validar el formulario y enviarlas al validador
       $rules=[
-      'numtipequip'=>'required|unique:maestro_tipo_equipamiento|digits_between:1,3',
+      'numtipequip'=>'required|unique:maestro_tipo_equipamientos|digits_between:1,3',
       'nomtipequip'=>'required|max:100' ];
 
         // MENSAJES PERSONALIZADOS PARA EL VALIDATOR
@@ -137,7 +137,7 @@ class UserController extends Controller
     {
         //reglas para validar el formulario y enviarlas al validador
       $rules=[
-      'numcatemerg'=>'required|unique:maestro_cat_emergencia|digits_between:1,3',
+      'numcatemerg'=>'required|unique:maestro_cat_emergencias|digits_between:1,3',
       'nomcatemerg'=>'required|max:100' ];
 
         // MENSAJES PERSONALIZADOS PARA EL VALIDATOR

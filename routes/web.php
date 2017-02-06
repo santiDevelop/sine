@@ -38,4 +38,5 @@ Route::group(['middleware'=>'admin','namespace'=>'Admin'],function(){
 });
 	
 Route::get('/home', 'HomeController@index');
-
+Route::get('/resetpw', 'HomeController@resetpw');
+Route::post('/resetpw', 'HomeController@cambiopw');
