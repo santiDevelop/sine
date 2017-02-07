@@ -85,9 +85,6 @@
                                             {{ csrf_field() }}
                 </form>
               </li>
-              <li>
-                
-              </li>
             </ul>
           </li>
         </ul>
