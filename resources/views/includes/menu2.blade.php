@@ -149,6 +149,13 @@
         </li>
           </ul>
         </li>
+        <li class="treeview">
+                            <a href="/resetpw">
+                            <i class="fa fa-key"></i>
+                            <span>Cambio de clave</span>
+                            </a>
+                          </li> 
+                      </ul>
       </ul>
           <!-- FIN DE VISTA DE ADMINISTRADOR -->
          
