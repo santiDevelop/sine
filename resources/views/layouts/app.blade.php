@@ -37,12 +37,12 @@
   <header class="main-header">
 <nav class="navbar-default navbar-static-top">
            <div class="row">
-                <div class="col-xs-9">
+                <div class="col-xs-8">
                             <img src="/img/gobierno-bilivariano.jpg" class="img-responsive" alt="">
                 </div>
-                <div class="col-xs-3 a-toda-vida">
+                <div class="col-xs-4 a-toda-vida">
 
-                            <img src="/img/a-toda-vida.jpg" class="img-responsive" alt="">
+                            <img src="/img/logo-zamora.png" class="img-responsive" alt="">
                 </div>
             
         </nav>
@@ -69,27 +69,19 @@
             <!-- Menu Toggle Button -->
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
             <i class="fa fa-sign-out"></i>
-              
-              <!-- hidden-xs hides the username on small devices so only the image appears. -->
-              <span class="hidden-xs"></span>
             </a>
             <ul class="dropdown-menu">
               <!-- The user image in the menu -->
               <li class="user-header">
-                
-
                 <p>
                    {{auth()->user()->user}}
-                  <small>Salir de Sistema</small>
                 </p>
-              </li>
-              <li>
-                <a href="{{ url('/logout') }}"
+                <button class="btn btn-info btn-sm" href="{{ url('/logout') }}"
                   onclick="event.preventDefault();
                   document.getElementById('logout-form').submit();">
-                  Salir
-                </a>
-                <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                  Salir del sistema
+                </button>
+                <form id="logout-form" action="{{ url('/logout') }}" method="POST">
                                             {{ csrf_field() }}
                 </form>
               </li>
@@ -129,7 +121,7 @@
 <script src="/bootstrap/js/bootstrap.min.js"></script>
 <!-- AdminLTE App -->
 <script src="/js/app.min.js"></script>
-<script src="/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="/plugins/datatables/jquery.dataTables.js"></script>
 <script src="/plugins/datatables/dataTables.bootstrap.min.js"></script>
 <!-- SlimScroll -->
 <script src="/plugins/slimScroll/jquery.slimscroll.min.js"></script>
