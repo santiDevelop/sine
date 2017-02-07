@@ -69,29 +69,24 @@
             <!-- Menu Toggle Button -->
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
             <i class="fa fa-sign-out"></i>
-              
-              <!-- hidden-xs hides the username on small devices so only the image appears. -->
-              <span class="hidden-xs"></span>
             </a>
             <ul class="dropdown-menu">
               <!-- The user image in the menu -->
               <li class="user-header">
-                
-
                 <p>
                    {{auth()->user()->user}}
-                  <small>Salir de Sistema</small>
                 </p>
-              </li>
-              <li>
-                <a href="{{ url('/logout') }}"
+                <button class="btn btn-info btn-sm" href="{{ url('/logout') }}"
                   onclick="event.preventDefault();
                   document.getElementById('logout-form').submit();">
-                  Salir
-                </a>
-                <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                  Salir del sistema
+                </button>
+                <form id="logout-form" action="{{ url('/logout') }}" method="POST">
                                             {{ csrf_field() }}
                 </form>
+              </li>
+              <li>
+                
               </li>
             </ul>
           </li>
