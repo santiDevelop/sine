@@ -63,8 +63,9 @@
               <h3 class="box-title">Lista de Usuarios</h3>
             </div>
             <!-- /.box-header -->
+            <div class="table-responsive">
             <div class="box-body">
-              <table id="example1" class="table table-bordered table-striped">
+              <table id="example1" class="table table-bordered table-striped table-hover">
                 <thead>
                 <tr>
                   <th>Usuario</th>
@@ -95,12 +96,13 @@
                 </tr>
                 </tfoot>
               </table>
+               </div>
             </div>
             <!-- /.box-body -->
-          </div>
+         
           <!-- /.box -->
 
-
+</div>
 
 
     </section>
