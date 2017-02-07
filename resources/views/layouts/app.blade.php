@@ -92,7 +92,7 @@
     </nav>
   </header>
  
-        @include('includes.menu')
+        @include('includes.menu2')
         @yield('content')
    
 
