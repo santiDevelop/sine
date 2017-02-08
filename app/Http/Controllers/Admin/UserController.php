@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\hash;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\maestro_cargos;
@@ -205,7 +206,7 @@ class UserController extends Controller
       
       $rules=[
             'name' => 'required|max:255|string',
-            'cedula' => 'required|min:10|numeric',
+            'cedula' => 'required|min:10|integer',
             'cargo' => 'required|numeric|digits_between:1,3',
             'cbombero' => 'required|numeric|digits_between:1,3',
             'status' => 'required|numeric|max:2|in:1,2',   

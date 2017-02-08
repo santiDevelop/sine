@@ -53,7 +53,7 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => 'required|max:255|string',
             'user' => 'required|max:15|unique:users',
-            'cedula' => 'required|min:10|unique:users|numeric',
+            'cedula' => 'required|min:10|unique:users|integer',
             'cargo' => 'required|numeric',
             'typeuser' => 'required|numeric|in:1,2',
             'cbombero' => 'required|numeric',

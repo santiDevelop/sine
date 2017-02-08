@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\user;
+use Illuminate\Support\Facades\hash;
 class HomeController extends Controller
 {
     /**
@@ -47,7 +48,15 @@ class HomeController extends Controller
                   ];
 
         $this->validate($request,$rules,$messages);
-       // $user=User::find($id);
+        $users=User::find(auth()->user()->id);
+        $userpassword=$users->password;
+        $confirmpassword=$request->input('current_password');
+        if (!Hash::check($confirmpassword, $userpassword))
+        return back()->with('error_clave','La clave Introducia no coincide con su clave actual');   
+        $password=$request->input('password');
+        $users->password=bcrypt($password); 
+        $users->save();
+
         return back()->with('notification','Clave Cambiada Exitosamente');
     }
 

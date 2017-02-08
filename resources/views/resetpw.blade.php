@@ -52,6 +52,11 @@
                             <strong>{{ $errors->first('current_password') }}</strong>
                         </span>
                     @endif
+                    @if(session('error_clave')) 
+                     <span class="help-block">
+                            <strong>{{session('error_clave')}}</strong>
+                        </span>
+                    @endif
                   </div>
               </div>
              
