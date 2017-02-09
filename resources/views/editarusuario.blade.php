@@ -100,6 +100,7 @@
             <label for="status" class="col-md-2 control-label">Estatus:</label>
                 <div class="col-md-6">
                 <select class="form-control" id="status" name="status" required>
+                        <option value="{{ $users->status }}">@if ($users->status==1) {{'Activo'}} @else {{'Bloqueado'}} @endif  </option>
                         <option value="1">Activo</option>
                         <option value="2">Bloqueado</option>
                 </select>
