@@ -109,12 +109,16 @@
           <a href="#"><i class="fa fa-universal-access"></i> <span>Gestión humana</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
-            </span>
+            </span>                     
           </a>
           <ul class="treeview-menu">
             <li class="treeview">
-          <a href="/regbombero"><i class="fa fa-pencil-square-o"></i> <span>Registro</span>
-          </a></li>
+          <a href="/adminpersonal"><i class="fa fa-pencil-square-o"></i> <span>Crear/Editar Personal</span>
+          </a>
+
+
+         </li>
+
 
             <li class="treeview">
           <a href="#"><i class="fa fa-user-circle-o"></i> <span>Necesidades</span>

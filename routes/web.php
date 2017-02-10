@@ -39,6 +39,7 @@ Route::group(['middleware'=>'admin','namespace'=>'Admin'],function(){
 	Route::get('/regbombero', 'UserController@getRegbombero');
 	Route::get('/npersonal', 'UserController@getNpersonal');
 	Route::get('/ncapacitacion', 'UserController@getNcapacitacion');
+	Route::get('/adminpersonal', 'UserController@getAdminpersonal');
 
 });
 	

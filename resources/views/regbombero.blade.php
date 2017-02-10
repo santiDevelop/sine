@@ -14,7 +14,8 @@
         <li><a href="/home"><i class="fa fa-dashboard"></i> Tablero</a></li>
         <li>Módulos</li>
         <li>Gestión humana</li>
-        <li class="active">Registro de bomberos</li>
+        <li>Administración de Personal</li>
+        <li class="active">Registro de Personal</li>
       </ol>
       </section>
       </div>
@@ -31,7 +32,8 @@
         <li><a href="/home"><i class="fa fa-dashboard"></i> Tablero</a></li>
         <li><a href="#">Módulos</a></li>
         <li><a href="#">Gestión humana</a></li>
-        <li class="active">Registro de bomberos</li>
+        <li>Administración de Personal</li>
+        <li class="active">Registro de Personal</li>
       </ol>
       </section>
       </div>
@@ -47,10 +49,11 @@
                                     {{ csrf_field() }}
                
 
-
+                  
                   <div class="col-xs-12 col-md-6">
+                  <div class="icon-tittle">
                     <h3><i class="fa fa-address-card-o"></i> Información Personal</h3>
-
+                  </div>
                       
                       <div class="form-group{{ $errors->has('apebombero') ? ' has-error' : '' }}">
                         <label for="apebombero" class="col-md-3 control-label">Apellido:</label>
@@ -231,10 +234,11 @@
                           </div>
                         </div>
                     </div>
-
+                  
                   <div class="col-xs-12 col-md-6">
+                  <div class="icon-tittle2">
                     <h3><i class="fa fa-university"></i> Información Académica</h3>
-                      
+                    </div>
                        <div class="form-group{{ $errors->has('profesion') ? ' has-error' : '' }}">
                           <label for="profesion" class="col-md-3 control-label">Profesión:</label>
                           <div class="col-md-6">
@@ -321,9 +325,9 @@
                         </div>
 
                         
-
+                    <div class="icon-tittle3">
                     <h3><i class="fa fa-fire-extinguisher"></i> Información Profesional</h3>
-
+                    </div>
                       <div class="form-group{{ $errors->has('rango') ? ' has-error' : '' }}">
                           <label for="rango" class="col-md-3 control-label">Rango:</label>
                           <div class="col-md-6">

@@ -10,12 +10,14 @@
        <div class="hidden-xs hidden-sm">
        <section class="content-header">
        <h1>
-        Administración de usuarios
-        <small>Panel de Usuarios</small>
+        Administración de personal
+        <small>Panel para crear o editar personal</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="/home"><i class="fa fa-dashboard"></i> Tablero</a></li>
-        <li class="active">Administración de usuarios</li>
+        <li>Módulos</li>
+        <li>Gestión humana</li>
+        <li class="active">Administración de personal</li>
       </ol>
       </section>
       </div>
@@ -25,12 +27,14 @@
     <div class="hidden-md hidden-lg">
     <section class="content-header-small">
        <h1>
-        Administración de usuarios
-        <small>Panel de Usuarios</small>
+        Administración de personal
+        <small>Panel para crear o editar personal</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="/home"><i class="fa fa-dashboard"></i> Tablero</a></li>
-        <li class="active">Administración de usuarios</li>
+        <li>Módulos</li>
+        <li>Gestión humana</li>
+        <li class="active">Administración de personal</li>
       </ol>
       </div>
     <!-- Main content -->
@@ -45,12 +49,12 @@
             <div class="inner">
               <h3><i class="fa fa-user-plus"></i></h3>
 
-              <h4>Crear Usuario</h4>
+              <h4>Crear Personal</h4>
             </div>
             <div class="icon">
               <i class="fa fa-users"></i>
             </div>
-            <a href="/register" class="small-box-footer">Crear <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="/regbombero" class="small-box-footer">Crear <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
 
@@ -68,30 +72,60 @@
               <table id="example1" class="table table-bordered table-striped table-hover">
                 <thead>
                 <tr>
-                  <th>Usuario</th>
+                  <th>Apellido</th>
                   <th>Nombre</th>
-                  <th>Cedula</th>
-                  <th>Perfil de Usuario</th>
+                  <th>Cédula</th>
+                  <th>Fecha de nacimiento</th>
+                  <th>Lugar de nacimiento</th>
+                  <th>Sexo</th>
+                  <th>Estado civil</th>
+                  <th>Número de hijos</th>
+                  <th>Teléfono</th>
+                  <th>Correo electrónico</th>
+                  <th>Dirección</th>
+                  <th>Camisa</th>
+                  <th>Pantalón</th>
+                  <th>Calzado</th>
                   <th>Acción</th>
                 </tr>
                 </thead>
                 <tbody>
-                @foreach ($users as $user) 
+                
                 <tr>
-                  <td>{{$user->user}}</td>
-                  <td>{{$user->name}}</td>
-                  <td>{{$user->cedula}}</td>
-                  <td>@if($user->typeuser==1){{"Administrador"}}@else{{"Usuario"}} @endif</td>
-                  <td><a href="/editarusuario/{{$user->id}}" title="Editar Usuario"><i class="fa fa-pencil"></i></a> <a type="button" data-toggle="modal" data-target="#confirmar" title="Borrar Usuario"><i class="fa fa-trash"></i></a></td>
+                  <td>Ronaldo</td>
+                  <td>Cristiano</td>
+                  <td>c12345678</td>
+                  <td>05/02/1985</td>
+                  <td>Funchal,Madeira,Portugal</td>
+                  <td>Maculino</td>
+                  <td>Soltero</td>
+                  <td>1</td>
+                  <td>55555555</td>
+                  <td>cr7@halamdrid.com</td>
+                  <td>Casa 7 del fraccionamiento 7, Madrid, España</td>
+                  <td>M</td>
+                  <td>M</td>
+                  <td>7</td>
+                  <td><a href="#" title="Editar Usuario"><i class="fa fa-pencil"></i></a> <a type="button" data-toggle="modal" data-target="#confirmar" href="#" title="Borrar Usuario"><i class="fa fa-trash"></i></a></td>
                 </tr>
-                @endforeach
+                
                 </tbody>
                 <tfoot>
                 <tr>
-                  <th>Usuario</th>
+                  <th>Apellido</th>
                   <th>Nombre</th>
-                  <th>Cedula</th>
-                  <th>Perfil de Usuario</th>
+                  <th>Cédula</th>
+                  <th>Fecha de nacimiento</th>
+                  <th>Lugar de nacimiento</th>
+                  <th>Sexo</th>
+                  <th>Estado civil</th>
+                  <th>Número de hijos</th>
+                  <th>Teléfono</th>
+                  <th>Correo electrónico</th>
+                  <th>Dirección</th>
+                  <th>Camisa</th>
+                  <th>Pantalón</th>
+                  <th>Calzado</th>
                   <th>Acción</th>
                 </tr>
                 </tfoot>
@@ -114,20 +148,16 @@
         <h4 class="modal-title" id="myModalLabel">Confirmación </h4>
       </div>
       <div class="modal-body">
-        <p>¿Está seguro de eliminar al usuario  <strong>"{{$user->user}}"</strong>?</p>
-        <small>De ser así se borrara para siempre a este usuario de la base de datos.</small>
+        <p>¿Está seguro de eliminar a la persona  “Aquí Nombre y Apellido”?</p>
+        <small>De ser así se borrara para siempre a esta persona de la base de datos.</small>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-        <a href="editarusuario/{{$user->id}}/eliminar" type="button" class="btn btn-primary">Si, Eliminar</a>
+        <button type="button" class="btn btn-primary">Si, Eliminar</button>
       </div>
     </div>
   </div>
 </div><!-- /.modal -->
-
-    </section>
-    <!-- /.content -->
-
 
     </section>
     <!-- /.content -->

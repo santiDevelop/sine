@@ -4962,3 +4962,43 @@ table.text-center th {
   float: right;
   background-color: #fff;
 }
+
+.icon-tittle i, .icon-tittle2 i, .icon-tittle3 i {
+  color: #3a83ae; 
+}
+
+.icon-tittle h3:after {
+  
+    display: block;
+    content: "";
+    height: 1px;
+    width: 218px;
+    background: #3a83ae;
+    margin: 2px 30px 0;
+    position: relative;
+ 
+}
+
+.icon-tittle2 h3:after {
+  
+    display: block;
+    content: "";
+    height: 1px;
+    width: 240px;
+    background: #3a83ae;
+    margin: 2px 30px 0;
+    position: relative;
+ 
+}
+
+.icon-tittle3 h3:after {
+  
+    display: block;
+    content: "";
+    height: 1px;
+    width: 237px;
+    background: #3a83ae;
+    margin: 2px 30px 0;
+    position: relative;
+ 
+}
