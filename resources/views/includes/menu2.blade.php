@@ -118,8 +118,23 @@
 
             <li class="treeview">
           <a href="#"><i class="fa fa-user-circle-o"></i> <span>Necesidades</span>
+          <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
             
-          </a> </li>
+          </a>
+
+                        <ul class="treeview-menu">
+                          <li class="treeview">
+                        <a href="/npersonal"><i class="fa fa-user-plus "></i> <span>Personal</span>
+                        </a></li>
+
+                          <li class="treeview">
+                        <a href="/ncapacitacion"><i class="fa fa-graduation-cap"></i> <span>Capacitación</span>
+                          
+                        </a> </li>
+
+                        </ul> </li>
 
           <li class="treeview">
           <a href="#"><i class="fa fa-bar-chart"></i> <span>Reportes</span>

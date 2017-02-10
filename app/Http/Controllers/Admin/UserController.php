@@ -239,5 +239,14 @@ class UserController extends Controller
     {
         return view('regbombero');
     }
+
+              public function getNpersonal()
+    {
+        return view('npersonal');
+    }
+                  public function getNcapacitacion()
+    {
+        return view('ncapacitacion');
+    }
 }
 

@@ -37,6 +37,8 @@ Route::group(['middleware'=>'admin','namespace'=>'Admin'],function(){
 	Route::post('/editarusuario/{id}', 'UserController@updateUser');
 	Route::get('/editarusuario/{id}/eliminar', 'UserController@deleteUser');
 	Route::get('/regbombero', 'UserController@getRegbombero');
+	Route::get('/npersonal', 'UserController@getNpersonal');
+	Route::get('/ncapacitacion', 'UserController@getNcapacitacion');
 
 });
 	
