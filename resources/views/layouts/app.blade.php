@@ -94,7 +94,7 @@
  
         @include('includes.menu2')
         @yield('content')
-   
+        
 
    </div>
   <!-- /.content-wrapper -->
@@ -131,6 +131,7 @@
 <!-- FastClick -->
 <script src="/js/bootbox.min.js"></script>
 <!-- page script -->
+@yield('personal_scripts')
 <script>
   $(function () {
     $("#example1").DataTable();

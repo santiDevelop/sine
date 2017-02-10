@@ -48,8 +48,6 @@
             <form class="form-horizontal" role="form" method="POST" action="{{ url('/regbombero') }}">
                                     {{ csrf_field() }}
                
-
-                  
                   <div class="col-xs-12 col-md-6">
                   <div class="icon-tittle">
                     <h3><i class="fa fa-address-card-o"></i> Información Personal</h3>
@@ -120,7 +118,7 @@
                       <div class="form-group{{ $errors->has('sexo') ? ' has-error' : '' }}">
                         <label for="sexo" class="col-md-3 control-label">Sexo:</label>
                         <div class="col-md-7">
-                          <select class="form-control" id="sexo">
+                          <select class="form-control" id="sexo" name="sexo">
                             <option value="1">Masculino</option>
                             <option value="2">Femenino</option>
                           </select>
@@ -135,7 +133,7 @@
                         <div class="form-group{{ $errors->has('ecivil') ? ' has-error' : '' }}">
                           <label for="ecivil" class="col-md-3 control-label">Estado civil:</label>
                           <div class="col-md-7">
-                            <select class="form-control" id="ecivil">
+                            <select class="form-control" id="ecivil" name="ecivil">
                               <option value="1">Soltero</option>
                               <option value="2">Casado</option>
                               <option value="3">Divorciado</option>
@@ -152,7 +150,7 @@
                       <div class="form-group{{ $errors->has('nhijos') ? ' has-error' : '' }}">
                         <label for="nhijos" class="col-md-3 control-label">Número de hijos:</label>
                         <div class="col-md-7">
-                          <input id="nhijos" type="number" class="form-control" name="nhijos" value="{{ old('nhijos') }}" required autofocus>
+                          <input id="nhijos" type="number" maxlength="2" class="form-control" name="nhijos" value="{{ old('nhijos') }}" required autofocus>
                             @if ($errors->has('nhijos'))
                               <span class="help-block">
                                 <strong>{{ $errors->first('nhijos') }}</strong>
@@ -200,8 +198,8 @@
                       <div class="form-group">
                           <label for="talla" class="col-md-3 control-label">Tallas:</label>
                           <div class="col-md-2">
-                            <select class="form-control" id="tcamisa">
-                              <option>Camisa</option>
+                            <select class="form-control" id="tcamisa" name="tcamisa">
+                              <option value="0">Camisa</option>
                               <option value="1">XS</option>
                               <option value="2">S</option>
                               <option value="3">M</option>
@@ -211,8 +209,8 @@
                             </select>
                           </div>
                           <div class="col-md-2">
-                            <select class="form-control" id="tpantalon">
-                              <option>Pantalón</option>
+                            <select class="form-control" id="tpantalon" name="tpantalon">
+                              <option value="0">Pantalón</option>
                               <option value="1">XS</option>
                               <option value="2">S</option>
                               <option value="3">M</option>
@@ -222,8 +220,8 @@
                             </select>
                           </div>
                           <div class="col-md-2">
-                            <select class="form-control" id="tcalzado">
-                              <option>Calzado</option>
+                            <select class="form-control" id="tcalzado" name="tcalzado">
+                              <option value="0">Calzado</option>
                               <option value="1">4</option>
                               <option value="2">5</option>
                               <option value="3">6</option>
@@ -244,7 +242,8 @@
                        <div class="form-group{{ $errors->has('profesion') ? ' has-error' : '' }}">
                           <label for="profesion" class="col-md-3 control-label">Profesión:</label>
                           <div class="col-md-6">
-                            <select class="form-control" id="profesion">
+                            <select class="form-control" id="profesion" name="profesion">
+                              <option value="0">Ninguna</option>
                               <option value="1">Profesión 1</option>
                               <option value="2">Profesión 2</option>
                               <option value="3">Profesión 3</option>
@@ -261,7 +260,8 @@
                         <div class="form-group{{ $errors->has('nacademico') ? ' has-error' : '' }}">
                           <label for="nacademico" class="col-md-3 control-label">Nivel académico:</label>
                           <div class="col-md-6">
-                            <select class="form-control" id="nacademico">
+                            <select class="form-control" id="nacademico" name="nacademico">
+                              <option value="0">Ninguno</option>
                               <option value="1">Nivel académico 1</option>
                               <option value="2">Nivel académico 2</option>
                               <option value="3">Nivel académico 3</option>
@@ -278,11 +278,12 @@
                         <div class="form-group{{ $errors->has('ultitulo') ? ' has-error' : '' }}">
                           <label for="ultitulo" class="col-md-3 control-label">Ultimo título obtenido:</label>
                           <div class="col-md-6">
-                            <select class="form-control" id="ultitulo">
-                              <option value="1">Título 1</option>
-                              <option value="2">Título 2</option>
-                              <option value="3">Título 3</option>
-                              <option value="4">Título 4</option>
+                            <select class="form-control" id="ultitulo" name="ultitulo">
+                              <option value="0">Ninguno</option>
+                              <option value="1">Bachiller</option>
+                              <option value="2">Licenciado</option>
+                              <option value="3">Ingeniero</option>
+                              <option value="4">Master</option>
                             </select>
                               @if ($errors->has('ultitulo'))
                                 <span class="help-block">
@@ -295,12 +296,7 @@
                         <div class="form-group{{ $errors->has('egresado') ? ' has-error' : '' }}">
                           <label for="egresado" class="col-md-3 control-label">Egresado de:</label>
                           <div class="col-md-6">
-                            <select class="form-control"  id="egresado">
-                              <option value="1">Universidad 1</option>
-                              <option value="2">Universidad 2</option>
-                              <option value="3">Instituto 3</option>
-                              <option value="4">Instituto 4</option>
-                            </select>
+                           <input type="text" maxlength="100" class="form-control" name="egresado" placeholder="Universidad - Instituto">
                               @if ($errors->has('egresado'))
                                 <span class="help-block">
                                   <strong>{{ $errors->first('egresado') }}</strong>
@@ -310,20 +306,21 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('cursos') ? ' has-error' : '' }}">
-                          <label for="cursos" class="col-md-3 control-label">Cursos:</label>
+                        <label for="cursos" class="col-md-3 control-label">Cursos:</label>
+                        <div class="input_fields_wrap">
+                          
                           <div class="col-md-6">
-                            <select class="form-control"  id="cursos">
-                              <option value="1">Curso 1</option>
-                              <option value="2">Curso 2</option>
-                              <option value="3">CUrso 3</option>
-                              <option value="4">CUrso 4</option>
-                            </select>
+                            <button class="btn-default">Agrega mas Cursos</button>
+                                 <div><input type="text" name="curso[]"></div>
+                            </div>
+                            </div>
                               @if ($errors->has('cursos'))
                                 <span class="help-block">
                                   <strong>{{ $errors->first('cursos') }}</strong>
                                 </span>
                               @endif
-                          </div>
+                          
+                          
                         </div>
 
                         
@@ -333,11 +330,11 @@
                       <div class="form-group{{ $errors->has('rango') ? ' has-error' : '' }}">
                           <label for="rango" class="col-md-3 control-label">Rango:</label>
                           <div class="col-md-6">
-                            <select class="form-control"  id="rango">
-                              <option value="1">Rango 1</option>
-                              <option value="2">Rango 2</option>
-                              <option value="3">Rango 3</option>
-                              <option value="4">Rango 4</option>
+                            <select class="form-control"  id="rango" name="rango">
+                              <option value="1">Cadete </option>
+                              <option value="2">Bombero</option>
+                              <option value="3">Marino</option>
+                              <option value="4">Administrativo</option>
                             </select>
                               @if ($errors->has('rango'))
                                 <span class="help-block">
@@ -350,11 +347,11 @@
                         <div class="form-group{{ $errors->has('cargo') ? ' has-error' : '' }}">
                           <label for="cargo" class="col-md-3 control-label">Cargo:</label>
                           <div class="col-md-6">
-                            <select class="form-control"  id="cargo">
-                              <option value="1">Cargo 1</option>
-                              <option value="2">Cargo 2</option>
-                              <option value="3">Cargo 3</option>
-                              <option value="4">Cargo 4</option>
+                            <select class="form-control"  id="cargo" name="cargo">
+                              <option value="1">Gerente</option>
+                              <option value="2">Administrador</option>
+                              <option value="3">Comandante</option>
+                              <option value="4">Ayudante</option>
                             </select>
                               @if ($errors->has('cargo'))
                                 <span class="help-block">
@@ -391,11 +388,8 @@
                       <div class="form-group{{ $errors->has('cbombero') ? ' has-error' : '' }}">
                           <label for="cbombero" class="col-md-3 control-label">Cuerpo de bombero:</label>
                           <div class="col-md-6">
-                            <select class="form-control"  id="cbombero">
-                              <option value="1">cbombero 1</option>
-                              <option value="2">cbombero 2</option>
-                              <option value="3">cbombero 3</option>
-                              <option value="4">cbombero 4</option>
+                            <select class="form-control"  id="cbombero" name="cbombero">
+                              <option value="1">Cuerpo Bombero</option>
                             </select>
                               @if ($errors->has('cbombero'))
                                 <span class="help-block">
@@ -410,7 +404,7 @@
                         <div class="form-group{{ $errors->has('estacion') ? ' has-error' : '' }}">
                           <label for="estacion" class="col-md-3 control-label">Estación:</label>
                           <div class="col-md-6">
-                            <select class="form-control"  id="estacion">
+                            <select class="form-control"  id="estacion" name="estacion">
                               <option value="1">Estación 1</option>
                               <option value="2">Estación 2</option>
                               <option value="3">Estación 3</option>
@@ -427,11 +421,11 @@
                         <div class="form-group{{ $errors->has('estatus') ? ' has-error' : '' }}">
                           <label for="estatus" class="col-md-3 control-label">Estatus:</label>
                           <div class="col-md-6">
-                            <select class="form-control"  id="estatus">
-                              <option value="1">estatus 1</option>
-                              <option value="2">estatus 2</option>
-                              <option value="3">estatus 3</option>
-                              <option value="4">estatus 4</option>
+                            <select class="form-control"  id="estatus" name="estatus">
+                              <option value="1">Activo</option>
+                              <option value="2">Egresado</option>
+                              <option value="3">Suspendido</option>
+                              <option value="4">Vacaciones</option>
                             </select>
                               @if ($errors->has('estatus'))
                                 <span class="help-block">
@@ -441,7 +435,7 @@
                           </div>
                         </div>
 
-                        
+
                   </div>
 
         </div>
@@ -463,4 +457,29 @@
     </section>
     <!-- /.content -->
 
-@endsection
+@stop
+@section('personal_scripts')
+
+<script type="text/javascript">
+$(document).ready(function() {
+    var max_fields      = 10; //maximum input boxes allowed
+    var wrapper         = $(".input_fields_wrap"); //Fields wrapper
+    var add_button      = $(".btn-default"); //Add button ID
+    
+    var x = 1; //initlal text box count
+    $(add_button).click(function(e){ //on add input button click
+        e.preventDefault();
+        if(x < max_fields){ //max input box allowed
+            x++; //text box increment
+            $(wrapper).append('<div><input type="text" name="curso[]"/><a href="#" class="remove_field">Remover</a></div>'); //add input box
+        }
+    });
+    
+    $(wrapper).on("click",".remove_field", function(e){ //user click on remove text
+        e.preventDefault(); $(this).parent('div').remove(); x--;
+    })
+});
+</script>
+
+@stop
+
