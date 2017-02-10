@@ -14,7 +14,8 @@
         <li><a href="/home"><i class="fa fa-dashboard"></i> Tablero</a></li>
         <li>Módulos</li>
         <li>Gestión humana</li>
-        <li class="active">Registro de bomberos</li>
+        <li>Administración de Personal</li>
+        <li class="active">Registro de Personal</li>
       </ol>
       </section>
       </div>
@@ -31,7 +32,8 @@
         <li><a href="/home"><i class="fa fa-dashboard"></i> Tablero</a></li>
         <li><a href="#">Módulos</a></li>
         <li><a href="#">Gestión humana</a></li>
-        <li class="active">Registro de bomberos</li>
+        <li>Administración de Personal</li>
+        <li class="active">Registro de Personal</li>
       </ol>
       </section>
       </div>

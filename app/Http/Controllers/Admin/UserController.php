@@ -248,5 +248,11 @@ class UserController extends Controller
     {
         return view('ncapacitacion');
     }
+
+        public function getAdminpersonal()
+    {
+        return view('adminpersonal');
+        
+    }
 }
 
