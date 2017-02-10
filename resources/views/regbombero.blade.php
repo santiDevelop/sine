@@ -55,17 +55,7 @@
                     <h3><i class="fa fa-address-card-o"></i> Información Personal</h3>
                   </div>
                       
-                      <div class="form-group{{ $errors->has('apebombero') ? ' has-error' : '' }}">
-                        <label for="apebombero" class="col-md-3 control-label">Apellido:</label>
-                        <div class="col-md-7">
-                          <input id="apebombero" type="text" class="form-control" placeholder="Apellido" name="apebombero" maxlength="100" value="{{ old('apebombero') }}" required autofocus>
-                            @if ($errors->has('apebombero'))
-                              <span class="help-block">
-                                <strong>{{ $errors->first('apebombero') }}</strong>
-                              </span>
-                            @endif
-                        </div>
-                      </div>
+                    
 
                       <div class="form-group{{ $errors->has('nombombero') ? ' has-error' : '' }}">
                         <label for="nombombero" class="col-md-3 control-label">Nombre:</label>
@@ -74,6 +64,18 @@
                             @if ($errors->has('nombombero'))
                               <span class="help-block">
                                 <strong>{{ $errors->first('nombombero') }}</strong>
+                              </span>
+                            @endif
+                        </div>
+                      </div>
+
+                       <div class="form-group{{ $errors->has('apebombero') ? ' has-error' : '' }}">
+                        <label for="apebombero" class="col-md-3 control-label">Apellido:</label>
+                        <div class="col-md-7">
+                          <input id="apebombero" type="text" class="form-control" placeholder="Apellido" name="apebombero" maxlength="100" value="{{ old('apebombero') }}" required autofocus>
+                            @if ($errors->has('apebombero'))
+                              <span class="help-block">
+                                <strong>{{ $errors->first('apebombero') }}</strong>
                               </span>
                             @endif
                         </div>
@@ -119,8 +121,8 @@
                         <label for="sexo" class="col-md-3 control-label">Sexo:</label>
                         <div class="col-md-7">
                           <select class="form-control" id="sexo">
-                            <option value="1">Femenino</option>
-                            <option value="2">Masculino</option>
+                            <option value="1">Masculino</option>
+                            <option value="2">Femenino</option>
                           </select>
                             @if ($errors->has('sexo'))
                               <span class="help-block">
@@ -195,8 +197,8 @@
                         </div>
                       </div>
 
-                      <div class="form-group{{ $errors->has('ecivil') ? ' has-error' : '' }}">
-                          <label for="ecivil" class="col-md-3 control-label">Tallas:</label>
+                      <div class="form-group">
+                          <label for="talla" class="col-md-3 control-label">Tallas:</label>
                           <div class="col-md-2">
                             <select class="form-control" id="tcamisa">
                               <option>Camisa</option>
@@ -403,22 +405,7 @@
                           </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('estatus') ? ' has-error' : '' }}">
-                          <label for="estatus" class="col-md-3 control-label">Estatus:</label>
-                          <div class="col-md-6">
-                            <select class="form-control"  id="estatus">
-                              <option value="1">estatus 1</option>
-                              <option value="2">estatus 2</option>
-                              <option value="3">estatus 3</option>
-                              <option value="4">estatus 4</option>
-                            </select>
-                              @if ($errors->has('estatus'))
-                                <span class="help-block">
-                                  <strong>{{ $errors->first('estatus') }}</strong>
-                                </span>
-                              @endif
-                          </div>
-                        </div>
+                        
 
                         <div class="form-group{{ $errors->has('estacion') ? ' has-error' : '' }}">
                           <label for="estacion" class="col-md-3 control-label">Estación:</label>
@@ -436,6 +423,25 @@
                               @endif
                           </div>
                         </div>
+
+                        <div class="form-group{{ $errors->has('estatus') ? ' has-error' : '' }}">
+                          <label for="estatus" class="col-md-3 control-label">Estatus:</label>
+                          <div class="col-md-6">
+                            <select class="form-control"  id="estatus">
+                              <option value="1">estatus 1</option>
+                              <option value="2">estatus 2</option>
+                              <option value="3">estatus 3</option>
+                              <option value="4">estatus 4</option>
+                            </select>
+                              @if ($errors->has('estatus'))
+                                <span class="help-block">
+                                  <strong>{{ $errors->first('estatus') }}</strong>
+                                </span>
+                              @endif
+                          </div>
+                        </div>
+
+                        
                   </div>
 
         </div>
