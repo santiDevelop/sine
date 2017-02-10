@@ -234,4 +234,19 @@ class UserController extends Controller
       return back()->with('notification','El Usuario Ha sido Eliminado Correctamente');
 
     }
+
+          public function getRegbombero()
+    {
+        return view('regbombero');
+    }
+
+              public function getNpersonal()
+    {
+        return view('npersonal');
+    }
+                  public function getNcapacitacion()
+    {
+        return view('ncapacitacion');
+    }
 }
+

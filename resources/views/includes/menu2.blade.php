@@ -113,27 +113,34 @@
           </a>
           <ul class="treeview-menu">
             <li class="treeview">
-          <a href="#"><i class="fa fa-user-circle-o"></i> <span>Necesidades de <br/>personal (Cantidad)</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-          <li class="treeview" ><a href="#"><i class="fa fa-pencil-square-o"></i><span>Registro de necesidades</span></a></li>
-          <li class="treeview" ><a href="#"><i class="fa fa-folder-open"></i><span>Cobertura de necesidades</span></a></li>
-          </ul>
-        </li>
+          <a href="/regbombero"><i class="fa fa-pencil-square-o"></i> <span>Registro</span>
+          </a></li>
+
             <li class="treeview">
-          <a href="#"><i class="fa fa-graduation-cap"></i> <span>Necesidades de </br>capacitación</span>
-            <span class="pull-right-container">
+          <a href="#"><i class="fa fa-user-circle-o"></i> <span>Necesidades</span>
+          <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
+            
           </a>
-          <ul class="treeview-menu">
-            <li class="treeview" ><a href="#"><i class="fa fa-pencil-square-o"></i><span>Registro de necesidades</span></a></li>
-          <li class="treeview" ><a href="#"><i class="fa fa-folder-open"></i><span>Cobertura de necesidades</span></a></li>
-          </ul>
-        </li>
+
+                        <ul class="treeview-menu">
+                          <li class="treeview">
+                        <a href="/npersonal"><i class="fa fa-user-plus "></i> <span>Personal</span>
+                        </a></li>
+
+                          <li class="treeview">
+                        <a href="/ncapacitacion"><i class="fa fa-graduation-cap"></i> <span>Capacitación</span>
+                          
+                        </a> </li>
+
+                        </ul> </li>
+
+          <li class="treeview">
+          <a href="#"><i class="fa fa-bar-chart"></i> <span>Reportes</span>
+            
+          </a> </li>
+
           </ul>
         </li>
             <li class="treeview">
