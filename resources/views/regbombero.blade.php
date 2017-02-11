@@ -307,9 +307,10 @@
 
                         <div class="form-group{{ $errors->has('cursos') ? ' has-error' : '' }}">
                         <label for="cursos" class="col-md-3 control-label">Cursos:</label>
-                        <div class="input_fields_wrap">
+                        
                           
                           <div class="col-md-6">
+                          <div class="input_fields_wrap">
                             <button class="btn-default">Agrega mas Cursos</button>
                                  <div><input type="text" name="curso[]"></div>
                             </div>
