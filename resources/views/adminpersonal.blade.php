@@ -57,7 +57,22 @@
             <a href="/regbombero" class="small-box-footer">Crear <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
+        
 
+        <div class="col-xs-4 ">
+          <!-- small box -->
+          <div class="small-box bg-green">
+            <div class="inner">
+              <h3><i class="fa fa-user-plus"></i></h3>
+
+              <h4>Crear Cursos</h4>
+            </div>
+            <div class="icon">
+              <i class="ion ion-stats-bars"></i>
+            </div>
+            <a href="/regcurso" class="small-box-footer">Crear <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
 
     </div> <!-- fin row -->
 

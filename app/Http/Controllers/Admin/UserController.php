@@ -12,7 +12,7 @@ use App\maestro_cuerpo_bomberos;
 use App\maestro_perfiles_cargos;
 use App\maestro_tipo_equipamiento;
 use App\User;
-
+use App\CrearEstaciones;
 class UserController extends Controller
 {
 
@@ -235,24 +235,24 @@ class UserController extends Controller
 
     }
 
-          public function getRegbombero()
+    public function getMestaciones()
     {
-        return view('regbombero');
+      $mcbomberos=maestro_cuerpo_bomberos::all();
+      return view('mestaciones')->with(compact('mcbomberos'));
+
     }
 
-              public function getNpersonal()
-    {
-        return view('npersonal');
-    }
-                  public function getNcapacitacion()
-    {
-        return view('ncapacitacion');
+    public function postMestaciones(request $request)
+    { 
+      $estacion= new CrearEstaciones();
+      $estacion->numestacion=$request->input('numestacion');
+      $estacion->nomestacion=$request->input('nomestacion');
+      $estacion->mcbombero_id=$request->input('mcbombero_id');
+      $estacion->user_id=auth()->user()->id;
+      return back()->with('notification','La Estacion ha sido Creada Exitosamente');
+
     }
 
-        public function getAdminpersonal()
-    {
-        return view('adminpersonal');
-        
-    }
+      
 }
 

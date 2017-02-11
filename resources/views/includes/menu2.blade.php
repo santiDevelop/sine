@@ -33,6 +33,12 @@
                         </a>
                         </li>
                         <li class="treeview">
+                        <a href="/mestaciones">
+                          <i class="fa  fa-cab"></i>
+                          <span>Maestro de Estaciones</span>
+                        </a>
+                        </li>
+                        <li class="treeview">
                         <a href="/mcargos">
                           <i class="fa fa-tasks"></i>
                           <span>Maestro de cargos</span>

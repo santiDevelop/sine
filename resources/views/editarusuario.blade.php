@@ -85,7 +85,7 @@
                 <div class="col-md-6">
                 <select class="form-control" id="cargo" name="cargo" required>
                         @foreach ($cargos as $cargo)
-                    <option value="{{$cargo->numcargo}}">{{$cargo->cargo}}</option>
+                    <option value="{{$cargo->id}}">{{$cargo->cargo}}</option>
                     @endforeach
                 </select>
                     @if ($errors->has('cargo'))
@@ -119,7 +119,7 @@
                 <div class="col-md-6">
                 <select class="form-control" id="cbombero" name="cbombero" required>
                     @foreach ($cbomberos as $cbombero)
-                    <option value="{{$cbombero->numcbomb}}">{{$cbombero->nomcbombero}}</option>
+                    <option value="{{$cbombero->id}}">{{$cbombero->nomcbombero}}</option>
                     @endforeach
                 </select>
                     @if ($errors->has('cbombero'))

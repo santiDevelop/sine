@@ -48,7 +48,9 @@ class CreateCrearPersonalTable extends Migration
             $table->date('proximoascenso');
             $table->integer('mcbombero_id')->unsigned();
             $table->foreign('mcbombero_id')->references('id')->on('maestro_cuerpo_bomberos');
-            $table->smallInteger('status')->default('1');         
+            $table->smallInteger('status')->default('1');
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users');
             $table->softDeletes();
             $table->timestamps();
         });
