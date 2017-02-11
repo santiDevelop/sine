@@ -44,11 +44,13 @@
 
 
                          <div class="form-group{{ $errors->has('mcbombero_id') ? ' has-error' : '' }}">
-                              <label for="mcbombero_id" class="col-md-2 control-label">mcbombero_id:</label>
+                              <label for="mcbombero_id" class="col-md-2 control-label">Cuerpo de Bombero Asociado:</label>
                                   <div class="col-md-6">
                                   <select class="form-control" id="mcbombero_id" name="mcbombero_id" required>
                                                 @foreach ($mcbomberos as $mcbombero)
+                                                @if($mcbombero->id == auth()->user()->cbombero)
                                             <option value="{{$mcbombero->id}}">{{$mcbombero->nomcbombero}}</option>
+                                            @endif
                                             @endforeach
                                         </select>
                                       @if ($errors->has('mcbombero_id'))

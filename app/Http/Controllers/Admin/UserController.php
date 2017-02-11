@@ -249,6 +249,7 @@ class UserController extends Controller
       $estacion->nomestacion=$request->input('nomestacion');
       $estacion->mcbombero_id=$request->input('mcbombero_id');
       $estacion->user_id=auth()->user()->id;
+      $estacion->save();
       return back()->with('notification','La Estacion ha sido Creada Exitosamente');
 
     }
