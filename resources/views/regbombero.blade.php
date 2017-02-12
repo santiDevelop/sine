@@ -312,7 +312,13 @@
                           <div class="col-md-6">
                           <div class="input_fields_wrap">
                             <button class="btn-info">Agrega mas Cursos</button>
-                                 <div><input type="text" name="curso[]"></div>
+                             <select class="form-control"  id="curso" name="curso[1]">
+                                 @foreach ($cursos as $curso)
+                                
+                                 
+                                   <option value="{{$curso->id}}">{{$curso->nomcurso}}</option>
+                                 @endforeach
+                                 </select>
                             </div>
                             </div>
                               @if ($errors->has('cursos'))
@@ -349,10 +355,9 @@
                           <label for="cargo" class="col-md-3 control-label">Cargo:</label>
                           <div class="col-md-6">
                             <select class="form-control"  id="cargo" name="cargo">
-                              <option value="1">Gerente</option>
-                              <option value="2">Administrador</option>
-                              <option value="3">Comandante</option>
-                              <option value="4">Ayudante</option>
+                              @foreach ($cargos as $cargo)
+                              <option value="{{$cargo->id}}"> {{$cargo->cargo}} </option>
+                              @endforeach
                             </select>
                               @if ($errors->has('cargo'))
                                 <span class="help-block">
@@ -390,7 +395,9 @@
                           <label for="cbombero" class="col-md-3 control-label">Cuerpo de bombero:</label>
                           <div class="col-md-6">
                             <select class="form-control"  id="cbombero" name="cbombero">
-                              <option value="1">Cuerpo Bombero</option>
+                            @foreach ($cbomberos as $cbombero)
+                              <option value="{{$cbombero->id}}"> {{$cbombero->nomcbombero}} </option>
+                              @endforeach
                             </select>
                               @if ($errors->has('cbombero'))
                                 <span class="help-block">
@@ -406,10 +413,9 @@
                           <label for="estacion" class="col-md-3 control-label">Estación:</label>
                           <div class="col-md-6">
                             <select class="form-control"  id="estacion" name="estacion">
-                              <option value="1">Estación 1</option>
-                              <option value="2">Estación 2</option>
-                              <option value="3">Estación 3</option>
-                              <option value="4">Estación 4</option>
+                              @foreach ($estaciones as $estacion)
+                              <option value="{{$estacion->id}}">{{$estacion->nomestacion}}</option>
+                              @endforeach
                             </select>
                               @if ($errors->has('estacion'))
                                 <span class="help-block">
@@ -472,7 +478,8 @@ $(document).ready(function() {
         e.preventDefault();
         if(x < max_fields){ //max input box allowed
             x++; //text box increment
-            $(wrapper).append('<div><p>Curso</p><input type="text" name="curso[]"/><a href="#" class="remove_field">Remover</a></div>'); //add input box
+              $(wrapper).append('<div><a href="#" class="remove_field">Remover Curso</a><select class="form-control"  id="curso" name="curso[{{$curso->id}}]"> @foreach ($cursos as $curso) <option value="{{$curso->id}}">{{$curso->nomcurso}}</option>@endforeach</div>'); //add input box
+
         }
     });
     

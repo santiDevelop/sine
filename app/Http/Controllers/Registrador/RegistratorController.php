@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Registrador;
 
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Facades\hash;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\maestro_cargos;
@@ -13,8 +12,9 @@ use App\maestro_perfiles_cargos;
 use App\maestro_tipo_equipamiento;
 use App\User;
 use App\Registrador;
-use App\CrearPersonal;
+use App\CrearPersonals;
 use App\CrearCursos;
+use App\CrearEstaciones;
 class RegistratorController extends Controller
 {
     public function index()
@@ -23,54 +23,23 @@ class RegistratorController extends Controller
     }
         public function getRegbombero()
     {
-        return view('regbombero');
+      $estaciones=CrearEstaciones::all();
+      $cursos=CrearCursos::all();
+      $cargos=maestro_cargos::all();
+      $cbomberos=maestro_cuerpo_bomberos::all();
+      return view('regbombero')->with(compact('estaciones','cursos','cargos','cbomberos'));
     }
 
      public function postRegbombero(Request $request)
     {
-          //reglas para validar el formulario y enviarlas al validador
-      $rules=[
-      'nombombero'=>'required|',
-        'apebombero'=>'required|',
-        'cedbombero'=>'required|',
-        'fnacimiento'=>'required|',
-        'lnacimiento'=>'required|',
-        'sexo'=>'required|',
-        'ecivil'=>'required|',
-        'nhijos'=>'required|',
-        'telbombero'=>'required|',
-        'correoelec'=>'required|',
-        'dirbombero'=>'required|',
-        'tcamisa'=>'required|',
-        'tpantalon'=>'required|',
-        'tcalzado'=>'required|',
-        'profesion'=>'required|',
-        'nacademico'=>'required|',
-        'ultitulo'=>'required|',
-        'egresado'=>'required|',
-        'curso[] //revisar este bien'=>'required|',
-        'rango'=>'required|',
-        'cargo'=>'required|',
-        'feingreso'=>'required|',
-        'proximoascenso'=>'required|',
-        'cbombero'=>'required|',
-        'estacion'=>'required|'
-                                ];
+          dd($request->curso);
+      $this->validate($request,CrearPersonals::$rules,CrearPersonals::$messages);
 
-        // MENSAJES PERSONALIZADOS PARA EL VALIDATOR
-        $messages=[
-        'numcbomb.unique'=>'El número de cuerpo de bombero ya se encuentra registrado.',
-        'numcbomb.digits_between'=>'El número de cuerpo de bombero debe tener entre 1 y 3 digitos.',
-        'numcbomb.required'=>'El numero de cuerpo de bombero es requerido.',
-        'nomcbombero.required'=>'El campo cuerpo de bombero es requerido.',
-        'nomcbombero.max'=>'El campo cuerpo de bombero tiene un maximo de 100 caracteres.',
-        ];
 
-      $this->validate($request,$rules,$messages);
-        $CrearPersonal= new CrearPersonal();
+        $CrearPersonal= new CrearPersonals();
+        $CrearPersonal->cedbombero=$request->input('cedbombero');
         $CrearPersonal->nombombero=$request->input('nombombero');
         $CrearPersonal->apebombero=$request->input('apebombero');
-        $CrearPersonal->cedbombero=$request->input('cedbombero');
         $CrearPersonal->fnacimiento=$request->input('fnacimiento');
         $CrearPersonal->lnacimiento=$request->input('lnacimiento');
         $CrearPersonal->sexo=$request->input('sexo');
@@ -86,15 +55,17 @@ class RegistratorController extends Controller
         $CrearPersonal->nacademico=$request->input('nacademico');
         $CrearPersonal->ultitulo=$request->input('ultitulo');
         $CrearPersonal->egresado=$request->input('egresado');
-        $CrearPersonal->curso[]=$request->input('curso');
+        //$CrearPersonal->curso_id=$request->input('curso');
         $CrearPersonal->rango=$request->input('rango');
-        $CrearPersonal->cargo=$request->input('cargo');
+        $CrearPersonal->cargo_id=$request->input('cargo');
         $CrearPersonal->feingreso=$request->input('feingreso');
         $CrearPersonal->proximoascenso=$request->input('proximoascenso');
-        $CrearPersonal->cbombero=$request->input('cbombero');
-        $CrearPersonal->estacion=$request->input('estacion');
+        $CrearPersonal->mcbombero_id=$request->input('cbombero');
+        $CrearPersonal->estacion_id=$request->input('estacion');
+        $CrearPersonal->status=$request->input('estatus');
         $CrearPersonal->user_id=auth()->user()->id;
-        $CrearPersonal->save();  
+        $CrearPersonal->save(); 
+
         return back()->with('notification','Personal Registrado Correctamente');
 
     }
@@ -135,6 +106,7 @@ class RegistratorController extends Controller
         $curso= new CrearCursos();
         $curso->numcurso=$request->input('numcurso');
         $curso->nomcurso=$request->input('nomcurso');
+        $curso->user_id=auth()->user()->id;
         $curso->save();
         return back()->with('notification','Curso Creado');
         

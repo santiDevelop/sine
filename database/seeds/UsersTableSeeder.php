@@ -18,7 +18,7 @@ class UsersTableSeeder extends Seeder
 			'cedula'=>'999999',
 			'cargo'=>'3',
 			'typeuser'=>'1',
-			'cbombero'=>'3',
+			'cbombero'=>'2',
 			'password'=>bcrypt('123456')
 
         	]);
@@ -29,7 +29,7 @@ class UsersTableSeeder extends Seeder
 			'cedula'=>'111999',
 			'cargo'=>'3',
 			'typeuser'=>'2',
-			'cbombero'=>'3',
+			'cbombero'=>'2',
 			'password'=>bcrypt('123456')
 
         	]);

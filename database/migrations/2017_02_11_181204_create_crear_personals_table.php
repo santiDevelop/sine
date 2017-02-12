@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCrearPersonalTable extends Migration
+class CreateCrearPersonalsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateCrearPersonalTable extends Migration
      */
     public function up()
     {
-        Schema::create('crear_personal', function (Blueprint $table) {
+        Schema::create('crear_personals', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('cedbombero')->unique();
             $table->string('nombombero');
@@ -33,21 +33,15 @@ class CreateCrearPersonalTable extends Migration
             $table->smallInteger('nacademico');
             $table->smallInteger('ultitulo');
             $table->string('egresado');
-            $table->smallInteger('curso');
-            $table->smallInteger('curso2');
-            $table->smallInteger('curso3');
-            $table->smallInteger('curso4');
-            $table->smallInteger('curso5');
-            $table->smallInteger('curso6');
-            $table->smallInteger('curso7');
-            $table->smallInteger('curso8');
-            $table->smallInteger('curso9');
             $table->smallInteger('rango');
-            $table->smallInteger('cargo');
+            $table->integer('cargo_id')->unsigned();
+            $table->foreign('cargo_id')->references('id')->on('maestro_cargos');
             $table->date('feingreso');  
             $table->date('proximoascenso');
             $table->integer('mcbombero_id')->unsigned();
             $table->foreign('mcbombero_id')->references('id')->on('maestro_cuerpo_bomberos');
+            $table->integer('estacion_id')->unsigned();
+            $table->foreign('estacion_id')->references('id')->on('crear_estaciones');
             $table->smallInteger('status')->default('1');
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
