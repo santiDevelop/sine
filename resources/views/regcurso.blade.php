@@ -8,12 +8,12 @@
        <div class="hidden-xs hidden-sm">
        <section class="content-header">
        <h1>
-        Maestro de cuerpo de bomberos
-        <small>Creacion de Cuerpo de Bomberos</small>
+        Creacion de Cursos
+        <small>Creacion de Cursos</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="/home"><i class="fa fa-dashboard"></i> Tablero</a></li>
-        <li class="active">Maestro de cuerpo de bomberos</li>
+        <li class="active">Creacion de Cursos</li>
       </ol>
       </section>
       </div>
@@ -23,12 +23,12 @@
     <div class="hidden-md hidden-lg">
     <section class="content-header-small">
        <h1>
-        Maestro de cuerpo de bomberos
-        <small>Creacion de Cuerpo de Bomberos</small>
+        Creacion de Cursos
+        <small>Creacion de Cursos</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="/home"><i class="fa fa-dashboard"></i> Tablero</a></li>
-        <li class="active">Maestro de cuerpo de bomberos</li>
+        <li class="active">Creacion de Cursos</li>
       </ol>
       </div>
 
@@ -41,27 +41,27 @@
       <!-- Your Page Content Here -->
     
       <div class="row container">
-            <form class="form-horizontal" role="form" method="POST" action="{{ url('/mcbombero') }}">
+            <form class="form-horizontal" role="form" method="POST" action="{{ url('/regcurso') }}">
                                     {{ csrf_field() }}
-                        <div class="form-group{{ $errors->has('numcbomb') ? ' has-error' : '' }}">
-                        <label for="numcbomb" class="col-md-2 control-label">Numero Cuerpo Bombero:</label>
+                        <div class="form-group{{ $errors->has('numcurso') ? ' has-error' : '' }}">
+                        <label for="numcurso" class="col-md-2 control-label">Numero Curso:</label>
                             <div class="col-md-2">
-                            <input id="numcbomb" type="text" class="form-control" placeholder="Numero C. Bombero" name="numcbomb" maxlength="3" value="{{ old('numcbomb') }}" required autofocus>
-                                @if ($errors->has('numcbomb'))
+                            <input id="numcurso" type="text" class="form-control" placeholder="Numero Curso" name="numcurso" maxlength="3" value="{{ old('numcurso') }}" required autofocus>
+                                @if ($errors->has('numcurso'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('numcbomb') }}</strong>
+                                        <strong>{{ $errors->first('numcurso') }}</strong>
                                     </span>
                                 @endif
                             </div>
                         </div>
 
-                         <div class="form-group{{ $errors->has('nomcbombero') ? ' has-error' : '' }}">
-                        <label for="nomcbombero" class="col-md-2 control-label">Cuerpo Bombero:</label>
+                         <div class="form-group{{ $errors->has('nomcurso') ? ' has-error' : '' }}">
+                        <label for="nomcurso" class="col-md-2 control-label">Nombre Curso:</label>
                             <div class="col-md-6">
-                            <input id="nomcbombero" type="text" class="form-control" placeholder="Nombre de Cuerpo Bombero" name="nomcbombero" maxlength="100" value="{{ old('nomcbombero') }}" required autofocus>
-                                @if ($errors->has('nomcbombero'))
+                            <input id="nomcurso" type="text" class="form-control" placeholder="Nombre Curso" name="nomcurso" maxlength="100" value="{{ old('nomcurso') }}" required autofocus>
+                                @if ($errors->has('nomcurso'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('nomcbombero') }}</strong>
+                                        <strong>{{ $errors->first('nomcurso') }}</strong>
                                     </span>
                                 @endif
                             </div>

@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-
-<!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
+<div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <h1>
+    
+       <div class="hidden-xs hidden-sm">
+       <section class="content-header">
+        <h1>
         Administrador de Usuarios
         <small>Edicion de Usuario</small>
       </h1>
@@ -15,8 +15,26 @@
         <li><a href="/adminuser">Administrador de Usuarios</a></li>
         <li class="active">Edicion de Usuario</li>
       </ol>
-    </section>
-  
+      </section>
+      </div>
+      
+
+    
+    <div class="hidden-md hidden-lg">
+    <section class="content-header-small">
+        <h1>
+        Administrador de Usuarios
+        <small>Edicion de Usuario</small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="/home"><i class="fa fa-dashboard"></i> Tablero</a></li>
+        <li><a href="/adminuser">Administrador de Usuarios</a></li>
+        <li class="active">Edicion de Usuario</li>
+      </ol>
+      </div>
+
+
+
 
     <!-- Main content -->
     <section class="content">
@@ -67,7 +85,7 @@
                 <div class="col-md-6">
                 <select class="form-control" id="cargo" name="cargo" required>
                         @foreach ($cargos as $cargo)
-                    <option value="{{$cargo->numcargo}}">{{$cargo->cargo}}</option>
+                    <option value="{{$cargo->id}}">{{$cargo->cargo}}</option>
                     @endforeach
                 </select>
                     @if ($errors->has('cargo'))
@@ -82,6 +100,7 @@
             <label for="status" class="col-md-2 control-label">Estatus:</label>
                 <div class="col-md-6">
                 <select class="form-control" id="status" name="status" required>
+                        <option value="{{ $users->status }}">@if ($users->status==1) {{'Activo'}} @else {{'Bloqueado'}} @endif  </option>
                         <option value="1">Activo</option>
                         <option value="2">Bloqueado</option>
                 </select>
@@ -100,7 +119,7 @@
                 <div class="col-md-6">
                 <select class="form-control" id="cbombero" name="cbombero" required>
                     @foreach ($cbomberos as $cbombero)
-                    <option value="{{$cbombero->numcbomb}}">{{$cbombero->nomcbombero}}</option>
+                    <option value="{{$cbombero->id}}">{{$cbombero->nomcbombero}}</option>
                     @endforeach
                 </select>
                     @if ($errors->has('cbombero'))

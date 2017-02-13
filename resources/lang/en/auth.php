@@ -15,5 +15,6 @@ return [
 
     'failed' => 'Usuario y/o Clave incorrectos.',
     'throttle' => 'Por razones de seguridad el usuario ha sido bloqueado. Contacte al administrador.',
+     'nextlock' => 'Su usuario se encuentra Bloqueado. Contacte al administrador.',
 
 ];

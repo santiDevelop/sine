@@ -10,12 +10,14 @@
        <div class="hidden-xs hidden-sm">
        <section class="content-header">
        <h1>
-        Administración de usuarios
-        <small>Panel de Usuarios</small>
+        Administración de personal
+        <small>Panel para crear o editar personal</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="/home"><i class="fa fa-dashboard"></i> Tablero</a></li>
-        <li class="active">Administración de usuarios</li>
+        <li>Módulos</li>
+        <li>Gestión humana</li>
+        <li class="active">Administración de personal</li>
       </ol>
       </section>
       </div>
@@ -25,12 +27,14 @@
     <div class="hidden-md hidden-lg">
     <section class="content-header-small">
        <h1>
-        Administración de usuarios
-        <small>Panel de Usuarios</small>
+        Administración de personal
+        <small>Panel para crear o editar personal</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="/home"><i class="fa fa-dashboard"></i> Tablero</a></li>
-        <li class="active">Administración de usuarios</li>
+        <li>Módulos</li>
+        <li>Gestión humana</li>
+        <li class="active">Administración de personal</li>
       </ol>
       </div>
     <!-- Main content -->
@@ -45,22 +49,37 @@
             <div class="inner">
               <h3><i class="fa fa-user-plus"></i></h3>
 
-              <h4>Crear Usuario</h4>
+              <h4>Crear Personal</h4>
             </div>
             <div class="icon">
               <i class="fa fa-users"></i>
             </div>
-            <a href="/register" class="small-box-footer">Crear <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="/regbombero" class="small-box-footer">Crear <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
+        
 
+        <div class="col-xs-4 ">
+          <!-- small box -->
+          <div class="small-box bg-green">
+            <div class="inner">
+              <h3><i class="fa fa-user-plus"></i></h3>
+
+              <h4>Crear Cursos</h4>
+            </div>
+            <div class="icon">
+              <i class="ion ion-stats-bars"></i>
+            </div>
+            <a href="/regcurso" class="small-box-footer">Crear <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
 
     </div> <!-- fin row -->
 
 
     <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Lista de Usuarios</h3>
+              <h3 class="box-title">Lista de Personal</h3>
             </div>
             <!-- /.box-header -->
             <div class="table-responsive">
@@ -68,30 +87,34 @@
               <table id="example1" class="table table-bordered table-striped table-hover">
                 <thead>
                 <tr>
-                  <th>Usuario</th>
                   <th>Nombre</th>
-                  <th>Cedula</th>
-                  <th>Perfil de Usuario</th>
+                  <th>Apellido</th>
+                  <th>Cédula</th>
+                  <th>Estatus</th>
+                  
                   <th>Acción</th>
                 </tr>
                 </thead>
                 <tbody>
-                @foreach ($users as $user) 
+                @foreach($personals as $personal)
                 <tr>
-                  <td>{{$user->user}}</td>
-                  <td>{{$user->name}}</td>
-                  <td>{{$user->cedula}}</td>
-                  <td>@if($user->typeuser==1){{"Administrador"}}@else{{"Usuario"}} @endif</td>
-                  <td><a href="/editarusuario/{{$user->id}}" title="Editar Usuario"><i class="fa fa-pencil"></i></a> <a type="button" data-toggle="modal" data-target="#confirmar" title="Borrar Usuario"><i class="fa fa-trash"></i></a></td>
+                  <td>{{$personal->nombombero}}</td>
+                  <td>{{$personal->apebombero}}</td>
+                  <td>{{$personal->cedbombero}}</td>
+                  <td>@if($personal->status==1) {{" Activo"}}@endif</td>
+                  
+                  <td><a href="/editarpersonal/{{$personal->id}}" title="Editar Personal"><i class="fa fa-pencil"></i></a> <a type="button" data-toggle="modal" data-target="#confirmar" href="/borrarpersonal/{{$personal->id}}" title="Borrar Personal"><i class="fa fa-trash"></i></a></td>
                 </tr>
                 @endforeach
                 </tbody>
                 <tfoot>
                 <tr>
-                  <th>Usuario</th>
                   <th>Nombre</th>
-                  <th>Cedula</th>
-                  <th>Perfil de Usuario</th>
+                  <th>Apellido</th>
+                  <th>Cédula</th>
+                  <th>Estatus</th>
+                  
+                 
                   <th>Acción</th>
                 </tr>
                 </tfoot>
@@ -114,20 +137,16 @@
         <h4 class="modal-title" id="myModalLabel">Confirmación </h4>
       </div>
       <div class="modal-body">
-        <p>¿Está seguro de eliminar al usuario  <strong>"{{$user->user}}"</strong>?</p>
-        <small>De ser así se borrara para siempre a este usuario de la base de datos.</small>
+        <p>¿Está seguro de eliminar a la persona?</p>
+        <small>De ser así se borrara para siempre a esta persona de la base de datos.</small>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-        <a href="editarusuario/{{$user->id}}/eliminar" type="button" class="btn btn-primary">Si, Eliminar</a>
+        <button type="button" class="btn btn-primary">Si, Eliminar</button>
       </div>
     </div>
   </div>
 </div><!-- /.modal -->
-
-    </section>
-    <!-- /.content -->
-
 
     </section>
     <!-- /.content -->

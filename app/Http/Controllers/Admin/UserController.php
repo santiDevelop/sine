@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\hash;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\maestro_cargos;
@@ -11,7 +12,7 @@ use App\maestro_cuerpo_bomberos;
 use App\maestro_perfiles_cargos;
 use App\maestro_tipo_equipamiento;
 use App\User;
-
+use App\CrearEstaciones;
 class UserController extends Controller
 {
 
@@ -108,7 +109,7 @@ class UserController extends Controller
     {
          //reglas para validar el formulario y enviarlas al validador
       $rules=[
-      'numtipequip'=>'required|unique:maestro_tipo_equipamiento|digits_between:1,3',
+      'numtipequip'=>'required|unique:maestro_tipo_equipamientos|digits_between:1,3',
       'nomtipequip'=>'required|max:100' ];
 
         // MENSAJES PERSONALIZADOS PARA EL VALIDATOR
@@ -137,7 +138,7 @@ class UserController extends Controller
     {
         //reglas para validar el formulario y enviarlas al validador
       $rules=[
-      'numcatemerg'=>'required|unique:maestro_cat_emergencia|digits_between:1,3',
+      'numcatemerg'=>'required|unique:maestro_cat_emergencias|digits_between:1,3',
       'nomcatemerg'=>'required|max:100' ];
 
         // MENSAJES PERSONALIZADOS PARA EL VALIDATOR
@@ -205,7 +206,7 @@ class UserController extends Controller
       
       $rules=[
             'name' => 'required|max:255|string',
-            'cedula' => 'required|min:10|numeric',
+            'cedula' => 'required|min:10|integer',
             'cargo' => 'required|numeric|digits_between:1,3',
             'cbombero' => 'required|numeric|digits_between:1,3',
             'status' => 'required|numeric|max:2|in:1,2',   
@@ -226,4 +227,33 @@ class UserController extends Controller
         
       return back()->with('notification','Usuario Modificado Exitosamente');
     }
+     public function deleteUser($id)
+    {
+      $users=User::find($id);
+      $users->delete();
+      return back()->with('notification','El Usuario Ha sido Eliminado Correctamente');
+
+    }
+
+    public function getMestaciones()
+    {
+      $mcbomberos=maestro_cuerpo_bomberos::all();
+      return view('mestaciones')->with(compact('mcbomberos'));
+
+    }
+
+    public function postMestaciones(request $request)
+    { 
+      $estacion= new CrearEstaciones();
+      $estacion->numestacion=$request->input('numestacion');
+      $estacion->nomestacion=$request->input('nomestacion');
+      $estacion->mcbombero_id=$request->input('mcbombero_id');
+      $estacion->user_id=auth()->user()->id;
+      $estacion->save();
+      return back()->with('notification','La Estacion ha sido Creada Exitosamente');
+
+    }
+
+      
 }
+
