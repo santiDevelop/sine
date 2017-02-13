@@ -116,7 +116,7 @@
                       </div>
 
                       <div class="form-group{{ $errors->has('sexo') ? ' has-error' : '' }}">
-                        <label for="sexo" class="col-md-3 control-label">Sexo:</label>
+                        <label for="sexo" class="col-md-3 control-label">Genero:</label>
                         <div class="col-md-7">
                           <select class="form-control" id="sexo" name="sexo">
                             <option value="1">Masculino</option>
@@ -199,7 +199,7 @@
                           <label for="talla" class="col-md-3 control-label">Tallas:</label>
                           <div class="col-md-2">
                             <select class="form-control" id="tcamisa" name="tcamisa">
-                              <option value="0">Camisa</option>
+                              <option selected="Seleccione" value="0">Camisa</option>
                               <option value="1">XS</option>
                               <option value="2">S</option>
                               <option value="3">M</option>
@@ -210,7 +210,7 @@
                           </div>
                           <div class="col-md-2">
                             <select class="form-control" id="tpantalon" name="tpantalon">
-                              <option value="0">Pantalón</option>
+                              <option selected="Seleccione" value="0">Pantalón</option>
                               <option value="1">XS</option>
                               <option value="2">S</option>
                               <option value="3">M</option>
@@ -221,7 +221,7 @@
                           </div>
                           <div class="col-md-2">
                             <select class="form-control" id="tcalzado" name="tcalzado">
-                              <option value="0">Calzado</option>
+                              <option selected="Seleccione" value="0">Calzado</option>
                               <option value="1">4</option>
                               <option value="2">5</option>
                               <option value="3">6</option>
@@ -489,6 +489,10 @@ $(document).ready(function() {
     })
 });
 </script>
-
+<script type="text/javascript">
+$('select').click(function () {
+  $('option[selected="Seleccione"]', this).remove();
+});
+</script>
 @stop
 
