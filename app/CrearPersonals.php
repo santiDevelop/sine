@@ -9,7 +9,7 @@ class CrearPersonals extends Model
     public static $rules=[
         'nombombero'=>'required|max:100',
         'apebombero'=>'required|max:100',
-        'cedbombero'=>'required|unique:crear_personals',
+        'cedbombero'=>'required|unique:crear_personals|integer',
         'fnacimiento'=>'required|date',
         'lnacimiento'=>'required',
         'sexo'=>'required',
