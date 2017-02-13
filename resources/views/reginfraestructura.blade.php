@@ -45,31 +45,59 @@
       <!-- Your Page Content Here -->
     
       <div class="row container">
-            <form class="form-horizontal" role="form" method="POST" action="{{ url('/regcurso') }}">
-                                    {{ csrf_field() }}
+
+
+      <div class="row hidden-xs hidden-sm">
+        <div class="col-md-4">
+          <h3>Elemeto</h3>
+
+        </div>
+        <div class="col-md-2">
+          <h3>Cantidad</h3>
+        </div>
+        <div class="col-md-2">
+          <h3>Condición</h3>
+        </div>
+        <div class="col-md-4">
+          <h3>Observación</h3>
+        </div>
+      </div>
+
+      <div class="row hidden-md hidden-lg">
+        <div class="col-xs-3">
+          <p>Elemeto</p>
+
+        </div>
+        <div class="col-xs-3">
+          <p>Cantidad</p>
+        </div>
+        <div class="col-xs-3">
+          <p>Condición</p>
+        </div>
+        <div class="col-xs-3">
+          <p>Observación</p>
+        </div>
+      </div>
+
+
+
+
+
+            <form class="form-horizontal" role="form" method="POST" action="">
+                                    
                         <div class="form-group{{ $errors->has('numcurso') ? ' has-error' : '' }}">
                         <label for="numcurso" class="col-md-2 control-label">Numero Curso:</label>
                             <div class="col-md-2">
                             <input id="numcurso" type="text" class="form-control" placeholder="Numero Curso" name="numcurso" maxlength="3" value="{{ old('numcurso') }}" required autofocus>
-                                @if ($errors->has('numcurso'))
+                               
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('numcurso') }}</strong>
+                                        <strong>Error</strong>
                                     </span>
-                                @endif
+                             
                             </div>
                         </div>
 
-                         <div class="form-group{{ $errors->has('nomcurso') ? ' has-error' : '' }}">
-                        <label for="nomcurso" class="col-md-2 control-label">Nombre Curso:</label>
-                            <div class="col-md-6">
-                            <input id="nomcurso" type="text" class="form-control" placeholder="Nombre Curso" name="nomcurso" maxlength="100" value="{{ old('nomcurso') }}" required autofocus>
-                                @if ($errors->has('nomcurso'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('nomcurso') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
+                         
                          <div class="form-group">
                       <div class="col-md-6 col-md-offset-4">
                           <button type="submit" class="btn btn-primary">
