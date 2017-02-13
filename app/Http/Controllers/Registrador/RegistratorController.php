@@ -190,7 +190,7 @@ class RegistratorController extends Controller
 
         $cedula=$request->input('cedbombero');
         $encontrado=CrearPersonals::where('cedbombero',$cedula)->first();
-        
+        if(!empty($request->acurso)){
         foreach ($request->acurso as $key => $value) {
             /*echo $key.'soy key<br>';
             echo $value.'soy value<br>';*/
@@ -198,6 +198,7 @@ class RegistratorController extends Controller
             $cursos->id_bombero=$encontrado->id;
             $cursos->curso_id=$value;
             $cursos->save();
+        }
         }
          return back()->with('notification','Personal Editado Exitosamente');
         

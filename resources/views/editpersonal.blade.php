@@ -330,13 +330,8 @@
                                </tbody>
                              </table>
                                 <button class="btn-info">Agrega mas Cursos</button>
-                                <select class="form-control"  id="acurso" name="acurso[0]">
-                                  @foreach ($cursosAgregar as $cagregar)
                                 
-                                 
-                                   <option value="{{$cagregar->id}}">{{$cagregar->nomcurso}}</option>
-                                 @endforeach
-                                 </select>  
+                                
                             </div>
                             </div>
                               @if ($errors->has('cursos'))
