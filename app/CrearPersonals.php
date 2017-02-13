@@ -32,7 +32,7 @@ class CrearPersonals extends Model
         'proximoascenso'=>'required|date',
         'cbombero'=>'required',
         'estacion'=>'required',
-        'estatus'=>'required'
+        'estatus'=>'required',
                                 ];
 
         // MENSAJES PERSONALIZADOS PARA EL VALIDATOR

@@ -79,7 +79,7 @@
 
     <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Lista de Usuarios</h3>
+              <h3 class="box-title">Lista de Personal</h3>
             </div>
             <!-- /.box-header -->
             <div class="table-responsive">
@@ -87,60 +87,34 @@
               <table id="example1" class="table table-bordered table-striped table-hover">
                 <thead>
                 <tr>
-                  <th>Apellido</th>
                   <th>Nombre</th>
+                  <th>Apellido</th>
                   <th>Cédula</th>
-                  <th>Fecha de nacimiento</th>
-                  <th>Lugar de nacimiento</th>
-                  <th>Sexo</th>
-                  <th>Estado civil</th>
-                  <th>Número de hijos</th>
-                  <th>Teléfono</th>
-                  <th>Correo electrónico</th>
-                  <th>Dirección</th>
-                  <th>Camisa</th>
-                  <th>Pantalón</th>
-                  <th>Calzado</th>
+                  <th>Estatus</th>
+                  
                   <th>Acción</th>
                 </tr>
                 </thead>
                 <tbody>
-                
+                @foreach($personals as $personal)
                 <tr>
-                  <td>Ronaldo</td>
-                  <td>Cristiano</td>
-                  <td>c12345678</td>
-                  <td>05/02/1985</td>
-                  <td>Funchal,Madeira,Portugal</td>
-                  <td>Maculino</td>
-                  <td>Soltero</td>
-                  <td>1</td>
-                  <td>55555555</td>
-                  <td>cr7@halamdrid.com</td>
-                  <td>Casa 7 del fraccionamiento 7, Madrid, España</td>
-                  <td>M</td>
-                  <td>M</td>
-                  <td>7</td>
-                  <td><a href="#" title="Editar Usuario"><i class="fa fa-pencil"></i></a> <a type="button" data-toggle="modal" data-target="#confirmar" href="#" title="Borrar Usuario"><i class="fa fa-trash"></i></a></td>
+                  <td>{{$personal->nombombero}}</td>
+                  <td>{{$personal->apebombero}}</td>
+                  <td>{{$personal->cedbombero}}</td>
+                  <td>@if($personal->status==1) {{" Activo"}}@endif</td>
+                  
+                  <td><a href="/editarpersonal/{{$personal->id}}" title="Editar Personal"><i class="fa fa-pencil"></i></a> <a type="button" data-toggle="modal" data-target="#confirmar" href="/borrarpersonal/{{$personal->id}}" title="Borrar Personal"><i class="fa fa-trash"></i></a></td>
                 </tr>
-                
+                @endforeach
                 </tbody>
                 <tfoot>
                 <tr>
-                  <th>Apellido</th>
                   <th>Nombre</th>
+                  <th>Apellido</th>
                   <th>Cédula</th>
-                  <th>Fecha de nacimiento</th>
-                  <th>Lugar de nacimiento</th>
-                  <th>Sexo</th>
-                  <th>Estado civil</th>
-                  <th>Número de hijos</th>
-                  <th>Teléfono</th>
-                  <th>Correo electrónico</th>
-                  <th>Dirección</th>
-                  <th>Camisa</th>
-                  <th>Pantalón</th>
-                  <th>Calzado</th>
+                  <th>Estatus</th>
+                  
+                 
                   <th>Acción</th>
                 </tr>
                 </tfoot>
@@ -163,7 +137,7 @@
         <h4 class="modal-title" id="myModalLabel">Confirmación </h4>
       </div>
       <div class="modal-body">
-        <p>¿Está seguro de eliminar a la persona  “Aquí Nombre y Apellido”?</p>
+        <p>¿Está seguro de eliminar a la persona?</p>
         <small>De ser así se borrara para siempre a esta persona de la base de datos.</small>
       </div>
       <div class="modal-footer">

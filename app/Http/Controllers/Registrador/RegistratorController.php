@@ -15,6 +15,7 @@ use App\Registrador;
 use App\CrearPersonals;
 use App\CrearCursos;
 use App\CrearEstaciones;
+use App\CursosPersonal;
 class RegistratorController extends Controller
 {
     public function index()
@@ -32,8 +33,16 @@ class RegistratorController extends Controller
 
      public function postRegbombero(Request $request)
     {
-          dd($request->curso);
-      $this->validate($request,CrearPersonals::$rules,CrearPersonals::$messages);
+
+       /* $cuenta=0;
+        foreach ($request->curso as $key => $value) {
+            echo $key.'key <br>';
+            echo $value.'value <br>';
+            $cuenta=$cuenta+1;
+            echo $cuenta.'llevo la cuenta <br>';
+        }
+        exit();*/
+        $this->validate($request,CrearPersonals::$rules,CrearPersonals::$messages);
 
 
         $CrearPersonal= new CrearPersonals();
@@ -66,6 +75,19 @@ class RegistratorController extends Controller
         $CrearPersonal->user_id=auth()->user()->id;
         $CrearPersonal->save(); 
 
+
+        $cedula=$request->input('cedbombero');
+        $encontrado=CrearPersonals::where('cedbombero',$cedula)->first();
+        
+
+        foreach ($request->curso as $key => $value) {
+            /*echo $key.'soy key<br>';
+            echo $value.'soy value<br>';*/
+            $cursos= new CursosPersonal;
+            $cursos->id_bombero=$encontrado->id;
+            $cursos->curso_id=$value;
+            $cursos->save();
+        }
         return back()->with('notification','Personal Registrado Correctamente');
 
     }
@@ -81,7 +103,9 @@ class RegistratorController extends Controller
 
         public function getAdminpersonal()
     {
-        return view('adminpersonal');
+        $personals=CrearPersonals::all();
+        return view('adminpersonal')->with(compact('personals'));
+        
         
     }
        public function getRegCurso()
@@ -109,6 +133,15 @@ class RegistratorController extends Controller
         $curso->user_id=auth()->user()->id;
         $curso->save();
         return back()->with('notification','Curso Creado');
+        
+    }
+
+
+
+       public function editPer()
+    {
+        //vista para editar personal
+        return view('editpersonal');
         
     }
 }

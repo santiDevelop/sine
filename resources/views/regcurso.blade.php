@@ -46,7 +46,7 @@
                         <div class="form-group{{ $errors->has('numcurso') ? ' has-error' : '' }}">
                         <label for="numcurso" class="col-md-2 control-label">Numero Curso:</label>
                             <div class="col-md-2">
-                            <input id="numcurso" type="text" class="form-control" placeholder="Numero C. Bombero" name="numcurso" maxlength="3" value="{{ old('numcurso') }}" required autofocus>
+                            <input id="numcurso" type="text" class="form-control" placeholder="Numero Curso" name="numcurso" maxlength="3" value="{{ old('numcurso') }}" required autofocus>
                                 @if ($errors->has('numcurso'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('numcurso') }}</strong>
@@ -58,7 +58,7 @@
                          <div class="form-group{{ $errors->has('nomcurso') ? ' has-error' : '' }}">
                         <label for="nomcurso" class="col-md-2 control-label">Nombre Curso:</label>
                             <div class="col-md-6">
-                            <input id="nomcurso" type="text" class="form-control" placeholder="Nombre de Cuerpo Bombero" name="nomcurso" maxlength="100" value="{{ old('nomcurso') }}" required autofocus>
+                            <input id="nomcurso" type="text" class="form-control" placeholder="Nombre Curso" name="nomcurso" maxlength="100" value="{{ old('nomcurso') }}" required autofocus>
                                 @if ($errors->has('nomcurso'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('nomcurso') }}</strong>
