@@ -24,10 +24,12 @@ class RegistratorController extends Controller
     }
         public function getRegbombero()
     {
-      $estaciones=CrearEstaciones::all();
+      $estaciones=CrearEstaciones::where('mcbombero_id',auth()->user()->cbombero)->get();
+      //dd($estaciones);
+      //dd(auth()->user()->cbombero);
       $cursos=CrearCursos::all();
       $cargos=maestro_cargos::all();
-      $cbomberos=maestro_cuerpo_bomberos::all();
+      $cbomberos=maestro_cuerpo_bomberos::where('id',auth()->user()->cbombero)->get();;
       return view('regbombero')->with(compact('estaciones','cursos','cargos','cbomberos'));
     }
 
@@ -138,10 +140,67 @@ class RegistratorController extends Controller
 
 
 
-       public function editPer()
+       public function editPer($id)
     {
-        //vista para editar personal
-        return view('editpersonal');
+        $personals=CrearPersonals::find($id);
+        $cursos=CursosPersonal::join('crear_cursos','cursos_personals.curso_id','=','crear_cursos.id')->where('cursos_personals.id_bombero',$id)->get();
+        $cargos=maestro_cargos::all();
+        $cursosAgregar=CrearCursos::all();
+        $cbomberos=maestro_cuerpo_bomberos::all();
+        $estaciones=CrearEstaciones::all();
+        return view('editpersonal')->with(compact('personals','cursos','cargos','cbomberos','estaciones','cursosAgregar'));
+        
+        
+    }
+
+        public function updatePer(request $request,$id)
+    {
+        $this->validate($request,CrearPersonals::$reglas,CrearPersonals::$messages);
+
+        $updatePer= CrearPersonals::find($id);
+        
+        //$updatePer->cedbombero=$request->input('cedbombero');
+        $updatePer->nombombero=$request->input('nombombero');
+        $updatePer->apebombero=$request->input('apebombero');
+        $updatePer->fnacimiento=$request->input('fnacimiento');
+        $updatePer->lnacimiento=$request->input('lnacimiento');
+        $updatePer->sexo=$request->input('sexo');
+        $updatePer->ecivil=$request->input('ecivil');
+        $updatePer->nhijos=$request->input('nhijos');
+        $updatePer->telbombero=$request->input('telbombero');
+        $updatePer->correoelec=$request->input('correoelec');
+        $updatePer->dirbombero=$request->input('dirbombero');
+        $updatePer->tcamisa=$request->input('tcamisa');
+        $updatePer->tpantalon=$request->input('tpantalon');
+        $updatePer->tcalzado=$request->input('tcalzado');
+        $updatePer->profesion=$request->input('profesion');
+        $updatePer->nacademico=$request->input('nacademico');
+        $updatePer->ultitulo=$request->input('ultitulo');
+        $updatePer->egresado=$request->input('egresado');
+        //$updatePer->curso_id=$request->input('curso');
+        $updatePer->rango=$request->input('rango');
+        $updatePer->cargo_id=$request->input('cargo');
+        $updatePer->feingreso=$request->input('feingreso');
+        $updatePer->proximoascenso=$request->input('proximoascenso');
+        $updatePer->mcbombero_id=$request->input('cbombero');
+        $updatePer->estacion_id=$request->input('estacion');
+        $updatePer->status=$request->input('estatus');
+        $updatePer->user_id=auth()->user()->id;
+        $updatePer->save(); 
+
+        $cedula=$request->input('cedbombero');
+        $encontrado=CrearPersonals::where('cedbombero',$cedula)->first();
+        if(!empty($request->acurso)){
+        foreach ($request->acurso as $key => $value) {
+            /*echo $key.'soy key<br>';
+            echo $value.'soy value<br>';*/
+            $cursos= new CursosPersonal;
+            $cursos->id_bombero=$encontrado->id;
+            $cursos->curso_id=$value;
+            $cursos->save();
+        }
+        }
+         return back()->with('notification','Personal Editado Exitosamente');
         
     }
 
