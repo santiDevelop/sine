@@ -43,6 +43,7 @@ Route::group(['middleware'=>'admin','namespace'=>'Admin'],function(){
 	Route::post('/editarusuario/{id}', 'UserController@updateUser');
 	//Route::post('/editarusuario/{id}', 'UserController@updateUser');
 	Route::get('/editarusuario/{id}/eliminar', 'UserController@deleteUser');
+
 	
 
 });
@@ -59,6 +60,13 @@ Route::group(['middleware'=>'Registrador','namespace'=>'Registrador'],function()
 
 	Route::get('/editarpersonal/{id}', 'RegistratorController@editPer');
 	Route::post('/editarpersonal/{id}', 'RegistratorController@updatePer');
+	Route::get('/reginfraestructura', 'RegistratorController@getReginfraestructura');
+	Route::get('/regutilitario', 'RegistratorController@getRegutilitario');
+	Route::get('/regautomotor', 'RegistratorController@getRegautomotor');
+	Route::get('/regequipos', 'RegistratorController@getRegequipos');
+	Route::get('/reguniformes', 'RegistratorController@getReguniformes');
+	Route::get('/regmatofc', 'RegistratorController@getRegmatofc');
+	Route::get('/regcomunicaciones', 'RegistratorController@getRegcomunicaciones');
 
 });
 

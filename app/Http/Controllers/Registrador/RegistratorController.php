@@ -203,4 +203,48 @@ class RegistratorController extends Controller
          return back()->with('notification','Personal Editado Exitosamente');
         
     }
+
+        public function getReginfraestructura()
+    {
+        return view('reginfraestructura');
+        
+    }
+
+        public function getRegutilitario()
+    {
+        return view('regutilitario');
+        
+    }
+
+        public function getRegautomotor()
+    {
+        return view('regautomotor');
+        
+    }
+
+        public function getRegequipos()
+    {
+        return view('regequipos');
+        
+    }
+
+        public function getReguniformes()
+    {
+        return view('reguniformes');
+        
+    }
+
+        public function getRegmatofc()
+    {
+        return view('regmatofc');
+        
+    }
+
+        public function getRecomunicaciones()
+    {
+        return view('regcomunicaciones');
+        
+    }
+
+
 }
