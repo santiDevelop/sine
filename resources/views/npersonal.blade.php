@@ -42,13 +42,49 @@
       <!-- Your Page Content Here -->
    
       <div class="row container">
-            <form class="form-horizontal" role="form" method="POST" action="{{ url('/regbombero') }}">
+            <form class="form-horizontal" role="form" method="POST" action="">
                                     {{ csrf_field() }}
-               
+                <div class="form-group{{ $errors->has('cbombero') ? ' has-error' : '' }}">
+                          <label for="cbombero" class="col-md-2 control-label">Cuerpo de bombero:</label>
+                          <div class="col-md-6">
+                            <select  disabled class="form-control"  id="cbombero" name="cbombero">
+                            @foreach ($cbomberos as $cbombero)
+                              <option value="{{$cbombero->id}}"> {{$cbombero->nomcbombero}} </option>
+                              @endforeach
+                            </select>
+                              @if ($errors->has('cbombero'))
+                                <span class="help-block">
+                                  <strong>{{ $errors->first('cbombero') }}</strong>
+                                </span>
+                              @endif
+                          </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('estacion') ? ' has-error' : '' }}">
+                          <label for="estacion" class="col-md-2 control-label">Estación:</label>
+                          <div class="col-md-6">
+                            <select class="form-control"  id="estacion" name="estacion">
+                              @foreach ($estaciones as $estacion)
+                              <option value="{{$estacion->id}}">{{$estacion->nomestacion}}</option>
+                              @endforeach
+                            </select>
+                              @if ($errors->has('estacion'))
+                                <span class="help-block">
+                                  <strong>{{ $errors->first('estacion') }}</strong>
+                                </span>
+                              @endif
+                          </div>
+                        </div>
+
+
                         <div class="form-group{{ $errors->has('cvacante') ? ' has-error' : '' }}">
                         <label for="cvacante" class="col-md-2 control-label">Cargo vacante:</label>
-                        <div class="col-md-6">
-                          <input id="cvacante" type="text" class="form-control" placeholder="Cargo vacante" name="cvacante" maxlength="100" value="{{ old('cvacante') }}" required autofocus>
+                        <div class="col-md-3">
+                          <select class="form-control" name="cvacante" value="{{ old('cvacante') }} id="cvacante" autofocus>
+                          @foreach ($cargos as $cargo)
+                            <option value="{{$cargo->id}}">{{$cargo->cargo}}</option>
+                          @endforeach
+                          </select>
                             @if ($errors->has('cvacante'))
                               <span class="help-block">
                                 <strong>{{ $errors->first('cvacante') }}</strong>
@@ -57,13 +93,13 @@
                         </div>
                       </div>
 
-                      <div class="form-group{{ $errors->has('cvacantecant') ? ' has-error' : '' }}">
-                        <label for="cvacantecant" class="col-md-2 control-label">Cantidad:</label>
+                      <div class="form-group{{ $errors->has('cantidad') ? ' has-error' : '' }}">
+                        <label for="cantidad" class="col-md-2 control-label">Cantidad:</label>
                         <div class="col-md-2">
-                          <input id="cvacantecant" type="number" class="form-control" placeholder="1" name="cvacantecant" value="{{ old('cvacantecant') }}" required autofocus>
-                            @if ($errors->has('cvacantecant'))
+                          <input id="cantidad" maxlength="5" type="number" class="form-control" placeholder="0" name="cantidad" value="{{ old('cantidad') }}" required autofocus>
+                            @if ($errors->has('cantidad'))
                               <span class="help-block">
-                                <strong>{{ $errors->first('cvacantecant') }}</strong>
+                                <strong>{{ $errors->first('cantidad') }}</strong>
                               </span>
                             @endif
                         </div>
@@ -84,7 +120,7 @@
                       <div class="form-group{{ $errors->has('observaciones') ? ' has-error' : '' }}">
                         <label for="observaciones" class="col-md-2 control-label">Observaciones:</label>
                         <div class="col-md-6">
-                          <input id="observaciones" type="text" class="form-control" placeholder="Observaciones" name="observaciones" maxlength="250" value="{{ old('observaciones') }}" required autofocus>
+                          <textarea class="form-control" rows="3"  name="observaciones" maxlength="250"  required autofocus>{{ old('observaciones') }}</textarea>
                             @if ($errors->has('observaciones'))
                               <span class="help-block">
                                 <strong>{{ $errors->first('observaciones') }}</strong>
@@ -96,7 +132,7 @@
                       <div class="form-group{{ $errors->has('estatusolicitud') ? ' has-error' : '' }}">
                           <label for="estatusolicitud" class="col-md-2 control-label">Estatus:</label>
                           <div class="col-md-2">
-                            <select class="form-control" id="estatusolicitud">
+                            <select @if(auth()->user()->typeuser!='1') {{"disabled"}} @endif class="form-control" id="estatusolicitud" name="estatusolicitud">
                               <option value="1">Solicitud</option>
                               <option value="2">Visto</option>
                               <option value="3">Procesado</option>

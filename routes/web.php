@@ -55,6 +55,7 @@ Route::group(['middleware'=>'Registrador','namespace'=>'Registrador'],function()
 	Route::get('/regcurso', 'RegistratorController@getRegCurso');
 	Route::post('/regcurso', 'RegistratorController@postRegCurso');
 	Route::get('/npersonal', 'RegistratorController@getNpersonal');
+	Route::post('/npersonal', 'RegistratorController@postNpersonal');
 	Route::get('/ncapacitacion', 'RegistratorController@getNcapacitacion');
 	Route::get('/adminpersonal', 'RegistratorController@getAdminpersonal');
 
