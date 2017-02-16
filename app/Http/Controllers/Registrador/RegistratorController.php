@@ -17,6 +17,7 @@ use App\CrearCursos;
 use App\CrearEstaciones;
 use App\CursosPersonal;
 use App\necesidades_personal;
+use App\necesidades_capacitacion;
 class RegistratorController extends Controller
 {
     public function index()
@@ -131,8 +132,36 @@ class RegistratorController extends Controller
 
         public function getNcapacitacion()
     {
-        return view('ncapacitacion');
+        $cursos=CrearCursos::all();
+        $cargos=maestro_cargos::all();
+        $cbomberos=maestro_cuerpo_bomberos::where('id',auth()->user()->cbombero)->get();
+        $estaciones=CrearEstaciones::where('mcbombero_id',auth()->user()->cbombero)->get();
+        return view('ncapacitacion')->with(compact('cargos','cursos','cbomberos','estaciones'));
+
+        
     }
+
+     public function postNcapacitacion(request $request)
+    {
+        
+        $this->validate($request,necesidades_capacitacion::$rules,necesidades_capacitacion::$messages);
+
+        $ncapacitacion=new necesidades_capacitacion(); 
+        $ncapacitacion->cantidad=$request->input('cantparti');
+        $ncapacitacion->fesolicitud=$request->input('fesolicitud');
+        $ncapacitacion->observaciones=$request->input('observaciones');
+        
+        $ncapacitacion->user_id=auth()->user()->id;
+        $ncapacitacion->curso_id=$request->input('scurso');
+        $ncapacitacion->mcbombero_id=auth()->user()->cbombero;
+        $ncapacitacion->estacion_id=$request->input('estacion');
+        if(!empty($request->input('estatusolicitud'))){
+        $ncapacitacion->estatusolicitud=$request->input('estatusolicitud');
+        }
+        $ncapacitacion->save();
+        return back()->with('notification','Necesidad de Personal Creada.');
+    }
+
 
         public function getAdminpersonal()
     {
@@ -274,6 +303,12 @@ class RegistratorController extends Controller
         public function getRecomunicaciones()
     {
         return view('regcomunicaciones');
+        
+    }
+    
+       public function reportespersonal()
+    {
+        return view('reportespersonal');
         
     }
 
