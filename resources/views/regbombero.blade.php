@@ -312,13 +312,7 @@
                           <div class="col-md-6">
                           <div class="input_fields_wrap">
                             <button class="btn-info">Agrega mas Cursos</button>
-                             <select class="form-control"  id="curso" name="curso[0]">
-                                 @foreach ($cursos as $curso)
-                                
-                                 
-                                   <option value="{{$curso->id}}">{{$curso->nomcurso}}</option>
-                                 @endforeach
-                                 </select>
+                             
                             </div>
                             </div>
                               @if ($errors->has('cursos'))

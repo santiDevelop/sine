@@ -16,6 +16,8 @@ use App\CrearPersonals;
 use App\CrearCursos;
 use App\CrearEstaciones;
 use App\CursosPersonal;
+use App\necesidades_personal;
+use App\necesidades_capacitacion;
 class RegistratorController extends Controller
 {
     public function index()
@@ -94,14 +96,72 @@ class RegistratorController extends Controller
 
     }
 
-              public function getNpersonal()
+         public function getNpersonal()
     {
-        return view('npersonal');
+        
+       /* $cursos=CursosPersonal::join('crear_cursos','cursos_personals.curso_id','=','crear_cursos.id')->where('cursos_personals.id_bombero',$id)->get();*/
+        $cargos=maestro_cargos::all();
+        $cbomberos=maestro_cuerpo_bomberos::where('id',auth()->user()->cbombero)->get();
+        $estaciones=CrearEstaciones::where('mcbombero_id',auth()->user()->cbombero)->get();
+        return view('npersonal')->with(compact('cargos','cbomberos','estaciones'));
+
+       
     }
-                  public function getNcapacitacion()
+
+          public function postNpersonal(request $request)
     {
-        return view('ncapacitacion');
+        $this->validate($request,necesidades_personal::$rules,necesidades_personal::$messages);
+
+        $npersonal=new necesidades_personal(); 
+        $npersonal->cantidad=$request->input('cantidad');
+        $npersonal->fesolicitud=$request->input('fesolicitud');
+        $npersonal->observaciones=$request->input('observaciones');
+        
+        $npersonal->user_id=auth()->user()->id;
+        $npersonal->cargo_id=$request->input('cvacante');
+        $npersonal->mcbombero_id=auth()->user()->cbombero;
+        $npersonal->estacion_id=$request->input('estacion');
+        if(!empty($request->input('estatusolicitud'))){
+        $npersonal->estatusolicitud=$request->input('estatusolicitud');
+        }
+        $npersonal->save();
+        return back()->with('notification','Necesidad de Personal Creada.');
     }
+
+
+
+        public function getNcapacitacion()
+    {
+        $cursos=CrearCursos::all();
+        $cargos=maestro_cargos::all();
+        $cbomberos=maestro_cuerpo_bomberos::where('id',auth()->user()->cbombero)->get();
+        $estaciones=CrearEstaciones::where('mcbombero_id',auth()->user()->cbombero)->get();
+        return view('ncapacitacion')->with(compact('cargos','cursos','cbomberos','estaciones'));
+
+        
+    }
+
+     public function postNcapacitacion(request $request)
+    {
+        
+        $this->validate($request,necesidades_capacitacion::$rules,necesidades_capacitacion::$messages);
+
+        $ncapacitacion=new necesidades_capacitacion(); 
+        $ncapacitacion->cantidad=$request->input('cantparti');
+        $ncapacitacion->fesolicitud=$request->input('fesolicitud');
+        $ncapacitacion->observaciones=$request->input('observaciones');
+        
+        $ncapacitacion->user_id=auth()->user()->id;
+        $ncapacitacion->curso_id=$request->input('scurso');
+        $ncapacitacion->mcbombero_id=auth()->user()->cbombero;
+        $ncapacitacion->estacion_id=$request->input('estacion');
+        if(!empty($request->input('estatusolicitud'))){
+        $ncapacitacion->estatusolicitud=$request->input('estatusolicitud');
+        }
+        $ncapacitacion->save();
+        return back()->with('notification','Necesidad de Personal Creada.');
+    }
+
 
         public function getAdminpersonal()
     {
@@ -243,6 +303,12 @@ class RegistratorController extends Controller
         public function getRecomunicaciones()
     {
         return view('regcomunicaciones');
+        
+    }
+    
+       public function reportespersonal()
+    {
+        return view('reportespersonal');
         
     }
 

@@ -55,7 +55,11 @@ Route::group(['middleware'=>'Registrador','namespace'=>'Registrador'],function()
 	Route::get('/regcurso', 'RegistratorController@getRegCurso');
 	Route::post('/regcurso', 'RegistratorController@postRegCurso');
 	Route::get('/npersonal', 'RegistratorController@getNpersonal');
+	Route::post('/npersonal', 'RegistratorController@postNpersonal');
+
 	Route::get('/ncapacitacion', 'RegistratorController@getNcapacitacion');
+	Route::post('/ncapacitacion', 'RegistratorController@postNcapacitacion');
+
 	Route::get('/adminpersonal', 'RegistratorController@getAdminpersonal');
 
 	Route::get('/editarpersonal/{id}', 'RegistratorController@editPer');
@@ -67,7 +71,7 @@ Route::group(['middleware'=>'Registrador','namespace'=>'Registrador'],function()
 	Route::get('/reguniformes', 'RegistratorController@getReguniformes');
 	Route::get('/regmatofc', 'RegistratorController@getRegmatofc');
 	Route::get('/regcomunicaciones', 'RegistratorController@getRegcomunicaciones');
-
+	Route::get('/reportespersonal','RegistratorController@ReportesPersonal');
 });
 
 
