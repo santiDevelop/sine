@@ -9,6 +9,7 @@
   <!-- Font Awesome -->
   <link rel="stylesheet" href="/bootstrap/css/font-awesome.min.css">
   <!-- Theme style -->
+  <link rel="stylesheet" href="/plugins/datatables/dataTables.bootstrap.css">
   <link rel="stylesheet" href="/css/AdminLTE.css">
   <!-- iCheck -->
   <link rel="stylesheet" href="/plugins/iCheck/square/blue.css">
@@ -123,6 +124,7 @@
 <script src="/js/app.min.js"></script>
 <script src="/plugins/datatables/jquery.dataTables.js"></script>
 <script src="/plugins/datatables/dataTables.bootstrap.min.js"></script>
+
 <!-- SlimScroll -->
 <script src="/plugins/slimScroll/jquery.slimscroll.min.js"></script>
 <!-- FastClick -->

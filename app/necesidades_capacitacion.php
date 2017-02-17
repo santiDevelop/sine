@@ -12,7 +12,7 @@ class necesidades_capacitacion extends Model
 		'observaciones'=>'required|string',
 		'scurso'=>'required',
 		'estacion'=>'required',
-		'estatusolicitud'=>'required' 
+		
 		];
 
 
@@ -22,6 +22,6 @@ class necesidades_capacitacion extends Model
 		'observaciones.required'=>'El campo observaciones es requerido.',
 		'scurso.required'=>'El Curso es requerido.',
 		'estacion.required'=>'la Estacion es requerida.',
-		'estatusolicitud.required'=>'El estatus campo es requerido.'
+		
         ];
 }

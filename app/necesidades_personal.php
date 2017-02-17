@@ -15,7 +15,7 @@ class necesidades_personal extends Model
 		'observaciones'=>'required|string',
 		'cvacante'=>'required',
 		'estacion'=>'required',
-		'estatusolicitud'=>'required' 
+		 
 		];
 
 
@@ -25,7 +25,7 @@ class necesidades_personal extends Model
 		'observaciones.required'=>'El campo observaciones es requerido.',
 		'cvacante.required'=>'El cargo vacante es requerido.',
 		'estacion.required'=>'la Estacion es requerida.',
-		'estatusolicitud.required'=>'El estatus campo es requerido.'
+		
         ];
         
 }
