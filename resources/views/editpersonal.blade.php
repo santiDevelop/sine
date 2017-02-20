@@ -183,6 +183,23 @@
                         </div>
                       </div>
 
+                    <div class="form-group{{ $errors->has('estado') ? ' has-error' : '' }}">
+                          <label for="estado" class="col-md-3 control-label">Estado:</label>
+                          <div class="col-md-7">
+                            <select class="form-control" id="estado" name="estado">
+                            @foreach ($estados as $estado)
+                              <option value="{{$estado->id}}" @if($personals->estado==$estado->id) {{"selected"}} @endif>{{$estado->estado}}</option>
+
+                            @endforeach 
+                            </select>
+                              @if ($errors->has('estado'))
+                                <span class="help-block">
+                                  <strong>{{ $errors->first('estado') }}</strong>
+                                </span>
+                              @endif
+                          </div>
+                        </div>
+
                       <div class="form-group{{ $errors->has('dirbombero') ? ' has-error' : '' }}">
                         <label for="dirbombero" class="col-md-3 control-label">Dirección:</label>
                         <div class="col-md-7">

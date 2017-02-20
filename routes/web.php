@@ -72,6 +72,7 @@ Route::group(['middleware'=>'Registrador','namespace'=>'Registrador'],function()
 	Route::get('/regmatofc', 'RegistratorController@getRegmatofc');
 	Route::get('/regcomunicaciones', 'RegistratorController@getRegcomunicaciones');
 	Route::get('/reportespersonal','RegistratorController@ReportesPersonal');
+	Route::get('/reportespersonal/{id}','RegistratorController@ReportesPersonal');
 });
 
 

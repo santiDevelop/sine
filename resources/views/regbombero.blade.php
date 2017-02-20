@@ -149,8 +149,8 @@
 
                       <div class="form-group{{ $errors->has('nhijos') ? ' has-error' : '' }}">
                         <label for="nhijos" class="col-md-3 control-label">Número de hijos:</label>
-                        <div class="col-md-7">
-                          <input id="nhijos" type="number" maxlength="2" class="form-control" name="nhijos" value="{{ old('nhijos') }}" required autofocus>
+                        <div class="col-md-2">
+                          <input id="nhijos" type="number" placeholder="0" maxlength="2" class="form-control" name="nhijos" value="{{ old('nhijos') }}" required autofocus>
                             @if ($errors->has('nhijos'))
                               <span class="help-block">
                                 <strong>{{ $errors->first('nhijos') }}</strong>
@@ -182,6 +182,23 @@
                             @endif
                         </div>
                       </div>
+
+                       <div class="form-group{{ $errors->has('estado') ? ' has-error' : '' }}">
+                          <label for="estado" class="col-md-3 control-label">Estado:</label>
+                          <div class="col-md-7">
+                            <select class="form-control" id="estado" name="estado">
+                            @foreach ($estados as $estado)
+                              <option value="{{$estado->id}}">{{$estado->estado}}</option>
+                            @endforeach 
+                            </select>
+                              @if ($errors->has('estado'))
+                                <span class="help-block">
+                                  <strong>{{ $errors->first('estado') }}</strong>
+                                </span>
+                              @endif
+                          </div>
+                        </div>
+
 
                       <div class="form-group{{ $errors->has('dirbombero') ? ' has-error' : '' }}">
                         <label for="dirbombero" class="col-md-3 control-label">Dirección:</label>

@@ -23,6 +23,8 @@ class CreateCrearPersonalsTable extends Migration
             $table->smallInteger('sexo');
             $table->smallInteger('ecivil');
             $table->smallInteger('nhijos');
+            $table->integer('estado')->unsigned();
+            $table->foreign('estado')->references('id')->on('estados');
             $table->string('telbombero');
             $table->string('correoelec');
             $table->string('dirbombero');

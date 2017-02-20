@@ -59,6 +59,7 @@ class CrearPersonals extends Model
         'cbombero'=>'required',
         'estacion'=>'required',
         'estatus'=>'required',
+        'estado'=>'required',
                                 ];
         // MENSAJES PERSONALIZADOS PARA EL VALIDATOR
       public static  $messages=[
@@ -89,7 +90,8 @@ class CrearPersonals extends Model
         'proximoascenso.required'=>'La fecha de Proximo Ascenso es requerida.',
         'cbombero.required'=>'El cuerpo de bombero es requerido.',
         'estacion.required'=>'La estacion es requerida.',
-        'estatus.required'=>'El estatus es requerido'];
+        'estatus.required'=>'El estatus es requerido',
+        'estado.required'=>'El estado es requerido'];
 
 
 }

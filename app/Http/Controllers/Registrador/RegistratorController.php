@@ -18,6 +18,7 @@ use App\CrearEstaciones;
 use App\CursosPersonal;
 use App\necesidades_personal;
 use App\necesidades_capacitacion;
+use App\estados;
 class RegistratorController extends Controller
 {
     public function index()
@@ -26,13 +27,14 @@ class RegistratorController extends Controller
     }
         public function getRegbombero()
     {
+      $estados=estados::all();
       $estaciones=CrearEstaciones::where('mcbombero_id',auth()->user()->cbombero)->get();
       //dd($estaciones);
       //dd(auth()->user()->cbombero);
       $cursos=CrearCursos::all();
       $cargos=maestro_cargos::all();
       $cbomberos=maestro_cuerpo_bomberos::where('id',auth()->user()->cbombero)->get();;
-      return view('regbombero')->with(compact('estaciones','cursos','cargos','cbomberos'));
+      return view('regbombero')->with(compact('estaciones','cursos','cargos','cbomberos','estados'));
     }
 
      public function postRegbombero(Request $request)
@@ -56,6 +58,7 @@ class RegistratorController extends Controller
         $CrearPersonal->fnacimiento=$request->input('fnacimiento');
         $CrearPersonal->lnacimiento=$request->input('lnacimiento');
         $CrearPersonal->sexo=$request->input('sexo');
+        $CrearPersonal->estado=$request->input('estado');
         $CrearPersonal->ecivil=$request->input('ecivil');
         $CrearPersonal->nhijos=$request->input('nhijos');
         $CrearPersonal->telbombero=$request->input('telbombero');
@@ -203,12 +206,13 @@ class RegistratorController extends Controller
        public function editPer($id)
     {
         $personals=CrearPersonals::find($id);
+        $estados=estados::all();
         $cursos=CursosPersonal::join('crear_cursos','cursos_personals.curso_id','=','crear_cursos.id')->where('cursos_personals.id_bombero',$id)->get();
         $cargos=maestro_cargos::all();
         $cursosAgregar=CrearCursos::all();
         $cbomberos=maestro_cuerpo_bomberos::all();
         $estaciones=CrearEstaciones::all();
-        return view('editpersonal')->with(compact('personals','cursos','cargos','cbomberos','estaciones','cursosAgregar'));
+        return view('editpersonal')->with(compact('personals','cursos','cargos','cbomberos','estaciones','cursosAgregar','estados'));
         
         
     }
@@ -227,6 +231,7 @@ class RegistratorController extends Controller
         $updatePer->sexo=$request->input('sexo');
         $updatePer->ecivil=$request->input('ecivil');
         $updatePer->nhijos=$request->input('nhijos');
+        $updatePer->estado=$request->input('estado');
         $updatePer->telbombero=$request->input('telbombero');
         $updatePer->correoelec=$request->input('correoelec');
         $updatePer->dirbombero=$request->input('dirbombero');
@@ -308,7 +313,13 @@ class RegistratorController extends Controller
     
        public function reportespersonal()
     {
-        return view('reportespersonal');
+        
+        
+        $cargos=maestro_cargos::all();
+        $cursosAgregar=CrearCursos::all();
+        $cbomberos=maestro_cuerpo_bomberos::all();
+        $estaciones=CrearEstaciones::all();
+        return view('reportespersonal')->with(compact('cargos','cbomberos','estaciones','cursosAgregar'));
         
     }
 

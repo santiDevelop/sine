@@ -51,62 +51,48 @@
               <table class="table table-bordered">
                 <tr>
                   <th style="width: 10px">#</th>
-                  <th>Reporte</th>
+                  <th style="width: 150px">Reporte</th>
                   <th>Parametros</th>
                   <th style="width: 40px">Label</th>
                 </tr>
                 <tr>
                   <td>1.</td>
-                  <td>Update software</td>
+                  <td>Reporte Detallado Personal</td>
                   <td>
-                    <div class="progress progress-xs">
-                      <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
-                    </div>
+                  <div class="col-md-3"><p>Por Cuerpo de bombero: <select   class="form-control"  id="cbombero" name="cbombero">
+                            @foreach ($cbomberos as $cbombero)
+                              <option value="{{$cbombero->id}}"> {{$cbombero->nomcbombero}} </option>
+                              @endforeach
+                            </select></p> </div>
+                    <div class="col-md-3"> <p>Por Estacion:<select class="form-control"  id="estacion" name="estacion">
+                              @foreach ($estaciones as $estacion)
+                              <option value="{{$estacion->id}}">{{$estacion->nomestacion}}</option>
+                              @endforeach
+                            </select></p> </div>
                   </td>
-                  <td><span class="badge bg-red">55%</span></td>
+                  <td><button class="btn btn-default">Reportar</button></td>
                 </tr>
                 <tr>
                   <td>2.</td>
-                  <td>Clean database</td>
+                  <td>Reporte Consolidado</td>
                   <td>
-                    <div class="progress progress-xs">
-                      <div class="progress-bar progress-bar-yellow" style="width: 70%"></div>
-                    </div>
+                    
                   </td>
-                  <td><span class="badge bg-yellow">70%</span></td>
+                  <td><button class="btn btn-default">Reportar</button></td>
                 </tr>
                 <tr>
                   <td>3.</td>
                   <td>Cron job running</td>
                   <td>
-                    <div class="progress progress-xs progress-striped active">
-                      <div class="progress-bar progress-bar-primary" style="width: 30%"></div>
-                    </div>
+                    
                   </td>
-                  <td><span class="badge bg-light-blue">30%</span></td>
+                  <td><button class="btn btn-default">Reportar</button></td>
                 </tr>
-                <tr>
-                  <td>4.</td>
-                  <td>Fix and squish bugs</td>
-                  <td>
-                    <div class="progress progress-xs progress-striped active">
-                      <div class="progress-bar progress-bar-success" style="width: 90%"></div>
-                    </div>
-                  </td>
-                  <td><span class="badge bg-green">90%</span></td>
-                </tr>
+                
               </table>
             </div>
             <!-- /.box-body -->
-            <div class="box-footer clearfix">
-              <ul class="pagination pagination-sm no-margin pull-right">
-                <li><a href="#">&laquo;</a></li>
-                <li><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">&raquo;</a></li>
-              </ul>
-            </div>
+           
           </div>
       
 
