@@ -323,5 +323,8 @@ class RegistratorController extends Controller
         
     }
 
-
+   public function detpersonal(request $request)
+    {
+        dd($request);
+      }  
 }
