@@ -1,8 +1,8 @@
-@extends('layouts.app')
+@extends('layouts.app2')
 
 @section('content')
-
-div class="content-wrapper">
+ 
+<div class="content-wrapper">
     <!-- Content Header (Page header) -->
     
           
@@ -136,7 +136,6 @@ div class="content-wrapper">
                   <td><input id="cant-fuera-servicio-tinta" type="number" class="form-control" placeholder="Cantidad" name="cant-fuera-servicio-tinta" maxlength="1" value="" required autofocus></td>
                   <td> <input id="observacion-tinta" type="text" class="form-control" placeholder="Observacón" name="observacion-tinta" maxlength="250" value="" required autofocus></td>
                 </tr>
-
                 </tbody>
                
               </table>

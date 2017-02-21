@@ -305,7 +305,7 @@ class RegistratorController extends Controller
         
     }
 
-        public function getRecomunicaciones()
+        public function getRegcomunicaciones()
     {
         return view('regcomunicaciones');
         
