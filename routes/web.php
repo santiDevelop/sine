@@ -74,7 +74,21 @@ Route::group(['middleware'=>'Registrador','namespace'=>'Registrador'],function()
 	Route::get('/regmatofc', 'RegistratorController@getRegmatofc');
 	Route::get('/regcomunicaciones', 'RegistratorController@getRegcomunicaciones');
 	Route::get('/reportespersonal','RegistratorController@ReportesPersonal');
+
+	Route::get('/reportespersonal/{id}','RegistratorController@ReportesPersonal');
+
+	Route::get('/necinfraestructura', 'RegistratorController@getNecinfraestructura');
+	Route::get('/necutilitario', 'RegistratorController@getNecutilitario');
+	Route::get('/necautomotor', 'RegistratorController@getNecautomotor');
+	Route::get('/necequipos', 'RegistratorController@getNecequipos');
+	Route::get('/necuniformes', 'RegistratorController@getNecuniformes');
+	Route::get('/necmatofc', 'RegistratorController@getNecmatofc');
+	Route::get('/neccomunicaciones', 'RegistratorController@getNeccomunicaciones');
+
+	
+
 	Route::post('/reportespersonal','RegistratorController@detpersonal');
+
 });
 
 

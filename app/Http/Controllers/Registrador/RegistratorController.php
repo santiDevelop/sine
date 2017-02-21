@@ -323,8 +323,54 @@ class RegistratorController extends Controller
         
     }
 
+            public function getNecinfraestructura()
+    {
+        return view('necinfraestructura');
+        
+    }
+
+
+
+            public function getNecutilitario()
+    {
+        return view('necutilitario');
+        
+    }
+
+                public function getNecautomotor()
+    {
+        return view('necautomotor');
+        
+    }
+
+                    public function getNecequipos()
+    {
+        return view('necequipos');
+        
+    }
+
+                    public function getNecuniformes()
+    {
+        return view('necuniformes');
+        
+    }
+
+                    public function getNecmatofc()
+    {
+        return view('necmatofc');
+        
+    }
+
+                    public function getNeccomunicaciones()
+    {
+        return view('neccomunicaciones');
+        
+    }
+
+
    public function detpersonal(request $request)
     {
         dd($request);
       }  
+
 }
