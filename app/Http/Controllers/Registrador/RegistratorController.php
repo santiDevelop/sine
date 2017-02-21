@@ -325,6 +325,13 @@ class RegistratorController extends Controller
 
    public function detpersonal(request $request)
     {
-        dd($request);
+        $personals=CrearPersonals::all();
+        $cargos=maestro_cargos::all();
+        $estados=estados::all();
+        $cursos=CursosPersonal::join('crear_cursos','cursos_personals.curso_id','=','crear_cursos.id')->get();
+        $cbomberos=maestro_cuerpo_bomberos::all();
+        $estaciones=CrearEstaciones::all();
+        return view('detpersonal')->with(compact('cargos','personals','cbomberos','estaciones','cursos','estados'));
+
       }  
 }

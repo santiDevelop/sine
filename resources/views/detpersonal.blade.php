@@ -23,7 +23,7 @@
               <h3 class="box-title">Data Table With Full Features</h3>
             </div>
             <!-- /.box-header -->
-            <div class="box-body">
+            <div class="table-responsive">
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
@@ -32,7 +32,7 @@
                   <th>Apellido</th>
                   <th>Fecha Nacimiento</th>
                   <th>Lugar de nacimiento</th>
-                  <th>Sexo</th>
+                  <th>Genero</th>
                   <th>Estado Civil</th>
                   <th>Numero de hijos</th>
                   <th>Estado</th>
@@ -57,16 +57,37 @@
                 </tr>
                 </thead>
                 <tbody>
+                @foreach($personals as $personal)
                 <tr>
-                  <td>{{$personal->cedbombero}}</td>
+                
+                  <td>{{ number_format($personal->cedbombero,0,',','.') }}</td>
                   <td>{{$personal->nombombero}}</td>
                   <td>{{$personal->apebombero}}</td>
                   <td>{{$personal->fnacimiento}}</td>
                   <td>{{$personal->lnacimiento}}</td>
-                  <td>{{$personal->sexo}}</td>
-                  <td>{{$personal->ecivil}}</td>
+                  <td>@if($personal->sexo==1) {{'Masculino'}} @else {{'Femenino'}} @endif</td>
+                  <td> 
+                  @php
+                 switch($personal->ecivil){
+                  case 1:
+                  echo 'Soltero';
+                  break;
+                  case 2:
+                  echo 'Casado';
+                  break;
+                  case 3:
+                  echo 'Divorciado';
+                  break;
+                  case 4:
+                  echo 'Viudo';
+                  break;
+                  }
+                  @endphp
+                  </td>
                   <td>{{$personal->nhijos}}</td>
-                  <td>{{$estado->estado}}</td>
+                  
+                  <td>@foreach($estados as $estado)@if($personal->estado==$estado->id) {{$estado->estado}} @endif @endforeach</td>
+                  
                   <td>{{$personal->telbombero}}</td>
                   <td>{{$personal->correoelec}}</td>
                   <td>{{$personal->dirbombero}}</td>
@@ -76,48 +97,45 @@
                   <td>{{$personal->profesion}}</td>
                   <td>{{$personal->nacademico}}</td>
                   <td>{{$personal->ultitulo}}</td>
-                  <td>{{$cursos->curso}}</td>
+                  
+                  <td>@foreach ($cursos as $curso) @if($curso->id_bombero==$personal->id) <ul><li>{{$curso->nomcurso}}</li></ul> @endif @endforeach</td>
+                 
                   <td>{{$personal->egresado}}</td>
                   <td>{{$personal->rango}}</td>
-                  <td>{{$cargo->cargo}}</td>
+                  
+                  <td>@foreach($cargos as $cargo) @if($personal->cargo_id==$cargo->id) {{$cargo->cargo}} @endif @endforeach</td>
+                  
                   <td>{{$personal->feingreso}}</td>
                   <td>{{$personal->proximoascenso}}</td>
-                  <td>{{$cuerpo->nomcuerpo}}</td>
-                  <td>{{$estacion->estacion}}</td>
-                  <td>{{$personal->status}}</td>
+                  
+                  <td>@foreach($cbomberos as $cbombero) @if($cbombero->id==$personal->mcbombero_id) {{$cbombero->nomcbombero}} @endif  @endforeach</td>
+                 
+                  
+                  <td>@foreach($estaciones as $estacion) @if($estacion->id==$personal->estacion_id) {{$estacion->nomestacion}} @endif @endforeach</td>
+                  
+                  <td>
+                    @php
+                 switch($personal->status){
+                  case 1:
+                  echo 'Activo';
+                  break;
+                  case 2:
+                  echo 'Egresado';
+                  break;
+                  case 3:
+                  echo 'Suspendido';
+                  break;
+                  case 4:
+                  echo 'Vacaciones';
+                  break;
+                  }
+                  @endphp
+                  </td>
+                  
                 </tr>
+                @endforeach
                 </tbody>
-                <tfoot>
-                <tr>
-                   <th>Cedula</th>
-                  <th>Nombre</th>
-                  <th>Apellido</th>
-                  <th>Fecha Nacimiento</th>
-                  <th>Lugar de nacimiento</th>
-                  <th>Sexo</th>
-                  <th>Estado Civil</th>
-                  <th>Numero de hijos</th>
-                  <th>Estado</th>
-                  <th>Telefono</th>
-                  <th>Corre Electronico</th>
-                  <th>Direccion</th>
-                  <th>Talla camisa</th>
-                  <th>talla pantalon</th>
-                  <th>Talla Calzado</th>
-                  <th>Profesion</th>
-                  <th>Nivel Academico</th>
-                  <th>Ultimo titulo</th>
-                  <th>Cursos</th>
-                  <th>Egresado</th>
-                  <th>Rango</th>
-                  <th>Cargo</th>
-                  <th>Fecha Ingreso</th>
-                  <th>Proximo ascenso</th>
-                  <th>Cuerpo de bombero</th>
-                  <th>Estacion</th>
-                  <th>Estatus</th>
-                </tr>
-                </tfoot>
+              
               </table>
             </div>
             <!-- /.box-body -->

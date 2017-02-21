@@ -67,10 +67,17 @@
                               <option value="{{$cbombero->id}}"> {{$cbombero->nomcbombero}} </option>
                               @endforeach
                             </select></p> </div>
-                    <div class="col-md-4"> <p>Por Estacion:<select class="form-control"  id="estacion" name="estacion">
+                    <div class="col-md-3"> <p>Por Estacion:<select class="form-control"  id="estacion" name="estacion">
                               @foreach ($estaciones as $estacion)
                               <option value="{{$estacion->id}}">{{$estacion->nomestacion}}</option>
                               @endforeach
+                            </select></p> </div>
+                            <div class="col-md-2"> <p>Por Status: <select class="form-control"  id="estatus" name="estatus">
+                              <option value="1">Activo</option>
+                              <option value="2">Egresado</option>
+                              <option value="3">Suspendido</option>
+                              <option value="4">Vacaciones</option>
+                            </select>
                             </select></p> </div>
                   </td>
                   <td><button type="submit" class="btn btn-default">Reportar</button></td>

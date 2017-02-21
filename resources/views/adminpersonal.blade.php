@@ -100,8 +100,25 @@
                 <tr>
                   <td>{{$personal->nombombero}}</td>
                   <td>{{$personal->apebombero}}</td>
-                  <td>{{$personal->cedbombero}}</td>
-                  <td>@if($personal->status==1) {{" Activo"}}@endif</td>
+                  <td>{{ number_format($personal->cedbombero,0,',','.') }}</td>
+                   <td>
+                    @php
+                 switch($personal->status){
+                  case 1:
+                  echo 'Activo';
+                  break;
+                  case 2:
+                  echo 'Egresado';
+                  break;
+                  case 3:
+                  echo 'Suspendido';
+                  break;
+                  case 4:
+                  echo 'Vacaciones';
+                  break;
+                  }
+                  @endphp
+                  </td>
                   
                   <td><a href="/editarpersonal/{{$personal->id}}" title="Editar Personal"><i class="fa fa-pencil"></i></a> <a type="button" data-toggle="modal" data-target="#confirmar" href="/borrarpersonal/{{$personal->id}}" title="Borrar Personal"><i class="fa fa-trash"></i></a></td>
                 </tr>
