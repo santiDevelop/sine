@@ -81,7 +81,13 @@
 
                       <div class="form-group{{ $errors->has('cedbombero') ? ' has-error' : '' }}">
                         <label for="cedbombero" class="col-md-3 control-label">Cédula:</label>
-                        <div class="col-md-7">
+                        <div class="col-md-2">
+                          <select name="nacionalidad" id="nacionalidad" class="form-control">
+                            <option value="1">V</option>
+                            <option value="2">E</option>
+                          </select>
+                        </div>
+                        <div class="col-md-5">
                           <input id="cedbombero" type="text" class="form-control" placeholder="Cédula" name="cedbombero" maxlength="8" value="{{ old('cedbombero') }}" required autofocus>
                             @if ($errors->has('cedbombero'))
                               <span class="help-block">
