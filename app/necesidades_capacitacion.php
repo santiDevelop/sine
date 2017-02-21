@@ -4,24 +4,24 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class maestro_tipo_equipamiento extends Model
+class necesidades_capacitacion extends Model
 {
-     public static  $rules=[
-	 	'cantidad'=>'required|integer',
+    public static  $rules=[
+	 	'cantparti'=>'required|integer',
 		'fesolicitud'=>'required|date',
 		'observaciones'=>'required|string',
-		'cvacante'=>'required',
+		'scurso'=>'required',
 		'estacion'=>'required',
-		'estatusolicitud'=>'required' 
+		
 		];
 
 
     public static  $messages=[
-        'cantidad.required'=>'El campo cantidad es requerido.',
+        'cantparti.required'=>'El campo Cantidad es requerido.',
 		'fesolicitud.required'=>'El campo fecha de solicitud es requerido.',
 		'observaciones.required'=>'El campo observaciones es requerido.',
-		'cvacante.required'=>'El Curso vacante es requerido.',
+		'scurso.required'=>'El Curso es requerido.',
 		'estacion.required'=>'la Estacion es requerida.',
-		'estatusolicitud.required'=>'El estatus campo es requerido.'
+		
         ];
 }

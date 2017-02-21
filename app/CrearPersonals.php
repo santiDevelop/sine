@@ -34,7 +34,33 @@ class CrearPersonals extends Model
         'estacion'=>'required',
         'estatus'=>'required',
                                 ];
-
+        public static $reglas=[
+        'nombombero'=>'required|max:100',
+        'apebombero'=>'required|max:100',
+        'fnacimiento'=>'required|date',
+        'lnacimiento'=>'required',
+        'sexo'=>'required',
+        'ecivil'=>'required',
+        'nhijos'=>'required|digits_between:1,20',
+        'telbombero'=>'required',
+        'correoelec'=>'required|max:50',
+        'dirbombero'=>'required|max:250',
+        'tcamisa'=>'required',
+        'tpantalon'=>'required',
+        'tcalzado'=>'required',
+        'profesion'=>'required|max:50',
+        'nacademico'=>'required|max:50',
+        'ultitulo'=>'required|max:50',
+        'egresado'=>'required|max:100',
+        'rango'=>'required',
+        'cargo'=>'required',
+        'feingreso'=>'required|date',
+        'proximoascenso'=>'required|date',
+        'cbombero'=>'required',
+        'estacion'=>'required',
+        'estatus'=>'required',
+        'estado'=>'required',
+                                ];
         // MENSAJES PERSONALIZADOS PARA EL VALIDATOR
       public static  $messages=[
         'nombombero.required'=>'El Nombre es requerido.',
@@ -64,7 +90,8 @@ class CrearPersonals extends Model
         'proximoascenso.required'=>'La fecha de Proximo Ascenso es requerida.',
         'cbombero.required'=>'El cuerpo de bombero es requerido.',
         'estacion.required'=>'La estacion es requerida.',
-        'estatus.required'=>'El estatus es requerido'];
+        'estatus.required'=>'El estatus es requerido',
+        'estado.required'=>'El estado es requerido'];
 
 
 }

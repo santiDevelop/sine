@@ -43,6 +43,7 @@ Route::group(['middleware'=>'admin','namespace'=>'Admin'],function(){
 	Route::post('/editarusuario/{id}', 'UserController@updateUser');
 	//Route::post('/editarusuario/{id}', 'UserController@updateUser');
 	Route::get('/editarusuario/{id}/eliminar', 'UserController@deleteUser');
+
 	
 
 });
@@ -54,12 +55,24 @@ Route::group(['middleware'=>'Registrador','namespace'=>'Registrador'],function()
 	Route::get('/regcurso', 'RegistratorController@getRegCurso');
 	Route::post('/regcurso', 'RegistratorController@postRegCurso');
 	Route::get('/npersonal', 'RegistratorController@getNpersonal');
+	Route::post('/npersonal', 'RegistratorController@postNpersonal');
+
 	Route::get('/ncapacitacion', 'RegistratorController@getNcapacitacion');
+	Route::post('/ncapacitacion', 'RegistratorController@postNcapacitacion');
+
 	Route::get('/adminpersonal', 'RegistratorController@getAdminpersonal');
 
 	Route::get('/editarpersonal/{id}', 'RegistratorController@editPer');
 	Route::post('/editarpersonal/{id}', 'RegistratorController@updatePer');
-
+	Route::get('/reginfraestructura', 'RegistratorController@getReginfraestructura');
+	Route::get('/regutilitario', 'RegistratorController@getRegutilitario');
+	Route::get('/regautomotor', 'RegistratorController@getRegautomotor');
+	Route::get('/regequipos', 'RegistratorController@getRegequipos');
+	Route::get('/reguniformes', 'RegistratorController@getReguniformes');
+	Route::get('/regmatofc', 'RegistratorController@getRegmatofc');
+	Route::get('/regcomunicaciones', 'RegistratorController@getRegcomunicaciones');
+	Route::get('/reportespersonal','RegistratorController@ReportesPersonal');
+	Route::get('/reportespersonal/{id}','RegistratorController@ReportesPersonal');
 });
 
 
