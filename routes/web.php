@@ -22,6 +22,8 @@ Route::get('/home', 'HomeController@index');
 Route::get('/resetpw', 'HomeController@resetpw');
 Route::post('/resetpw', 'HomeController@cambiopw');
 
+
+
 Route::group(['middleware'=>'admin','namespace'=>'Admin'],function(){
 // Aqui van las rutas de las vistas para los que usaran los Administrador
 	Route::get('/mcargos', 'UserController@getMcargos');
@@ -72,6 +74,7 @@ Route::group(['middleware'=>'Registrador','namespace'=>'Registrador'],function()
 	Route::get('/regmatofc', 'RegistratorController@getRegmatofc');
 	Route::get('/regcomunicaciones', 'RegistratorController@getRegcomunicaciones');
 	Route::get('/reportespersonal','RegistratorController@ReportesPersonal');
+
 	Route::get('/reportespersonal/{id}','RegistratorController@ReportesPersonal');
 
 	Route::get('/necinfraestructura', 'RegistratorController@getNecinfraestructura');
@@ -83,6 +86,9 @@ Route::group(['middleware'=>'Registrador','namespace'=>'Registrador'],function()
 	Route::get('/neccomunicaciones', 'RegistratorController@getNeccomunicaciones');
 
 	
+
+	Route::post('/reportespersonal','RegistratorController@detpersonal');
+
 });
 
 

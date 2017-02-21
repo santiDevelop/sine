@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\user;
 use Illuminate\Support\Facades\hash;
+use PDF;
 class HomeController extends Controller
 {
     /**
@@ -26,6 +27,11 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+    
+
+
+
     public function resetpw()
     {
         return view('resetpw');

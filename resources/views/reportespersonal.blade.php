@@ -44,7 +44,7 @@
         <div class="col-md-12">
           <div class="box">
             <div class="box-header with-border">
-              <h3 class="box-title">Bordered Table</h3>
+              <h3 class="box-title">Reportes de Personal</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -53,8 +53,11 @@
                   <th style="width: 10px">#</th>
                   <th style="width: 150px">Reporte</th>
                   <th>Parametros</th>
-                  <th style="width: 40px">Label</th>
+                  <th style="width: 40px"></th>
                 </tr>
+
+                <form action="/reportespersonal" method="POST">
+                {{ csrf_field() }}
                 <tr>
                   <td>1.</td>
                   <td>Reporte Detallado Personal</td>
@@ -64,21 +67,24 @@
                               <option value="{{$cbombero->id}}"> {{$cbombero->nomcbombero}} </option>
                               @endforeach
                             </select></p> </div>
-                    <div class="col-md-3"> <p>Por Estacion:<select class="form-control"  id="estacion" name="estacion">
+                    <div class="col-md-4"> <p>Por Estacion:<select class="form-control"  id="estacion" name="estacion">
                               @foreach ($estaciones as $estacion)
                               <option value="{{$estacion->id}}">{{$estacion->nomestacion}}</option>
                               @endforeach
                             </select></p> </div>
                   </td>
-                  <td><button class="btn btn-default">Reportar</button></td>
+                  <td><button type="submit" class="btn btn-default">Reportar</button></td>
                 </tr>
+                  </form>
+
+
                 <tr>
                   <td>2.</td>
                   <td>Reporte Consolidado</td>
                   <td>
                     
                   </td>
-                  <td><button class="btn btn-default">Reportar</button></td>
+                  <td><button class="btn btn-default"><a href="/consolper">Reportar</a></button></td>
                 </tr>
                 <tr>
                   <td>3.</td>
