@@ -15,6 +15,7 @@ class CreateCrearPersonalsTable extends Migration
     {
         Schema::create('crear_personals', function (Blueprint $table) {
             $table->increments('id');
+            $table->smallInteger('nacionalidad')->default('1');
             $table->integer('cedbombero')->unique();
             $table->string('nombombero');
             $table->string('apebombero');

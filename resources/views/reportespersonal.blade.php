@@ -58,21 +58,25 @@
 
                 <form action="/reportespersonal" method="POST">
                 {{ csrf_field() }}
+                <input type="hidden" name="rep1" value="1">
                 <tr>
                   <td>1.</td>
                   <td>Reporte Detallado Personal</td>
                   <td>
                   <div class="col-md-3"><p>Por Cuerpo de bombero: <select   class="form-control"  id="cbombero" name="cbombero">
+                            <option value="0" selected >Todos</option>
                             @foreach ($cbomberos as $cbombero)
                               <option value="{{$cbombero->id}}"> {{$cbombero->nomcbombero}} </option>
                               @endforeach
                             </select></p> </div>
                     <div class="col-md-3"> <p>Por Estacion:<select class="form-control"  id="estacion" name="estacion">
+                               <option value="0" selected >Todos</option>
                               @foreach ($estaciones as $estacion)
                               <option value="{{$estacion->id}}">{{$estacion->nomestacion}}</option>
                               @endforeach
                             </select></p> </div>
                             <div class="col-md-2"> <p>Por Status: <select class="form-control"  id="estatus" name="estatus">
+                              <option value="0" selected >Todos</option>
                               <option value="1">Activo</option>
                               <option value="2">Egresado</option>
                               <option value="3">Suspendido</option>
@@ -84,24 +88,31 @@
                 </tr>
                   </form>
 
-
+                <form action="/reportespersonal" method="POST">
+                {{ csrf_field() }}
+                <input type="hidden" name="rep2" value="2">
                 <tr>
                   <td>2.</td>
                   <td>Reporte Consolidado</td>
                   <td>
                     
                   </td>
-                  <td><button class="btn btn-default"><a href="/consolper">Reportar</a></button></td>
+                  <td><button type="submit" class="btn btn-default">Reportar</button></td>
                 </tr>
+                </form>
+                
+                <form action="/reportespersonal" method="POST">
+                {{ csrf_field() }}
+                <input type="hidden" name="rep3" value="3">
                 <tr>
                   <td>3.</td>
                   <td>Cron job running</td>
                   <td>
                     
                   </td>
-                  <td><button class="btn btn-default">Reportar</button></td>
+                  <td><button type="submit" class="btn btn-default">Reportar</button></td>
                 </tr>
-                
+                </form>
               </table>
             </div>
             <!-- /.box-body -->
