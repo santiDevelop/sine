@@ -497,7 +497,7 @@
 
 @stop
 @section('personal_scripts')
-
+<script src="/js/ajax.js"></script>
 <script type="text/javascript">
 $('select').click(function () {
   $('option[selected="Seleccione"]', this).remove();

@@ -70,9 +70,9 @@
                               @endforeach
                             </select></p> </div>
                     <div class="col-md-3"> <p>Por Estacion:<select class="form-control"  id="estacion" name="estacion">
-                               <option value="0" selected >Todos</option>
+                            <option value="0" selected >Todos</option>
                               
-                            </select></p> </div>
+                          <!--  </select></p> </div>
                             <div class="col-md-2"> <p>Por Status: <select class="form-control"  id="estatus" name="estatus">
                               <option value="0" selected >Todos</option>
                               <option value="1">Activo</option>
@@ -80,7 +80,7 @@
                               <option value="3">Suspendido</option>
                               <option value="4">Vacaciones</option>
                             </select>
-                            </select></p> </div>
+                            </select></p> </div>-->
                   </td>
                   <td><button type="submit" class="btn btn-default">Reportar</button></td>
                 </tr>
@@ -128,27 +128,5 @@
 
 @endsection
 @section('personal_scripts')
-<script type="text/javascript">
-
-$('#cbombero').on('change',BuscarEstacion);
-
-
-function BuscarEstacion(){
-
-  var cbombero=$(this).val();
-  var html='<option value="0"> Todas </option>';
-  $.get('/api/reportespersonal/'+cbombero+'/estaciones',function(data){
-    for (var i = 0; i<data.length; ++i) {
-    html +='<option value="'+data[i].id+'">'+data[i].nomestacion+'</option>';
-      
-    }
-$('#estacion').html(html);
-
-
-  });
-
-
-}
-
-</script>
+<script src="/js/ajax.js"></script>
 @endsection

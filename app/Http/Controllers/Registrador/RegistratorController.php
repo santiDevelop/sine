@@ -381,13 +381,19 @@ class RegistratorController extends Controller
 
       if($request->rep1)
        {
+            if($request->estacion!=0){
+                $estacion="->where('estacion_id',$request->estacion)";
+            }
             $cargos=maestro_cargos::all();
             $estados=estados::all();
             $cbomberos=maestro_cuerpo_bomberos::all();
             $cursos=CursosPersonal::join('crear_cursos','cursos_personals.curso_id','=','crear_cursos.id')->get();
-            if($request->cbombero=='0' && $request->estacion=='0' && $request->estatus=='0'){
+            if($request->cbombero=='0' && $request->estacion=='0'){
             $personals=CrearPersonals::all();
-            } else {
+            } elseif ($request->cbomero!='0' && $request->estacion=='0') {
+            $personals=CrearPersonals::where('mcbombero_id',$request->cbombero)->get();
+
+                 } elseif ($request->cbomero!='0' && $request->estacion!='0') {
             $personals=CrearPersonals::where('mcbombero_id',$request->cbombero)->where('estacion_id',$request->estacion)->get();
 
                  }

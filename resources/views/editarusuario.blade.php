@@ -85,7 +85,7 @@
                 <div class="col-md-6">
                 <select class="form-control" id="cargo" name="cargo" required>
                         @foreach ($cargos as $cargo)
-                    <option value="{{$cargo->id}}">{{$cargo->cargo}}</option>
+                    <option @if($users->cargo==$cargo->id) {{'selected'}} @endif  value="{{$cargo->id}}">{{$cargo->cargo}}</option>
                     @endforeach
                 </select>
                     @if ($errors->has('cargo'))
@@ -100,9 +100,9 @@
             <label for="status" class="col-md-2 control-label">Estatus:</label>
                 <div class="col-md-6">
                 <select class="form-control" id="status" name="status" required>
-                        <option value="{{ $users->status }}">@if ($users->status==1) {{'Activo'}} @else {{'Bloqueado'}} @endif  </option>
-                        <option value="1">Activo</option>
-                        <option value="2">Bloqueado</option>
+                       
+                        <option @if ($users->status==1) {{'selected'}} @endif value="1">Activo</option>
+                        <option @if ($users->status==2) {{'selected'}} @endif value="2">Bloqueado</option>
                 </select>
                     @if ($errors->has('status'))
                     <span class="help-block">
@@ -119,7 +119,7 @@
                 <div class="col-md-6">
                 <select class="form-control" id="cbombero" name="cbombero" required>
                     @foreach ($cbomberos as $cbombero)
-                    <option value="{{$cbombero->id}}">{{$cbombero->nomcbombero}}</option>
+                    <option @if($users->cbombero==$cbombero->id) {{'selected'}} @endif value="{{$cbombero->id}}">{{$cbombero->nomcbombero}}</option>
                     @endforeach
                 </select>
                     @if ($errors->has('cbombero'))
