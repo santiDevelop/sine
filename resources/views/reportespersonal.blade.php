@@ -71,9 +71,7 @@
                             </select></p> </div>
                     <div class="col-md-3"> <p>Por Estacion:<select class="form-control"  id="estacion" name="estacion">
                                <option value="0" selected >Todos</option>
-                              @foreach ($estaciones as $estacion)
-                              <option value="{{$estacion->id}}">{{$estacion->nomestacion}}</option>
-                              @endforeach
+                              
                             </select></p> </div>
                             <div class="col-md-2"> <p>Por Status: <select class="form-control"  id="estatus" name="estatus">
                               <option value="0" selected >Todos</option>
@@ -130,5 +128,27 @@
 
 @endsection
 @section('personal_scripts')
+<script type="text/javascript">
 
+$('#cbombero').on('change',BuscarEstacion);
+
+
+function BuscarEstacion(){
+
+  var cbombero=$(this).val();
+  var html='<option value="0"> Todas </option>';
+  $.get('/api/reportespersonal/'+cbombero+'/estaciones',function(data){
+    for (var i = 0; i<data.length; ++i) {
+    html +='<option value="'+data[i].id+'">'+data[i].nomestacion+'</option>';
+      
+    }
+$('#estacion').html(html);
+
+
+  });
+
+
+}
+
+</script>
 @endsection

@@ -52,6 +52,7 @@ class RegistratorController extends Controller
 
 
         $CrearPersonal= new CrearPersonals();
+        $CrearPersonal->nacionalidad=$request->input('nacionalidad');
         $CrearPersonal->cedbombero=$request->input('cedbombero');
         $CrearPersonal->nombombero=$request->input('nombombero');
         $CrearPersonal->apebombero=$request->input('apebombero');
@@ -175,7 +176,9 @@ class RegistratorController extends Controller
     }
        public function getRegCurso()
     {
-        return view('regcurso');
+        $ultimo=CrearCursos::orderby('id','desc')->first();
+        $numero=($ultimo->id)+1;
+        return view('regcurso')->with(compact('numero'));
         
     }
        public function postRegCurso(request $request)
@@ -366,7 +369,12 @@ class RegistratorController extends Controller
         return view('neccomunicaciones');
         
     }
+    
 
+    public function BuscarEstacion($id)
+    {
+      return CrearEstaciones::where('mcbombero_id',$id)->get();
+    }
 
    public function detpersonal(request $request)
     {
@@ -389,34 +397,12 @@ class RegistratorController extends Controller
 
         if($request->rep2)
        {
-            $cargos=maestro_cargos::all();
-            $estados=estados::all();
-            $cbomberos=maestro_cuerpo_bomberos::all();
-            $cursos=CursosPersonal::join('crear_cursos','cursos_personals.curso_id','=','crear_cursos.id')->get();
-            if($request->cbombero=='0' && $request->estacion=='0' && $request->estatus=='0'){
-            $personals=CrearPersonals::all();
-            } else {
-            $personals=CrearPersonals::where('mcbombero_id',$request->cbombero)->where('estacion_id',$request->estacion)->get();
-
-                 }
-            $estaciones=CrearEstaciones::all();
-            return view('detpersonal')->with(compact('cargos','personals','cbomberos','estaciones','cursos','estados'));
+          //tipo reporte 2
         }
 
         if($request->rep3)
        {
-            $cargos=maestro_cargos::all();
-            $estados=estados::all();
-            $cbomberos=maestro_cuerpo_bomberos::all();
-            $cursos=CursosPersonal::join('crear_cursos','cursos_personals.curso_id','=','crear_cursos.id')->get();
-            if($request->cbombero=='0' && $request->estacion=='0' && $request->estatus=='0'){
-            $personals=CrearPersonals::all();
-            } else {
-            $personals=CrearPersonals::where('mcbombero_id',$request->cbombero)->where('estacion_id',$request->estacion)->get();
-
-                 }
-            $estaciones=CrearEstaciones::all();
-            return view('detpersonal')->with(compact('cargos','personals','cbomberos','estaciones','cursos','estados'));
+           //tipo reporte 3
         }
 
       }  
