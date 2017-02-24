@@ -25,7 +25,7 @@ class CrearPersonals extends Model
         'nacademico'=>'required|max:50',
         'ultitulo'=>'required|max:50',
         'egresado'=>'required|max:100',
-        'curso'=>'required',
+        'curso'=>'sometimes',
         'rango'=>'required',
         'cargo'=>'required',
         'feingreso'=>'required|date',

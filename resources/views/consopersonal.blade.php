@@ -17,23 +17,213 @@
   <link href="/css/skins/skin-blue.css" rel="stylesheet">
 
   <body >
-   <div class="wrapper">
-    <div class="col-md-4">
-      <!-- DONUT CHART -->
-      <div class="box box-danger">
-        <div class="box-header with-border">
-          <h3 class="box-title">Rango</h3>
-            <div class="box-tools pull-right">
-              <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-            </div>
+   <div class="row">
+
+<div class="col-md-4">
+  <div class="box box-danger">
+    <div class="box-header with-border">
+      <h3 class="box-title">Talla Calzado</h3>
+        <div class="box-tools pull-right">
+          <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
         </div>
-        <div class="box-body">
-          <div>Cadete <span class="pull-right-container">
-            <small class="label pull-right bg-blue">10</small></span></div>
-        </div><!-- /.box-body -->
-      </div><!-- /.box -->
     </div>
+    <div class="box-body">
+    @foreach($tcalzado as $calzado)
+      <div>{{$calzado->tcalzado}} <span class="pull-right-container">
+        <small class="label pull-right bg-blue">{{$calzado->Suma}}</small></span></div>
+      @endforeach
+    </div><!-- /.box-body -->
+  </div><!-- /.box -->
+</div>
+
+<div class="col-md-4">
+      <!-- DONUT CHART -->
+  <div class="box box-danger">
+    <div class="box-header with-border">
+      <h3 class="box-title">Talla Pantalón</h3>
+        <div class="box-tools pull-right">
+          <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+        </div>
     </div>
+    <div class="box-body">
+        @foreach($tpantalon as $pantalon)
+      <div>{{$pantalon->tpantalon}} <span class="pull-right-container">
+        <small class="label pull-right bg-blue">{{$pantalon->Suma}}</small></span></div>
+      @endforeach
+    </div><!-- /.box-body -->
+  </div><!-- /.box -->
+</div>
+
+<div class="col-md-4">
+  <div class="box box-danger">
+    <div class="box-header with-border">
+      <h3 class="box-title">Talla Camisa</h3>
+        <div class="box-tools pull-right">
+          <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+        </div>
+    </div>
+    <div class="box-body">
+      @foreach($tcamisa as $camisa)
+      <div>{{$camisa->tcamisa}} <span class="pull-right-container">
+        <small class="label pull-right bg-blue">{{$camisa->Suma}}</small></span></div>
+      @endforeach
+    </div><!-- /.box-body -->
+  </div><!-- /.box -->
+</div>
+</div>
+
+<div class="row">
+
+<div class="col-md-4">
+  <div class="box box-danger">
+    <div class="box-header with-border">
+      <h3 class="box-title">Profesión</h3>
+        <div class="box-tools pull-right">
+          <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+        </div>
+    </div>
+    <div class="box-body">
+      @foreach($profesiones as $profesion)
+      <div>{{$profesion->profesion}} <span class="pull-right-container">
+        <small class="label pull-right bg-blue">{{$profesion->Suma}}</small></span></div>
+      @endforeach
+    </div><!-- /.box-body -->
+  </div><!-- /.box -->
+</div>
+
+<div class="col-md-4">
+  <div class="box box-danger">
+    <div class="box-header with-border">
+      <h3 class="box-title">Nivel Académico</h3>
+        <div class="box-tools pull-right">
+          <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+        </div>
+    </div>
+    <div class="box-body">
+     @foreach($nacademico as $academico)
+      <div>{{$academico->nacademico}} <span class="pull-right-container">
+        <small class="label pull-right bg-blue">{{$academico->Suma}}</small></span></div>
+      @endforeach
+     
+    </div><!-- /.box-body -->
+  </div><!-- /.box -->
+</div>
+
+<div class="col-md-4">
+  <div class="box box-danger">
+    <div class="box-header with-border">
+      <h3 class="box-title">Rango</h3>
+        <div class="box-tools pull-right">
+          <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+        </div>
+    </div>
+    <div class="box-body">
+       @foreach($rangos as $rango)
+      <div>{{$rango->rango}} <span class="pull-right-container">
+        <small class="label pull-right bg-blue">{{$rango->Suma}}</small></span></div>
+      @endforeach
+    </div><!-- /.box-body -->
+  </div><!-- /.box -->
+</div>
+</div>
+
+<div class="row">
+
+<div class="col-md-4">
+  <div class="box box-danger">
+    <div class="box-header with-border">
+      <h3 class="box-title">Cargo</h3>
+        <div class="box-tools pull-right">
+          <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+        </div>
+    </div>
+    <div class="box-body">
+      <div>General <span class="pull-right-container">
+        <small class="label pull-right bg-blue">25</small></span></div>
+      <div>Coronel <span class="pull-right-container">
+        <small class="label pull-right bg-blue">17</small></span></div>
+      <div>Teniente Coronel <span class="pull-right-container">
+        <small class="label pull-right bg-blue">17</small></span></div>
+      <div>Mayor <span class="pull-right-container">
+        <small class="label pull-right bg-blue">17</small></span></div>
+      <div>Capitán <span class="pull-right-container">
+        <small class="label pull-right bg-blue">17</small></span></div>
+        <div>1er Teniente <span class="pull-right-container">
+        <small class="label pull-right bg-blue">25</small></span></div>
+      <div>Teniente  <span class="pull-right-container">
+        <small class="label pull-right bg-blue">17</small></span></div>
+      <div>Sargento Mayor <span class="pull-right-container">
+        <small class="label pull-right bg-blue">17</small></span></div>
+      <div>Sargento Primero <span class="pull-right-container">
+        <small class="label pull-right bg-blue">17</small></span></div>
+      <div>Sargento Segundo <span class="pull-right-container">
+        <small class="label pull-right bg-blue">17</small></span></div>
+      <div>Cabo Primero <span class="pull-right-container">
+        <small class="label pull-right bg-blue">25</small></span></div>
+      <div>Cabo Segundo <span class="pull-right-container">
+        <small class="label pull-right bg-blue">17</small></span></div>
+      <div>Distinguido <span class="pull-right-container">
+        <small class="label pull-right bg-blue">17</small></span></div>
+      <div>Bombero Raso<span class="pull-right-container">
+        <small class="label pull-right bg-blue">17</small></span></div>
+    </div><!-- /.box-body -->
+  </div><!-- /.box -->
+</div>
+
+<div class="col-md-4">
+  <div class="box box-danger">
+    <div class="box-header with-border">
+      <h3 class="box-title">Estado</h3>
+        <div class="box-tools pull-right">
+          <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+        </div>
+    </div>
+    <div class="box-body">
+      <div>Aragua <span class="pull-right-container">
+        <small class="label pull-right bg-blue">10</small></span></div>
+     
+    </div><!-- /.box-body -->
+  </div><!-- /.box -->
+</div>
+
+<div class="col-md-4">
+  <div class="box box-danger">
+    <div class="box-header with-border">
+      <h3 class="box-title">Sexo</h3>
+        <div class="box-tools pull-right">
+          <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+        </div>
+    </div>
+    <div class="box-body">
+      <div>Masculino <span class="pull-right-container">
+        <small class="label pull-right bg-blue">10</small></span></div>
+      <div>Femenino <span class="pull-right-container">
+        <small class="label pull-right bg-blue">25</small></span></div>
+    </div><!-- /.box-body -->
+  </div><!-- /.box -->
+</div>
+
+<div class="col-md-4">
+  <div class="box box-danger">
+    <div class="box-header with-border">
+      <h3 class="box-title">Estado civil</h3>
+        <div class="box-tools pull-right">
+          <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+        </div>
+    </div>
+    <div class="box-body">
+      <div>Soltero <span class="pull-right-container">
+        <small class="label pull-right bg-blue">10</small></span></div>
+      <div>Casado <span class="pull-right-container">
+        <small class="label pull-right bg-blue">25</small></span></div>
+      <div>Divorciado <span class="pull-right-container">
+        <small class="label pull-right bg-blue">25</small></span></div>
+      <div>Viudo <span class="pull-right-container">
+        <small class="label pull-right bg-blue">25</small></span></div>
+    </div><!-- /.box-body -->
+  </div><!-- /.box -->
+</div>
+</div>
              
 
 

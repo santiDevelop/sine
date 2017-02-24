@@ -91,7 +91,7 @@ class RegistratorController extends Controller
         $cedula=$request->input('cedbombero');
         $encontrado=CrearPersonals::where('cedbombero',$cedula)->first();
         
-
+        if(isset($request->curso)){
         foreach ($request->curso as $key => $value) {
             /*echo $key.'soy key<br>';
             echo $value.'soy value<br>';*/
@@ -99,6 +99,7 @@ class RegistratorController extends Controller
             $cursos->id_bombero=$encontrado->id;
             $cursos->curso_id=$value;
             $cursos->save();
+        }
         }
         return back()->with('notification','Personal Registrado Correctamente');
 
@@ -251,7 +252,7 @@ class RegistratorController extends Controller
         $updatePer->ultitulo=$request->input('ultitulo');
         $updatePer->egresado=$request->input('egresado');
         //$updatePer->curso_id=$request->input('curso');
-        $updatePer->rango=$request->input('rango');
+        $updatePer->rango_id=$request->input('rango');
         $updatePer->cargo_id=$request->input('cargo');
         $updatePer->feingreso=$request->input('feingreso');
         $updatePer->proximoascenso=$request->input('proximoascenso');
@@ -411,16 +412,17 @@ class RegistratorController extends Controller
         if($request->rep2)
        {
             $generos=DB::table('crear_personals')->select(array('sexo', DB::raw('COUNT(sexo) as genero')))->groupby('sexo')->get();
-            $rangos=DB::table('crear_personals')->select(array('rango', DB::raw('COUNT(rango) as Suma')))->groupby('rango')->get();
+            $rangos=DB::table('crear_personals')->select(array('rango_id','rangos.rango', DB::raw('COUNT(rango_id) as Suma')))->join('rangos','crear_personals.rango_id','=','rangos.id')->groupby('rango_id')->get();
             $tcamisa=DB::table('crear_personals')->select(array('tcamisa', DB::raw('COUNT(tcamisa) as Suma')))->groupby('tcamisa')->get();
             $tpantalon=DB::table('crear_personals')->select(array('tpantalon', DB::raw('COUNT(tpantalon) as Suma')))->groupby('tpantalon')->get();
             $tcalzado=DB::table('crear_personals')->select(array('tcalzado', DB::raw('COUNT(tcalzado) as Suma')))->groupby('tcalzado')->get();
-            $profesion=DB::table('crear_personals')->select(array('profesion', DB::raw('COUNT(profesion) as Suma')))->groupby('profesion')->get();
-            $cargo=DB::table('crear_personals')->select('cargo_id','maestro_cargos.cargo', DB::raw('COUNT(cargo_id) as Suma'))->join('maestro_cargos','crear_personals.cargo_id','=','maestro_cargos.id')->groupby('cargo_id')->get();
-            dd($cargo);
+            $profesiones=DB::table('crear_personals')->select(array('profesion', DB::raw('COUNT(profesion) as Suma')))->groupby('profesion')->get();
+            $cargos=DB::table('crear_personals')->select('cargo_id','maestro_cargos.cargo', DB::raw('COUNT(cargo_id) as Suma'))->join('maestro_cargos','crear_personals.cargo_id','=','maestro_cargos.id')->groupby('cargo_id')->get();
+           // dd($profesiones);
             $estatus=DB::table('crear_personals')->select(array('status', DB::raw('COUNT(status) as Suma')))->groupby('status')->get();
+            $nacademico=DB::table('crear_personals')->select(array('nacademico', DB::raw('COUNT(nacademico) as Suma')))->groupby('nacademico')->get();
             //dd($genero,$rango);
-            return view('consopersonal')->with(compact('generos','rangos'));
+            return view('consopersonal')->with(compact('generos','rangos','tcamisa','tpantalon','tcalzado','profesiones','cargos','estatus','nacademico'));
             /* $cursos=CursosPersonal::join('crear_cursos','cursos_personals.curso_id','=','crear_cursos.id')->where('cursos_personals.id_bombero',$id)->get();*/
 
           /*$pdf =PDF::loadView('detpersonal',compact('cargos','personals','cbomberos','estaciones','cursos','estados'));
