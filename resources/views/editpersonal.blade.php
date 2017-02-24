@@ -368,10 +368,9 @@
                           <label for="rango" class="col-md-3 control-label">Rango:</label>
                           <div class="col-md-6">
                             <select class="form-control"  id="rango" name="rango">
-                              <option @if($personals->rango==1) {{"selected"}} @endif  value="1">Cadete </option>
-                              <option @if($personals->rango==2) {{"selected"}} @endif value="2">Bombero</option>
-                              <option @if($personals->rango==3) {{"selected"}} @endif value="3">Marino</option>
-                              <option @if($personals->rango==4) {{"selected"}} @endif value="4">Administrativo</option>
+                              @foreach ($rangos as $rango)
+                              <option @if($personals->rango_id==$rango->id) {{'selected'}} @endif value="{{$rango->id}}">{{$rango->rango}}</option>
+                            @endforeach 
                             </select>
                               @if ($errors->has('rango'))
                                 <span class="help-block">
@@ -386,7 +385,7 @@
                           <div class="col-md-6">
                             <select class="form-control"  id="cargo" name="cargo">
                               @foreach ($cargos as $cargo)
-                              <option value="{{$cargo->id}}"> {{$cargo->cargo}} </option>
+                              <option @if($personals->cargo_id==$cargo->id) {{'selected'}} @endif value="{{$cargo->id}}"> {{$cargo->cargo}} </option>
                               @endforeach
                             </select>
                               @if ($errors->has('cargo'))

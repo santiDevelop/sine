@@ -36,7 +36,8 @@ class CreateCrearPersonalsTable extends Migration
             $table->smallInteger('nacademico');
             $table->smallInteger('ultitulo');
             $table->string('egresado');
-            $table->smallInteger('rango');
+            $table->integer('rango_id')->unsigned();
+            $table->foreign('rango_id')->references('id')->on('rangos');
             $table->integer('cargo_id')->unsigned();
             $table->foreign('cargo_id')->references('id')->on('maestro_cargos');
             $table->date('feingreso');  

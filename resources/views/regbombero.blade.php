@@ -355,10 +355,10 @@
                           <label for="rango" class="col-md-3 control-label">Rango:</label>
                           <div class="col-md-6">
                             <select class="form-control"  id="rango" name="rango">
-                              <option value="1">Cadete </option>
-                              <option value="2">Bombero</option>
-                              <option value="3">Marino</option>
-                              <option value="4">Administrativo</option>
+                              @foreach ($rangos as $rango)
+                              <option value="{{$rango->id}}">{{$rango->rango}}</option>
+                            @endforeach 
+                             
                             </select>
                               @if ($errors->has('rango'))
                                 <span class="help-block">

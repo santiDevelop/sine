@@ -19,6 +19,9 @@ use App\CursosPersonal;
 use App\necesidades_personal;
 use App\necesidades_capacitacion;
 use App\estados;
+use App\rangos;
+use PDF;
+use DB;
 class RegistratorController extends Controller
 {
     public function index()
@@ -29,12 +32,13 @@ class RegistratorController extends Controller
     {
       $estados=estados::all();
       $estaciones=CrearEstaciones::where('mcbombero_id',auth()->user()->cbombero)->get();
+      $rangos=rangos::all();
       //dd($estaciones);
       //dd(auth()->user()->cbombero);
       $cursos=CrearCursos::all();
       $cargos=maestro_cargos::all();
       $cbomberos=maestro_cuerpo_bomberos::where('id',auth()->user()->cbombero)->get();;
-      return view('regbombero')->with(compact('estaciones','cursos','cargos','cbomberos','estados'));
+      return view('regbombero')->with(compact('estaciones','cursos','cargos','cbomberos','estados','rangos'));
     }
 
      public function postRegbombero(Request $request)
@@ -73,7 +77,7 @@ class RegistratorController extends Controller
         $CrearPersonal->ultitulo=$request->input('ultitulo');
         $CrearPersonal->egresado=$request->input('egresado');
         //$CrearPersonal->curso_id=$request->input('curso');
-        $CrearPersonal->rango=$request->input('rango');
+        $CrearPersonal->rango_id=$request->input('rango');
         $CrearPersonal->cargo_id=$request->input('cargo');
         $CrearPersonal->feingreso=$request->input('feingreso');
         $CrearPersonal->proximoascenso=$request->input('proximoascenso');
@@ -212,10 +216,11 @@ class RegistratorController extends Controller
         $estados=estados::all();
         $cursos=CursosPersonal::join('crear_cursos','cursos_personals.curso_id','=','crear_cursos.id')->where('cursos_personals.id_bombero',$id)->get();
         $cargos=maestro_cargos::all();
+        $rangos=rangos::all();
         $cursosAgregar=CrearCursos::all();
         $cbomberos=maestro_cuerpo_bomberos::all();
         $estaciones=CrearEstaciones::all();
-        return view('editpersonal')->with(compact('personals','cursos','cargos','cbomberos','estaciones','cursosAgregar','estados'));
+        return view('editpersonal')->with(compact('personals','cursos','cargos','cbomberos','estaciones','cursosAgregar','estados','rangos'));
         
         
     }
@@ -381,9 +386,7 @@ class RegistratorController extends Controller
 
       if($request->rep1)
        {
-            if($request->estacion!=0){
-                $estacion="->where('estacion_id',$request->estacion)";
-            }
+            
             $cargos=maestro_cargos::all();
             $estados=estados::all();
             $cbomberos=maestro_cuerpo_bomberos::all();
@@ -399,11 +402,40 @@ class RegistratorController extends Controller
                  }
             $estaciones=CrearEstaciones::all();
             return view('detpersonal')->with(compact('cargos','personals','cbomberos','estaciones','cursos','estados'));
+
+            
+
+
         }
 
         if($request->rep2)
        {
-          //tipo reporte 2
+            $generos=DB::table('crear_personals')->select(array('sexo', DB::raw('COUNT(sexo) as genero')))->groupby('sexo')->get();
+            $rangos=DB::table('crear_personals')->select(array('rango', DB::raw('COUNT(rango) as Suma')))->groupby('rango')->get();
+            $tcamisa=DB::table('crear_personals')->select(array('tcamisa', DB::raw('COUNT(tcamisa) as Suma')))->groupby('tcamisa')->get();
+            $tpantalon=DB::table('crear_personals')->select(array('tpantalon', DB::raw('COUNT(tpantalon) as Suma')))->groupby('tpantalon')->get();
+            $tcalzado=DB::table('crear_personals')->select(array('tcalzado', DB::raw('COUNT(tcalzado) as Suma')))->groupby('tcalzado')->get();
+            $profesion=DB::table('crear_personals')->select(array('profesion', DB::raw('COUNT(profesion) as Suma')))->groupby('profesion')->get();
+            $cargo=DB::table('crear_personals')->select('cargo_id','maestro_cargos.cargo', DB::raw('COUNT(cargo_id) as Suma'))->join('maestro_cargos','crear_personals.cargo_id','=','maestro_cargos.id')->groupby('cargo_id')->get();
+            dd($cargo);
+            $estatus=DB::table('crear_personals')->select(array('status', DB::raw('COUNT(status) as Suma')))->groupby('status')->get();
+            //dd($genero,$rango);
+            return view('consopersonal')->with(compact('generos','rangos'));
+            /* $cursos=CursosPersonal::join('crear_cursos','cursos_personals.curso_id','=','crear_cursos.id')->where('cursos_personals.id_bombero',$id)->get();*/
+
+          /*$pdf =PDF::loadView('detpersonal',compact('cargos','personals','cbomberos','estaciones','cursos','estados'));
+
+        return $pdf->stream('consolidado.pdf');  */    
+
+
+        /*$result = DB::table('album as A')
+        ->select("A.idalbum", "A.title_en as title", 
+        "A.desc_en as description", "A.cover as cover",
+        DB::raw("(SELECT COUNT(idgallery) AS gambar FROM gallery WHERE cate='1' AND albumid=A.idalbum) as gambar"), 
+        DB::raw("(SELECT COUNT(idgallery) AS videos FROM gallery WHERE cate='2' AND albumid=A.idalbum) as videos")
+        )
+        ->orderBy('A.date', 'asc')->paginate($this->perpage);
+        return $result;*/   
         }
 
         if($request->rep3)

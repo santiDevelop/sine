@@ -21,6 +21,7 @@ public function run()
          $this->call(crear_cursosSeeder::class);
          $this->call(crear_estacionSeeder::class);
          $this->call(estadosSeeder::class);
+         $this->call(rangosSeeder::class);
 
     }
 }
