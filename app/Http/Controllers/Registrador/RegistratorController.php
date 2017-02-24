@@ -384,7 +384,7 @@ class RegistratorController extends Controller
 
    public function detpersonal(request $request)
     {
-
+            
       if($request->rep1)
        {
             
@@ -410,19 +410,56 @@ class RegistratorController extends Controller
         }
 
         if($request->rep2)
-       {
-            $generos=DB::table('crear_personals')->select(array('sexo', DB::raw('COUNT(sexo) as genero')))->groupby('sexo')->get();
+       {    
+             if($request->cbombero=='0' && $request->estacion=='0'){
+            $generos=DB::table('crear_personals')->select(array('sexo', DB::raw('COUNT(sexo) as Suma')))->groupby('sexo')->get();
             $rangos=DB::table('crear_personals')->select(array('rango_id','rangos.rango', DB::raw('COUNT(rango_id) as Suma')))->join('rangos','crear_personals.rango_id','=','rangos.id')->groupby('rango_id')->get();
             $tcamisa=DB::table('crear_personals')->select(array('tcamisa', DB::raw('COUNT(tcamisa) as Suma')))->groupby('tcamisa')->get();
             $tpantalon=DB::table('crear_personals')->select(array('tpantalon', DB::raw('COUNT(tpantalon) as Suma')))->groupby('tpantalon')->get();
             $tcalzado=DB::table('crear_personals')->select(array('tcalzado', DB::raw('COUNT(tcalzado) as Suma')))->groupby('tcalzado')->get();
             $profesiones=DB::table('crear_personals')->select(array('profesion', DB::raw('COUNT(profesion) as Suma')))->groupby('profesion')->get();
             $cargos=DB::table('crear_personals')->select('cargo_id','maestro_cargos.cargo', DB::raw('COUNT(cargo_id) as Suma'))->join('maestro_cargos','crear_personals.cargo_id','=','maestro_cargos.id')->groupby('cargo_id')->get();
-           // dd($profesiones);
+            $estados=DB::table('crear_personals')->select('crear_personals.estado','estados.estado', DB::raw('COUNT(crear_personals.estado) as Suma'))->join('estados','crear_personals.estado','=','estados.id')->groupby('crear_personals.estado')->get();
+           // dd($estados);
             $estatus=DB::table('crear_personals')->select(array('status', DB::raw('COUNT(status) as Suma')))->groupby('status')->get();
             $nacademico=DB::table('crear_personals')->select(array('nacademico', DB::raw('COUNT(nacademico) as Suma')))->groupby('nacademico')->get();
+            $ecivil=DB::table('crear_personals')->select(array('ecivil', DB::raw('COUNT(ecivil) as Suma')))->groupby('ecivil')->get();
             //dd($genero,$rango);
-            return view('consopersonal')->with(compact('generos','rangos','tcamisa','tpantalon','tcalzado','profesiones','cargos','estatus','nacademico'));
+            return view('consopersonal')->with(compact('generos','rangos','tcamisa','tpantalon','tcalzado','profesiones','cargos','estatus','nacademico','estados','ecivil'));
+            } elseif ($request->cbomero!='0' && $request->estacion=='0') {
+
+                $generos=DB::table('crear_personals')->select(array('sexo', DB::raw('COUNT(sexo) as Suma')))->where('mcbombero_id',$request->cbombero)->groupby('sexo')->get();
+            $rangos=DB::table('crear_personals')->select(array('rango_id','rangos.rango', DB::raw('COUNT(rango_id) as Suma')))->join('rangos','crear_personals.rango_id','=','rangos.id')->where('mcbombero_id',$request->cbombero)->groupby('rango_id')->get();
+            $tcamisa=DB::table('crear_personals')->select(array('tcamisa', DB::raw('COUNT(tcamisa) as Suma')))->where('mcbombero_id',$request->cbombero)->groupby('tcamisa')->get();
+            $tpantalon=DB::table('crear_personals')->select(array('tpantalon', DB::raw('COUNT(tpantalon) as Suma')))->where('mcbombero_id',$request->cbombero)->groupby('tpantalon')->get();
+            $tcalzado=DB::table('crear_personals')->select(array('tcalzado', DB::raw('COUNT(tcalzado) as Suma')))->where('mcbombero_id',$request->cbombero)->groupby('tcalzado')->get();
+            $profesiones=DB::table('crear_personals')->select(array('profesion', DB::raw('COUNT(profesion) as Suma')))->where('mcbombero_id',$request->cbombero)->groupby('profesion')->get();
+            $cargos=DB::table('crear_personals')->select('cargo_id','maestro_cargos.cargo', DB::raw('COUNT(cargo_id) as Suma'))->join('maestro_cargos','crear_personals.cargo_id','=','maestro_cargos.id')->where('mcbombero_id',$request->cbombero)->groupby('cargo_id')->get();
+            $estados=DB::table('crear_personals')->select('crear_personals.estado','estados.estado', DB::raw('COUNT(crear_personals.estado) as Suma'))->join('estados','crear_personals.estado','=','estados.id')->where('mcbombero_id',$request->cbombero)->groupby('crear_personals.estado')->get();
+           // dd($estados);
+            $estatus=DB::table('crear_personals')->select(array('status', DB::raw('COUNT(status) as Suma')))->where('mcbombero_id',$request->cbombero)->groupby('status')->get();
+            $nacademico=DB::table('crear_personals')->select(array('nacademico', DB::raw('COUNT(nacademico) as Suma')))->where('mcbombero_id',$request->cbombero)->groupby('nacademico')->get();
+            $ecivil=DB::table('crear_personals')->select(array('ecivil', DB::raw('COUNT(ecivil) as Suma')))->where('mcbombero_id',$request->cbombero)->groupby('ecivil')->get();
+            //dd($genero,$rango);
+            return view('consopersonal')->with(compact('generos','rangos','tcamisa','tpantalon','tcalzado','profesiones','cargos','estatus','nacademico','estados','ecivil'));
+
+            } elseif ($request->cbomero!='0' && $request->estacion!='0') {
+
+                $generos=DB::table('crear_personals')->select(array('sexo', DB::raw('COUNT(sexo) as Suma')))->where('mcbombero_id',$request->cbombero)->where('estacion_id',$request->estacion)->groupby('sexo')->get();
+            $rangos=DB::table('crear_personals')->select(array('rango_id','rangos.rango', DB::raw('COUNT(rango_id) as Suma')))->join('rangos','crear_personals.rango_id','=','rangos.id')->where('mcbombero_id',$request->cbombero)->where('estacion_id',$request->estacion)->groupby('rango_id')->get();
+            $tcamisa=DB::table('crear_personals')->select(array('tcamisa', DB::raw('COUNT(tcamisa) as Suma')))->where('mcbombero_id',$request->cbombero)->where('estacion_id',$request->estacion)->groupby('tcamisa')->get();
+            $tpantalon=DB::table('crear_personals')->select(array('tpantalon', DB::raw('COUNT(tpantalon) as Suma')))->where('mcbombero_id',$request->cbombero)->where('estacion_id',$request->estacion)->groupby('tpantalon')->get();
+            $tcalzado=DB::table('crear_personals')->select(array('tcalzado', DB::raw('COUNT(tcalzado) as Suma')))->where('mcbombero_id',$request->cbombero)->where('estacion_id',$request->estacion)->groupby('tcalzado')->get();
+            $profesiones=DB::table('crear_personals')->select(array('profesion', DB::raw('COUNT(profesion) as Suma')))->where('mcbombero_id',$request->cbombero)->where('estacion_id',$request->estacion)->groupby('profesion')->get();
+            $cargos=DB::table('crear_personals')->select('cargo_id','maestro_cargos.cargo', DB::raw('COUNT(cargo_id) as Suma'))->join('maestro_cargos','crear_personals.cargo_id','=','maestro_cargos.id')->where('mcbombero_id',$request->cbombero)->where('estacion_id',$request->estacion)->groupby('cargo_id')->get();
+            $estados=DB::table('crear_personals')->select('crear_personals.estado','estados.estado', DB::raw('COUNT(crear_personals.estado) as Suma'))->join('estados','crear_personals.estado','=','estados.id')->where('mcbombero_id',$request->cbombero)->where('estacion_id',$request->estacion)->groupby('crear_personals.estado')->get();
+           // dd($estados);
+            $estatus=DB::table('crear_personals')->select(array('status', DB::raw('COUNT(status) as Suma')))->where('mcbombero_id',$request->cbombero)->where('estacion_id',$request->estacion)->groupby('status')->get();
+            $nacademico=DB::table('crear_personals')->select(array('nacademico', DB::raw('COUNT(nacademico) as Suma')))->where('mcbombero_id',$request->cbombero)->where('estacion_id',$request->estacion)->groupby('nacademico')->get();
+            $ecivil=DB::table('crear_personals')->select(array('ecivil', DB::raw('COUNT(ecivil) as Suma')))->where('mcbombero_id',$request->cbombero)->where('estacion_id',$request->estacion)->groupby('ecivil')->get();
+            //dd($genero,$rango);
+            return view('consopersonal')->with(compact('generos','rangos','tcamisa','tpantalon','tcalzado','profesiones','cargos','estatus','nacademico','estados','ecivil'));
+             }
             /* $cursos=CursosPersonal::join('crear_cursos','cursos_personals.curso_id','=','crear_cursos.id')->where('cursos_personals.id_bombero',$id)->get();*/
 
           /*$pdf =PDF::loadView('detpersonal',compact('cargos','personals','cbomberos','estaciones','cursos','estados'));

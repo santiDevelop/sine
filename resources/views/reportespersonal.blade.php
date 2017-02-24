@@ -93,7 +93,14 @@
                   <td>2.</td>
                   <td>Reporte Consolidado</td>
                   <td>
-                    
+                    <div class="col-md-3"><p>Por Cuerpo de bombero: <select   class="form-control"  id="cbombero2" name="cbombero">
+                            <option value="0" selected >Todos</option>
+                            @foreach ($cbomberos as $cbombero)
+                              <option value="{{$cbombero->id}}"> {{$cbombero->nomcbombero}} </option>
+                              @endforeach
+                            </select></p> </div>
+                    <div class="col-md-3"> <p>Por Estacion:<select class="form-control"  id="estacion2" name="estacion">
+                            <option value="0" selected >Todos</option>
                   </td>
                   <td><button type="submit" class="btn btn-default">Reportar</button></td>
                 </tr>
@@ -128,5 +135,5 @@
 
 @endsection
 @section('personal_scripts')
-<script src="/js/ajax.js"></script>
+<script src="/js/ajax.js?2"></script>
 @endsection

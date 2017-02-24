@@ -138,34 +138,10 @@
         </div>
     </div>
     <div class="box-body">
-      <div>General <span class="pull-right-container">
-        <small class="label pull-right bg-blue">25</small></span></div>
-      <div>Coronel <span class="pull-right-container">
-        <small class="label pull-right bg-blue">17</small></span></div>
-      <div>Teniente Coronel <span class="pull-right-container">
-        <small class="label pull-right bg-blue">17</small></span></div>
-      <div>Mayor <span class="pull-right-container">
-        <small class="label pull-right bg-blue">17</small></span></div>
-      <div>Capitán <span class="pull-right-container">
-        <small class="label pull-right bg-blue">17</small></span></div>
-        <div>1er Teniente <span class="pull-right-container">
-        <small class="label pull-right bg-blue">25</small></span></div>
-      <div>Teniente  <span class="pull-right-container">
-        <small class="label pull-right bg-blue">17</small></span></div>
-      <div>Sargento Mayor <span class="pull-right-container">
-        <small class="label pull-right bg-blue">17</small></span></div>
-      <div>Sargento Primero <span class="pull-right-container">
-        <small class="label pull-right bg-blue">17</small></span></div>
-      <div>Sargento Segundo <span class="pull-right-container">
-        <small class="label pull-right bg-blue">17</small></span></div>
-      <div>Cabo Primero <span class="pull-right-container">
-        <small class="label pull-right bg-blue">25</small></span></div>
-      <div>Cabo Segundo <span class="pull-right-container">
-        <small class="label pull-right bg-blue">17</small></span></div>
-      <div>Distinguido <span class="pull-right-container">
-        <small class="label pull-right bg-blue">17</small></span></div>
-      <div>Bombero Raso<span class="pull-right-container">
-        <small class="label pull-right bg-blue">17</small></span></div>
+      @foreach($cargos as $cargo)
+      <div>{{$cargo->cargo}} <span class="pull-right-container">
+        <small class="label pull-right bg-blue">{{$cargo->Suma}}</small></span></div>
+      @endforeach
     </div><!-- /.box-body -->
   </div><!-- /.box -->
 </div>
@@ -179,8 +155,10 @@
         </div>
     </div>
     <div class="box-body">
-      <div>Aragua <span class="pull-right-container">
-        <small class="label pull-right bg-blue">10</small></span></div>
+      @foreach($estados as $estado)
+      <div>{{$estado->estado}} <span class="pull-right-container">
+        <small class="label pull-right bg-blue">{{$estado->Suma}}</small></span></div>
+      @endforeach
      
     </div><!-- /.box-body -->
   </div><!-- /.box -->
@@ -195,10 +173,10 @@
         </div>
     </div>
     <div class="box-body">
-      <div>Masculino <span class="pull-right-container">
-        <small class="label pull-right bg-blue">10</small></span></div>
-      <div>Femenino <span class="pull-right-container">
-        <small class="label pull-right bg-blue">25</small></span></div>
+      @foreach($generos as $genero)
+      <div>@if($genero->sexo==1) {{'Masculino'}} @else {{'Femenino'}} @endif <span class="pull-right-container">
+        <small class="label pull-right bg-blue">{{$genero->Suma}}</small></span></div>
+      @endforeach
     </div><!-- /.box-body -->
   </div><!-- /.box -->
 </div>
@@ -212,14 +190,10 @@
         </div>
     </div>
     <div class="box-body">
-      <div>Soltero <span class="pull-right-container">
-        <small class="label pull-right bg-blue">10</small></span></div>
-      <div>Casado <span class="pull-right-container">
-        <small class="label pull-right bg-blue">25</small></span></div>
-      <div>Divorciado <span class="pull-right-container">
-        <small class="label pull-right bg-blue">25</small></span></div>
-      <div>Viudo <span class="pull-right-container">
-        <small class="label pull-right bg-blue">25</small></span></div>
+     @foreach($ecivil as $edocivil)
+      <div>{{$edocivil->ecivil}} <span class="pull-right-container">
+        <small class="label pull-right bg-blue">{{$edocivil->Suma}}</small></span></div>
+      @endforeach
     </div><!-- /.box-body -->
   </div><!-- /.box -->
 </div>
