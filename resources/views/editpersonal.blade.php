@@ -119,8 +119,8 @@
                         <label for="sexo" class="col-md-3 control-label">Sexo:</label>
                         <div class="col-md-7">
                           <select class="form-control" id="sexo" name="sexo">
-                            <option @if($personals->sexo==Masculino) {{"selected"}} @endif value="Masculino">Masculino</option>
-                            <option @if($personals->sexo==Femenino) {{"selected"}} @endif value="Femenino">Femenino</option>
+                            <option @if($personals->sexo=='Masculino') {{"selected"}} @endif value="Masculino">Masculino</option>
+                            <option @if($personals->sexo=='Femenino') {{"selected"}} @endif value="Femenino">Femenino</option>
                           </select>
                             @if ($errors->has('sexo'))
                               <span class="help-block">
@@ -134,10 +134,10 @@
                           <label for="ecivil" class="col-md-3 control-label">Estado civil:</label>
                           <div class="col-md-7">
                             <select class="form-control" id="ecivil" name="ecivil">
-                              <option @if($personals->ecivil==Soltero) {{"selected"}} @endif value="Soltero">Soltero</option>
-                              <option @if($personals->ecivil==Casado) {{"selected"}} @endif value="Casado">Casado</option>
-                              <option @if($personals->ecivil==Divorciado) {{"selected"}} @endif  value="Divorciado">Divorciado</option>
-                              <option @if($personals->ecivil==Viudo) {{"selected"}} @endif  value="Viudo">Viudo</option>
+                              <option @if($personals->ecivil=='Soltero') {{"selected"}} @endif value="Soltero">Soltero</option>
+                              <option @if($personals->ecivil=='Casado') {{"selected"}} @endif value="Casado">Casado</option>
+                              <option @if($personals->ecivil=='Divorciado') {{"selected"}} @endif  value="Divorciado">Divorciado</option>
+                              <option @if($personals->ecivil=='Viudo') {{"selected"}} @endif  value="Viudo">Viudo</option>
                             </select>
                               @if ($errors->has('ecivil'))
                                 <span class="help-block">
@@ -216,26 +216,26 @@
                           <label for="talla" class="col-md-3 control-label">Tallas:</label>
                           <div class="col-md-2">
                             <select class="form-control" id="tcamisa" name="tcamisa">
-                              <option @if($personals->tcamisa==0) {{"selected"}} @endif  value="0">Camisa</option>
-                              <option @if($personals->tcamisa==XS) {{"selected"}} @endif value="XS">XS</option>
-                              <option @if($personals->tcamisa==S) {{"selected"}} @endif value="S">S</option>
-                              <option @if($personals->tcamisa==M) {{"selected"}} @endif value="M">M</option>
-                              <option @if($personals->tcamisa==L) {{"selected"}} @endif value="L">L</option>
-                              <option @if($personals->tcamisa==XL) {{"selected"}} @endif value="XL">XL</option>
-                              <option @if($personals->tcamisa==XXL) {{"selected"}} @endif value="XXL">XXL</option>
-                              <option @if($personals->tcamisa==XXXL) {{"selected"}} @endif value="XXXL">XXXL</option>
+                              <option @if($personals->tcamisa=='0') {{"selected"}} @endif  value="0">Camisa</option>
+                              <option @if($personals->tcamisa=='XS') {{"selected"}} @endif value="XS">XS</option>
+                              <option @if($personals->tcamisa=='S') {{"selected"}} @endif value="S">S</option>
+                              <option @if($personals->tcamisa=='M') {{"selected"}} @endif value="M">M</option>
+                              <option @if($personals->tcamisa=='L') {{"selected"}} @endif value="L">L</option>
+                              <option @if($personals->tcamisa=='XL') {{"selected"}} @endif value="XL">XL</option>
+                              <option @if($personals->tcamisa=='XXL') {{"selected"}} @endif value="XXL">XXL</option>
+                              <option @if($personals->tcamisa=='XXXL') {{"selected"}} @endif value="XXXL">XXXL</option>
                             </select>
                           </div>
                           <div class="col-md-2">
                             <select class="form-control" id="tpantalon" name="tpantalon">
-                              <option @if($personals->tpantalon==0) {{"selected"}} @endif value="0">Pantalón</option>
-                              <option @if($personals->tpantalon==XS) {{"selected"}} @endif value="XS">XS</option>
-                              <option @if($personals->tpantalon==S) {{"selected"}} @endif value="S">S</option>
-                              <option @if($personals->tpantalon==M) {{"selected"}} @endif value="M">M</option>
-                              <option @if($personals->tpantalon==L) {{"selected"}} @endif value="L">L</option>
-                              <option @if($personals->tpantalon==XL) {{"selected"}} @endif value="XL">XL</option>
-                              <option @if($personals->tpantalon==XXL) {{"selected"}} @endif value="XXL">XXL</option>
-                              <option @if($personals->tpantalon==XXXL) {{"selected"}} @endif value="XXXL">XXXL</option>
+                              <option @if($personals->tpantalon=='0') {{"selected"}} @endif value="0">Pantalón</option>
+                              <option @if($personals->tpantalon=='XS') {{"selected"}} @endif value="XS">XS</option>
+                              <option @if($personals->tpantalon=='S') {{"selected"}} @endif value="S">S</option>
+                              <option @if($personals->tpantalon=='M') {{"selected"}} @endif value="M">M</option>
+                              <option @if($personals->tpantalon=='L') {{"selected"}} @endif value="L">L</option>
+                              <option @if($personals->tpantalon=='XL') {{"selected"}} @endif value="XL">XL</option>
+                              <option @if($personals->tpantalon=='XXL') {{"selected"}} @endif value="XXL">XXL</option>
+                              <option @if($personals->tpantalon=='XXXL') {{"selected"}} @endif value="XXXL">XXXL</option>
                             </select>
                           </div>
                           <div class="col-md-2">
@@ -262,7 +262,10 @@
                           <label for="profesion" class="col-md-3 control-label">Profesión:</label>
                           <div class="col-md-6">
                             <select class="form-control" id="profesion" name="profesion">
-                              <option @if($personals->profesion==Sin Profesión) {{"selected"}} @endif value="Sin Profesión">Sin Profesión</option>
+                              @foreach($profesiones as $profesion)
+                              <option @if($personals->profesion_id==$profesion->id) {{'selected'}} @endif value="{{$profesion->id}}">{{$profesion->profesion}}</option>
+                            @endforeach
+
                             </select>
                               @if ($errors->has('profesion'))
                                 <span class="help-block">
@@ -276,14 +279,14 @@
                           <label for="nacademico" class="col-md-3 control-label">Nivel académico:</label>
                           <div class="col-md-6">
                             <select class="form-control" id="nacademico" name="nacademico">
-                              <option @if($personals->nacademico==Ninguno) {{"selected"}} @endif value="Ninguno">Ninguno</option>
-                              <option @if($personals->nacademico==Primaria) {{"selected"}} @endif value="Primaria">Primaria</option>
-                              <option @if($personals->nacademico==Bachiller) {{"selected"}} @endif value="Bachiller">Bachiller</option>
-                              <option @if($personals->nacademico==Técnico Superior) {{"selected"}} @endif value="Técnico Superior">Técnico Superior</option>
-                              <option @if($personals->nacademico==Universitario) {{"selected"}} @endif value="Universitario">Universitario</option>
-                              <option @if($personals->nacademico==Maestría) {{"selected"}} @endif value="Maestría">Maestría</option>
-                              <option @if($personals->nacademico==PostGrado) {{"selected"}} @endif value="PostGrado">PostGrado</option>
-                              <option @if($personals->nacademico==Doctorado) {{"selected"}} @endif value="Doctorado">Doctorado</option>
+                              <option @if($personals->nacademico=='Ninguno') {{"selected"}} @endif value="Ninguno">Ninguno</option>
+                              <option @if($personals->nacademico=='Primaria') {{"selected"}} @endif value="Primaria">Primaria</option>
+                              <option @if($personals->nacademico=='Bachiller') {{"selected"}} @endif value="Bachiller">Bachiller</option>
+                              <option @if($personals->nacademico=='Técnico Superior') {{"selected"}} @endif value="Técnico Superior">Técnico Superior</option>
+                              <option @if($personals->nacademico=='Universitario') {{"selected"}} @endif value="Universitario">Universitario</option>
+                              <option @if($personals->nacademico=='Maestría') {{"selected"}} @endif value="Maestría">Maestría</option>
+                              <option @if($personals->nacademico=='PostGrado') {{"selected"}} @endif value="PostGrado">PostGrado</option>
+                              <option @if($personals->nacademico=='Doctorado') {{"selected"}} @endif value="Doctorado">Doctorado</option>
                             </select>
                               @if ($errors->has('nacademico'))
                                 <span class="help-block">
@@ -297,11 +300,11 @@
                           <label for="ultitulo" class="col-md-3 control-label">Ultimo título obtenido:</label>
                           <div class="col-md-6">
                             <select class="form-control" id="ultitulo" name="ultitulo">
-                              <option @if($personals->ultitulo==Ninguno) {{"selected"}} @endif value="Ninguno">Ninguno</option>
-                              <option @if($personals->ultitulo==Bachiller) {{"selected"}} @endif value="Bachiller">Bachiller</option>
-                              <option @if($personals->ultitulo==Licenciado) {{"selected"}} @endif value="Licenciado">Licenciado</option>
-                              <option @if($personals->ultitulo==Ingeniero) {{"selected"}} @endif value="Ingeniero">Ingeniero</option>
-                              <option @if($personals->ultitulo==Master) {{"selected"}} @endif value="Master">Master</option>
+                              <option @if($personals->ultitulo=='Ninguno') {{"selected"}} @endif value="Ninguno">Ninguno</option>
+                              <option @if($personals->ultitulo=='Bachiller') {{"selected"}} @endif value="Bachiller">Bachiller</option>
+                              <option @if($personals->ultitulo=='Licenciado') {{"selected"}} @endif value="Licenciado">Licenciado</option>
+                              <option @if($personals->ultitulo=='Ingeniero') {{"selected"}} @endif value="Ingeniero">Ingeniero</option>
+                              <option @if($personals->ultitulo=='Master') {{"selected"}} @endif value="Master">Master</option>
                             </select>
                               @if ($errors->has('ultitulo'))
                                 <span class="help-block">
@@ -460,10 +463,10 @@
                           <label for="estatus" class="col-md-3 control-label">Estatus:</label>
                           <div class="col-md-6">
                             <select class="form-control"  id="estatus" name="estatus">
-                              <option @if($personals->status==Activo) {{"selected"}} @endif value="Activo">Activo</option>
-                              <option @if($personals->status==Egresado) {{"selected"}} @endif value="Egresado">Egresado</option>
-                              <option @if($personals->status==Suspendido) {{"selected"}} @endif value="Suspendido">Suspendido</option>
-                              <option @if($personals->status==Vacaciones) {{"selected"}} @endif value="Vacaciones">Vacaciones</option>
+                              <option @if($personals->status=='Activo') {{"selected"}} @endif value="Activo">Activo</option>
+                              <option @if($personals->status=='Egresado') {{"selected"}} @endif value="Egresado">Egresado</option>
+                              <option @if($personals->status=='Suspendido') {{"selected"}} @endif value="Suspendido">Suspendido</option>
+                              <option @if($personals->status=='Vacaciones') {{"selected"}} @endif value="Vacaciones">Vacaciones</option>
                             </select>
                               @if ($errors->has('estatus'))
                                 <span class="help-block">

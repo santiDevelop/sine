@@ -65,24 +65,8 @@
                   <td>{{$personal->apebombero}}</td>
                   <td>{{$personal->fnacimiento}}</td>
                   <td>{{$personal->lnacimiento}}</td>
-                  <td>@if($personal->sexo==1) {{'Masculino'}} @else {{'Femenino'}} @endif</td>
-                  <td> 
-                  @php
-                 switch($personal->ecivil){
-                  case 1:
-                  echo 'Soltero';
-                  break;
-                  case 2:
-                  echo 'Casado';
-                  break;
-                  case 3:
-                  echo 'Divorciado';
-                  break;
-                  case 4:
-                  echo 'Viudo';
-                  break;
-                  }
-                  @endphp
+                  <td>{{$personal->sexo}}</td>
+                  <td> {{$personal->ecivil}}
                   </td>
                   <td>{{$personal->nhijos}}</td>
                   
@@ -94,14 +78,14 @@
                   <td>{{$personal->tcamisa}}</td>
                   <td>{{$personal->tpantalon}}</td>
                   <td>{{$personal->tcalzado}}</td>
-                  <td>{{$personal->profesion}}</td>
+                  <td>@foreach($profesiones as $profesion) @if($personal->profesion_id==$profesion->id) {{$profesion->profesion}}  @endif @endforeach </td>
                   <td>{{$personal->nacademico}}</td>
                   <td>{{$personal->ultitulo}}</td>
                   
                   <td>@foreach ($cursos as $curso) @if($curso->id_bombero==$personal->id) <ul><li>{{$curso->nomcurso}}</li></ul> @endif @endforeach</td>
                  
                   <td>{{$personal->egresado}}</td>
-                  <td>{{$personal->rango}}</td>
+                  <td>@foreach($rangos as $rango) @if($personal->rango_id==$rango->id) {{$rango->rango}}  @endif @endforeach</td>
                   
                   <td>@foreach($cargos as $cargo) @if($personal->cargo_id==$cargo->id) {{$cargo->cargo}} @endif @endforeach</td>
                   
@@ -113,23 +97,7 @@
                   
                   <td>@foreach($estaciones as $estacion) @if($estacion->id==$personal->estacion_id) {{$estacion->nomestacion}} @endif @endforeach</td>
                   
-                  <td>
-                    @php
-                 switch($personal->status){
-                  case 1:
-                  echo 'Activo';
-                  break;
-                  case 2:
-                  echo 'Egresado';
-                  break;
-                  case 3:
-                  echo 'Suspendido';
-                  break;
-                  case 4:
-                  echo 'Vacaciones';
-                  break;
-                  }
-                  @endphp
+                  <td>{{$personal->status}}
                   </td>
                   
                 </tr>

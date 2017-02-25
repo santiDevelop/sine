@@ -32,7 +32,8 @@ class CreateCrearPersonalsTable extends Migration
             $table->string('tcamisa')->default('0');
             $table->string('tpantalon')->default('0');
             $table->string('tcalzado')->default('0');
-            $table->smallInteger('profesion');
+            $table->integer('profesion_id')->unsigned();
+            $table->foreign('profesion_id')->references('id')->on('profesiones');
             $table->string('nacademico');
             $table->string('ultitulo');
             $table->string('egresado');

@@ -268,7 +268,9 @@
                           <label for="profesion" class="col-md-3 control-label">Profesión:</label>
                           <div class="col-md-6">
                             <select class="form-control" id="profesion" name="profesion">
-                              <option value="Sin Profesión">Sin Profesión</option>
+                            @foreach($profesiones as $profesion)
+                              <option value="{{$profesion->id}}">{{$profesion->profesion}}</option>
+                            @endforeach
                             </select>
                               @if ($errors->has('profesion'))
                                 <span class="help-block">
