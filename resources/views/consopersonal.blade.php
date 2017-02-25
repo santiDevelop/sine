@@ -17,6 +17,8 @@
   <link href="/css/skins/skin-blue.css" rel="stylesheet">
 
   <body >
+  <div class="col-md-12 " ><h1>Reporte Consolidado por:
+  <br> cuerpo de bombero:@if(isset($cuerpo->nomcbombero)) {{$cuerpo->nomcbombero}} @else {{'Todas'}} @endif <br> estacion:@if(isset($estacion->nomestacion)) {{$estacion->nomestacion}} @else {{'Todas'}} @endif</h1> <h2>Total personas: {{$personas}} </h2></div>
    <div class="row">
 
 <div class="col-md-4">

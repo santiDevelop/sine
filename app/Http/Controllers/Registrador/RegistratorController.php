@@ -387,7 +387,9 @@ class RegistratorController extends Controller
 
    public function detpersonal(request $request)
     {
-            
+        
+         $cuerpo=maestro_cuerpo_bomberos::find($request->cbombero);
+         $estacion=CrearEstaciones::find($request->estacion);
       if($request->rep1)
        {
             
@@ -416,7 +418,9 @@ class RegistratorController extends Controller
 
         if($request->rep2)
        {    
+
              if($request->cbombero=='0' && $request->estacion=='0'){
+            $personas=CrearPersonals::count();
             $generos=DB::table('crear_personals')->select(array('sexo', DB::raw('COUNT(sexo) as Suma')))->groupby('sexo')->get();
             $rangos=DB::table('crear_personals')->select(array('rango_id','rangos.rango', DB::raw('COUNT(rango_id) as Suma')))->join('rangos','crear_personals.rango_id','=','rangos.id')->groupby('rango_id')->get();
             $tcamisa=DB::table('crear_personals')->select(array('tcamisa', DB::raw('COUNT(tcamisa) as Suma')))->groupby('tcamisa')->get();
@@ -430,9 +434,11 @@ class RegistratorController extends Controller
             $nacademico=DB::table('crear_personals')->select(array('nacademico', DB::raw('COUNT(nacademico) as Suma')))->groupby('nacademico')->get();
             $ecivil=DB::table('crear_personals')->select(array('ecivil', DB::raw('COUNT(ecivil) as Suma')))->groupby('ecivil')->get();
             //dd($genero,$rango);
-            return view('consopersonal')->with(compact('generos','rangos','tcamisa','tpantalon','tcalzado','profesiones','cargos','estatus','nacademico','estados','ecivil'));
+            return view('consopersonal')->with(compact('generos','rangos','tcamisa','tpantalon','tcalzado','profesiones','cargos','estatus','nacademico','estados','ecivil','personas'));
             } elseif ($request->cbomero!='0' && $request->estacion=='0') {
 
+                
+                $personas=CrearPersonals::where('mcbombero_id',$request->cbombero)->count();
                 $generos=DB::table('crear_personals')->select(array('sexo', DB::raw('COUNT(sexo) as Suma')))->where('mcbombero_id',$request->cbombero)->groupby('sexo')->get();
             $rangos=DB::table('crear_personals')->select(array('rango_id','rangos.rango', DB::raw('COUNT(rango_id) as Suma')))->join('rangos','crear_personals.rango_id','=','rangos.id')->where('mcbombero_id',$request->cbombero)->groupby('rango_id')->get();
             $tcamisa=DB::table('crear_personals')->select(array('tcamisa', DB::raw('COUNT(tcamisa) as Suma')))->where('mcbombero_id',$request->cbombero)->groupby('tcamisa')->get();
@@ -446,11 +452,12 @@ class RegistratorController extends Controller
             $nacademico=DB::table('crear_personals')->select(array('nacademico', DB::raw('COUNT(nacademico) as Suma')))->where('mcbombero_id',$request->cbombero)->groupby('nacademico')->get();
             $ecivil=DB::table('crear_personals')->select(array('ecivil', DB::raw('COUNT(ecivil) as Suma')))->where('mcbombero_id',$request->cbombero)->groupby('ecivil')->get();
             //dd($genero,$rango);
-            return view('consopersonal')->with(compact('generos','rangos','tcamisa','tpantalon','tcalzado','profesiones','cargos','estatus','nacademico','estados','ecivil'));
+            return view('consopersonal')->with(compact('generos','rangos','tcamisa','tpantalon','tcalzado','profesiones','cargos','estatus','nacademico','estados','ecivil','personas','cuerpo','estacion'));
 
             } elseif ($request->cbomero!='0' && $request->estacion!='0') {
 
-                $generos=DB::table('crear_personals')->select(array('sexo', DB::raw('COUNT(sexo) as Suma')))->where('mcbombero_id',$request->cbombero)->where('estacion_id',$request->estacion)->groupby('sexo')->get();
+            $personas=CrearPersonals::where('mcbombero_id',$request->cbombero)->where('estacion_id',$request->estacion)->count();
+            $generos=DB::table('crear_personals')->select(array('sexo', DB::raw('COUNT(sexo) as Suma')))->where('mcbombero_id',$request->cbombero)->where('estacion_id',$request->estacion)->groupby('sexo')->get();
             $rangos=DB::table('crear_personals')->select(array('rango_id','rangos.rango', DB::raw('COUNT(rango_id) as Suma')))->join('rangos','crear_personals.rango_id','=','rangos.id')->where('mcbombero_id',$request->cbombero)->where('estacion_id',$request->estacion)->groupby('rango_id')->get();
             $tcamisa=DB::table('crear_personals')->select(array('tcamisa', DB::raw('COUNT(tcamisa) as Suma')))->where('mcbombero_id',$request->cbombero)->where('estacion_id',$request->estacion)->groupby('tcamisa')->get();
             $tpantalon=DB::table('crear_personals')->select(array('tpantalon', DB::raw('COUNT(tpantalon) as Suma')))->where('mcbombero_id',$request->cbombero)->where('estacion_id',$request->estacion)->groupby('tpantalon')->get();
@@ -463,7 +470,7 @@ class RegistratorController extends Controller
             $nacademico=DB::table('crear_personals')->select(array('nacademico', DB::raw('COUNT(nacademico) as Suma')))->where('mcbombero_id',$request->cbombero)->where('estacion_id',$request->estacion)->groupby('nacademico')->get();
             $ecivil=DB::table('crear_personals')->select(array('ecivil', DB::raw('COUNT(ecivil) as Suma')))->where('mcbombero_id',$request->cbombero)->where('estacion_id',$request->estacion)->groupby('ecivil')->get();
             //dd($genero,$rango);
-            return view('consopersonal')->with(compact('generos','rangos','tcamisa','tpantalon','tcalzado','profesiones','cargos','estatus','nacademico','estados','ecivil'));
+            return view('consopersonal')->with(compact('generos','rangos','tcamisa','tpantalon','tcalzado','profesiones','cargos','estatus','nacademico','estados','ecivil','personas','cuerpo','estacion'));
              }
             /* $cursos=CursosPersonal::join('crear_cursos','cursos_personals.curso_id','=','crear_cursos.id')->where('cursos_personals.id_bombero',$id)->get();*/
 
