@@ -7,12 +7,12 @@
        <div class="hidden-xs hidden-sm">
        <section class="content-header">
        <h1>
-        Maestro de perfil de cargos
-        <small>Creacion de perfil de cargos</small>
+        Maestro de Rangos
+        <small>Creacion de Rangos</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="/home"><i class="fa fa-dashboard"></i> Tablero</a></li>
-        <li class="active">Maestro de perfil de cargos</li>
+        <li class="active">Maestro de Rangos</li>
       </ol>
       </section>
       </div>
@@ -22,12 +22,12 @@
     <div class="hidden-md hidden-lg">
     <section class="content-header-small">
        <h1>
-        Maestro de perfil de cargos
-        <small>Creacion de perfil de cargos</small>
+        Maestro de Rangos
+        <small>Creacion de Rangos</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="/home"><i class="fa fa-dashboard"></i> Tablero</a></li>
-        <li class="active">Maestro de perfil de cargos</li>
+        <li class="active">Maestro de Rangos</li>
       </ol>
       </div>
 
@@ -39,26 +39,26 @@
       <div class="row container">
           <form class="form-horizontal" role="form" method="POST" action="{{ url('/mpcargos') }}">
                                   {{ csrf_field() }}
-                      <div class="form-group{{ $errors->has('numpcargo') ? ' has-error' : '' }}">
-                      <label for="numpcargo" class="col-md-2 control-label">Numero Perfil de Cargo:
+                      <div class="form-group{{ $errors->has('numrango') ? ' has-error' : '' }}">
+                      <label for="numrango" class="col-md-2 control-label">Numero Perfil de Rango:
                       </label>
-                          <div class="col-md-2">
-                          <input id="numpcargo" type="text" class="form-control" placeholder="Numero Perfil de Cargo" name="numpcargo" maxlength="3" value="{{ old('numpcargo') }}" required autofocus>
-                              @if ($errors->has('numpcargo'))
+                          <div class="col-md-1">
+                          <input id="numrango" type="text" class="form-control" placeholder="Numero Perfil de Rango" name="numrango" maxlength="3" value="{{$numero}}" required >
+                              @if ($errors->has('numrango'))
                                   <span class="help-block">
-                                      <strong>{{ $errors->first('numpcargo') }}</strong>
+                                      <strong>{{ $errors->first('numrango') }}</strong>
                                   </span>
                               @endif
                           </div>
                       </div>
 
-                       <div class="form-group{{ $errors->has('nompcargo') ? ' has-error' : '' }}">
-                      <label for="nompcargo" class="col-md-2 control-label">Perfil de Cargo:</label>
+                       <div class="form-group{{ $errors->has('rango') ? ' has-error' : '' }}">
+                      <label for="rango" class="col-md-2 control-label">Nombre Rango:</label>
                           <div class="col-md-6">
-                          <input id="nompcargo" type="text" class="form-control" placeholder="Nombre de Perfil de Cargo" name="nompcargo" maxlength="100" value="{{ old('nompcargo') }}" required autofocus>
-                              @if ($errors->has('nompcargo'))
+                          <input id="rango" type="text" class="form-control" placeholder="Nombre de Perfil de Rango" name="rango" maxlength="100" value="{{ old('rango') }}" required autofocus>
+                              @if ($errors->has('rango'))
                                   <span class="help-block">
-                                      <strong>{{ $errors->first('nompcargo') }}</strong>
+                                      <strong>{{ $errors->first('rango') }}</strong>
                                   </span>
                               @endif
                           </div>

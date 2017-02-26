@@ -66,8 +66,8 @@
 
                         <div class="form-group{{ $errors->has('numestacion') ? ' has-error' : '' }}">
                         <label for="numestacion" class="col-md-2 control-label">Numero Estacion:</label>
-                            <div class="col-md-2">
-                            <input id="numestacion" type="text" class="form-control" placeholder="Numero Estacion" name="numestacion" maxlength="3" value="{{ old('numestacion') }}" required autofocus>
+                            <div class="col-md-1">
+                            <input id="numestacion" type="text" class="form-control" placeholder="Numero Estacion" name="numestacion" maxlength="3" value="{{$numero }}" required >
                                 @if ($errors->has('numestacion'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('numestacion') }}</strong>

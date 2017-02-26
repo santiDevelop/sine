@@ -15,7 +15,6 @@ public function run()
          $this->call(maestro_cargoSeeder::class);
          $this->call(maestro_cat_emergenciasSeeder::class);
          $this->call(maestro_cuerpo_bomberosSeeder::class);
-         $this->call(maestro_perfiles_cargosSeeder::class);
          $this->call(maestro_tipo_equipamientosSeeder::class);
          //$this->call(crear_personalSeeder::class);
          $this->call(crear_cursosSeeder::class);

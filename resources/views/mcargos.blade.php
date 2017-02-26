@@ -42,8 +42,8 @@
                                     {{ csrf_field() }}
                         <div class="form-group{{ $errors->has('numcargo') ? ' has-error' : '' }}">
                         <label for="numcargo" class="col-md-2 control-label">Numero Cargo:</label>
-                            <div class="col-md-2">
-                            <input id="numcargo" type="text" class="form-control" placeholder="Numero de Cargo" name="numcargo" maxlength="3" value="{{ old('numcargo') }}" required autofocus>
+                            <div class="col-md-1">
+                            <input id="numcargo" type="text" class="form-control" placeholder="Numero de Cargo" name="numcargo" maxlength="3" value="{{$numero }}" required >
                                 @if ($errors->has('numcargo'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('numcargo') }}</strong>
