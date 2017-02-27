@@ -491,9 +491,25 @@ class RegistratorController extends Controller
 
         if($request->rep3)
        {
-           //tipo reporte 3
+           //dd($request);
+            if($request->cbombero=='0' && $request->estacion=='0' && $request->status=='0')
+            {
+
+           $np=necesidades_personal::join('maestro_cuerpo_bomberos','necesidades_personals.mcbombero_id','=','maestro_cuerpo_bomberos.id')->join('crear_estaciones','necesidades_personals.estacion_id','=','crear_estaciones.id')->join('users','necesidades_personals.user_id','=','users.id')->join('maestro_cargos','necesidades_personals.cargo_id','=','maestro_cargos.id')->select('necesidades_personals.*','maestro_cuerpo_bomberos.nomcbombero','crear_estaciones.nomestacion','users.user','maestro_cargos.cargo')->get();
+            //dd($np);
+            $pdf=PDF::loadView('reportes.necesidades_personal_reporte',compact('np'))->setPaper('a4', 'landscape')->setWarnings(false);
+            return $pdf->stream('NecesidadPersonal.pdf');
+             }
+
         }
 
+
+          if($request->rep4)
+       {
+           $nc=necesidades_capacitacion::join('maestro_cuerpo_bomberos','necesidades_capacitacions.mcbombero_id','=','maestro_cuerpo_bomberos.id')->join('crear_estaciones','necesidades_capacitacions.estacion_id','=','crear_estaciones.id')->join('users','necesidades_capacitacions.user_id','=','users.id')->join('crear_cursos','necesidades_capacitacions.curso_id','=','crear_cursos.id')->select('necesidades_capacitacions.*','maestro_cuerpo_bomberos.nomcbombero','crear_estaciones.nomestacion','users.user','crear_cursos.nomcurso')->get();
+            $pdf=PDF::loadView('reportes.necesidades_capacitacion_reporte',compact('nc'))->setPaper('a4', 'landscape')->setWarnings(false);
+            return $pdf->stream('NecesidadCursos.pdf');
+        }
       }  
 
 }

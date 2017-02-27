@@ -223,38 +223,38 @@
                           <div class="col-md-2">
                             <select class="form-control" id="tcamisa" name="tcamisa">
                               <option selected="Seleccione" value="0">Camisa</option>
-                              <option value="XS">XS</option>
-                              <option value="S">S</option>
-                              <option value="M">M</option>
-                              <option value="L">L</option>
-                              <option value="XL">XL</option>
-                              <option value="XXL">XXL</option>
-                              <option value="XXXL">XXXL</option>
+                              <option value="XS" {{ old('tcamisa')=='XS' ? 'selected="selected"' : '' }} >XS</option>
+                              <option value="S" {{ old('tcamisa')=='S' ? 'selected="selected"' : '' }} >S</option>
+                              <option value="M" {{ old('tcamisa')=='M' ? 'selected="selected"' : '' }} >M</option>
+                              <option value="L" {{ old('tcamisa')=='L' ? 'selected="selected"' : '' }} >L</option>
+                              <option value="XL" {{ old('tcamisa')=='XL' ? 'selected="selected"' : '' }} >XL</option>
+                              <option value="XXL" {{ old('tcamisa')=='XXL' ? 'selected="selected"' : '' }} >XXL</option>
+                              <option value="XXXL" {{ old('tcamisa')=='XXXL' ? 'selected="selected"' : '' }} >XXXL</option>
                             </select>
                           </div>
                           <div class="col-md-2">
                             <select class="form-control" id="tpantalon" name="tpantalon">
                               <option selected="Seleccione" value="0">Pantalón</option>
-                              <option value="XS">XS</option>
-                              <option value="S">S</option>
-                              <option value="M">M</option>
-                              <option value="L">L</option>
-                              <option value="XL">XL</option>
-                              <option value="XXL">XXL</option>
-                              <option value="XXXL">XXXL</option>
+                              <option value="XS" {{ old('tpantalon')=='XS' ? 'selected="selected"' : '' }} >XS</option>
+                              <option value="S" {{ old('tpantalon')=='S' ? 'selected="selected"' : '' }} >S</option>
+                              <option value="M" {{ old('tpantalon')=='M' ? 'selected="selected"' : '' }} >M</option>
+                              <option value="L" {{ old('tpantalon')=='L' ? 'selected="selected"' : '' }} >L</option>
+                              <option value="XL" {{ old('tpantalon')=='XL' ? 'selected="selected"' : '' }} >XL</option>
+                              <option value="XXL" {{ old('tpantalon')=='XXL' ? 'selected="selected"' : '' }} >XXL</option>
+                              <option value="XXXL" {{ old('tpantalon')=='XXXL' ? 'selected="selected"' : '' }} >XXXL</option>
                             </select>
                           </div>
                           <div class="col-md-2">
                             <select class="form-control" id="tcalzado" name="tcalzado">
                               <option selected="Seleccione" value="0">Calzado</option>
-                              <option value="4">4</option>
-                              <option value="5">5</option>
-                              <option value="6">6</option>
-                              <option value="7">7</option>
-                              <option value="8">8</option>
-                              <option value="9">9</option>
-                              <option value="10">10</option>
-                              <option value="11">11</option>
+                              <option value="4" {{ old('tcalzado')=='4' ? 'selected="selected"' : '' }} >4</option>
+                              <option value="5" {{ old('tcalzado')=='5' ? 'selected="selected"' : '' }} >5</option>
+                              <option value="6" {{ old('tcalzado')=='6' ? 'selected="selected"' : '' }} >6</option>
+                              <option value="7" {{ old('tcalzado')=='7' ? 'selected="selected"' : '' }} >7</option>
+                              <option value="8" {{ old('tcalzado')=='8' ? 'selected="selected"' : '' }} >8</option>
+                              <option value="9" {{ old('tcalzado')=='9' ? 'selected="selected"' : '' }} >9</option>
+                              <option value="10" {{ old('tcalzado')=='10' ? 'selected="selected"' : '' }} >10</option>
+                              <option value="11" {{ old('tcalzado')=='11' ? 'selected="selected"' : '' }} >11</option>
                             </select>
                           </div>
                         </div>
