@@ -24,19 +24,22 @@ table#t01 tr:nth-child(even) {
 }
 table#total {
     border-top: none;
-    text-align: center;
 }
 table#t01 tr:nth-child(odd) {
    background-color:#fff;
 }
 table#t01 th {
-    background-color: blue;
+    background-color: #3399ff;
     color: white;
 }
 
 h1,tfoot{
-  text-align: center;
+  font-size: 15px;
+  text-align: left;
 
+}
+h2{
+  font-size: 12px;
 }
 </style>
   <!-- Font Awesome -->
@@ -46,7 +49,8 @@ h1,tfoot{
 
 
   <body >
-  <h1>Reporte de Solicitudes de Capacitacion</h1>
+   <h1>Reporte Necesidades de Capacitacion:</h1>
+ <h2>Cuerpo de bombero:@if(isset($cuerpo->nomcbombero)) {{$cuerpo->nomcbombero}} @else {{'Todas'}} @endif <br> Estacion:@if(isset($estacion->nomestacion)) {{$estacion->nomestacion}} @else {{'Todas'}} @endif <br> Estatus:{{$status}}</h2>
    <div class="wrapper">
     <table id="t01">
     <thead>
