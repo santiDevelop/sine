@@ -178,7 +178,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         /*-----------generating data from pdf ---------->*/
-        Barryvdh\DomPDF\serviceProvider::class,
+        Barryvdh\DomPDF\ServiceProvider::class,
     ],
 
     /*

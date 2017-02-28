@@ -9,10 +9,10 @@ use App\Http\Controllers\Controller;
 use App\maestro_cargos;
 use App\maestro_cat_emergencia;
 use App\maestro_cuerpo_bomberos;
-use App\maestro_perfiles_cargos;
 use App\maestro_tipo_equipamiento;
 use App\User;
 use App\CrearEstaciones;
+use App\rangos;
 class UserController extends Controller
 {
 
@@ -36,8 +36,11 @@ class UserController extends Controller
 
      public function getMcbombero()
     {
-
-        return view('mcbombero');
+        $ultimo=maestro_cuerpo_bomberos::orderby('numcbomb','desc')->first();
+        if($ultimo!=null){
+      $numero=($ultimo->numcbomb)+1;
+       } else { $numero=1;}
+        return view('mcbombero')->with(compact('numero'));
     }
       public function postMcbombero(Request $request)
     {
@@ -66,7 +69,11 @@ class UserController extends Controller
 
      public function getMcargos()
     {
-        return view('mcargos');
+       $ultimo=maestro_cargos::orderby('numcargo','desc')->first();
+       if($ultimo!=null){
+      $numero=($ultimo->numcargo)+1;
+       } else { $numero=1;}
+        return view('mcargos')->with(compact('numero'));
     }
      public function postMcargos(Request $request)
     {
@@ -103,7 +110,11 @@ class UserController extends Controller
 
      public function getMtequipos()
     {
-        return view('mtequipos');
+      $ultimo=maestro_tipo_equipamiento::orderby('numtipequip','desc')->first();
+      if($ultimo!=null){
+      $numero=($ultimo->numtipequip)+1;
+       } else { $numero=1;}
+        return view('mtequipos')->with(compact('numero'));
     }
     public function postMtequipos(Request $request)
     {
@@ -164,31 +175,35 @@ class UserController extends Controller
 
       public function getMpcargos()
     {
-        return view('mpcargos');
+      $ultimo=rangos::orderby('numrango','desc')->first();
+      if($ultimo!=null){
+      $numero=($ultimo->numrango)+1;
+       } else { $numero=1;}
+        return view('mpcargos')->with(compact('numero'));
     }
      public function postMpcargos(Request $request)
     {
         //reglas para validar el formulario y enviarlas al validador
       $rules=[
-      'numpcargo'=>'required|unique:maestro_perfiles_cargos|digits_between:1,3',
-      'nompcargo'=>'required|max:100' ];
+      'numrango'=>'required|unique:rangos|digits_between:1,3',
+      'rango'=>'required|max:100' ];
 
         // MENSAJES PERSONALIZADOS PARA EL VALIDATOR
         $messages=[
-        'numpcargo.unique'=>'El número de perfil de cargo ya se encuentra registrado.',
-        'numpcargo.digits_between'=>'El número de perfil de cargo debe tener entre 1 y 3 digitos.',
-        'numpcargo.required'=>'El numero de perfil de cargo es requerido.',
-        'nompcargo.required'=>'El campo nombre del perfil de cargo es requerido.',
-        'nompcargo.max'=>'El campo nombre del perfil de cargo tiene un maximo de 100 caracteres.',
+        'numrango.unique'=>'El número de rango de cargo ya se encuentra registrado.',
+        'numrango.digits_between'=>'El número de rango de cargo debe tener entre 1 y 3 digitos.',
+        'numrango.required'=>'El numero de rango de cargo es requerido.',
+        'rango.required'=>'El campo nombre del rango de cargo es requerido.',
+        'rango.max'=>'El campo nombre del rango de cargo tiene un maximo de 100 caracteres.',
         ];
 
       $this->validate($request,$rules,$messages);
-        $maestro_perfiles_cargos= new maestro_perfiles_cargos();
-        $maestro_perfiles_cargos->numpcargo = $request->input('numpcargo');
-        $maestro_perfiles_cargos->nompcargo = $request->input('nompcargo');
-        $maestro_perfiles_cargos->user_id=auth()->user()->id;
-        $maestro_perfiles_cargos->save();  
-        return back()->with('notification','Maestro de Perfil Cargos Registrado Exitosamente');
+        $rangos= new rangos();
+        $rangos->numrango = $request->input('numrango');
+        $rangos->rango = $request->input('rango');
+        $rangos->user_id=auth()->user()->id;
+        $rangos->save();  
+        return back()->with('notification','Rango Registrado Exitosamente');
     }
 
 
@@ -237,8 +252,12 @@ class UserController extends Controller
 
     public function getMestaciones()
     {
+      $ultimo=CrearEstaciones::orderby('numestacion','desc')->first();
+      if($ultimo!=null){
+      $numero=($ultimo->numestacion)+1;
+       } else { $numero=1;}
       $mcbomberos=maestro_cuerpo_bomberos::all();
-      return view('mestaciones')->with(compact('mcbomberos'));
+      return view('mestaciones')->with(compact('mcbomberos','numero'));
 
     }
 

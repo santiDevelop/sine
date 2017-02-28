@@ -47,7 +47,7 @@
                         <li class="treeview">
                         <a href="/mpcargos">
                           <i class="fa fa-thumb-tack"></i>
-                          <span>Maestro de perfil de cargos</span>
+                          <span>Maestro de Rangos</span>
                         </a>
                         </li>
                         <li class="treeview">

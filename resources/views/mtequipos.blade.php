@@ -41,8 +41,8 @@
                       <div class="form-group{{ $errors->has('numtipequip') ? ' has-error' : '' }}">
                       <label for="numtipequip" class="col-md-2 control-label">Numero tipo de equipamiento:
                       </label>
-                          <div class="col-md-2">
-                          <input id="numtipequip" type="text" class="form-control" placeholder="Numero tipo de equipamiento" name="numtipequip" maxlength="3" value="{{ old('numtipequip') }}" required autofocus>
+                          <div class="col-md-1">
+                          <input id="numtipequip" type="text" class="form-control" placeholder="Numero tipo de equipamiento" name="numtipequip" maxlength="3" value="{{ $numero }}" required >
                               @if ($errors->has('numtipequip'))
                                   <span class="help-block">
                                       <strong>{{ $errors->first('numtipequip') }}</strong>

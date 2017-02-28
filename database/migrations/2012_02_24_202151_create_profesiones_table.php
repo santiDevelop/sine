@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMaestroPerfilesCargosTable extends Migration
+class CreateProfesionesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,9 @@ class CreateMaestroPerfilesCargosTable extends Migration
      */
     public function up()
     {
-        Schema::create('maestro_perfiles_cargos', function (Blueprint $table) {
+        Schema::create('profesiones', function (Blueprint $table) {
             $table->increments('id');
-            $table->smallInteger('numpcargo')->unique();
-            $table->string('nompcargo');
-            $table->integer('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->string('profesion');
             $table->timestamps();
         });
     }
@@ -30,6 +27,6 @@ class CreateMaestroPerfilesCargosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('maestro_perfiles_cargos');
+        Schema::dropIfExists('profesiones');
     }
 }

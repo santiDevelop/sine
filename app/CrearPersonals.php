@@ -25,7 +25,7 @@ class CrearPersonals extends Model
         'nacademico'=>'required|max:50',
         'ultitulo'=>'required|max:50',
         'egresado'=>'required|max:100',
-        'curso'=>'required',
+        'curso'=>'sometimes',
         'rango'=>'required',
         'cargo'=>'required',
         'feingreso'=>'required|date',
@@ -57,7 +57,7 @@ class CrearPersonals extends Model
         'feingreso'=>'required|date',
         'proximoascenso'=>'required|date',
         'cbombero'=>'required',
-        'estacion'=>'required',
+        'estacion'=>'required|not_in:0',
         'estatus'=>'required',
         'estado'=>'required',
                                 ];
@@ -90,6 +90,7 @@ class CrearPersonals extends Model
         'proximoascenso.required'=>'La fecha de Proximo Ascenso es requerida.',
         'cbombero.required'=>'El cuerpo de bombero es requerido.',
         'estacion.required'=>'La estacion es requerida.',
+        'estacion.not_in'=>'Seleccione una estacion',
         'estatus.required'=>'El estatus es requerido',
         'estado.required'=>'El estado es requerido'];
 
