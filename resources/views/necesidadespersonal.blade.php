@@ -103,7 +103,7 @@
                   <td>{{$personal->cargo}}</td>
                   <td>{{$personal->nomcbombero}}</td>
                   <td>{{$personal->nomestacion}}</td>
-                  <td>{{$personal->fesolicitud}}</td>
+                  <td>{{date("d-m-Y", strtotime($personal->fesolicitud))}}</td>
                   <td> @php
                         switch   ($personal->estatusolicitud){
                         case  1:
@@ -167,7 +167,7 @@
                   <td>{{$n->nomcurso}}</td>
                   <td>{{$n->nomcbombero}}</td>
                   <td>{{$n->nomestacion}}</td>
-                  <td>{{$n->fesolicitud}}</td>
+                  <td>{{date("d-m-Y", strtotime($n->fesolicitud))}}</td>
                   <td> @php
                         switch   ($n->estatusolicitud){
                         case  1:

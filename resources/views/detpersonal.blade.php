@@ -63,7 +63,7 @@
                   <td>{{ number_format($personal->cedbombero,0,',','.') }}</td>
                   <td>{{$personal->nombombero}}</td>
                   <td>{{$personal->apebombero}}</td>
-                  <td>{{$personal->fnacimiento}}</td>
+                  <td>{{date("d-m-Y", strtotime($personal->fnacimiento))}}</td>
                   <td>{{$personal->lnacimiento}}</td>
                   <td>{{$personal->sexo}}</td>
                   <td> {{$personal->ecivil}}
@@ -89,8 +89,8 @@
                   
                   <td>@foreach($cargos as $cargo) @if($personal->cargo_id==$cargo->id) {{$cargo->cargo}} @endif @endforeach</td>
                   
-                  <td>{{$personal->feingreso}}</td>
-                  <td>{{$personal->proximoascenso}}</td>
+                  <td>{{date("d-m-Y", strtotime($personal->feingreso))}}</td>
+                  <td>{{date("d-m-Y", strtotime($personal->proximoascenso))}} </td>
                   
                   <td>@foreach($cbomberos as $cbombero) @if($cbombero->id==$personal->mcbombero_id) {{$cbombero->nomcbombero}} @endif  @endforeach</td>
                  
