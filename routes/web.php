@@ -46,6 +46,11 @@ Route::group(['middleware'=>'admin','namespace'=>'Admin'],function(){
 	//Route::post('/editarusuario/{id}', 'UserController@updateUser');
 	Route::get('/editarusuario/{id}/eliminar', 'UserController@deleteUser');
 
+	Route::get('editnpersonal/{id}', 'UserController@editnpersonal');
+	Route::post('editnpersonal/{id}', 'UserController@updatenpersonal');
+
+	Route::get('/editncapacitacion/{id}', 'UserController@editncapacitacion');
+	Route::post('/editncapacitacion/{id}', 'UserController@updatecapacitacion');
 	
 
 });
@@ -63,6 +68,7 @@ Route::group(['middleware'=>'Registrador','namespace'=>'Registrador'],function()
 	Route::post('/ncapacitacion', 'RegistratorController@postNcapacitacion');
 
 	Route::get('/adminpersonal', 'RegistratorController@getAdminpersonal');
+	Route::get('/necesidadespersonal', 'RegistratorController@getAdminNecesidades');
 
 	Route::get('/editarpersonal/{id}', 'RegistratorController@editPer');
 	Route::post('/editarpersonal/{id}', 'RegistratorController@updatePer');

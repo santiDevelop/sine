@@ -9,10 +9,21 @@ use App\Http\Controllers\Controller;
 use App\maestro_cargos;
 use App\maestro_cat_emergencia;
 use App\maestro_cuerpo_bomberos;
+use App\maestro_perfiles_cargos;
 use App\maestro_tipo_equipamiento;
 use App\User;
+use App\Registrador;
+use App\CrearPersonals;
+use App\CrearCursos;
 use App\CrearEstaciones;
+use App\CursosPersonal;
+use App\necesidades_personal;
+use App\necesidades_capacitacion;
+use App\estados;
 use App\rangos;
+use App\profesiones;
+use PDF;
+use DB;
 class UserController extends Controller
 {
 
@@ -225,7 +236,7 @@ class UserController extends Controller
             'cargo' => 'required|numeric|digits_between:1,3',
             'cbombero' => 'required|numeric|digits_between:1,3',
             'status' => 'required|numeric|max:2|in:1,2',   
-            'password' => 'sometimes|min:6',
+            'password' => 'sometimes',
         ];
         $this->validate($request,$rules);
 
@@ -272,6 +283,45 @@ class UserController extends Controller
       return back()->with('notification','La Estacion ha sido Creada Exitosamente');
 
     }
+
+    public function editnpersonal($id)
+    { 
+      //dd('hola mundo');
+        $personals=necesidades_personal::join('maestro_cargos','necesidades_personals.cargo_id','=','maestro_cargos.id')->join('maestro_cuerpo_bomberos','necesidades_personals.mcbombero_id','=','maestro_cuerpo_bomberos.id')->join('crear_estaciones','necesidades_personals.estacion_id','=','crear_estaciones.id')->select('necesidades_personals.*','maestro_cargos.cargo','maestro_cuerpo_bomberos.nomcbombero','crear_estaciones.nomestacion')->where('necesidades_personals.id',$id)->get();
+      // dd($personals);
+        return view('edits.editnpersonal')->with(compact('personals'));
+
+    }
+
+    public function updatenpersonal(request $request,$id)
+    { 
+      $updatenpersonal=necesidades_personal::find($id);
+     // dd($updatenpersonal);
+      $updatenpersonal->estatusolicitud=$request->estatusolicitud;
+      $updatenpersonal->save();
+      return back()->with('notification','La necesidad Personal ha sido Procesada.');
+
+    }
+
+
+       public function editncapacitacion($id)
+    { 
+      $nc=necesidades_capacitacion::join('maestro_cuerpo_bomberos','necesidades_capacitacions.mcbombero_id','=','maestro_cuerpo_bomberos.id')->join('crear_estaciones','necesidades_capacitacions.estacion_id','=','crear_estaciones.id')->join('users','necesidades_capacitacions.user_id','=','users.id')->join('crear_cursos','necesidades_capacitacions.curso_id','=','crear_cursos.id')->select('necesidades_capacitacions.*','maestro_cuerpo_bomberos.nomcbombero','crear_estaciones.nomestacion','users.user','crear_cursos.nomcurso')->where('necesidades_capacitacions.id',$id)->get();
+      return view('edits.editncapacitacion')->with(compact('nc'));
+
+    }
+
+    public function updatecapacitacion(request $request)
+    { 
+      $updatecapacitacion=necesidades_capacitacion::find($id);
+
+      $updatecapacitacion->estatusolicitud=$request->estatusolicitud;
+      $updatecapacitacion->save();
+      return back()->with('notification','La necesidad Capacitacion ha sido Procesada.');
+
+    }
+
+
 
       
 }

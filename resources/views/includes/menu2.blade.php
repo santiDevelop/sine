@@ -155,12 +155,13 @@
             <li class="treeview">
           <a href="/adminpersonal"><i class="fa fa-pencil-square-o"></i> <span>Crear/Editar Personal</span>
           </a>
-
+          <a href="/necesidadespersonal"><i class="fa fa-user-circle-o"></i> <span>Crear/Editar Necesidades</span>
+          </a>
 
          </li>
 
 
-            <li class="treeview">
+           <!-- <li class="treeview">
           <a href="#"><i class="fa fa-user-circle-o"></i> <span>Necesidades</span>
           <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
@@ -178,7 +179,7 @@
                           
                         </a> </li>
 
-                        </ul> </li>
+                        </ul> </li> -->
 
           <li class="treeview">
           <a href="/reportespersonal"><i class="fa fa-bar-chart"></i> <span>Reportes</span>

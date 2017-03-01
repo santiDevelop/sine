@@ -14,10 +14,14 @@ table, th, td {
     border-top: 2px solid black;
     border: 1px solid black;
     border-collapse: collapse;
+    width:1050px;
+    table-layout:fixed;
+    font-size: 13px;
 }
 th, td {
     padding: 5px;
     text-align: left;
+    word-wrap:break-word;
 }
 table#t01 tr:nth-child(even) {
     background-color: #eee;
@@ -34,12 +38,14 @@ table#t01 th {
 }
 
 h1,tfoot{
-  font-size: 15px;
+  padding:0px;
+  margin-bottom: 0px;
+  font-size: 20px;
   text-align: left;
 
 }
 h2{
-  font-size: 12px;
+  font-size: 15px;
 }
 </style>
   <!-- Font Awesome -->
@@ -69,14 +75,14 @@ h2{
   @foreach($np as $n)
     <tr>
 
-    <td>{{$n->user}} </td>
-    <td>{{$n->nomcbombero}}</td>
-    <td>{{$n->nomestacion}}</td>
-    <td>{{$n->cargo}}</td>
-    <td>{{$n->cantidad}}</td>
-    <td>{{date("d-m-Y", strtotime($n->fesolicitud))}}</td>
+    <td width ='10%'>{{$n->user}} </td>
+    <td width ='8%' >{{$n->nomcbombero}}</td>
+    <td width ='8%'>{{$n->nomestacion}}</td>
+    <td width ='8%'>{{$n->cargo}}</td>
+    <td width ='8%' >{{$n->cantidad}}</td>
+    <td width ='9%' >{{date("d-m-Y", strtotime($n->fesolicitud))}}</td>
     <td>{{$n->observaciones}}</td>
-    <td>
+    <td width ='9%' >
     @php
   switch   ($n->estatusolicitud){
   case  1:
@@ -101,7 +107,7 @@ h2{
     </table>
     <table id="total">
       <tr>
-        <td>Totales</td>
+       <td>Totales: {{$Suma}}</td>
       </tr>
     </table>
            </div>

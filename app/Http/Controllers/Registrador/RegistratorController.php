@@ -177,10 +177,19 @@ class RegistratorController extends Controller
         public function getAdminpersonal()
     {
         $personals=CrearPersonals::all();
-        return view('adminpersonal')->with(compact('personals'));
-        
-        
+        return view('adminpersonal')->with(compact('personals'));       
     }
+
+        public function getAdminNecesidades()
+    {
+        $personals=necesidades_personal::join('maestro_cargos','necesidades_personals.cargo_id','=','maestro_cargos.id')->join('maestro_cuerpo_bomberos','necesidades_personals.mcbombero_id','=','maestro_cuerpo_bomberos.id')->join('crear_estaciones','necesidades_personals.estacion_id','=','crear_estaciones.id')->select('necesidades_personals.*','maestro_cargos.cargo','maestro_cuerpo_bomberos.nomcbombero','crear_estaciones.nomestacion')->get();
+       // dd($personals);
+        $nc=necesidades_capacitacion::join('maestro_cuerpo_bomberos','necesidades_capacitacions.mcbombero_id','=','maestro_cuerpo_bomberos.id')->join('crear_estaciones','necesidades_capacitacions.estacion_id','=','crear_estaciones.id')->join('users','necesidades_capacitacions.user_id','=','users.id')->join('crear_cursos','necesidades_capacitacions.curso_id','=','crear_cursos.id')->select('necesidades_capacitacions.*','maestro_cuerpo_bomberos.nomcbombero','crear_estaciones.nomestacion','users.user','crear_cursos.nomcurso')->get();
+
+        return view('necesidadespersonal')->with(compact('personals','nc'));       
+    }
+
+
        public function getRegCurso()
     {
         $ultimo=CrearCursos::orderby('id','desc')->first();
@@ -387,7 +396,8 @@ class RegistratorController extends Controller
 
    public function detpersonal(request $request)
     {
-        
+         $param='';
+         $Suma='';
          $cuerpo=maestro_cuerpo_bomberos::find($request->cbombero);
          $estacion=CrearEstaciones::find($request->estacion);
            switch   ($request->status){
@@ -511,7 +521,9 @@ class RegistratorController extends Controller
             
            $np=necesidades_personal::join('maestro_cuerpo_bomberos','necesidades_personals.mcbombero_id','=','maestro_cuerpo_bomberos.id')->join('crear_estaciones','necesidades_personals.estacion_id','=','crear_estaciones.id')->join('users','necesidades_personals.user_id','=','users.id')->join('maestro_cargos','necesidades_personals.cargo_id','=','maestro_cargos.id')->select('necesidades_personals.*','maestro_cuerpo_bomberos.nomcbombero','crear_estaciones.nomestacion','users.user','maestro_cargos.cargo')->get();
             //dd($np);
-            $pdf=PDF::loadView('reportes.necesidades_personal_reporte',compact('np','cuerpo','estacion','status'))->setPaper('a4', 'landscape')->setWarnings(false);
+           $Suma=necesidades_personal::count();
+
+            $pdf=PDF::loadView('reportes.necesidades_personal_reporte',compact('np','cuerpo','estacion','status','Suma'))->setPaper('a4', 'landscape')->setWarnings(false);
             return $pdf->stream('NecesidadPersonal.pdf');
              }
                 if($request->cbombero!='0'){
@@ -524,8 +536,9 @@ class RegistratorController extends Controller
                 } elseif($request->status!='0') {$param.="necesidades_personals.estatusolicitud=$request->status";}
 
                  $np=necesidades_personal::join('maestro_cuerpo_bomberos','necesidades_personals.mcbombero_id','=','maestro_cuerpo_bomberos.id')->join('crear_estaciones','necesidades_personals.estacion_id','=','crear_estaciones.id')->join('users','necesidades_personals.user_id','=','users.id')->join('maestro_cargos','necesidades_personals.cargo_id','=','maestro_cargos.id')->select('necesidades_personals.*','maestro_cuerpo_bomberos.nomcbombero','crear_estaciones.nomestacion','users.user','maestro_cargos.cargo')->whereraw($param)->get();
-
-                     $pdf=PDF::loadView('reportes.necesidades_personal_reporte',compact('np','cuerpo','estacion','status'))->setPaper('a4', 'landscape')->setWarnings(false);
+                 $Suma=necesidades_personal::whereraw($param)->count();
+                 
+                     $pdf=PDF::loadView('reportes.necesidades_personal_reporte',compact('np','cuerpo','estacion','status','Suma'))->setPaper('a4', 'landscape')->setWarnings(false);
                      return $pdf->stream('NecesidadPersonal.pdf');
            
 
@@ -539,7 +552,8 @@ class RegistratorController extends Controller
         if($request->cbombero=='0' && $request->estacion=='0' && $request->status=='0')
             {
            $nc=necesidades_capacitacion::join('maestro_cuerpo_bomberos','necesidades_capacitacions.mcbombero_id','=','maestro_cuerpo_bomberos.id')->join('crear_estaciones','necesidades_capacitacions.estacion_id','=','crear_estaciones.id')->join('users','necesidades_capacitacions.user_id','=','users.id')->join('crear_cursos','necesidades_capacitacions.curso_id','=','crear_cursos.id')->select('necesidades_capacitacions.*','maestro_cuerpo_bomberos.nomcbombero','crear_estaciones.nomestacion','users.user','crear_cursos.nomcurso')->get();
-            $pdf=PDF::loadView('reportes.necesidades_capacitacion_reporte',compact('nc','cuerpo','estacion','status'))->setPaper('a4', 'landscape')->setWarnings(false);
+           $Suma=necesidades_capacitacion::count();
+            $pdf=PDF::loadView('reportes.necesidades_capacitacion_reporte',compact('nc','cuerpo','estacion','status','Suma'))->setPaper('a4', 'landscape')->setWarnings(false);
             return $pdf->stream('NecesidadCursos.pdf');
             }
 
@@ -553,7 +567,8 @@ class RegistratorController extends Controller
                 } elseif($request->status!='0') {$param.="necesidades_capacitacions.estatusolicitud=$request->status";}
 
                 $nc=necesidades_capacitacion::join('maestro_cuerpo_bomberos','necesidades_capacitacions.mcbombero_id','=','maestro_cuerpo_bomberos.id')->join('crear_estaciones','necesidades_capacitacions.estacion_id','=','crear_estaciones.id')->join('users','necesidades_capacitacions.user_id','=','users.id')->join('crear_cursos','necesidades_capacitacions.curso_id','=','crear_cursos.id')->select('necesidades_capacitacions.*','maestro_cuerpo_bomberos.nomcbombero','crear_estaciones.nomestacion','users.user','crear_cursos.nomcurso')->whereraw($param)->get();
-                $pdf=PDF::loadView('reportes.necesidades_capacitacion_reporte',compact('nc','cuerpo','estacion','status'))->setPaper('a4', 'landscape')->setWarnings(false);
+                $Suma=necesidades_capacitacion::whereraw($param)->count();
+                $pdf=PDF::loadView('reportes.necesidades_capacitacion_reporte',compact('nc','cuerpo','estacion','status','Suma'))->setPaper('a4', 'landscape')->setWarnings(false);
             return $pdf->stream('NecesidadCursos.pdf');
         }
 

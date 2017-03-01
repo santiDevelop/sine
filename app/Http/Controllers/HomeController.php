@@ -50,7 +50,7 @@ class HomeController extends Controller
                 'password.required'=>'Debe Ingresar el nuevo password.',
                 'password.min'=>'La nueva clave debe tener al menos 6 caracteres',
                 'password.confirmed'=>'La clave ingresada no coincide con la nueva clave',
-                'password_confirmation.required'=>'Debe Ingresar la confirmacion de la clave.',
+                'password_confirmation.required'=>'Debe Ingresar la confirmacion de la clave.','password_confirmation.min'=>'La nueva clave debe tener 6 caracteres minimo.'
                   ];
 
         $this->validate($request,$rules,$messages);
