@@ -311,7 +311,7 @@ class UserController extends Controller
 
     }
 
-    public function updatecapacitacion(request $request)
+    public function updatecapacitacion(request $request,$id)
     { 
       $updatecapacitacion=necesidades_capacitacion::find($id);
 

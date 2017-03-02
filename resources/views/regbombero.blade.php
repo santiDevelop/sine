@@ -83,8 +83,8 @@
                         <label for="cedbombero" class="col-md-3 control-label">Cédula:</label>
                         <div class="col-md-2">
                           <select name="nacionalidad" id="nacionalidad" class="form-control">
-                            <option {{ old('cedbombero')=='Venezolana' ? 'selected="selected"' : '' }} value="Venezolana">V</option>
-                            <option {{ old('cedbombero')=='Extranjera' ? 'selected="selected"' : '' }} value="Extranjera">E</option>
+                            <option {{ old('nacionalidad')=='Venezolana' ? 'selected="selected"' : '' }} value="Venezolana">V</option>
+                            <option {{ old('nacionalidad')=='Extranjera' ? 'selected="selected"' : '' }} value="Extranjera">E</option>
                           </select>
                         </div>
                         <div class="col-md-5">
