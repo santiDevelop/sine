@@ -81,7 +81,24 @@
                   <td>{{$user->user}}</td>
                   <td>{{$user->name}}</td>
                   <td>{{$user->cedula}}</td>
-                  <td>@if($user->typeuser==1){{"Administrador"}}@else{{"Usuario"}} @endif</td>
+                  <td>
+                     @php
+                      switch   ($user->typeuser){
+                      case  1:
+                      echo 'Administrador';
+                      break;
+                      case 2:
+                      echo 'Registrador';
+                      break;
+                      case 3:
+                      echo 'Jefe';
+                      break;
+                      case 4:
+                      echo 'Fonbe';
+                      break;
+                      }
+                      @endphp
+                  </td>
                   <td><a href="/editarusuario/{{$user->id}}" title="Editar Usuario"><i class="fa fa-pencil"></i></a> <a type="button" data-toggle="modal" data-target="#confirmar" title="Borrar Usuario"><i class="fa fa-trash"></i></a></td>
                 </tr>
                 @endforeach

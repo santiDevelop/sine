@@ -67,7 +67,7 @@
                 <div class="col-md-6">
                 <select class="form-control" id="cargo" name="cargo" required>
                         @foreach ($cargos as $cargo)
-                    <option value="{{$cargo->id}}">{{$cargo->cargo}}</option>
+                    <option {{ old('cargo')==$cargo->id ? 'selected="selected"' : '' }} value="{{$cargo->id}}">{{$cargo->cargo}}</option>
                     @endforeach
                 </select>
                     @if ($errors->has('cargo'))
@@ -82,8 +82,8 @@
             <label for="status" class="col-md-2 control-label">Estatus:</label>
                 <div class="col-md-6">
                 <select class="form-control" id="status" name="status" required>
-                        <option value="1">Activo</option>
-                        <option value="2">Bloqueado</option>
+                        <option {{ old('status')=='1' ? 'selected="selected"' : '' }} value="1">Activo</option>
+                        <option {{ old('status')=='2' ? 'selected="selected"' : '' }} value="2">Bloqueado</option>
                 </select>
                     @if ($errors->has('status'))
                     <span class="help-block">
@@ -97,9 +97,10 @@
             <label for="typeuser" class="col-md-2 control-label">Perfil de Usuario:</label>
                 <div class="col-md-6">
                 <select class="form-control" id="typeuser" name="typeuser" required>
-                        <option value="2">Usuario</option>
-                        <option value="3">Reportes</option>
-                        <option value="1">Administrador</option>
+                        <option {{ old('typeuser')=='2' ? 'selected="selected"' : '' }} value="2">Registrador</option>
+                        <option {{ old('typeuser')=='3' ? 'selected="selected"' : '' }} value="3">Jefe</option>
+                        <option {{ old('typeuser')=='1' ? 'selected="selected"' : '' }} value="1">Administrador sistema</option>
+                        <option {{ old('typeuser')=='4' ? 'selected="selected"' : '' }} value="4">Fonbe</option>
                 </select>
                     @if ($errors->has('typeuser'))
                     <span class="help-block">
@@ -114,7 +115,7 @@
                 <div class="col-md-6">
                 <select class="form-control" id="cbombero" name="cbombero" required>
                     @foreach ($cbomberos as $cbombero)
-                    <option value="{{$cbombero->id}}">{{$cbombero->nomcbombero}}</option>
+                    <option {{ old('status')==$cbombero->id ? 'selected="selected"' : '' }} value="{{$cbombero->id}}">{{$cbombero->nomcbombero}}</option>
                     @endforeach
                 </select>
                     @if ($errors->has('cbombero'))

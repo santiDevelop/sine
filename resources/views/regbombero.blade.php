@@ -83,8 +83,8 @@
                         <label for="cedbombero" class="col-md-3 control-label">Cédula:</label>
                         <div class="col-md-2">
                           <select name="nacionalidad" id="nacionalidad" class="form-control">
-                            <option value="Venezolana">V</option>
-                            <option value="Extranjera">E</option>
+                            <option {{ old('cedbombero')=='Venezolana' ? 'selected="selected"' : '' }} value="Venezolana">V</option>
+                            <option {{ old('cedbombero')=='Extranjera' ? 'selected="selected"' : '' }} value="Extranjera">E</option>
                           </select>
                         </div>
                         <div class="col-md-5">
@@ -122,11 +122,11 @@
                       </div>
 
                       <div class="form-group{{ $errors->has('sexo') ? ' has-error' : '' }}">
-                        <label for="sexo" class="col-md-3 control-label">Genero:</label>
+                        <label for="sexo" class="col-md-3 control-label">Sexo:</label>
                         <div class="col-md-7">
                           <select class="form-control" id="sexo" name="sexo">
-                            <option value="Masculino">Masculino</option>
-                            <option value="Femenino">Femenino</option>
+                            <option {{ old('sexo')=='Hombre' ? 'selected="selected"' : '' }} value="Hombre">Hombre</option>
+                            <option {{ old('sexo')=='Mujer' ? 'selected="selected"' : '' }} value="Mujer">Mujer</option>
                           </select>
                             @if ($errors->has('sexo'))
                               <span class="help-block">
@@ -140,10 +140,10 @@
                           <label for="ecivil" class="col-md-3 control-label">Estado civil:</label>
                           <div class="col-md-7">
                             <select class="form-control" id="ecivil" name="ecivil">
-                              <option value="Soltero">Soltero</option>
-                              <option value="Casado">Casado</option>
-                              <option value="Divorciado">Divorciado</option>
-                              <option value="Viudo">Viudo</option>
+                              <option {{ old('ecivil')=='Soltero' ? 'selected="selected"' : '' }} value="Soltero">Soltero</option>
+                              <option {{ old('ecivil')=='Casado' ? 'selected="selected"' : '' }} value="Casado">Casado</option>
+                              <option {{ old('ecivil')=='Divorciado' ? 'selected="selected"' : '' }} value="Divorciado">Divorciado</option>
+                              <option {{ old('ecivil')=='Viudo' ? 'selected="selected"' : '' }} value="Viudo">Viudo</option>
                             </select>
                               @if ($errors->has('ecivil'))
                                 <span class="help-block">
@@ -190,11 +190,11 @@
                       </div>
 
                        <div class="form-group{{ $errors->has('estado') ? ' has-error' : '' }}">
-                          <label for="estado" class="col-md-3 control-label">Estado:</label>
+                          <label for="estado" class="col-md-3 control-label">Estado Residencia:</label>
                           <div class="col-md-7">
                             <select class="form-control" id="estado" name="estado">
                             @foreach ($estados as $estado)
-                              <option value="{{$estado->id}}">{{$estado->estado}}</option>
+                              <option {{ old('estado')==$estado->id ? 'selected="selected"' : '' }} value="{{$estado->id}}">{{$estado->estado}}</option>
                             @endforeach 
                             </select>
                               @if ($errors->has('estado'))
@@ -221,8 +221,8 @@
                       <div class="form-group">
                           <label for="talla" class="col-md-3 control-label">Tallas:</label>
                           <div class="col-md-2">
+                            <p>Camisa:</p>
                             <select class="form-control" id="tcamisa" name="tcamisa">
-                              <option selected="Seleccione" value="0">Camisa</option>
                               <option value="XS" {{ old('tcamisa')=='XS' ? 'selected="selected"' : '' }} >XS</option>
                               <option value="S" {{ old('tcamisa')=='S' ? 'selected="selected"' : '' }} >S</option>
                               <option value="M" {{ old('tcamisa')=='M' ? 'selected="selected"' : '' }} >M</option>
@@ -233,8 +233,8 @@
                             </select>
                           </div>
                           <div class="col-md-2">
+                          <p>Pantalon:</p>
                             <select class="form-control" id="tpantalon" name="tpantalon">
-                              <option selected="Seleccione" value="0">Pantalón</option>
                               <option value="XS" {{ old('tpantalon')=='XS' ? 'selected="selected"' : '' }} >XS</option>
                               <option value="S" {{ old('tpantalon')=='S' ? 'selected="selected"' : '' }} >S</option>
                               <option value="M" {{ old('tpantalon')=='M' ? 'selected="selected"' : '' }} >M</option>
@@ -245,16 +245,22 @@
                             </select>
                           </div>
                           <div class="col-md-2">
+                           <p>Calzado:</p>
                             <select class="form-control" id="tcalzado" name="tcalzado">
-                              <option selected="Seleccione" value="0">Calzado</option>
-                              <option value="4" {{ old('tcalzado')=='4' ? 'selected="selected"' : '' }} >4</option>
-                              <option value="5" {{ old('tcalzado')=='5' ? 'selected="selected"' : '' }} >5</option>
-                              <option value="6" {{ old('tcalzado')=='6' ? 'selected="selected"' : '' }} >6</option>
-                              <option value="7" {{ old('tcalzado')=='7' ? 'selected="selected"' : '' }} >7</option>
-                              <option value="8" {{ old('tcalzado')=='8' ? 'selected="selected"' : '' }} >8</option>
-                              <option value="9" {{ old('tcalzado')=='9' ? 'selected="selected"' : '' }} >9</option>
-                              <option value="10" {{ old('tcalzado')=='10' ? 'selected="selected"' : '' }} >10</option>
-                              <option value="11" {{ old('tcalzado')=='11' ? 'selected="selected"' : '' }} >11</option>
+                             <option value="34" {{ old('tcalzado')=='34' ? 'selected="selected"' : '' }} >34</option>
+                              <option value="35" {{ old('tcalzado')=='35' ? 'selected="selected"' : '' }} >35</option>
+                              <option value="36" {{ old('tcalzado')=='36' ? 'selected="selected"' : '' }} >36</option>
+                              <option value="37" {{ old('tcalzado')=='37' ? 'selected="selected"' : '' }} >37</option>
+                              <option value="38" {{ old('tcalzado')=='38' ? 'selected="selected"' : '' }} >38</option>
+                              <option value="39" {{ old('tcalzado')=='39' ? 'selected="selected"' : '' }} >39</option>
+                              <option value="40" {{ old('tcalzado')=='40' ? 'selected="selected"' : '' }} >40</option>
+                              <option value="41" {{ old('tcalzado')=='41' ? 'selected="selected"' : '' }} >41</option>
+                              <option value="42" {{ old('tcalzado')=='42' ? 'selected="selected"' : '' }} >42</option>
+                              <option value="43" {{ old('tcalzado')=='43' ? 'selected="selected"' : '' }} >43</option>
+                              <option value="44" {{ old('tcalzado')=='44' ? 'selected="selected"' : '' }} >44</option>
+                              <option value="45" {{ old('tcalzado')=='45' ? 'selected="selected"' : '' }} >45</option>
+                              <option value="46" {{ old('tcalzado')=='46' ? 'selected="selected"' : '' }} >46</option>
+                              <option value="47" {{ old('tcalzado')=='47' ? 'selected="selected"' : '' }} >47</option>
                             </select>
                           </div>
                         </div>
@@ -269,7 +275,7 @@
                           <div class="col-md-6">
                             <select class="form-control" id="profesion" name="profesion">
                             @foreach($profesiones as $profesion)
-                              <option value="{{$profesion->id}}">{{$profesion->profesion}}</option>
+                              <option {{ old('profesion')==$profesion->id ? 'selected="selected"' : '' }} value="{{$profesion->id}}">{{$profesion->profesion}}</option>
                             @endforeach
                             </select>
                               @if ($errors->has('profesion'))
@@ -284,14 +290,13 @@
                           <label for="nacademico" class="col-md-3 control-label">Nivel académico:</label>
                           <div class="col-md-6">
                             <select class="form-control" id="nacademico" name="nacademico">
-                              <option value="Ninguno">Ninguno</option>
-                              <option value="Primaria">Primaria</option>
-                              <option value="Bachiller">Bachiller</option>
-                              <option value="Técnico Superior">Técnico Superior</option>
-                              <option value="Universitario">Universitario</option>
-                              <option value="Maestría">Maestría</option>
-                              <option value="PostGrado">PostGrado</option>
-                              <option value="Doctorado">Doctorado</option>
+                              <option {{ old('nacademico')=='Ninguno' ? 'selected="selected"' : '' }} value="Ninguno">Ninguno</option>
+                              <option {{ old('nacademico')=='Educación Básica' ? 'selected="selected"' : '' }} value="Educación Básica">Educación Básica</option>
+                              <option {{ old('nacademico')=='Educación Media Técnica' ? 'selected="selected"' : '' }} value=" Educación Media Técnica"> Educación Media Técnica</option>
+                              <option {{ old('nacademico')=='Técnico Superior Universitarior' ? 'selected="selected"' : '' }} value="Técnico Superior Universitarior">Técnico Superior Universitarior</option>
+                              <option {{ old('nacademico')=='Universitario Pregrado' ? 'selected="selected"' : '' }} value="Universitario Pregrado">Universitario Pregrado</option>
+                              <option {{ old('nacademico')=='Universitario Postgrado' ? 'selected="selected"' : '' }} value="Universitario Postgrado">Universitario Postgrado</option>
+                              
                             </select>
                               @if ($errors->has('nacademico'))
                                 <span class="help-block">
@@ -305,11 +310,14 @@
                           <label for="ultitulo" class="col-md-3 control-label">Ultimo título obtenido:</label>
                           <div class="col-md-6">
                             <select class="form-control" id="ultitulo" name="ultitulo">
-                              <option value="Ninguno">Ninguno</option>
-                              <option value="Bachiller">Bachiller</option>
-                              <option value="Licenciado">Licenciado</option>
-                              <option value="Ingeniero">Ingeniero</option>
-                              <option value="Master">Master</option>
+                              <option {{ old('ultitulo')=='Ninguno' ? 'selected="selected"' : '' }}  value="Ninguno">Ninguno</option>
+                              <option {{ old('ultitulo')=='Bachiller' ? 'selected="selected"' : '' }}  value="Bachiller">Bachiller</option>
+                              <option {{ old('ultitulo')=="Técnico Medio" ? 'selected="selected"' : '' }}  value="Técnico Medio">Técnico Medio</option>
+                              <option {{ old('ultitulo')=='TSU' ? 'selected="selected"' : '' }}  value="TSU">TSU</option>
+                              <option {{ old('ultitulo')=='Licenciado' ? 'selected="selected"' : '' }}  value="Licenciado">Licenciado</option>
+                               <option {{ old('ultitulo')=='Especialista' ? 'selected="selected"' : '' }}  value="Especialista">Especialista</option>
+                               <option {{ old('ultitulo')=='Magister' ? 'selected="selected"' : '' }}  value="Magister">Magister</option>
+                               <option {{ old('ultitulo')=='Doctor' ? 'selected="selected"' : '' }}  value="Doctor">Doctor</option>
                             </select>
                               @if ($errors->has('ultitulo'))
                                 <span class="help-block">
@@ -337,7 +345,7 @@
                           
                           <div class="col-md-6">
                           <div class="input_fields_wrap">
-                            <button class="btn-info">Agrega mas Cursos</button>
+                            <button class="btn-info">Agrega Cursos Realizados</button>
                              
                             </div>
                             </div>
@@ -359,7 +367,7 @@
                           <div class="col-md-6">
                             <select class="form-control"  id="rango" name="rango">
                               @foreach ($rangos as $rango)
-                              <option value="{{$rango->id}}">{{$rango->rango}}</option>
+                              <option {{ old('rango')==$rango->id ? 'selected="selected"' : '' }}  value="{{$rango->id}}">{{$rango->rango}}</option>
                             @endforeach 
                              
                             </select>
@@ -376,7 +384,7 @@
                           <div class="col-md-6">
                             <select class="form-control"  id="cargo" name="cargo">
                               @foreach ($cargos as $cargo)
-                              <option value="{{$cargo->id}}"> {{$cargo->cargo}} </option>
+                              <option {{ old('cargo')==$cargo->id ? 'selected="selected"' : '' }}  value="{{$cargo->id}}"> {{$cargo->cargo}} </option>
                               @endforeach
                             </select>
                               @if ($errors->has('cargo'))
@@ -416,7 +424,7 @@
                           <div class="col-md-6">
                             <select class="form-control"  id="cbombero" name="cbombero">
                             @foreach ($cbomberos as $cbombero)
-                              <option value="{{$cbombero->id}}"> {{$cbombero->nomcbombero}} </option>
+                              <option {{ old('cbombero')==$cbombero->id ? 'selected="selected"' : '' }}  value="{{$cbombero->id}}"> {{$cbombero->nomcbombero}} </option>
                               @endforeach
                             </select>
                               @if ($errors->has('cbombero'))
@@ -434,7 +442,7 @@
                           <div class="col-md-6">
                             <select class="form-control"  id="estacion" name="estacion">
                               @foreach ($estaciones as $estacion)
-                              <option value="{{$estacion->id}}">{{$estacion->nomestacion}}</option>
+                              <option {{ old('estacion')==$estacion->id ? 'selected="selected"' : '' }} value="{{$estacion->id}}">{{$estacion->nomestacion}}</option>
                               @endforeach
                             </select>
                               @if ($errors->has('estacion'))
@@ -449,10 +457,10 @@
                           <label for="estatus" class="col-md-3 control-label">Estatus:</label>
                           <div class="col-md-6">
                             <select class="form-control"  id="estatus" name="estatus">
-                              <option value="Activo">Activo</option>
-                              <option value="Egresado">Egresado</option>
-                              <option value="Suspendido">Suspendido</option>
-                              <option value="Vacaciones">Vacaciones</option>
+                              <option {{ old('estatus')=='Activo' ? 'selected="selected"' : '' }} value="Activo">Activo</option>
+                              <option {{ old('estatus')=='Egresado' ? 'selected="selected"' : '' }} value="Egresado">Egresado</option>
+                              <option {{ old('estatus')=='Suspendido' ? 'selected="selected"' : '' }} value="Suspendido">Suspendido</option>
+                              <option {{ old('estatus')=='Vacaciones' ? 'selected="selected"' : '' }} value="Vacaciones">Vacaciones</option>
                             </select>
                               @if ($errors->has('estatus'))
                                 <span class="help-block">

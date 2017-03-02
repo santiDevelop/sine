@@ -55,7 +55,7 @@ class RegisterController extends Controller
             'user' => 'required|max:15|unique:users',
             'cedula' => 'required|min:10|unique:users|integer',
             'cargo' => 'required|numeric',
-            'typeuser' => 'required|numeric|in:1,2,3',
+            'typeuser' => 'required|numeric|in:1,2,3,4',
             'cbombero' => 'required|numeric',
             'status' => 'required|numeric|max:2|in:1,2',   
             'password' => 'required|min:6',

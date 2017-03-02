@@ -176,7 +176,7 @@
     </div>
     <div class="box-body">
       @foreach($generos as $genero)
-      <div>@if($genero->sexo==1) {{'Masculino'}} @else {{'Femenino'}} @endif <span class="pull-right-container">
+      <div>{{$genero->sexo}}<span class="pull-right-container">
         <small class="label pull-right bg-blue">{{$genero->Suma}}</small></span></div>
       @endforeach
     </div><!-- /.box-body -->
