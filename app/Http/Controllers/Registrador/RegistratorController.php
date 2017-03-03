@@ -192,9 +192,10 @@ class RegistratorController extends Controller
 
        public function getRegCurso()
     {
+        $historico=CrearCursos::all();
         $ultimo=CrearCursos::orderby('id','desc')->first();
         $numero=($ultimo->id)+1;
-        return view('regcurso')->with(compact('numero'));
+        return view('regcurso')->with(compact('numero','historico'));
         
     }
        public function postRegCurso(request $request)
