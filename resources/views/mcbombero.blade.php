@@ -28,7 +28,7 @@
       </h1>
       <ol class="breadcrumb">
         <li><a href="/home"><i class="fa fa-dashboard"></i> Tablero</a></li>
-        <li class="active">Maestro de cuerpo de bomberos</li>
+        <li class="active">Maestro de Cuerpo de Bomberos</li>
       </ol>
       </div>
 
@@ -76,6 +76,36 @@
             </form>
       </div>
 
+   <div class="box">
+            <div class="box-header">
+              <h3 class="box-title">Cuerpo de Bomberos Creados</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="table-responsive">
+            <div class="box-body">
+              <table id="example3" class="table table-bordered table-striped table-hover">
+                <thead>
+                <tr>
+                 <th>Numero Cuerpo bombero</th>
+                  <th>Nombre Cuerpo de Bombero</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach ($historico as $h) 
+                <tr>
+                  <td width="30%">{{$h->numcbomb}}</td>
+                  <td>{{$h->nomcbombero}}</td>
+                </tr>
+                @endforeach
+                </tbody>
+              </table>
+               </div>
+            </div>
+            <!-- /.box-body -->
+         
+          <!-- /.box -->
+
+</div>
 
     </section>
     <!-- /.content -->

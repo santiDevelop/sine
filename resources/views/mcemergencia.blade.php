@@ -42,7 +42,7 @@
                       <label for="numcatemerg" class="col-md-2 control-label">Numero Categoria Emergencia:
                       </label>
                           <div class="col-md-2">
-                          <input id="numcatemerg" type="text" class="form-control" placeholder="Numero Categoria Emergencia" name="numcatemerg" maxlength="3" value="{{ old('numcatemerg') }}" required autofocus>
+                          <input id="numcatemerg" type="text" class="form-control" placeholder="Numero Categoria Emergencia" name="numcatemerg" maxlength="3" value="{{ $numero }}" required >
                               @if ($errors->has('numcatemerg'))
                                   <span class="help-block">
                                       <strong>{{ $errors->first('numcatemerg') }}</strong>
@@ -72,6 +72,36 @@
           </form>
    </div>
 
+<div class="box">
+            <div class="box-header">
+              <h3 class="box-title">categorización de emergencia Creados</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="table-responsive">
+            <div class="box-body">
+              <table id="example3" class="table table-bordered table-striped table-hover">
+                <thead>
+                <tr>
+                 <th>Numero categorización de emergencia</th>
+                  <th>Nombre categorización de emergencia</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach ($historico as $h) 
+                <tr>
+                  <td width="30%">{{$h->numcatemerg}}</td>
+                  <td>{{$h->nomcatemerg}}</td>
+                </tr>
+                @endforeach
+                </tbody>
+              </table>
+               </div>
+            </div>
+            <!-- /.box-body -->
+         
+          <!-- /.box -->
+
+</div>
     </section>
     <!-- /.content -->
 

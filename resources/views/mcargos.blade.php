@@ -73,7 +73,36 @@
             </form>
       </div>
 
+  <div class="box">
+            <div class="box-header">
+              <h3 class="box-title">Cargos Creados</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="table-responsive">
+            <div class="box-body">
+              <table id="example3" class="table table-bordered table-striped table-hover">
+                <thead>
+                <tr>
+                 <th>Numero Cargo</th>
+                  <th>Nombre de Cargo</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach ($historico as $h) 
+                <tr>
+                  <td width="30%">{{$h->numcargo}}</td>
+                  <td>{{$h->cargo}}</td>
+                </tr>
+                @endforeach
+                </tbody>
+              </table>
+               </div>
+            </div>
+            <!-- /.box-body -->
+         
+          <!-- /.box -->
 
+</div>
 
 
     </section>

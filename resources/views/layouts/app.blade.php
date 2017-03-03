@@ -145,6 +145,14 @@
       "info": true,
       "autoWidth": true
     });
+    $('#example3').DataTable({
+      "paging": false,
+      "lengthChange": true,
+      "searching": true,
+      "ordering": false,
+      "info": true,
+      "autoWidth": true
+    });
   });
 </script>
  <script>

@@ -72,6 +72,36 @@
           </form>
    </div>
 
+ <div class="box">
+            <div class="box-header">
+              <h3 class="box-title">Tipos de Equipamiento Creados</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="table-responsive">
+            <div class="box-body">
+              <table id="example3" class="table table-bordered table-striped table-hover">
+                <thead>
+                <tr>
+                 <th>Numero Tipos de Equipamiento</th>
+                  <th>Nombre Tipos de Equipamiento</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach ($historico as $h) 
+                <tr>
+                  <td width="30%">{{$h->numtipequip}}</td>
+                  <td>{{$h->nomtipequip}}</td>
+                </tr>
+                @endforeach
+                </tbody>
+              </table>
+               </div>
+            </div>
+            <!-- /.box-body -->
+         
+          <!-- /.box -->
+
+</div>
     </section>
     <!-- /.content -->
 

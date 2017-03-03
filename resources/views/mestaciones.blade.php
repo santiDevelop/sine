@@ -97,7 +97,38 @@
             </form>
       </div>
 
+ <div class="box">
+            <div class="box-header">
+              <h3 class="box-title">Estaciones Creadas</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="table-responsive">
+            <div class="box-body">
+              <table id="example3" class="table table-bordered table-striped table-hover">
+                <thead>
+                <tr>
+                 <th>Numero Estacion</th>
+                  <th>Nombre Cuerpo de Bombero</th>
+                  <th>Nombre Estacion</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach ($historico as $h) 
+                <tr>
+                  <td width="20%">{{$h->numestacion}}</td>
+                  <td> {{$h->nomcbombero}} </td>
+                  <td>{{$h->nomestacion}}</td>
+                </tr>
+                @endforeach
+                </tbody>
+              </table>
+               </div>
+            </div>
+            <!-- /.box-body -->
+         
+          <!-- /.box -->
 
+</div>
 
 
     </section>

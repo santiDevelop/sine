@@ -47,11 +47,12 @@ class UserController extends Controller
 
      public function getMcbombero()
     {
+        $historico=maestro_cuerpo_bomberos::all();
         $ultimo=maestro_cuerpo_bomberos::orderby('numcbomb','desc')->first();
         if($ultimo!=null){
       $numero=($ultimo->numcbomb)+1;
        } else { $numero=1;}
-        return view('mcbombero')->with(compact('numero'));
+        return view('mcbombero')->with(compact('numero','historico'));
     }
       public function postMcbombero(Request $request)
     {
@@ -80,11 +81,12 @@ class UserController extends Controller
 
      public function getMcargos()
     {
+      $historico=maestro_cargos::all();
        $ultimo=maestro_cargos::orderby('numcargo','desc')->first();
        if($ultimo!=null){
       $numero=($ultimo->numcargo)+1;
        } else { $numero=1;}
-        return view('mcargos')->with(compact('numero'));
+        return view('mcargos')->with(compact('numero','historico'));
     }
      public function postMcargos(Request $request)
     {
@@ -121,11 +123,12 @@ class UserController extends Controller
 
      public function getMtequipos()
     {
+      $historico=maestro_tipo_equipamiento::all();
       $ultimo=maestro_tipo_equipamiento::orderby('numtipequip','desc')->first();
       if($ultimo!=null){
       $numero=($ultimo->numtipequip)+1;
        } else { $numero=1;}
-        return view('mtequipos')->with(compact('numero'));
+        return view('mtequipos')->with(compact('numero','historico'));
     }
     public function postMtequipos(Request $request)
     {
@@ -154,7 +157,13 @@ class UserController extends Controller
 
      public function getMcemergencia()
     {
-        return view('mcemergencia');
+
+        $historico=maestro_cat_emergencia::all();
+      $ultimo=maestro_cat_emergencia::orderby('numcatemerg','desc')->first();
+      if($ultimo!=null){
+      $numero=($ultimo->numcatemerg)+1;
+      }
+        return view('mcemergencia')->with(compact('numero','historico'));
     }
     public function postMcemergencia(Request $request)
     {
@@ -186,11 +195,12 @@ class UserController extends Controller
 
       public function getMpcargos()
     {
+      $historico=rangos::all();
       $ultimo=rangos::orderby('numrango','desc')->first();
       if($ultimo!=null){
       $numero=($ultimo->numrango)+1;
        } else { $numero=1;}
-        return view('mpcargos')->with(compact('numero'));
+        return view('mpcargos')->with(compact('numero','historico'));
     }
      public function postMpcargos(Request $request)
     {
@@ -263,12 +273,14 @@ class UserController extends Controller
 
     public function getMestaciones()
     {
+      $historico=CrearEstaciones::join('maestro_cuerpo_bomberos','crear_estaciones.mcbombero_id','=','maestro_cuerpo_bomberos.id')->select('crear_estaciones.*','maestro_cuerpo_bomberos.nomcbombero')->get();
+      //dd($historico);
       $ultimo=CrearEstaciones::orderby('numestacion','desc')->first();
       if($ultimo!=null){
       $numero=($ultimo->numestacion)+1;
        } else { $numero=1;}
       $mcbomberos=maestro_cuerpo_bomberos::all();
-      return view('mestaciones')->with(compact('mcbomberos','numero'));
+      return view('mestaciones')->with(compact('mcbomberos','numero','historico'));
 
     }
 
