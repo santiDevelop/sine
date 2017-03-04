@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\user;
-use Illuminate\Support\Facades\hash;
+use Hash;
 use PDF;
 class HomeController extends Controller
 {

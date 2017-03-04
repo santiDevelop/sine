@@ -47,6 +47,7 @@ h1,tfoot{
 h2{
   font-size: 15px;
 }
+
 </style>
   <!-- Font Awesome -->
 
@@ -55,8 +56,10 @@ h2{
 
 
   <body >
-  <h1>Reporte Necesidades Personal:</h1>
+
+  <h1>Reporte Necesidades Personal: <img  src="{{ asset('img/logo-fonbe-small.png') }}" align="right"></h1>
  <h2>Cuerpo de bombero:@if(isset($cuerpo->nomcbombero)) {{$cuerpo->nomcbombero}} @else {{'Todas'}} @endif <br> Estacion:@if(isset($estacion->nomestacion)) {{$estacion->nomestacion}} @else {{'Todas'}} @endif <br> Estatus:{{$status}}</h2>
+ 
    <div class="wrapper">
     <table id="t01">
     <thead>

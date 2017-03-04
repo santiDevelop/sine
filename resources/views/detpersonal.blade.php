@@ -32,7 +32,7 @@
                   <th>Apellido</th>
                   <th>Fecha Nacimiento</th>
                   <th>Lugar de nacimiento</th>
-                  <th>Genero</th>
+                  <th>Sexo</th>
                   <th>Estado Civil</th>
                   <th>Numero de hijos</th>
                   <th>Estado</th>

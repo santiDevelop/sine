@@ -83,7 +83,7 @@
                             </select>
                             </select></p> </div>-->
                   </td>
-                  <td><button type="submit" class="btn btn-default">Reportar</button></td>
+                  <td><button type="submit" class="btn btn-success">Reportar</button></td>
                 </tr>
                   </form>
 
@@ -108,7 +108,7 @@
                           </div>
                             
                   </td>
-                  <td><button type="submit" class="btn btn-default">Reportar</button></td>
+                  <td><button type="submit" class="btn btn-success">Reportar</button></td>
                 </tr>
                 </form>
                 
@@ -142,7 +142,7 @@
                             </select>
                             </div>
                   </td>
-                  <td><button type="submit" class="btn btn-default">Reportar</button></td>
+                  <td><button type="submit" class="btn btn-success">Reportar</button></td>
                 </tr>
                 </form>
 
@@ -173,7 +173,7 @@
                             </select>
                             </div>
                   </td>
-                  <td><button type="submit" class="btn btn-default">Reportar</button></td>
+                  <td><button type="submit" class="btn btn-success">Reportar</button></td>
                 </tr>
                 </form>
 

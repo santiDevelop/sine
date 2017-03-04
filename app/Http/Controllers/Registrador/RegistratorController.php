@@ -458,7 +458,12 @@ class RegistratorController extends Controller
             $nacademico=DB::table('crear_personals')->select(array('nacademico', DB::raw('COUNT(nacademico) as Suma')))->groupby('nacademico')->get();
             $ecivil=DB::table('crear_personals')->select(array('ecivil', DB::raw('COUNT(ecivil) as Suma')))->groupby('ecivil')->get();
             //dd($genero,$rango);
-            return view('consopersonal')->with(compact('generos','rangos','tcamisa','tpantalon','tcalzado','profesiones','cargos','estatus','nacademico','estados','ecivil','personas'));
+           return view('consopersonal')->with(compact('generos','rangos','tcamisa','tpantalon','tcalzado','profesiones','cargos','estatus','nacademico','estados','ecivil','personas'));
+
+            /* $pdf=PDF::loadView('consopersonal',compact('generos','rangos','tcamisa','tpantalon','tcalzado','profesiones','cargos','estatus','nacademico','estados','ecivil','personas'))->setPaper('a4', 'landscape')->setWarnings(false);
+            return $pdf->stream('consopersonal.pdf');
+*/
+
             } elseif ($request->cbomero!='0' && $request->estacion=='0') {
 
                 
