@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMaestroTipoEquipamientosTable extends Migration
+class CreateElementosTipoEquipamientosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,14 @@ class CreateMaestroTipoEquipamientosTable extends Migration
      */
     public function up()
     {
-        Schema::create('maestro_tipo_equipamientos', function (Blueprint $table) {
+        Schema::create('elementos_tipo_equipamientos', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nomtipequip');
+            $table->string('nomelemento');
+            $table->integer('tipequip_id')->unsigned();
+            $table->foreign('tipequip_id')->references('id')->on('maestro_tipo_equipamientos');
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
@@ -29,6 +32,6 @@ class CreateMaestroTipoEquipamientosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('maestro_tipo_equipamientos');
+        Schema::dropIfExists('elementos_tipo_equipamientos');
     }
 }

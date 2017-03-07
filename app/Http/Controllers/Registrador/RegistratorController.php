@@ -10,6 +10,7 @@ use App\maestro_cat_emergencia;
 use App\maestro_cuerpo_bomberos;
 use App\maestro_perfiles_cargos;
 use App\maestro_tipo_equipamiento;
+use App\elementos_tipo_equipamiento;
 use App\User;
 use App\Registrador;
 use App\CrearPersonals;
@@ -388,7 +389,31 @@ class RegistratorController extends Controller
         return view('neccomunicaciones');
         
     }
-    
+        public function getRelementos()
+    {
+        $tipo=maestro_tipo_equipamiento::all();
+
+        $elementos=elementos_tipo_equipamiento::join('maestro_tipo_equipamientos','maestro_tipo_equipamientos.id','=','elementos_tipo_equipamientos.tipequip_id')->select('elementos_tipo_equipamientos.*','maestro_tipo_equipamientos.nomtipequip')->get();
+        //dd($elementos);
+        return view('gestion_recursos.relementos')->with(compact('tipo','elementos'));
+        
+    }
+
+    public function postRelementos(request $request){
+
+        $this->validate($request,elementos_tipo_equipamiento::$rules,elementos_tipo_equipamiento::$messages);
+        return elementos_tipo_equipamiento::guardar($request);
+    }
+    public function borrarElemento($id){
+
+        return elementos_tipo_equipamiento::borrar($id);
+    }
+
+     public function editarElemento($id){
+
+        return elementos_tipo_equipamiento::editar($id);
+    }
+
 
     public function BuscarEstacion($id)
     {

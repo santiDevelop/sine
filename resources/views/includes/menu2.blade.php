@@ -105,6 +105,10 @@
             </span>
           </a>
           <ul class="treeview-menu">
+          <li class="treeview" >
+            <a href="/relementos"><i class="fa fa-pencil"></i><span>Registro Elementos</span>
+            </a>
+            </li>
             <li class="treeview" >
               <a href="#"><i class="fa fa-pencil-square-o"></i><span>Registro</span>
               <span class="pull-right-container">

@@ -22,7 +22,7 @@ public function run()
          $this->call(estadosSeeder::class);
          $this->call(rangosSeeder::class);
          $this->call(profesionesSeeder::class);
-
+         $this->call(elementos_tipo_equipamientosSeeder::class);
 
     }
 }
