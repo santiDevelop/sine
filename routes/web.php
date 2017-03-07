@@ -96,6 +96,7 @@ Route::group(['middleware'=>'Registrador','namespace'=>'Registrador'],function()
 	Route::post('/relementos', 'RegistratorController@postRelementos');
 
 	Route::get('/editelemento/{id}', 'RegistratorController@editarElemento');
+	Route::post('/editelemento/{id}', 'RegistratorController@updateElemento');
 	Route::get('/editelemento/{id}/eliminar', 'RegistratorController@borrarElemento');
 
 });

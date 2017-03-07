@@ -143,6 +143,7 @@
                     <button type="submit" class="btn btn-primary">
                         Registrar
                     </button>
+                    <a class="btn btn-default " href="/adminuser" role="button">Regresar al menu</a>
                 </div>
             </div>
         </form>

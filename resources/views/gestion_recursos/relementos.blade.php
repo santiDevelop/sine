@@ -7,12 +7,12 @@
        <div class="hidden-xs hidden-sm">
        <section class="content-header">
         <h1>
-        Elementos de tipo de equipamiento
-        <small>Elementos de tipo de equipamiento</small>
+        Elementos de Tipo de equipamiento
+        <small>Elementos de Tipo de equipamiento</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="/home"><i class="fa fa-dashboard"></i> Tablero</a></li>
-        <li class="active">Elementos de tipo de equipamiento</li>
+        <li class="active">Elementos de Tipo de equipamiento</li>
       </ol>
       </section>
       </div>
@@ -22,12 +22,12 @@
     <div class="hidden-md hidden-lg">
     <section class="content-header-small">
          <h1>
-        Elementos de tipo de equipamiento
-        <small>Elementos de tipo de equipamiento</small>
+        Elementos de Tipo de equipamiento
+        <small>Elementos de Tipo de equipamiento</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="/home"><i class="fa fa-dashboard"></i> Tablero</a></li>
-        <li class="active">Elementos de tipo de equipamiento</li>
+        <li class="active">Elementos de Tipo de equipamiento</li>
       </ol>
       </div>
 
@@ -44,7 +44,7 @@
 
 
                          <div class="form-group{{ $errors->has('tipequip_id') ? ' has-error' : '' }}">
-                              <label for="tipequip_id" class="col-md-2 control-label"> tipo Equipamiento:</label>
+                              <label for="tipequip_id" class="col-md-2 control-label"> Tipo Equipamiento:</label>
                                   <div class="col-md-3">
                                   <select class="form-control" id="tipequip_id" name="tipequip_id" required>
                                   @foreach($tipo as $t)

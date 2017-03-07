@@ -414,6 +414,11 @@ class RegistratorController extends Controller
         return elementos_tipo_equipamiento::editar($id);
     }
 
+     public function updateElemento(request $request,$id){
+        $this->validate($request,elementos_tipo_equipamiento::$rules,elementos_tipo_equipamiento::$messages);
+        return elementos_tipo_equipamiento::updateElemento($request,$id);
+    }
+
 
     public function BuscarEstacion($id)
     {
