@@ -88,6 +88,7 @@
                               <label for="tipo_id" class="col-md-2 control-label">Tipo Equipamiento a Cargar</label>
                                   <div class="col-md-4">
                                   <select class="form-control" id="tipo_id" name="tipo_id" required>
+                                  <option value='0'>--Seleccione--</option>
                                                 @foreach ($tipo as $t)
                                             <option value="{{$t->id}}">{{$t->nomtipequip}}</option>
                                             @endforeach

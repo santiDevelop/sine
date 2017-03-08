@@ -28,6 +28,13 @@ class gestion_data extends Model
         
     }
 
+    public static function guardar($request){
+
+        dd($request);
+        return $elemento=elementos_tipo_equipamiento::where('tipequip_id',$id)->get();
+        
+    }
+
 
 
 }

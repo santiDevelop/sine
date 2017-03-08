@@ -301,6 +301,13 @@ class RegistratorController extends Controller
              
     }
 
+       public function postRegdata(request $request)
+    {
+
+        return gestion_data::guardar($request); 
+             
+    }
+
     
        public function reportespersonal()
     {
