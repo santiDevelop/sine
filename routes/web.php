@@ -72,13 +72,7 @@ Route::group(['middleware'=>'Registrador','namespace'=>'Registrador'],function()
 
 	Route::get('/editarpersonal/{id}', 'RegistratorController@editPer');
 	Route::post('/editarpersonal/{id}', 'RegistratorController@updatePer');
-	Route::get('/reginfraestructura', 'RegistratorController@getReginfraestructura');
-	Route::get('/regutilitario', 'RegistratorController@getRegutilitario');
-	Route::get('/regautomotor', 'RegistratorController@getRegautomotor');
-	Route::get('/regequipos', 'RegistratorController@getRegequipos');
-	Route::get('/reguniformes', 'RegistratorController@getReguniformes');
-	Route::get('/regmatofc', 'RegistratorController@getRegmatofc');
-	Route::get('/regcomunicaciones', 'RegistratorController@getRegcomunicaciones');
+	Route::get('/regdata', 'RegistratorController@getRegdata');
 	Route::get('/reportespersonal','RegistratorController@ReportesPersonal');
 	Route::get('/necinfraestructura', 'RegistratorController@getNecinfraestructura');
 	Route::get('/necutilitario', 'RegistratorController@getNecutilitario');

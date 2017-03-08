@@ -56,4 +56,5 @@ class elementos_tipo_equipamiento extends Model
     	return back()->with('notification','Elemento Editado Correctamente');
     }
 
+   
 }

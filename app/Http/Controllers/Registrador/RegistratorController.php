@@ -22,6 +22,7 @@ use App\necesidades_capacitacion;
 use App\estados;
 use App\rangos;
 use App\profesiones;
+use App\gestion_data;
 use PDF;
 use DB;
 class RegistratorController extends Controller
@@ -292,47 +293,14 @@ class RegistratorController extends Controller
         
     }
 
-        public function getReginfraestructura()
+
+        public function getRegdata()
     {
-        return view('reginfraestructura');
-        
+
+        return gestion_data::buscar(); 
+             
     }
 
-        public function getRegutilitario()
-    {
-        return view('regutilitario');
-        
-    }
-
-        public function getRegautomotor()
-    {
-        return view('regautomotor');
-        
-    }
-
-        public function getRegequipos()
-    {
-        return view('regequipos');
-        
-    }
-
-        public function getReguniformes()
-    {
-        return view('reguniformes');
-        
-    }
-
-        public function getRegmatofc()
-    {
-        return view('regmatofc');
-        
-    }
-
-        public function getRegcomunicaciones()
-    {
-        return view('regcomunicaciones');
-        
-    }
     
        public function reportespersonal()
     {
@@ -412,6 +380,11 @@ class RegistratorController extends Controller
      public function editarElemento($id){
 
         return elementos_tipo_equipamiento::editar($id);
+    }
+
+    public function BuscarListaEquip($id){
+
+        return gestion_data::BuscarListaEquip($id);
     }
 
      public function updateElemento(request $request,$id){

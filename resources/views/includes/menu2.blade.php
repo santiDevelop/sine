@@ -106,24 +106,12 @@
           </a>
           <ul class="treeview-menu">
           <li class="treeview" >
-            <a href="/relementos"><i class="fa fa-pencil"></i><span>Registro Elementos</span>
+            <a href="/relementos"><i class="fa fa-pencil"></i><span>Registro equipamiento</span>
             </a>
             </li>
             <li class="treeview" >
-              <a href="#"><i class="fa fa-pencil-square-o"></i><span>Registro</span>
-              <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
+            <a href="/regdata"><i class="fa fa-newspaper-o"></i><span>Registro datos</span>
             </a>
-                    <ul class="treeview-menu">
-                        <li class="treeview" ><a href="/reginfraestructura"><i class="fa fa-university"></i><span>Infraestructura</span></a></li>
-                        <li class="treeview" ><a href="/regutilitario"><i class="fa fa-bed"></i><span>Material utilitario</span></a></li>
-                        <li class="treeview" ><a href="/regautomotor"><i class="fa fa-truck"></i><span>Unidades automotoras</span></a></li>
-                        <li class="treeview" ><a href="/regequipos"><i class="fa fa-life-ring"></i><span>Equipos y herramientas</span></a></li>
-                        <li class="treeview" ><a href="/reguniformes"><i class="fa fa-child"></i><span>Uniformes</span></a></li>
-                        <li class="treeview" ><a href="regmatofc"><i class="fa fa-print"></i><span>Material y equipo de oficina</span></a></li>
-                        <li class="treeview" ><a href="/regcomunicaciones"><i class="fa fa-fax"></i><span>Comunicaciones</span></a></li>
-                    </ul>
             </li>
            <li class="treeview" >
            <a href="#"><i class="fa fa-user-circle-o"></i><span>Necesidades</span>
