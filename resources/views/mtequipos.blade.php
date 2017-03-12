@@ -38,14 +38,14 @@
   <div class="row container">
           <form class="form-horizontal" role="form" method="POST" action="{{ url('/mtequipos') }}">
                                   {{ csrf_field() }}
-                      <div class="form-group{{ $errors->has('numtipequip') ? ' has-error' : '' }}">
-                      <label for="numtipequip" class="col-md-2 control-label">Numero tipo de equipamiento:
+                      <div class="form-group{{ $errors->has('id') ? ' has-error' : '' }}">
+                      <label for="id" class="col-md-2 control-label">Numero tipo de equipamiento:
                       </label>
                           <div class="col-md-1">
-                          <input id="numtipequip" type="text" class="form-control" placeholder="Numero tipo de equipamiento" name="numtipequip" maxlength="3" value="{{ $numero }}" required >
-                              @if ($errors->has('numtipequip'))
+                          <input id="id" type="text" class="form-control" placeholder="Numero tipo de equipamiento" name="id" maxlength="3" value="{{ $numero }}" required >
+                              @if ($errors->has('id'))
                                   <span class="help-block">
-                                      <strong>{{ $errors->first('numtipequip') }}</strong>
+                                      <strong>{{ $errors->first('id') }}</strong>
                                   </span>
                               @endif
                           </div>
@@ -89,7 +89,7 @@
                 <tbody>
                 @foreach ($historico as $h) 
                 <tr>
-                  <td width="30%">{{$h->numtipequip}}</td>
+                  <td width="30%">{{$h->id}}</td>
                   <td>{{$h->nomtipequip}}</td>
                 </tr>
                 @endforeach

@@ -303,7 +303,7 @@ class RegistratorController extends Controller
 
        public function postRegdata(request $request)
     {
-
+        $this->validate($request,gestion_data::$rules,gestion_data::$messages);
         return gestion_data::guardar($request); 
              
     }

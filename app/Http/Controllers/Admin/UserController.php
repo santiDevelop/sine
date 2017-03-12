@@ -124,9 +124,9 @@ class UserController extends Controller
      public function getMtequipos()
     {
       $historico=maestro_tipo_equipamiento::all();
-      $ultimo=maestro_tipo_equipamiento::orderby('numtipequip','desc')->first();
+      $ultimo=maestro_tipo_equipamiento::orderby('id','desc')->first();
       if($ultimo!=null){
-      $numero=($ultimo->numtipequip)+1;
+      $numero=($ultimo->id)+1;
        } else { $numero=1;}
         return view('mtequipos')->with(compact('numero','historico'));
     }
@@ -134,21 +134,21 @@ class UserController extends Controller
     {
          //reglas para validar el formulario y enviarlas al validador
       $rules=[
-      'numtipequip'=>'required|unique:maestro_tipo_equipamientos|digits_between:1,3',
+      'id'=>'required|unique:maestro_tipo_equipamientos|digits_between:1,3',
       'nomtipequip'=>'required|max:100' ];
 
         // MENSAJES PERSONALIZADOS PARA EL VALIDATOR
         $messages=[
-        'numtipequip.unique'=>'El número de tipo de equipamiento ya se encuentra registrado.',
-        'numtipequip.digits_between'=>'El número de tipo de equipamiento debe tener entre 1 y 3 digitos.',
-        'numtipequip.required'=>'El numero de tipo de equipamiento es requerido.',
+        'id.unique'=>'El número de tipo de equipamiento ya se encuentra registrado.',
+        'id.digits_between'=>'El número de tipo de equipamiento debe tener entre 1 y 3 digitos.',
+        'id.required'=>'El numero de tipo de equipamiento es requerido.',
         'nomtipequip.required'=>'El campo nombre tipo de equipamiento es requerido.',
         'nomtipequip.max'=>'El campo nombre tipo de equipamiento tiene un maximo de 100 caracteres.',
         ];
 
       $this->validate($request,$rules,$messages);
         $maestro_tipo_equipamiento= new maestro_tipo_equipamiento();
-        $maestro_tipo_equipamiento->numtipequip = $request->input('numtipequip');
+        $maestro_tipo_equipamiento->id = $request->input('id');
         $maestro_tipo_equipamiento->nomtipequip = $request->input('nomtipequip');
         $maestro_tipo_equipamiento->user_id=auth()->user()->id;
         $maestro_tipo_equipamiento->save();  

@@ -15,14 +15,14 @@ class CreateGestionDatasTable extends Migration
     {
         Schema::create('gestion_datas', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('cantotal')->default('0');
-            $table->integer('cantopt')->default('0');
-            $table->integer('cantdet')->default('0');
-            $table->integer('cantfs')->default('0');
-            $table->string('marca')->default('Ninguno');
-            $table->string('modelo')->default('Ninguno');
-            $table->string('serial')->default('Ninguno');
-            $table->string('observacion')->default('Ninguna');;
+            $table->integer('cantotal')->nullable();
+            $table->integer('cantopt')->nullable();
+            $table->integer('cantdet')->nullable();
+            $table->integer('cantfs')->nullable();
+            $table->string('marca')->nullable();
+            $table->string('modelo')->nullable();
+            $table->string('serial')->nullable();
+            $table->string('observacion')->nullable();
             $table->integer('tipequip_id')->unsigned();
             $table->foreign('tipequip_id')->references('id')->on('maestro_tipo_equipamientos');
             $table->integer('elemento_id')->unsigned();

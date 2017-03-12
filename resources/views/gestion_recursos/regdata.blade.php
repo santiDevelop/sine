@@ -10,7 +10,7 @@
        <section class="content-header">
        <h1>
         Registro de Equipos y Herramientas
-        <small>Formulario para registrar Equipos y Herramientas</small>
+       
       </h1>
       <ol class="breadcrumb">
         <li><a href="/home"><i class="fa fa-dashboard"></i> Tablero</a></li>
@@ -47,8 +47,15 @@
 <!-- Formulario de registro -->
 <form class="form-horizontal" role="form" method="POST" action="">
             {{ csrf_field() }}
+            
 
-
+ @if($errors->any())
+ <div class="alert alert-danger">
+ @foreach ($errors->all() as $error) 
+  <strong> * {{$error}}<br> </strong>
+  @endforeach
+</div>
+@endif
   <div class="form-group{{ $errors->has('mcbombero_id') ? ' has-error' : '' }}">
                               <label for="mcbombero_id" class="col-md-2 control-label">Cuerpo de Bombero Solicitante</label>
                                   <div class="col-md-4">
@@ -96,6 +103,11 @@
                                       @if ($errors->has('tipo_id'))
                                       <span class="help-block">
                                           <strong>{{ $errors->first('tipo_id') }}</strong>
+                                      </span>
+                                      @endif
+                                       @if(session('problema')) 
+                                      <span class="help-block">
+                                          <strong>{{session('problema')}}</strong>
                                       </span>
                                       @endif
                                   </div>

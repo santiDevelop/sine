@@ -50,9 +50,9 @@
     <!-- Logo -->
     <a href="/home" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>Cubo</b></span>
+      <span class="logo-mini"><b>SINECUBO</b></span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>CUBO </b>v.0.0.1</span>
+      <span class="logo-lg"><b>SINECUBO </b></span>
     </a>
 
     <!-- Header Navbar -->
@@ -104,7 +104,7 @@
   <footer class="main-footer">
     <!-- To the right -->
     <div class="pull-right hidden-xs">
-      cubo v.0.0.1
+      SINECUBO 
     </div>
     <!-- Default to the left -->
     <strong>Copyright &copy; 2017 <a href="#">Fonbe</a>.</strong> Todos los Derechos Reservados.
