@@ -75,15 +75,11 @@ Route::group(['middleware'=>'Registrador','namespace'=>'Registrador'],function()
 
 	Route::get('/regdata', 'RegistratorController@getRegdata');
 	Route::post('/regdata', 'RegistratorController@postRegdata');
-
+	Route::get('/regnecesidades', 'RegistratorController@getGestionNecesidades');
+	Route::post('/regnecesidades', 'RegistratorController@postGestionNecesidades');
 	Route::get('/reportespersonal','RegistratorController@ReportesPersonal');
-	Route::get('/necinfraestructura', 'RegistratorController@getNecinfraestructura');
-	Route::get('/necutilitario', 'RegistratorController@getNecutilitario');
-	Route::get('/necautomotor', 'RegistratorController@getNecautomotor');
-	Route::get('/necequipos', 'RegistratorController@getNecequipos');
-	Route::get('/necuniformes', 'RegistratorController@getNecuniformes');
-	Route::get('/necmatofc', 'RegistratorController@getNecmatofc');
-	Route::get('/neccomunicaciones', 'RegistratorController@getNeccomunicaciones');
+	
+	
 
 	
 

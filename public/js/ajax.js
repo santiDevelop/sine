@@ -3,7 +3,7 @@ $('#cbombero2').on('change',BuscarEstacion2);
 $('#cbombero3').on('change',BuscarEstacion3);
 $('#cbombero4').on('change',BuscarEstacion4);
 $('#tipo_id').on('change',BuscarLista);
-
+$('#tipequip_id').on('change',BuscarLista2);
 function BuscarEstacion(){
 
   var cbombero=$(this).val();
@@ -22,7 +22,6 @@ function BuscarEstacion(){
 }
 
   function BuscarEstacion2(){
-
   var cbombero2=$(this).val();
   var html='<option value="0"> Todas </option>';
   $.get('/api/reportespersonal/'+cbombero2+'/estaciones',function(data){
@@ -71,7 +70,7 @@ function BuscarEstacion(){
   var lista=$(this).val();
   $.get('/api/BuscarListaEquip/'+lista,function(data){
     for (var i = 0; i<data.length; ++i) {
-    input +=('<tr><td> '+data[i].nomelemento+' <input hidden id="ele_id"  name="id['+i+']" value="'+data[i].id+'"> </td> <td> <input id="cant-total" type="number" class="form-control" placeholder="Cantidad" name="cant_total['+i+']" value="" autofocus></td><td><input id="cant-optima" type="number" class="form-control" placeholder="Cantidad" name="cant_optima['+i+']" value="" autofocus></td><td><input id="cant-deteriorado" type="number" class="form-control" placeholder="Cantidad" name="cant_deteriorado['+i+']" value="" autofocus></td><td><input id="cant-fuera-servicio" type="number" class="form-control" placeholder="Cantidad" name="cant_fuera_servicio['+i+']" value="" autofocus></td><td><input id="cant-deteriorado" type="text" class="form-control" placeholder="Marca" name="marca['+i+']" value="" autofocus></td><td><input id="marca" type="text" class="form-control" placeholder="Modelo" name="modelo['+i+']" value="" autofocus></td><td><input id="modelo" type="text" class="form-control" placeholder="Serial" name="serial_fabrica['+i+']" value="" autofocus></td><td> <input id="serial-fabrica" type="text" class="form-control" placeholder="Observacón" name="observacion['+i+']" maxlength="250" value="" autofocus></td></tr>')
+    input +=('<tr><td> '+data[i].nomelemento+' <input hidden id="ele_id"  name="id['+i+']" value="'+data[i].id+'"> </td> <td> <input id="cant-total" type="number" class="form-control" placeholder="Cantidad" name="cant_total['+i+']" value="" ></td><td><input id="cant-optima" type="number" class="form-control" placeholder="Cantidad" name="cant_optima['+i+']" value="" ></td><td><input id="cant-deteriorado" type="number" class="form-control" placeholder="Cantidad" name="cant_deteriorado['+i+']" value="" ></td><td><input id="cant-fuera-servicio" type="number" class="form-control" placeholder="Cantidad" name="cant_fuera_servicio['+i+']" value="" ></td><td><input id="cant-deteriorado" type="text" class="form-control" placeholder="Marca" name="marca['+i+']" value="" ></td><td><input id="marca" type="text" class="form-control" placeholder="Modelo" name="modelo['+i+']" value="" ></td><td><input id="modelo" type="text" class="form-control" placeholder="Serial" name="serial_fabrica['+i+']" value="" ></td><td> <input id="observacion" type="text" class="form-control" placeholder="Observación" name="observacion['+i+']" maxlength="250" value="" ></td></tr>')
 
       
     }
@@ -81,3 +80,15 @@ function BuscarEstacion(){
 
 }
 
+  function BuscarLista2(){
+  var input='';
+  var lista=$(this).val();
+  $.get('/api/BuscarListaEquip/'+lista,function(data){
+    for (var i = 0; i<data.length; ++i) {
+    input +=('<tr><td> '+data[i].nomelemento+' <input hidden id="ele_id"  name="id['+i+']" value="'+data[i].id+'"></td><td> <input id="cantidad" type="number" class="form-control" placeholder="Cantidad" name="cantidad['+i+']" value=""></td><td><textarea id="observacion" rows="1" class="form-control" placeholder="Observacion" name="observacion['+i+']"></textarea></td></tr>')    
+    }
+    $('.lista-tipo2').html(input);
+  });
+
+
+}

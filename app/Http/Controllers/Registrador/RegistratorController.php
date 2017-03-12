@@ -23,6 +23,7 @@ use App\estados;
 use App\rangos;
 use App\profesiones;
 use App\gestion_data;
+use App\gestion_necesidades;
 use PDF;
 use DB;
 class RegistratorController extends Controller
@@ -321,49 +322,21 @@ class RegistratorController extends Controller
         
     }
 
-            public function getNecinfraestructura()
+        public function getGestionNecesidades()
     {
-        return view('necinfraestructura');
+       return gestion_necesidades::buscar();
+        
+    }
+
+      public function postGestionNecesidades(request $request)
+    {
+       // dd($request);
+       
+       return gestion_necesidades::guardar($request);
         
     }
 
 
-
-            public function getNecutilitario()
-    {
-        return view('necutilitario');
-        
-    }
-
-                public function getNecautomotor()
-    {
-        return view('necautomotor');
-        
-    }
-
-                    public function getNecequipos()
-    {
-        return view('necequipos');
-        
-    }
-
-                    public function getNecuniformes()
-    {
-        return view('necuniformes');
-        
-    }
-
-                    public function getNecmatofc()
-    {
-        return view('necmatofc');
-        
-    }
-
-                    public function getNeccomunicaciones()
-    {
-        return view('neccomunicaciones');
-        
-    }
         public function getRelementos()
     {
         $tipo=maestro_tipo_equipamiento::all();

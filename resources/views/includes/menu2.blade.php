@@ -112,25 +112,13 @@
             <li class="treeview" >
             <a href="/regdata"><i class="fa fa-newspaper-o"></i><span>Registro datos</span>
             </a>
-            </li>
+           
            <li class="treeview" >
-           <a href="#"><i class="fa fa-user-circle-o"></i><span>Necesidades</span>
-           <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
+            <a href="/regnecesidades"><i class="fa fa-hand-paper-o"></i><span>Registro Necesidades</span>
             </a>
-                    
-                    <ul class="treeview-menu">
-                        <li class="treeview" ><a href="/necinfraestructura"><i class="fa fa-university"></i><span>Infraestructura</span></a></li>
-                        <li class="treeview" ><a href="/necutilitario"><i class="fa fa-bed"></i><span>Material utilitario</span></a></li>
-                        <li class="treeview" ><a href="/necautomotor"><i class="fa fa-truck"></i><span>Unidades automotoras</span></a></li>
-                        <li class="treeview" ><a href="/necequipos"><i class="fa fa-life-ring"></i><span>Equipos y herramientas</span></a></li>
-                        <li class="treeview" ><a href="/necuniformes"><i class="fa fa-child"></i><span>Uniformes</span></a></li>
-                        <li class="treeview" ><a href="necmatofc"><i class="fa fa-print"></i><span>Material y equipo de oficina</span></a></li>
-                        <li class="treeview" ><a href="/neccomunicaciones"><i class="fa fa-fax"></i><span>Comunicaciones</span></a></li>
-                    </ul>
+            </li>
 
-           </li>
+           
             <li class="treeview" >
             <a href="#"><i class="fa fa-bar-chart"></i><span>Reportes</span>
             </a>
