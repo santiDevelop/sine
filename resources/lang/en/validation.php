@@ -24,9 +24,9 @@ return [
     'before'               => 'El :attribute tiene que ser fecha before :date.',
     'before_or_equal'      => 'El :attribute tiene que ser fecha before or equal to :date.',
     'between'              => [
-        'numeric' => 'El :attribute must be between :min and :max.',
+        'numeric' => 'El :attribute debe estar entre :min y :max.',
         'file'    => 'El :attribute must be between :min and :max kilobytes.',
-        'string'  => 'El :attribute must be between :min and :max characters.',
+        'string'  => 'El :attribute debe estar entre :min y :max.',
         'array'   => 'El :attribute must have between :min and :max items.',
     ],
     'boolean'              => 'El :attribute field must be true or false.',
@@ -45,7 +45,7 @@ return [
     'image'                => 'El :attribute tiene que ser image.',
     'in'                   => 'El selected :attribute is invalid.',
     'in_array'             => 'El :attribute field does not exist in :other.',
-    'integer'              => 'El :attribute tiene que ser integer.',
+    'integer'              => 'El :attribute tiene que ser un numero entero valido.',
     'ip'                   => 'El :attribute tiene que ser valid IP address.',
     'json'                 => 'El :attribute tiene que ser valid JSON string.',
     'max'                  => [

@@ -42,7 +42,7 @@ class RegistratorController extends Controller
       //dd(auth()->user()->cbombero);
       $cursos=CrearCursos::all();
       $cargos=maestro_cargos::all();
-      $cbomberos=maestro_cuerpo_bomberos::where('id',auth()->user()->cbombero)->get();;
+      $cbomberos=maestro_cuerpo_bomberos::where('id',auth()->user()->cbombero)->get();
       return view('regbombero')->with(compact('estaciones','cursos','cargos','cbomberos','estados','rangos','profesiones'));
     }
 
@@ -521,7 +521,7 @@ class RegistratorController extends Controller
                 if($request->estacion!='0'){
                     $param.=" and necesidades_personals.estacion_id=$request->estacion";
                 } if($request->status!='0' && $request->cbombero!='0'){ 
-                    $param.=" and necesidades_personals.estatusolicitud=$request->status";;
+                    $param.=" and necesidades_personals.estatusolicitud=$request->status";
                 } elseif($request->status!='0') {$param.="necesidades_personals.estatusolicitud=$request->status";}
 
                  $np=necesidades_personal::join('maestro_cuerpo_bomberos','necesidades_personals.mcbombero_id','=','maestro_cuerpo_bomberos.id')->join('crear_estaciones','necesidades_personals.estacion_id','=','crear_estaciones.id')->join('users','necesidades_personals.user_id','=','users.id')->join('maestro_cargos','necesidades_personals.cargo_id','=','maestro_cargos.id')->select('necesidades_personals.*','maestro_cuerpo_bomberos.nomcbombero','crear_estaciones.nomestacion','users.user','maestro_cargos.cargo')->whereraw($param)->get();
@@ -552,7 +552,7 @@ class RegistratorController extends Controller
                 if($request->estacion!='0'){
                     $param.=" and necesidades_capacitacions.estacion_id=$request->estacion";
                 } if($request->status!='0' && $request->cbombero!='0'){ 
-                    $param.=" and necesidades_capacitacions.estatusolicitud=$request->status";;
+                    $param.=" and necesidades_capacitacions.estatusolicitud=$request->status";
                 } elseif($request->status!='0') {$param.="necesidades_capacitacions.estatusolicitud=$request->status";}
 
                 $nc=necesidades_capacitacion::join('maestro_cuerpo_bomberos','necesidades_capacitacions.mcbombero_id','=','maestro_cuerpo_bomberos.id')->join('crear_estaciones','necesidades_capacitacions.estacion_id','=','crear_estaciones.id')->join('users','necesidades_capacitacions.user_id','=','users.id')->join('crear_cursos','necesidades_capacitacions.curso_id','=','crear_cursos.id')->select('necesidades_capacitacions.*','maestro_cuerpo_bomberos.nomcbombero','crear_estaciones.nomestacion','users.user','crear_cursos.nomcurso')->whereraw($param)->get();

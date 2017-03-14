@@ -135,13 +135,6 @@
 <!-- page script -->
 @yield('personal_scripts')
 
- <script>
-        $(document).on("click", ".alert", function(e) {
-            bootbox.alert("Hello world!", function() {
-                console.log("Alert Callback");
-            });
-        });
-    </script>
       @if(session('notification'))        
         <script type="text/javascript">
         

@@ -15,18 +15,8 @@ class CreateGestionDatasTable extends Migration
     {
         Schema::create('gestion_datas', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('cantotal')->nullable();
-            $table->integer('cantopt')->nullable();
-            $table->integer('cantdet')->nullable();
-            $table->integer('cantfs')->nullable();
-            $table->string('marca')->nullable();
-            $table->string('modelo')->nullable();
-            $table->string('serial')->nullable();
-            $table->string('observacion')->nullable();
             $table->integer('tipequip_id')->unsigned();
             $table->foreign('tipequip_id')->references('id')->on('maestro_tipo_equipamientos');
-            $table->integer('elemento_id')->unsigned();
-            $table->foreign('elemento_id')->references('id')->on('elementos_tipo_equipamientos');
             $table->integer('mcbombero_id')->unsigned();
             $table->foreign('mcbombero_id')->references('id')->on('maestro_cuerpo_bomberos');
             $table->integer('estacion_id')->unsigned();

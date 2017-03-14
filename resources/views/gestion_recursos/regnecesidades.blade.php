@@ -54,6 +54,7 @@
   @endforeach
 </div>
 @endif
+
   <div class="form-group{{ $errors->has('fecha') ? ' has-error' : '' }}">
                               <label for="fecha" class="col-md-2 control-label">Fecha de Solicitud</label>
                                   <div class="col-md-4">

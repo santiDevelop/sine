@@ -8,6 +8,7 @@ use App\maestro_cuerpo_bomberos;
 use App\CrearEstaciones;
 use App\maestro_tipo_equipamiento;
 use App\gestion_data;
+use App\gestion_data_det;
 class gestion_data extends Model
 {
 
@@ -48,24 +49,29 @@ class gestion_data extends Model
          $i=0;
        if(isset($request->id))
       {
+
+                $gd=new gestion_data;
+                $gd->tipequip_id=$request->input('tipo_id');
+                $gd->mcbombero_id=$request->input('mcbombero_id');
+                $gd->estacion_id=$request->input('estacion_id');
+                $gd->user_id=auth()->user()->id;
+                $gd->save();
+                $id=gestion_data::select('id')->orderby('id','desc')->first();
         foreach ($request->id as $key => $value) 
         {
               if($request->cant_total[$i]!=0){
-                $gd=new gestion_data;
-                $gd->mcbombero_id=$request->input('mcbombero_id');
-                $gd->estacion_id=$request->input('estacion_id');
-                $gd->tipequip_id=$request->input('tipo_id');
-                $gd->elemento_id=$value;
-                $gd->cantotal=$request->cant_total[$i];
-                $gd->cantopt=$request->cant_optima[$i];
-                $gd->cantdet=$request->cant_deteriorado[$i];
-                $gd->cantfs=$request->cant_fuera_servicio[$i];
-                $gd->marca=$request->marca[$i];
-                $gd->modelo=$request->modelo[$i];
-                $gd->serial=$request->serial_fabrica[$i];
-                $gd->observacion=$request->observacion[$i];
-                $gd->user_id=auth()->user()->id;
-                $gd->save();
+                $gdt=new gestion_data_det;
+                $gdt->solicitud_id=$id->id;
+                $gdt->elemento_id=$value;
+                $gdt->cantotal=$request->cant_total[$i];
+                $gdt->cantopt=$request->cant_optima[$i];
+                $gdt->cantdet=$request->cant_deteriorado[$i];
+                $gdt->cantfs=$request->cant_fuera_servicio[$i];
+                $gdt->marca=$request->marca[$i];
+                $gdt->modelo=$request->modelo[$i];
+                $gdt->serial=$request->serial_fabrica[$i];
+                $gdt->observacion=$request->observacion[$i];
+                $gdt->save();
                 }
                 $i++;
           }
