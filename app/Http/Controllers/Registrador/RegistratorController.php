@@ -197,7 +197,9 @@ class RegistratorController extends Controller
     {
         $historico=CrearCursos::all();
         $ultimo=CrearCursos::orderby('id','desc')->first();
-        $numero=($ultimo->id)+1;
+        if($ultimo!=null){
+      $numero=($ultimo->numcurso)+1;
+       } else { $numero=1;}
         return view('regcurso')->with(compact('numero','historico'));
         
     }
@@ -321,6 +323,11 @@ class RegistratorController extends Controller
         return view('reportespersonal')->with(compact('cargos','cbomberos','estaciones','cursosAgregar'));
         
     }
+        public function reportesgestion()
+    {
+        return gestion_data::reportes();
+             
+    }
 
         public function getGestionNecesidades()
     {
@@ -330,7 +337,12 @@ class RegistratorController extends Controller
 
       public function postGestionNecesidades(request $request)
     {
-       // dd($request);
+       $mp=count($request->cantidad);
+       for ($i=0; $i <$mp ; $i++) { 
+           if($request->cantidad[$i]>1000000){
+            $this->validate($request,gestion_necesidades::$rules,gestion_necesidades::$messages);
+           }
+       }
        
        return gestion_necesidades::guardar($request);
         

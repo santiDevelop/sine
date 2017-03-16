@@ -22,13 +22,10 @@ Route::get('/home', 'HomeController@index');
 Route::get('/resetpw', 'HomeController@resetpw');
 Route::post('/resetpw', 'HomeController@cambiopw');
 
-
-
 Route::group(['middleware'=>'admin','namespace'=>'Admin'],function(){
 // Aqui van las rutas de las vistas para los que usaran los Administrador
 	Route::get('/mcargos', 'UserController@getMcargos');
 	Route::post('/mcargos', 'UserController@postMcargos');
-
 	Route::get('/mestaciones', 'UserController@getMestaciones');
 	Route::post('/mestaciones', 'UserController@postMestaciones');
     Route::get('/adminuser', 'UserController@getAdminuser');
@@ -45,10 +42,8 @@ Route::group(['middleware'=>'admin','namespace'=>'Admin'],function(){
 	Route::post('/editarusuario/{id}', 'UserController@updateUser');
 	//Route::post('/editarusuario/{id}', 'UserController@updateUser');
 	Route::get('/editarusuario/{id}/eliminar', 'UserController@deleteUser');
-
 	Route::get('editnpersonal/{id}', 'UserController@editnpersonal');
 	Route::post('editnpersonal/{id}', 'UserController@updatenpersonal');
-
 	Route::get('/editncapacitacion/{id}', 'UserController@editncapacitacion');
 	Route::post('/editncapacitacion/{id}', 'UserController@updatecapacitacion');
 	
@@ -63,31 +58,20 @@ Route::group(['middleware'=>'Registrador','namespace'=>'Registrador'],function()
 	Route::post('/regcurso', 'RegistratorController@postRegCurso');
 	Route::get('/npersonal', 'RegistratorController@getNpersonal');
 	Route::post('/npersonal', 'RegistratorController@postNpersonal');
-
 	Route::get('/ncapacitacion', 'RegistratorController@getNcapacitacion');
 	Route::post('/ncapacitacion', 'RegistratorController@postNcapacitacion');
-
 	Route::get('/adminpersonal', 'RegistratorController@getAdminpersonal');
 	Route::get('/necesidadespersonal', 'RegistratorController@getAdminNecesidades');
-
 	Route::get('/editarpersonal/{id}', 'RegistratorController@editPer');
 	Route::post('/editarpersonal/{id}', 'RegistratorController@updatePer');
-
 	Route::get('/regdata', 'RegistratorController@getRegdata');
 	Route::post('/regdata', 'RegistratorController@postRegdata');
 	Route::get('/regnecesidades', 'RegistratorController@getGestionNecesidades');
 	Route::post('/regnecesidades', 'RegistratorController@postGestionNecesidades');
 	Route::get('/reportespersonal','RegistratorController@ReportesPersonal');
-	
-	
-
-	
-
 	Route::post('/reportespersonal','RegistratorController@detpersonal');
-
 	Route::get('/relementos', 'RegistratorController@getRelementos');
 	Route::post('/relementos', 'RegistratorController@postRelementos');
-
 	Route::get('/editelemento/{id}', 'RegistratorController@editarElemento');
 	Route::post('/editelemento/{id}', 'RegistratorController@updateElemento');
 	Route::get('/editelemento/{id}/eliminar', 'RegistratorController@borrarElemento');
@@ -96,7 +80,7 @@ Route::group(['middleware'=>'Registrador','namespace'=>'Registrador'],function()
 
 
 Route::group(['middleware'=>'Reportes','namespace'=>'Reportes'],function(){
-	// Aqui van las rutas de las vistas para los que usaran los reportes
+	Route::get('/reportesgestion', 'ReportesController@reportesgestion');
 
 });
 

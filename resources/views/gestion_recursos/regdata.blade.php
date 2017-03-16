@@ -56,6 +56,16 @@
   @endforeach
 </div>
 @endif
+
+ <div class="form-group">
+                <label for="solicitud" class="col-md-2 control-label">Numero de Solicitud</label>
+                                  <div class="col-md-2">
+                                  <h5><strong>{{$numero}}</strong></h5>
+                                     
+                                  </div>
+                         </div>
+
+                         
   <div class="form-group{{ $errors->has('mcbombero_id') ? ' has-error' : '' }}">
                               <label for="mcbombero_id" class="col-md-2 control-label">Cuerpo de Bombero Registrador</label>
                                   <div class="col-md-4">

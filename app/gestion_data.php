@@ -29,15 +29,26 @@ class gestion_data extends Model
 
   	$tipo=maestro_tipo_equipamiento::all();
   	$mcbomberos=maestro_cuerpo_bomberos::all();
+    $ultimo=gestion_data::orderby('id','desc')->first();
+    if($ultimo!=null){
+      $numero=($ultimo->id)+1;
+       } else { $numero=1;}
   	$estaciones=CrearEstaciones::where('mcbombero_id',auth()->user()->cbombero)->get();
   	//$elementos=elementos_tipo_equipamiento::all();
   	$elementos=elementos_tipo_equipamiento::join('maestro_tipo_equipamientos','maestro_tipo_equipamientos.id','=','elementos_tipo_equipamientos.tipequip_id')->select('elementos_tipo_equipamientos.*','maestro_tipo_equipamientos.nomtipequip')->get();
 
 
-  	return view ('gestion_recursos.regdata')->with(compact('mcbomberos','estaciones','elementos','tipo'));
+  	return view ('gestion_recursos.regdata')->with(compact('mcbomberos','estaciones','elementos','tipo','numero'));
 
   }
 
+   public static function reportes(){
+
+        $cbomberos=maestro_cuerpo_bomberos::all();
+        $estaciones=CrearEstaciones::all();
+     return view('gestion_recursos.reportesgestion')->with(compact('cbomberos','estaciones'));
+
+   }
    public static function BuscarListaEquip($id){
 
         return $elemento=elementos_tipo_equipamiento::where('tipequip_id',$id)->get();
@@ -47,9 +58,16 @@ class gestion_data extends Model
     public static function guardar($request){
         //dd($request);
          $i=0;
+         $valido=false;
+         $mp=count($request->cant_total);
        if(isset($request->id))
       {
-
+        for ($e=0; $e <$mp ; $e++) { 
+           if($request->cant_total[$e]!=null){
+            $valido=true;
+           }
+         }
+              if($valido){
                 $gd=new gestion_data;
                 $gd->tipequip_id=$request->input('tipo_id');
                 $gd->mcbombero_id=$request->input('mcbombero_id');
@@ -57,6 +75,7 @@ class gestion_data extends Model
                 $gd->user_id=auth()->user()->id;
                 $gd->save();
                 $id=gestion_data::select('id')->orderby('id','desc')->first();
+              } else {return back()->with('problema','Debe llenar la cantidad totales de los equipos.');}
         foreach ($request->id as $key => $value) 
         {
               if($request->cant_total[$i]!=0){
@@ -75,7 +94,7 @@ class gestion_data extends Model
                 }
                 $i++;
           }
-        return back()->with('notification','Registro de equipos realizado correctamente');
+        return back()->with('notification','Registro de equipos realizado correctamente Numero: '.$id->id);
       } else 
         {
         return back()->with('problema','Debe Seleccionar una cateroria');

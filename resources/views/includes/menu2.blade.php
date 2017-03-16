@@ -9,8 +9,7 @@
         <li class="header">PANEL DE CONTROL</li>
         <!-- Optionally, you can add icons to the links -->
         <!-- INICIO VISTA ADMINISTRADOR -->
-       <li><a href="#"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
-        <li><a href="#"><i class="fa fa-line-chart"></i> <span>Reportes</span></a></li>
+      
         <li class="treeview">
           <a href="#"><i class="fa fa-eye"></i> <span>Panel administrativo</span>
             <span class="pull-right-container">
@@ -98,7 +97,32 @@
             </span>
           </a>
           <ul class="treeview-menu">
+            
             <li class="treeview">
+          <a href="#"><i class="fa fa-universal-access"></i> <span>Gestión humana</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>                     
+          </a>
+          <ul class="treeview-menu">
+            <li class="treeview">
+          <a href="/adminpersonal"><i class="fa fa-pencil-square-o"></i> <span>Crear/Editar Personal</span>
+          </a>
+          <a href="/necesidadespersonal"><i class="fa fa-user-circle-o"></i> <span>Crear/Editar Necesidades</span>
+          </a>
+
+         </li>
+
+
+
+          <li class="treeview">
+          <a href="/reportespersonal"><i class="fa fa-bar-chart"></i> <span>Reportes</span>
+            
+          </a> </li>
+
+          </ul>
+        </li>
+        <li class="treeview">
           <a href="#"><i class="fa fa-binoculars"></i> <span>Gestión de recursos y equipos</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
@@ -120,52 +144,9 @@
 
            
             <li class="treeview" >
-            <a href="#"><i class="fa fa-bar-chart"></i><span>Reportes</span>
+            <a href="/reportesgestion"><i class="fa fa-bar-chart"></i><span>Reportes</span>
             </a>
             </li>
-          </ul>
-        </li>
-            <li class="treeview">
-          <a href="#"><i class="fa fa-universal-access"></i> <span>Gestión humana</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>                     
-          </a>
-          <ul class="treeview-menu">
-            <li class="treeview">
-          <a href="/adminpersonal"><i class="fa fa-pencil-square-o"></i> <span>Crear/Editar Personal</span>
-          </a>
-          <a href="/necesidadespersonal"><i class="fa fa-user-circle-o"></i> <span>Crear/Editar Necesidades</span>
-          </a>
-
-         </li>
-
-
-           <!-- <li class="treeview">
-          <a href="#"><i class="fa fa-user-circle-o"></i> <span>Necesidades</span>
-          <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-            
-          </a>
-
-                        <ul class="treeview-menu">
-                          <li class="treeview">
-                        <a href="/npersonal"><i class="fa fa-user-plus "></i> <span>Personal</span>
-                        </a></li>
-
-                          <li class="treeview">
-                        <a href="/ncapacitacion"><i class="fa fa-graduation-cap"></i> <span>Capacitación</span>
-                          
-                        </a> </li>
-
-                        </ul> </li> -->
-
-          <li class="treeview">
-          <a href="/reportespersonal"><i class="fa fa-bar-chart"></i> <span>Reportes</span>
-            
-          </a> </li>
-
           </ul>
         </li>
             <li class="treeview">
@@ -179,6 +160,7 @@
           <li class="treeview" ><a href="#"><i class="fa fa-map-marker"></i><span>Zonificación de casos</span></a></li>
           </ul>
         </li>
+
           </ul>
         </li>
         <li class="treeview">
@@ -189,10 +171,13 @@
                           </li> 
                       </ul>
       </ul>
+
           <!-- FIN DE VISTA DE ADMINISTRADOR -->
          
       </ul>
+
       <!-- /.sidebar-menu -->
     </section>
+
     <!-- /.sidebar -->
   </aside>

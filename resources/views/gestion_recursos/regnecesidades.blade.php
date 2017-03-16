@@ -55,6 +55,15 @@
 </div>
 @endif
 
+ <div class="form-group">
+                <label for="solicitud" class="col-md-2 control-label">Numero de Solicitud</label>
+                                  <div class="col-md-2">
+                                  <h5><strong>{{$numero}}</strong></h5>
+                                     
+                                  </div>
+                         </div>
+
+
   <div class="form-group{{ $errors->has('fecha') ? ' has-error' : '' }}">
                               <label for="fecha" class="col-md-2 control-label">Fecha de Solicitud</label>
                                   <div class="col-md-4">
@@ -187,5 +196,5 @@
 
 @endsection
 @section('personal_scripts')
-<script src="/js/ajax.js?8"></script>
+<script src="/js/ajax.js"></script>
 @stop
