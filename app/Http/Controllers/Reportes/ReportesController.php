@@ -33,9 +33,9 @@ class ReportesController extends Controller
              
     }
 
-    public function reporte1()
+    public function tipoReporte(request $request)
     {
-        return gestion_data::reportes();
+        return gestion_data::reportesDetalle($request);
              
     }
 

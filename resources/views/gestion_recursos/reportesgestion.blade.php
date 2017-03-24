@@ -54,12 +54,12 @@
                   <th style="width: 40px"></th>
                 </tr>
 
-                <form action="/reportespersonal" method="POST">
+                <form action="/reportesgestion" method="POST">
                 {{ csrf_field() }}
                 <input type="hidden" name="rep1" value="1">
                 <tr>
                   <td>1.</td>
-                  <td>Reporte Detallado Personal</td>
+                  <td>Reporte de existencias de equipos</td>
                   <td>
                   <div class="col-md-3"><p>Por Cuerpo de bombero: <select   class="form-control"  id="cbombero" name="cbombero">
                             <option value="0" selected >Todos</option>
@@ -85,66 +85,35 @@
                 </tr>
                   </form>
 
-                <form action="/reportespersonal" method="POST">
+                
+                
+                <form action="/reportesgestion" method="POST">
                 {{ csrf_field() }}
                 <input type="hidden" name="rep2" value="2">
                 <tr>
                   <td>2.</td>
-                  <td>Reporte Consolidado</td>
-                  <td>
-                    <div class="col-md-3"><p>Por Cuerpo de bombero:</p>
-                            <select class="form-control"  id="cbombero2" name="cbombero">
-                            <option value="0" selected >Todos</option>
-                            @foreach ($cbomberos as $cbombero)
-                              <option value="{{$cbombero->id}}"> {{$cbombero->nomcbombero}} </option>
-                              @endforeach
-                            </select> </div>
-                          <div class="col-md-3"> <p>Por Estacion:</p>
-                            <select class="form-control"  id="estacion2" name="estacion">
-                              <option value="0" selected >Todos</option>
-                            </select>
-                          </div>
-                            
-                  </td>
-                  <td><button type="submit" class="btn btn-success">Reportar</button></td>
-                </tr>
-                </form>
-                
-                <form action="/reportespersonal" method="POST">
-                {{ csrf_field() }}
-                <input type="hidden" name="rep3" value="3">
-                <tr>
-                  <td>3.</td>
-                  <td>Reporte Necesidades Personal</td>
+                  <td>Reporte Necesidades de equipos</td>
                   <td>
                     <div class="col-md-3"><p>Por Cuerpo de bombero:</p> 
-                            <select class="form-control"  id="cbombero3" name="cbombero">
+                            <select class="form-control"  id="cbombero2" name="cbombero">
                               <option value="0" selected >Todos</option>
                                  @foreach ($cbomberos as $cbombero)
                                   <option value="{{$cbombero->id}}"> {{$cbombero->nomcbombero}} </option>
                                    @endforeach
                             </select> </div>
 
-                            <div class="col-md-3"> <p>Por Estacion:</p><select class="form-control"  id="estacion3" name="estacion">
+                            <div class="col-md-3"> <p>Por Estacion:</p><select class="form-control"  id="estacion2" name="estacion">
                             <option value="0" selected >Todos</option> 
                             </select>
                             </div>
 
 
-                            <div class="col-md-3"> <p>Por status:</p>
-                            <select class="form-control"  id="status" name="status">
-                              <option value="0">Todos</option>
-                              <option value="1">Solicitud</option>
-                              <option value="2">Visto</option>
-                              <option value="3">Procesado</option>
-                            </select>
-                            </div>
                   </td>
                   <td><button type="submit" class="btn btn-success">Reportar</button></td>
                 </tr>
                 </form>
 
-                <form action="/reportespersonal" method="POST">
+                <form action="/reportesgestion" method="POST">
                 {{ csrf_field() }}
                 <input type="hidden" name="rep4" value="4">
                 <tr>
@@ -174,8 +143,7 @@
                   <td><button type="submit" class="btn btn-success">Reportar</button></td>
                 </tr>
                 </form>
-
-
+              
               </table>
             </div>
             <!-- /.box-body -->

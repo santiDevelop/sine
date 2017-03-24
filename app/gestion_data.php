@@ -9,6 +9,8 @@ use App\CrearEstaciones;
 use App\maestro_tipo_equipamiento;
 use App\gestion_data;
 use App\gestion_data_det;
+use PDF;
+use DB;
 class gestion_data extends Model
 {
 
@@ -49,6 +51,102 @@ class gestion_data extends Model
      return view('gestion_recursos.reportesgestion')->with(compact('cbomberos','estaciones'));
 
    }
+    public static function reportesDetalle($request){
+
+         $param='';
+         $Suma='';
+         $cuerpo=maestro_cuerpo_bomberos::find($request->cbombero);
+         $estacion=CrearEstaciones::find($request->estacion);
+           switch   ($request->status){
+              case  1:
+              $status='Solicitado';
+              break;
+              case 2:
+              $status='Visto';
+              break;
+              case 3:
+              $status='Procesado';
+              break;
+              default:
+              $status='todos';
+              break;}
+              $elementos=elementos_tipo_equipamiento::join('maestro_tipo_equipamientos','maestro_tipo_equipamientos.id','=','elementos_tipo_equipamientos.tipequip_id')->select('elementos_tipo_equipamientos.*','maestro_tipo_equipamientos.nomtipequip')->get();
+
+                // reporte numero 1 consolidado de equipos por cuerpo de bombero o estacion
+               if($request->rep1)
+          {
+
+            if($request->cbombero=='0' && $request->estacion=='0')
+            {
+            /*$data=gestion_data_det::join('gestion_datas','gestion_data_dets.solicitud_id','=','gestion_datas.id')->select('gestion_data_dets.*','gestion_datas.tipequip_id','gestion_datas.mcbombero_id','gestion_datas.estacion_id')->get();
+                      */
+                $datos=DB::table('gestion_data_dets')->select(array('elementos_tipo_equipamientos.nomelemento', 'maestro_tipo_equipamientos.nomtipequip', DB::raw('sum(cantotal) as cant_total'),
+                  DB::raw('sum(cantopt) as cant_optima'),DB::raw('sum(cantdet) as cant_deteriorado'),DB::raw('sum(cantfs) as cant_fuera')))->join('elementos_tipo_equipamientos','elementos_tipo_equipamientos.id','=','gestion_data_dets.elemento_id')->join('maestro_tipo_equipamientos','maestro_tipo_equipamientos.id','=','elementos_tipo_equipamientos.tipequip_id')->groupby('elementos_tipo_equipamientos.nomelemento','maestro_tipo_equipamientos.nomtipequip')->orderby('maestro_tipo_equipamientos.nomtipequip')->get();
+                //dd($datos);
+                $pdf=PDF::loadView('reportes.gestion_equipos_consolidado',compact('cuerpo','estacion','datos'))->setPaper('a4', 'landscape')->setWarnings(false);
+                return $pdf->stream('reporteconsolidado.pdf');
+
+             } elseif ($request->cbomero!='0' && $request->estacion=='0') {
+
+                 $datos=DB::table('gestion_data_dets')->select(array('elementos_tipo_equipamientos.nomelemento', 'maestro_tipo_equipamientos.nomtipequip', DB::raw('sum(cantotal) as cant_total'),
+                  DB::raw('sum(cantopt) as cant_optima'),DB::raw('sum(cantdet) as cant_deteriorado'),DB::raw('sum(cantfs) as cant_fuera')))->join('elementos_tipo_equipamientos','elementos_tipo_equipamientos.id','=','gestion_data_dets.elemento_id')->join('maestro_tipo_equipamientos','maestro_tipo_equipamientos.id','=','elementos_tipo_equipamientos.tipequip_id')->join('gestion_datas','gestion_datas.id','=','gestion_data_dets.solicitud_id')->groupby('elementos_tipo_equipamientos.nomelemento','maestro_tipo_equipamientos.nomtipequip')->orderby('maestro_tipo_equipamientos.nomtipequip')->where('gestion_datas.mcbombero_id',$request->cbombero)->get();
+
+                   $pdf=PDF::loadView('reportes.gestion_equipos_consolidado',compact('cuerpo','estacion','datos'))->setPaper('a4', 'landscape')->setWarnings(false);
+                return $pdf->stream('reporteconsolidado.pdf');
+                     
+
+                } elseif ($request->cbomero!='0' && $request->estacion!='0') {
+
+
+                    $datos=DB::table('gestion_data_dets')->select(array('elementos_tipo_equipamientos.nomelemento', 'maestro_tipo_equipamientos.nomtipequip', DB::raw('sum(cantotal) as cant_total'),
+                  DB::raw('sum(cantopt) as cant_optima'),DB::raw('sum(cantdet) as cant_deteriorado'),DB::raw('sum(cantfs) as cant_fuera')))->join('elementos_tipo_equipamientos','elementos_tipo_equipamientos.id','=','gestion_data_dets.elemento_id')->join('maestro_tipo_equipamientos','maestro_tipo_equipamientos.id','=','elementos_tipo_equipamientos.tipequip_id')->join('gestion_datas','gestion_datas.id','=','gestion_data_dets.solicitud_id')->groupby('elementos_tipo_equipamientos.nomelemento','maestro_tipo_equipamientos.nomtipequip')->orderby('maestro_tipo_equipamientos.nomtipequip')->where('gestion_datas.mcbombero_id',$request->cbombero)->where('gestion_datas.estacion_id',$request->estacion)->get();
+
+                  $pdf=PDF::loadView('reportes.gestion_equipos_consolidado',compact('cuerpo','estacion','datos'))->setPaper('a4', 'landscape')->setWarnings(false);
+                return $pdf->stream('reporteconsolidado.pdf');
+
+                   }
+        }
+
+               if($request->rep2)
+          {
+
+            if($request->cbombero=='0' && $request->estacion=='0')
+            {
+            /*$data=gestion_data_det::join('gestion_datas','gestion_data_dets.solicitud_id','=','gestion_datas.id')->select('gestion_data_dets.*','gestion_datas.tipequip_id','gestion_datas.mcbombero_id','gestion_datas.estacion_id')->get();
+                      */
+                $datos=DB::table('gestion_necesidades_dets')->select(array('elementos_tipo_equipamientos.nomelemento', 'maestro_tipo_equipamientos.nomtipequip', DB::raw('sum(cantidad) as cant_total')))->join('elementos_tipo_equipamientos','elementos_tipo_equipamientos.id','=','gestion_necesidades_dets.elemento_id')->join('maestro_tipo_equipamientos','maestro_tipo_equipamientos.id','=','elementos_tipo_equipamientos.tipequip_id')->groupby('elementos_tipo_equipamientos.nomelemento','maestro_tipo_equipamientos.nomtipequip')->orderby('maestro_tipo_equipamientos.nomtipequip')->get();
+               // dd($datos);
+                $pdf=PDF::loadView('reportes.gestion_necesidades',compact('cuerpo','estacion','datos'))->setPaper('a4', 'landscape')->setWarnings(false);
+                return $pdf->stream('reporteconsolidado.pdf');
+
+             } elseif ($request->cbomero!='0' && $request->estacion=='0') {
+
+                 $datos=DB::table('gestion_necesidades_dets')->select(array('elementos_tipo_equipamientos.nomelemento', 'maestro_tipo_equipamientos.nomtipequip', DB::raw('sum(cantidad) as cant_total')))->join('elementos_tipo_equipamientos','elementos_tipo_equipamientos.id','=','gestion_necesidades_dets.elemento_id')->join('maestro_tipo_equipamientos','maestro_tipo_equipamientos.id','=','elementos_tipo_equipamientos.tipequip_id')->join('gestion_necesidades','gestion_necesidades.id','=','gestion_necesidades_dets.solicitud_id')->groupby('elementos_tipo_equipamientos.nomelemento','maestro_tipo_equipamientos.nomtipequip')->orderby('maestro_tipo_equipamientos.nomtipequip')->where('gestion_necesidades.mcbombero_id',$request->cbombero)->get();
+
+                   $pdf=PDF::loadView('reportes.gestion_necesidades',compact('cuerpo','estacion','datos'))->setPaper('a4', 'landscape')->setWarnings(false);
+                return $pdf->stream('reporteconsolidado.pdf');
+                     
+
+                } elseif ($request->cbomero!='0' && $request->estacion!='0') {
+
+
+                    $datos=DB::table('gestion_necesidades_dets')->select(array('elementos_tipo_equipamientos.nomelemento', 'maestro_tipo_equipamientos.nomtipequip', DB::raw('sum(cantidad) as cant_total')))->join('elementos_tipo_equipamientos','elementos_tipo_equipamientos.id','=','gestion_necesidades_dets.elemento_id')->join('maestro_tipo_equipamientos','maestro_tipo_equipamientos.id','=','elementos_tipo_equipamientos.tipequip_id')->join('gestion_necesidades','gestion_necesidades.id','=','gestion_necesidades_dets.solicitud_id')->groupby('elementos_tipo_equipamientos.nomelemento','maestro_tipo_equipamientos.nomtipequip')->orderby('maestro_tipo_equipamientos.nomtipequip')->where('gestion_necesidades.mcbombero_id',$request->cbombero)->where('gestion_necesidades.estacion_id',$request->estacion)->get();
+
+                  $pdf=PDF::loadView('reportes.gestion_necesidades',compact('cuerpo','estacion','datos'))->setPaper('a4', 'landscape')->setWarnings(false);
+                return $pdf->stream('reporteconsolidado.pdf');
+
+                   }
+        }
+
+
+
+
+   }
+
+
+
+
+
    public static function BuscarListaEquip($id){
 
         return $elemento=elementos_tipo_equipamiento::where('tipequip_id',$id)->get();

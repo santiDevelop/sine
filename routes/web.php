@@ -81,6 +81,7 @@ Route::group(['middleware'=>'Registrador','namespace'=>'Registrador'],function()
 
 Route::group(['middleware'=>'Reportes','namespace'=>'Reportes'],function(){
 	Route::get('/reportesgestion', 'ReportesController@reportesgestion');
+	Route::post('/reportesgestion', 'ReportesController@tipoReporte');
 
 });
 

@@ -132,7 +132,7 @@
                 <thead>
                 <tr>
                   <th>Elemeto</th>
-                  <th>Cant. total</th>
+                  <th>Cant. Total Existente</th>
                   <th>Cant. Optimas</th>
                   <th>Cant. Deteriorado</th>
                   <th>Cant. Fuera de Servicio</th>
