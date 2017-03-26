@@ -24,6 +24,7 @@ use App\rangos;
 use App\profesiones;
 use App\gestion_data;
 use App\gestion_necesidades;
+use App\gestion_casos;
 use PDF;
 use DB;
 class RegistratorController extends Controller
@@ -343,8 +344,20 @@ class RegistratorController extends Controller
             $this->validate($request,gestion_necesidades::$rules,gestion_necesidades::$messages);
            }
        }
-       
-       return gestion_necesidades::guardar($request);
+       return gestion_necesidades::guardar($request); 
+    }
+
+        public function getGestionCasos()
+    {
+       return gestion_casos::buscar();
+        
+    }
+
+      public function postGestionCasos(request $request)
+    {
+      
+         $this->validate($request,gestion_casos::$rules,gestion_casos::$messages);
+         return gestion_casos::guardar($request);
         
     }
 
@@ -429,10 +442,7 @@ class RegistratorController extends Controller
                  }
             $estaciones=CrearEstaciones::all();
             return view('detpersonal')->with(compact('cargos','personals','cbomberos','estaciones','cursos','estados','profesiones','rangos'));
-
             
-
-
         }
 
         if($request->rep2)

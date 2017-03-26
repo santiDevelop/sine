@@ -13,13 +13,13 @@
   <div class="login-logo">
     <div class="row">
     <div class="col-md-12 hidden-xs hidden-sm text-rigth">
-            <h1>Sigecubo <small> v.0.0.1</small></h1>
+            <h1>Sinecubo </h1>
         </div>
         <div class="col-xs-3 visible-xs visible-sm">
             <img src="img/logo-fonbe-small.png" class="img-responsive" alt="">
         </div>
         <div class="col-sm-9 visible-xs visible-sm">
-            <h1>Sigecubo <small> v.0.0.1</small></h1>
+            <h1>Sinecubo </h1>
         </div>
     </div>
     

@@ -59,7 +59,7 @@
                 <input type="hidden" name="rep1" value="1">
                 <tr>
                   <td>1.</td>
-                  <td>Reporte de existencias de equipos</td>
+                  <td>Reporte de existencias de equipos - Resumen</td>
                   <td>
                   <div class="col-md-3"><p>Por Cuerpo de bombero: <select   class="form-control"  id="cbombero" name="cbombero">
                             <option value="0" selected >Todos</option>
@@ -92,7 +92,7 @@
                 <input type="hidden" name="rep2" value="2">
                 <tr>
                   <td>2.</td>
-                  <td>Reporte Necesidades de equipos</td>
+                  <td>Reporte Necesidades de equipos - Resumen</td>
                   <td>
                     <div class="col-md-3"><p>Por Cuerpo de bombero:</p> 
                             <select class="form-control"  id="cbombero2" name="cbombero">
@@ -113,7 +113,7 @@
                 </tr>
                 </form>
 
-                <form action="/reportesgestion" method="POST">
+              <!--  <form action="/reportesgestion" method="POST">
                 {{ csrf_field() }}
                 <input type="hidden" name="rep4" value="4">
                 <tr>
@@ -143,6 +143,7 @@
                   <td><button type="submit" class="btn btn-success">Reportar</button></td>
                 </tr>
                 </form>
+                -->
               
               </table>
             </div>

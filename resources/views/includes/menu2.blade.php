@@ -156,8 +156,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-          <li class="treeview" ><a href="#"><i class="fa fa-flag"></i><span>Registro de casos atendidos</span></a></li>
-          <li class="treeview" ><a href="#"><i class="fa fa-map-marker"></i><span>Zonificación de casos</span></a></li>
+          <li class="treeview" ><a href="/regcasos"><i class="fa fa-flag"></i><span>Registro de casos atendidos</span></a></li>
+          <li class="treeview" ><a href="/casos_reporte"><i class="fa fa-map-marker"></i><span>Reportes</span></a></li>
           </ul>
         </li>
 

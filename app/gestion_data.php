@@ -138,8 +138,11 @@ class gestion_data extends Model
                    }
         }
 
+               if($request->rep3)
+          {
 
-
+            
+        }
 
    }
 
