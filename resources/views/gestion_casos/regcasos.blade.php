@@ -83,7 +83,7 @@
   <div class="form-group{{ $errors->has('mcbombero_id') ? ' has-error' : '' }}">
                               <label for="mcbombero_id" class="col-md-3 control-label">Cuerpo de Bombero Registrador</label>
                                   <div class="col-md-5">
-                                  <select class="form-control" id="mcbombero_id" name="mcbombero_id" required>
+                                  <select class="form-control js-example-basic-single" id="mcbombero_id" name="mcbombero_id" required>
                                                 @foreach ($mcbomberos as $mcbombero)
                                                 @if($mcbombero->id == auth()->user()->cbombero)
                                             <option value="{{$mcbombero->id}}">{{$mcbombero->nomcbombero}}</option>
@@ -102,7 +102,7 @@
    <div class="form-group{{ $errors->has('estacion_id') ? ' has-error' : '' }}">
                               <label for="estacion_id" class="col-md-3 control-label">Estacion Registrador</label>
                                   <div class="col-md-5">
-                                  <select class="form-control" id="estacion_id" name="estacion_id" required>
+                                  <select class="form-control js-example-basic-single" id="estacion_id" name="estacion_id" required>
                                                 @foreach ($estaciones as $estacion)
                                             <option value="{{$estacion->id}}">{{$estacion->nomestacion}}</option>
                                             @endforeach
@@ -118,7 +118,7 @@
    <div class="form-group{{ $errors->has('emergencia_id') ? ' has-error' : '' }}">
                               <label for="emergencia_id" class="col-md-3 control-label">Tipo de Emergencia</label>
                                   <div class="col-md-5">
-                                  <select class="form-control" id="emergencia_id" name="emergencia_id" required>
+                                  <select class="form-control js-example-basic-single" id="emergencia_id" name="emergencia_id" required>
                                   <option value='0'>--Seleccione--</option>
                                                 @foreach ($tipo as $t)
                                             <option value="{{$t->id}}">{{$t->nomcatemerg}}</option>
@@ -141,7 +141,7 @@
   <div class="form-group{{ $errors->has('condicion') ? ' has-error' : '' }}">
                           <label for="condicion" class="col-md-3 control-label">Condicion del Evento:</label>
                           <div class="col-md-5">
-                            <select @if(auth()->user()->typeuser!='1') {{"disabled"}} @endif class="form-control" id="condicion" name="condicion">
+                            <select @if(auth()->user()->typeuser!='1') {{"disabled"}} @endif class="form-control js-example-basic-single" id="condicion" name="condicion">
                               <option value="1">Atendido</option>
                               <option value="2">Rechazado</option>
                               <option value="3">Transferido</option>
@@ -159,7 +159,7 @@
                           <div class="col-md-5">
                            <div class="bootstrap-timepicker">
                   <div class="input-group">
-                    <input type="text" class="form-control timepicker">
+                    <input type="text" name="hora" class="form-control timepicker">
 
                     <div class="input-group-addon">
                       <i class="fa fa-clock-o"></i>
@@ -177,7 +177,7 @@
                     <div class="form-group{{ $errors->has('estado') ? ' has-error' : '' }}">
                           <label for="estado" class="col-md-3 control-label">Estado:</label>
                           <div class="col-md-5">
-                            <select class="form-control" id="estado" name="estado">
+                            <select class="form-control js-example-basic-single" id="estado" name="estado">
                             @foreach ($estados as $estado)
                               <option {{ old('estado')==$estado->id ? 'selected="selected"' : '' }} value="{{$estado->id}}">{{$estado->estado}}</option>
                             @endforeach 
@@ -224,8 +224,10 @@
                           
                           <div class="col-md-6">
                           <div class="input_fields_wrap">
-                            <button class="btn-info">Agrega Bomberos Asociados</button> 
-                            </div>
+
+                            <div><a href="#">Click en el cuadro para agregar.</a><div class="input-group"><select class="form-control js-example-basic-multiple" multiple="multiple" name="bombero_id[]">@foreach($personal as $p)<option value="{{$p->id}}" name="bombero_id[]">{{number_format($p->cedbombero,0,',','.')}} - {{$p->nombombero}}</option>@endforeach</select>  </div></div>
+
+
                             </div>
                               @if ($errors->has('bombero_id'))
                                 <span class="help-block">
@@ -233,11 +235,12 @@
                                 </span>
                               @endif
                         </div>
+                        </div>
 
                      <div class="form-group{{ $errors->has('nro_personas') ? ' has-error' : '' }}">
                           <label for="nro_personas" class="col-md-3 control-label">Nro personas afectadas:</label>
-                          <div class="col-md-5">
-                            <input type="number" class="form-control" name="nro_personas" placeholder="Nro personas Afectadas">
+                          <div class="col-md-3">
+                            <input type="number" class="form-control" name="nro_personas" placeholder="Afectadas">
                               @if ($errors->has('nro_personas'))
                                 <span class="help-block">
                                   <strong>{{ $errors->first('nro_personas') }}</strong>
@@ -248,8 +251,8 @@
 
                          <div class="form-group{{ $errors->has('nro_heridos') ? ' has-error' : '' }}">
                           <label for="nro_heridos" class="col-md-3 control-label">Nro Heridos:</label>
-                          <div class="col-md-5">
-                            <input type="number" class="form-control" name="nro_heridos" placeholder="Nro de Heridos">
+                          <div class="col-md-3">
+                            <input type="number" class="form-control" name="nro_heridos" placeholder="Heridos">
                               @if ($errors->has('nro_heridos'))
                                 <span class="help-block">
                                   <strong>{{ $errors->first('nro_heridos') }}</strong>
@@ -260,8 +263,8 @@
 
                          <div class="form-group{{ $errors->has('nro_decesos') ? ' has-error' : '' }}">
                           <label for="nro_decesos" class="col-md-3 control-label">Nro Decesos:</label>
-                          <div class="col-md-5">
-                            <input type="number" class="form-control" name="nro_decesos" placeholder="Nro Decesos">
+                          <div class="col-md-3">
+                            <input type="number" class="form-control" name="nro_decesos" placeholder="Decesos">
                               @if ($errors->has('nro_decesos'))
                                 <span class="help-block">
                                   <strong>{{ $errors->first('nro_decesos') }}</strong>
@@ -280,12 +283,8 @@
                                 </span>
                               @endif
                           </div>
-                        </div>
-
-    
+                        </div>    
 </div>
-
-
    <div class="form-group">
                       <div class="col-md-6 col-md-offset-6">
                           <button type="submit" class="btn btn-primary">
@@ -314,26 +313,13 @@
     });
 </script>
 
+
 <script type="text/javascript">
 $(document).ready(function() {
-    var max_fields      = 8; //maximum input boxes allowed
-    var wrapper         = $(".input_fields_wrap"); //Fields wrapper
-    var add_button      = $(".btn-info"); //Add button ID
-    
-    var x = 0; //initlal text box count
-    $(add_button).click(function(e){ //on add input button click
-        e.preventDefault();
-        if(x < max_fields){ //max input box allowed
-            x++; //text box increment
-            input=('<div><a href="#" class="remove_field">Remover Bombero</a><input type="text" placeholder="Cedula de Bombero" class="form-control"  id="bombero_id['+x+']" name="bombero_id['+x+']"><label id="nombre['+x+']"></label>Jose</div>')
-              $(wrapper).append(input); //add input box
+  $(".js-example-basic-multiple").select2();
+    $(".js-example-basic-single").select2();
 
-        }
-    });
-    
-    $(wrapper).on("click",".remove_field", function(e){ //user click on remove text
-        e.preventDefault(); $(this).parent('div').remove(); x--;
-    })
 });
 </script>
+
 @stop

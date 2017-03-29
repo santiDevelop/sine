@@ -355,7 +355,7 @@ class RegistratorController extends Controller
 
       public function postGestionCasos(request $request)
     {
-      
+        //dd($request);
          $this->validate($request,gestion_casos::$rules,gestion_casos::$messages);
          return gestion_casos::guardar($request);
         
