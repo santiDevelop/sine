@@ -10,6 +10,8 @@
   <link rel="stylesheet" href="/bootstrap/css/font-awesome.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="/plugins/datatables/dataTables.bootstrap.css">
+   <!-- Bootstrap time Picker -->
+  <link rel="stylesheet" href="/plugins/timepicker/bootstrap-timepicker.min.css">
   <link rel="stylesheet" href="/css/AdminLTE.css">
   <!-- iCheck -->
   <link rel="stylesheet" href="/plugins/iCheck/square/blue.css">
@@ -130,6 +132,8 @@
 <!-- FastClick -->
 <script src="/plugins/fastclick/fastclick.js"></script>
 <!-- page script -->
+<!-- bootstrap time picker -->
+<script src="/plugins/timepicker/bootstrap-timepicker.min.js"></script>
 <!-- FastClick -->
 <script src="/js/bootbox.min.js"></script>
 <!-- page script -->
