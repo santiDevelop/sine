@@ -31,7 +31,7 @@ class CreateGestionCasosTable extends Migration
             $table->integer('nro_heridos');
             $table->integer('nro_decesos');
             $table->integer('condicion');
-            $table->string('descripcion');
+            $table->text('descripcion');
             $table->foreign('user_id')->references('id')->on('users');
             $table->integer('user_id')->unsigned();
             $table->timestamps();

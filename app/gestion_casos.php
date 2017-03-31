@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\maestro_cat_emergencia;
-use App\crearpersonals;
+use App\CrearPersonals;
 use App\crear_estados;
 use App\maestro_cuerpo_bomberos;
 use App\CrearEstaciones;

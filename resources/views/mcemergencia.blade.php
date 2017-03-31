@@ -41,7 +41,7 @@
                       <div class="form-group{{ $errors->has('numcatemerg') ? ' has-error' : '' }}">
                       <label for="numcatemerg" class="col-md-2 control-label">Numero Categoria Emergencia:
                       </label>
-                          <div class="col-md-2">
+                          <div class="col-md-1">
                           <input id="numcatemerg" type="text" class="form-control" placeholder="Numero Categoria Emergencia" name="numcatemerg" maxlength="3" value="{{ $numero }}" required >
                               @if ($errors->has('numcatemerg'))
                                   <span class="help-block">

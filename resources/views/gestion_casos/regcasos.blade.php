@@ -69,7 +69,7 @@
   <div class="form-group{{ $errors->has('fecha') ? ' has-error' : '' }}">
                               <label for="fecha" class="col-md-3 control-label">Fecha del Caso</label>
                                   <div class="col-md-7">
-                                  <input type="date" name="fecha" value="{{$fecha}}">
+                                  <input type="date" name="fecha" value="{{$fecha}}"> 
                                       @if ($errors->has('fecha'))
                                       <span class="help-block">
                                           <strong>{{ $errors->first('fecha') }}</strong>
@@ -83,7 +83,7 @@
   <div class="form-group{{ $errors->has('mcbombero_id') ? ' has-error' : '' }}">
                               <label for="mcbombero_id" class="col-md-3 control-label">Cuerpo de Bombero Registrador</label>
                                   <div class="col-md-5">
-                                  <select class="form-control js-example-basic-single" id="mcbombero_id" name="mcbombero_id" required>
+                                  <select class="form-control" id="mcbombero_id" name="mcbombero_id" required>
                                                 @foreach ($mcbomberos as $mcbombero)
                                                 @if($mcbombero->id == auth()->user()->cbombero)
                                             <option value="{{$mcbombero->id}}">{{$mcbombero->nomcbombero}}</option>
@@ -104,7 +104,7 @@
                                   <div class="col-md-5">
                                   <select class="form-control js-example-basic-single" id="estacion_id" name="estacion_id" required>
                                                 @foreach ($estaciones as $estacion)
-                                            <option value="{{$estacion->id}}">{{$estacion->nomestacion}}</option>
+                                            <option {{ old('estacion_id')==$estacion->id ? 'selected="selected"' : '' }} value="{{$estacion->id}}"">{{$estacion->nomestacion}}</option>
                                             @endforeach
                                         </select>
                                       @if ($errors->has('estacion_id'))
@@ -121,7 +121,7 @@
                                   <select class="form-control js-example-basic-single" id="emergencia_id" name="emergencia_id" required>
                                   <option value='0'>--Seleccione--</option>
                                                 @foreach ($tipo as $t)
-                                            <option value="{{$t->id}}">{{$t->nomcatemerg}}</option>
+                                            <option {{ old('emergencia_id')==$t->id ? 'selected="selected"' : '' }} value="{{$t->id}}">{{$t->nomcatemerg}}</option>
                                             @endforeach
                                         </select>
                                       @if ($errors->has('emergencia_id'))
@@ -142,9 +142,9 @@
                           <label for="condicion" class="col-md-3 control-label">Condicion del Evento:</label>
                           <div class="col-md-5">
                             <select @if(auth()->user()->typeuser!='1') {{"disabled"}} @endif class="form-control js-example-basic-single" id="condicion" name="condicion">
-                              <option value="1">Atendido</option>
-                              <option value="2">Rechazado</option>
-                              <option value="3">Transferido</option>
+                              <option value="1" {{ old('condicion')=='1' ? 'selected="selected"' : '' }} >Atendido</option>
+                              <option value="2" {{ old('condicion')=='2' ? 'selected="selected"' : '' }} >Rechazado</option>
+                              <option value="3" {{ old('condicion')=='3' ? 'selected="selected"' : '' }} >Transferido</option>
                             </select>
                               @if ($errors->has('condicion'))
                                 <span class="help-block">
@@ -159,7 +159,7 @@
                           <div class="col-md-5">
                            <div class="bootstrap-timepicker">
                   <div class="input-group">
-                    <input type="text" name="hora" class="form-control timepicker">
+                    <input type="text" name="hora" value="{{old('hora')}}" class="form-control timepicker">
 
                     <div class="input-group-addon">
                       <i class="fa fa-clock-o"></i>
@@ -276,7 +276,7 @@
                          <div class="form-group{{ $errors->has('descripcion') ? ' has-error' : '' }}">
                           <label for="descripcion" class="col-md-3 control-label">Descripcion:</label>
                           <div class="col-md-7">
-                            <textarea class="form-control" rows="6" name="descripcion" placeholder="Escriba Descripcion del caso."></textarea>
+                            <textarea class="form-control" maxlength="3000" rows="6" name="descripcion" placeholder="Escriba Descripcion del caso."></textarea>
                               @if ($errors->has('descripcion'))
                                 <span class="help-block">
                                   <strong>{{ $errors->first('descripcion') }}</strong>
