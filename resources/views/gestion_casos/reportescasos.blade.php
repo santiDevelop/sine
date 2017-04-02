@@ -59,20 +59,37 @@
                 <input type="hidden" name="rep1" value="1">
                 <tr>
                   <td>1.</td>
-                  <td>Reporte Detallado por tipo de evento y Fecha</td>
+                  <td>Reporte Estadistico de Casos por fecha, tipo de emergencia</td>
                   <td>
-                  <div class="col-md-3"><p>Por Cuerpo de bombero: <select   class="form-control"  id="cbombero" name="cbombero">
+
+                  <div class="col-md-3"> <p>Por Categoria:</p><select class="form-control js-example-basic-multiple" id="emergencia_id" name="emergencia_id[]" multiple="multiple" required>
+                                    <option value='0'>--Todos--</option>
+                                    @foreach ($tipo as $t)
+                                    <option value="{{$t->id}}">{{$t->nomcatemerg}}</option>
+                                    @endforeach
+                                    </select>
+                            </div>
+
+                  <div class="col-md-3"><p>Por Cuerpo de bombero:</p> <select   class="form-control"  id="cbombero" name="cbombero">
                             <option value="0" selected >Todos</option>
                             @foreach ($cbomberos as $cbombero)
                               <option value="{{$cbombero->id}}"> {{$cbombero->nomcbombero}} </option>
                               @endforeach
-                            </select></p>
+                            </select>
                   </div>
 
-                            <div class="col-md-3"> <p>Fecha Inicio:<input type="date" name="feini">
+                  <div class="col-md-4"> <p>Por Estacion:</p><select class="form-control"  id="estacion" name="estacion">
+                            <option value="0" selected >Todos</option>
+                            </select>
+                               </div>
+
+                               
+
+
+                            <div class="col-md-3"> <p>Fecha Inicio:</p><input type="date" class="form-control" name="feini" required>
                             </div>
                               
-                              <div class="col-md-3"> <p>Fecha Fin:<input type="date" name="fefin">
+                              <div class="col-md-3"> <p>Fecha Fin:</p><input type="date" class="form-control" name="fefin" required> 
                             </div>
                            
 
@@ -102,6 +119,15 @@
                             <option value="0" selected >Todos</option> 
                             </select>
                             </div>
+
+                            <div class="col-md-3"> <p>Por Tip Emergencia:</p><select class="form-control js-example-basic-single" id="emergencia_id" name="emergencia_id" required>
+                                    <option value='0'>--Todos--</option>
+                                    @foreach ($tipo as $t)
+                                    <option {{ old('emergencia_id')==$t->id ? 'selected="selected"' : '' }} value="{{$t->id}}">{{$t->nomcatemerg}}</option>
+                                    @endforeach
+                                    </select>
+                            </div>
+
 
 
                   </td>
@@ -239,4 +265,13 @@
 @endsection
 @section('personal_scripts')
 <script src="/js/ajax.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+       
+  $(".js-example-basic-multiple").select2();
+  $(".js-example-basic-single").select2();
+
+});
+
+</script>
 @endsection

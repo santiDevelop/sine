@@ -29,7 +29,15 @@
             'csrfToken' => csrf_token(),
         ]) !!};
     </script>
+<style>
+  td{
 
+    
+    vertical-align:middle;
+    text-align:center;
+  }
+
+</style>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
         
