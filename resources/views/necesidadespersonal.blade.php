@@ -115,6 +115,9 @@
                         case 3:
                         echo 'Procesado';
                         break;
+                        case 4:
+                        echo 'Aprobado';
+                        break;
                         }
                         @endphp</td>
                   <td><a href="/editnpersonal/{{$personal->id}}" title="Editar Necesidad Personal "><i class="fa fa-pencil"></i></a> </td>
@@ -178,6 +181,9 @@
                         break;
                         case 3:
                         echo 'Procesado';
+                        break;
+                        case 4:
+                        echo 'Aprobado';
                         break;
                         }
                         @endphp</td>

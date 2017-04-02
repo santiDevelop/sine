@@ -138,6 +138,7 @@
                               <option @if($n->estatusolicitud==1) {{'selected'}} @endif value="1">Solicitud</option>
                               <option @if($n->estatusolicitud==2) {{'selected'}} @endif value="2">Visto</option>
                               <option @if($n->estatusolicitud==3) {{'selected'}} @endif value="3">Procesado</option>
+                              <option @if($n->estatusolicitud==4) {{'selected'}} @endif value="4">Aprobado</option>
                             </select>
                               @if ($errors->has('estatusolicitud'))
                                 <span class="help-block">

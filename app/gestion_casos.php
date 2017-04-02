@@ -109,4 +109,23 @@ class gestion_casos extends Model
   }
 
 
+   public static function reportes(){
+
+    $cbomberos=maestro_cuerpo_bomberos::all();
+    $estaciones=CrearEstaciones::all();
+    return view ('gestion_casos.reportescasos')->with(compact('cbomberos','estaciones'));
+
+  }
+
+  public static function reportesdet($request){
+
+
+    dd($request);
+    $cbomberos=maestro_cuerpo_bomberos::all();
+    $estaciones=CrearEstaciones::all();
+    return view ('gestion_casos.reportescasos')->with(compact('cbomberos','estaciones'));
+
+  }
+
+
 }

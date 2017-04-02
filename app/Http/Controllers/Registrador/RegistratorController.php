@@ -353,6 +353,18 @@ class RegistratorController extends Controller
         
     }
 
+     public function ReportesCasos()
+    {
+       return gestion_casos::reportes();
+        
+    }
+
+     public function ReportesCasosdet(request $request)
+    {
+       return gestion_casos::reportesdet($request);
+        
+    }
+
       public function postGestionCasos(request $request)
     {
         //dd($request);
