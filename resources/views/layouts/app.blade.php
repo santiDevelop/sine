@@ -15,6 +15,8 @@
   <link rel="stylesheet" href="/plugins/iCheck/square/blue.css">
   <!-- Styles -->
   <link href="/css/skins/skin-blue.css" rel="stylesheet">
+  <!-- Select2 -->
+  <link href="/dist/css/select2.min.css" rel="stylesheet">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -136,6 +138,8 @@
 <!-- FastClick -->
 <script src="/js/bootbox.min.js"></script>
 <!-- page script -->
+<!-- Select 2 script -->
+<script src="/dist/js/select2.min.js"></script>
 @yield('personal_scripts')
 <script>
   $(function () {

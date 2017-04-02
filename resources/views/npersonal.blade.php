@@ -136,6 +136,7 @@
                               <option value="1">Solicitud</option>
                               <option value="2">Visto</option>
                               <option value="3">Procesado</option>
+                              <option value="4">Aprobado</option>
                             </select>
                               @if ($errors->has('estatusolicitud'))
                                 <span class="help-block">

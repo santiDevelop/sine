@@ -94,6 +94,9 @@ h2{
   case 3:
   echo 'Procesado';
   break;
+  case 4:
+  echo 'Aprobado';
+  break;
   }
   @endphp
     </td>

@@ -403,6 +403,12 @@ class RegistratorController extends Controller
       return CrearEstaciones::where('mcbombero_id',$id)->get();
     }
 
+    public function borrarpersonal($id)
+    {
+      return CrearPersonals::borrar($id);
+    }
+
+
    public function detpersonal(request $request)
     {
          $param='';

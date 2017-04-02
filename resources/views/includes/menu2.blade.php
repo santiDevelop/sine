@@ -134,7 +134,7 @@
             </a>
             </li>
             <li class="treeview" >
-            <a href="/regdata"><i class="fa fa-newspaper-o"></i><span>Registro datos</span>
+            <a href="/regdata"><i class="fa fa-newspaper-o"></i><span>Registro de Existencias</span>
             </a>
            
            <li class="treeview" >

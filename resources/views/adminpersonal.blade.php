@@ -104,8 +104,29 @@
                    <td>{{$personal->status}}
                   </td>
                   
-                  <td><a href="/editarpersonal/{{$personal->id}}" title="Editar Personal"><i class="fa fa-pencil"></i></a> <a type="button" data-toggle="modal" data-target="#confirmar" href="/borrarpersonal/{{$personal->id}}" title="Borrar Personal"><i class="fa fa-trash"></i></a></td>
+                  <td><a href="/editarpersonal/{{$personal->id}}" title="Editar Personal"><i class="fa fa-pencil"></i></a> <a type="button" data-toggle="modal"  data-target="#model-{{ $personal->id }}" href="/borrarpersonal/{{$personal->id}}" title="Borrar Personal"><i class="fa fa-trash"></i></a></td>
                 </tr>
+
+                <div class="modal fade" id="" tabindex="-1" role="dialog" aria-labelledby="confirmarLabel">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Confirmación </h4>
+                      </div>
+                      <div class="modal-body">
+                        <p>¿Está seguro de eliminar al Personal "{{$personal->nombombero}}"?</p>
+                        <small>De ser así se borrara para siempre a este usuario de la base de datos.</small>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                        <a href="borrarpersonal/{{$personal->id}}/eliminar" type="button" class="btn btn-primary">Si, Eliminar</a>
+                      </div>
+                    </div>
+                  </div>
+                </div><!-- /.modal -->
+
+
                 @endforeach
                 </tbody>
                 <tfoot>
@@ -130,24 +151,6 @@
 
 <!-- MODAL PARA CONFIRMAR LA ELIMINACION DE USUARIO -->
 
-<div class="modal fade" id="confirmar" tabindex="-1" role="dialog" aria-labelledby="confirmarLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Confirmación </h4>
-      </div>
-      <div class="modal-body">
-        <p>¿Está seguro de eliminar a la persona?</p>
-        <small>De ser así se borrara para siempre a esta persona de la base de datos.</small>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-primary">Si, Eliminar</button>
-      </div>
-    </div>
-  </div>
-</div><!-- /.modal -->
 
     </section>
     <!-- /.content -->

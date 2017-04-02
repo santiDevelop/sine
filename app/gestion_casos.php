@@ -27,6 +27,7 @@ class gestion_casos extends Model
     'nro_heridos'=>'required',
     'nro_decesos'=>'required',
     'descripcion'=>'required',
+    'fecha'=>'required',
     ];
 
 
@@ -44,6 +45,7 @@ class gestion_casos extends Model
     'nro_heridos.required'=>'El numero de personas heridas es requerido de no poseer escriba "0".',
     'nro_decesos.required'=>'El numero de decesos es requerido de no poseer escriba "0".',
     'descripcion.required'=>'La descripcion del evento es requerida.',
+    'fecha.required'=>'La Fecha del evento es requerida.',
         ]; 
 
         public static function buscar(){
@@ -57,11 +59,11 @@ class gestion_casos extends Model
        } else { $numero=1;}
   	$estaciones=CrearEstaciones::where('mcbombero_id',auth()->user()->cbombero)->get();
   	//$elementos=elementos_tipo_equipamiento::all();
-  	$fecha=date('Y-m-d');
+  //	$fecha=date('Y-m-d');
  	$estados=estados::all();
 
 
-  	return view ('gestion_casos.regcasos')->with(compact('personal','mcbomberos','fecha','tipo','numero','estaciones','estados'));
+  	return view ('gestion_casos.regcasos')->with(compact('personal','mcbomberos','tipo','numero','estaciones','estados'));
 
   }
 

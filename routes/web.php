@@ -64,6 +64,9 @@ Route::group(['middleware'=>'Registrador','namespace'=>'Registrador'],function()
 	Route::get('/necesidadespersonal', 'RegistratorController@getAdminNecesidades');
 	Route::get('/editarpersonal/{id}', 'RegistratorController@editPer');
 	Route::post('/editarpersonal/{id}', 'RegistratorController@updatePer');
+	Route::get('/borrarpersonal/{id}/eliminar', 'RegistratorController@borrarpersonal');
+
+
 	Route::get('/regdata', 'RegistratorController@getRegdata');
 	Route::post('/regdata', 'RegistratorController@postRegdata');
 	Route::get('/regnecesidades', 'RegistratorController@getGestionNecesidades');

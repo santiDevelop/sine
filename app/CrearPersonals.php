@@ -97,5 +97,12 @@ class CrearPersonals extends Model
         'estatus.required'=>'El estatus es requerido',
         'estado.required'=>'El estado es requerido'];
 
+  public static function borrar($id){
+
+        $personal=CrearPersonals::find($id);
+        $personal->delete();
+        return back()->with('notification','Personal Borrado Correctamente');
+  }
+
 
 }

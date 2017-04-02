@@ -345,8 +345,7 @@
                           
                           <div class="col-md-6">
                           <div class="input_fields_wrap">
-                            <button class="btn-info">Agrega Cursos Realizados</button>
-                             
+                             <div><a href="#" class="remove_field">Click en el Cuadro para Agregar Cursos</a><select class="form-control js-example-basic-multiple" name="curso[]" multiple="multiple"> @foreach ($cursos as $curso) <option value="{{$curso->id}}" name="curso[]">{{$curso->nomcurso}}</option>@endforeach</select></div>
                             </div>
                             </div>
                               @if ($errors->has('cursos'))
@@ -494,32 +493,12 @@
 
 @stop
 @section('personal_scripts')
-
 <script type="text/javascript">
 $(document).ready(function() {
-    var max_fields      = 8; //maximum input boxes allowed
-    var wrapper         = $(".input_fields_wrap"); //Fields wrapper
-    var add_button      = $(".btn-info"); //Add button ID
-    
-    var x = 0; //initlal text box count
-    $(add_button).click(function(e){ //on add input button click
-        e.preventDefault();
-        if(x < max_fields){ //max input box allowed
-            x++; //text box increment
-            input=('<div><a href="#" class="remove_field">Remover Curso</a><select class="form-control"  id="curso" name="curso['+x+']"> @foreach ($cursos as $curso) <option value="{{$curso->id}}">{{$curso->nomcurso}}</option>@endforeach</div>')
-              $(wrapper).append(input); //add input box
+       
+  $(".js-example-basic-multiple").select2();
+  $(".js-example-basic-single").select2();
 
-        }
-    });
-    
-    $(wrapper).on("click",".remove_field", function(e){ //user click on remove text
-        e.preventDefault(); $(this).parent('div').remove(); x--;
-    })
-});
-</script>
-<script type="text/javascript">
-$('select').click(function () {
-  $('option[selected="Seleccione"]', this).remove();
 });
 </script>
 @stop
