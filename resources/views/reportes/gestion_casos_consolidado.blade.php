@@ -58,7 +58,7 @@ h2{
   <body >
 
   <h1>Reporte Estadistico de Casos: <img  src="{{ asset('img/logo-fonbe-small.png') }}" align="right"></h1>
- <h2>Cuerpo de bombero:@if(isset($cuerpo->nomcbombero)) {{$cuerpo->nomcbombero}} @else {{'todos'}} @endif <br> Estacion:@if(isset($estacion->nomestacion)) {{$estacion->nomestacion}} @else {{'todos'}} @endif <br> Desde Fecha: {{$feini}} Hasta Fecha: {{$fefin}}  <br></h2>
+ <h2>Cuerpo de bombero:@if(isset($cuerpo->nomcbombero)) {{$cuerpo->nomcbombero}} @else {{'Todos'}} @endif <br> Estacion:@if(isset($estacion->nomestacion)) {{$estacion->nomestacion}} @else {{'Todos'}} @endif <br> Desde Fecha: {{$feini}} Hasta Fecha: {{$fefin}}  <br> Estatus: {{$status}} <br> Estado: @if(isset($estado)) {{$estado->estado}} @else {{'Todos'}} @endif</h2>
  
    <div class="wrapper">
     <table id="t01">
@@ -82,7 +82,20 @@ h2{
   
   </tr>
   @endforeach
-  
+  <table id="total">
+    <thead>
+      
+      <tr>
+      @foreach($sumas as $s)
+      <th>Casos Atendidos: {{$s->casos}}</th>
+      <th>Total Peronas Atendidas: {{$s->nro_personas}}</th>
+      <th>Total Personas Heridas: {{$s->nro_heridos}}</th>
+      <th>Total Descesos: {{$s->nro_decesos}}</th>
+      @endforeach
+      </tr>
+    </thead>
+
+  </table>
            </div>
 
 <!-- page script -->

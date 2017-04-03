@@ -46,7 +46,7 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <table class="table table-bordered">
+              <table class="table table-bordered table-striped">
                 <tr>
                   <th style="width: 10px">#</th>
                   <th style="width: 150px">Reporte</th>
@@ -62,8 +62,7 @@
                   <td>Reporte Estadistico de Casos por fecha, tipo de emergencia</td>
                   <td>
 
-                  <div class="col-md-3"> <p>Por Categoria:</p><select class="form-control js-example-basic-multiple" id="emergencia_id" name="emergencia_id[]" multiple="multiple" required>
-                                    <option value='0'>--Todos--</option>
+                  <div class="col-md-6"> <p>Por Categoria:</p><select class="form-control js-example-basic-multiple" id="emergencia_id" name="emergencia_id[]" multiple="multiple" >
                                     @foreach ($tipo as $t)
                                     <option value="{{$t->id}}">{{$t->nomcatemerg}}</option>
                                     @endforeach
@@ -78,7 +77,7 @@
                             </select>
                   </div>
 
-                  <div class="col-md-4"> <p>Por Estacion:</p><select class="form-control"  id="estacion" name="estacion">
+                  <div class="col-md-3"> <p>Por Estacion:</p><select class="form-control"  id="estacion" name="estacion">
                             <option value="0" selected >Todos</option>
                             </select>
                                </div>
@@ -86,10 +85,29 @@
                                
 
 
-                            <div class="col-md-3"> <p>Fecha Inicio:</p><input type="date" class="form-control" name="feini" required>
+                            <div class="col-md-3"> <p>Fecha Inicio:</p><input type="date" class="form-control" name="feini" id='feini' required>
                             </div>
                               
-                              <div class="col-md-3"> <p>Fecha Fin:</p><input type="date" class="form-control" name="fefin" required> 
+                              <div class="col-md-3"> <p>Fecha Fin:</p><input type="date" class="form-control" name="fefin" id='fefin' required> 
+                            </div>
+
+                             <div class="col-md-3"> <p>Por Condicion:</p>
+                            <select class="form-control"  id="condicion" name="condicion">
+                              <option value="0">Todos</option>
+                              <option value="1">Atendido</option>
+                              <option value="2">Rechazado</option>
+                              <option value="3">Transferido</option>
+                              
+                            </select>
+                            </div>
+
+                            <div class="col-md-3"> <p>Por Estado:</p>
+                          <select class="form-control" id="estado" name="estado">
+                                       <option value="0" selected >Todos</option>
+                                      @foreach ($estados as $estado)
+                                        <option {{ old('estado')==$estado->id ? 'selected="selected"' : '' }} value="{{$estado->id}}">{{$estado->estado}}</option>
+                                      @endforeach 
+                                      </select>
                             </div>
                            
 
@@ -267,7 +285,21 @@
 <script src="/js/ajax.js"></script>
 <script type="text/javascript">
   $(document).ready(function() {
-       
+       var today = new Date();
+          var dd = today.getDate();
+          var mm = today.getMonth()+1; //January is 0!
+
+          var yyyy = today.getFullYear();
+          if(dd<10){
+          dd='0'+dd;
+          } 
+          if(mm<10){
+          mm='0'+mm;
+          } 
+          var today1 = yyyy+'-'+mm+'-'+'01';
+          var today2 = yyyy+'-'+mm+'-'+dd;
+          document.getElementById("feini").value = today1;
+          document.getElementById("fefin").value = today2;
   $(".js-example-basic-multiple").select2();
   $(".js-example-basic-single").select2();
 
