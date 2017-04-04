@@ -65,7 +65,7 @@
               <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
                 <label for="password_confirmation"  class="col-sm-2 control-label">Nueva clave</label>
                   <div class="col-sm-4">
-                    <input type="password" name="password_confirmation" class="form-control" id="password_confirmation" placeholder="Verificar clave">
+                    <input type="password" name="password_confirmation" class="form-control" id="password_confirmation" placeholder="Nueva Clave">
                      @if ($errors->has('password_confirmation'))
                         <span class="help-block">
                             <strong>{{ $errors->first('password_confirmation') }}</strong>
@@ -77,7 +77,7 @@
                <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                 <label for="password" class="col-sm-2 control-label">Verificar clave</label>
                   <div class="col-sm-4">
-                    <input type="password" name="password" class="form-control" id="password" placeholder="Nueva clave">
+                    <input type="password" name="password" class="form-control" id="password" placeholder="Verificar Clave">
                      @if ($errors->has('password'))
                         <span class="help-block">
                             <strong>{{ $errors->first('password') }}</strong>

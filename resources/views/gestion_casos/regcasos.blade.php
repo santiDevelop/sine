@@ -220,6 +220,18 @@
                                         </div>
                                         </div>
 
+                                        <div class="form-group{{ $errors->has('direccion') ? ' has-error' : '' }}">
+                                        <label for="direccion" class="col-md-3 control-label">Direccion Exacta:</label>
+                                        <div class="col-md-5">
+                                        <input type="text" class="form-control" name="direccion" placeholder="ej:  AV. COLONIAL CALLE 10" value="{{old('direccion')}}">
+                                        @if ($errors->has('direccion'))
+                                        <span class="help-block">
+                                        <strong>{{ $errors->first('direccion') }}</strong>
+                                        </span>
+                                        @endif
+                                        </div>
+                                        </div>
+            
                                             
                                         <div class="form-group{{ $errors->has('bombero_id') ? ' has-error' : '' }}">
                                         <label for="bombero_id" class="col-md-3 control-label">Agregar Bomberos:</label>
@@ -274,7 +286,7 @@
                                             <div class="form-group{{ $errors->has('descripcion') ? ' has-error' : '' }}">
                                             <label for="descripcion" class="col-md-3 control-label">Descripcion:</label>
                                             <div class="col-md-7">
-                                            <textarea class="form-control" maxlength="3000" rows="6" name="descripcion" placeholder="Escriba Descripcion del caso." value="{{old('descripcion')}}"></textarea>
+                                            <textarea class="form-control" maxlength="3000" rows="4" name="descripcion" placeholder="Escriba Descripcion del caso."> {{old('descripcion')}}</textarea>
                                             @if ($errors->has('descripcion'))
                                             <span class="help-block">
                                             <strong>{{ $errors->first('descripcion') }}</strong>

@@ -11,7 +11,7 @@ class maestro_cat_emergenciasSeeder extends Seeder
      */
     public function run()
     {
-       maestro_cat_emergencia::create([
+       /*maestro_cat_emergencia::create([
         	'numcatemerg'=>'001',
         	'nomcatemerg'=>'Incendio',
         	'user_id'=>'1'
@@ -24,6 +24,6 @@ class maestro_cat_emergenciasSeeder extends Seeder
         	'user_id'=>'1'
 
 
-        	]);
+        	]);*/
     }
 }

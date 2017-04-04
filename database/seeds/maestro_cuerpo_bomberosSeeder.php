@@ -11,13 +11,13 @@ class maestro_cuerpo_bomberosSeeder extends Seeder
      */
     public function run()
     {
-         maestro_cuerpo_bomberos::create([
+        /* maestro_cuerpo_bomberos::create([
         	'numcbomb'=>'001',
         	'nomcbombero'=>'Central Fonbe',
         	'user_id'=>'1'
 
 
         	]);
-       
+       */
     }
 }

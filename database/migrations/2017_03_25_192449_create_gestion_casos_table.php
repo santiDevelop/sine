@@ -27,6 +27,7 @@ class CreateGestionCasosTable extends Migration
             $table->integer('estado_id')->unsigned();
             $table->string('municipio');
             $table->string('parroquia');
+            $table->string('direccion');
             $table->integer('nro_personas');
             $table->integer('nro_heridos');
             $table->integer('nro_decesos');

@@ -142,6 +142,10 @@
 <!-- FastClick -->
 <script src="/js/bootbox.min.js"></script>
 <!-- page script -->
+<!-- cdn for modernizr, if you haven't included it already -->
+<script src="http://cdn.jsdelivr.net/webshim/1.12.4/extras/modernizr-custom.js"></script>
+<!-- polyfiller file to detect and load polyfills -->
+<script src="http://cdn.jsdelivr.net/webshim/1.12.4/polyfiller.js"></script>
 <!-- Select 2 script -->
 <script src="/dist/js/select2.min.js"></script>
 @yield('personal_scripts')
@@ -187,5 +191,10 @@
      Both of these plugins are recommended to enhance the
      user experience. Slimscroll is required when using the
      fixed layout. -->
+     <script>
+  webshims.setOptions('waitReady', false);
+  webshims.setOptions('forms-ext', {types: 'date'});
+  webshims.polyfill('forms forms-ext');
+</script>
 </body>
 </html>

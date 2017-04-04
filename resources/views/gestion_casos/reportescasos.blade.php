@@ -176,10 +176,10 @@
                   <td>Reporte detallado de Casos</td>
                   <td>
                     <div class="col-md-3"><p>Por Numero de Caso:</p> 
-                            <select class="form-control"  id="cbombero" name="cbombero">
-                              <option value="0" selected >Todos</option>
-                                 @foreach ($cbomberos as $cbombero)
-                                  <option value="{{$cbombero->id}}"> {{$cbombero->nomcbombero}} </option>
+                            <select class="form-control js-example-basic-multiple"  id="caso" name="caso" required>
+                              <option value="" selected >--Seleccione--</option>
+                                 @foreach ($gestion as $g)
+                                  <option value="{{$g->id}}">Numero Caso: {{$g->id}} </option>
                                    @endforeach
                             </select> </div>
                   </td>

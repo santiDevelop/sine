@@ -11,12 +11,13 @@ class crear_cursosSeeder extends Seeder
      */
     public function run()
     {
-       CrearCursos::create([
+      /* CrearCursos::create([
         	'numcurso'=>'001',
         	'nomcurso'=>'Curso Administrativo de Incendio',
         	'user_id'=>'1'
 
 
         	]);
+            */
     }
 }

@@ -11,20 +11,14 @@ class maestro_cargoSeeder extends Seeder
      */
     public function run()
     {
-        maestro_cargos::create([
+       /* maestro_cargos::create([
         	'numcargo'=>'001',
         	'cargo'=>'Bombero Terrestre',
         	'user_id'=>'1'
 
 
         	]);
-        maestro_cargos::create([
-        	'numcargo'=>'002',
-        	'cargo'=>'Bombero Acuatico',
-        	'user_id'=>'1'
-
-
-        	]);
+       */
 
     }
 }

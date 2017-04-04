@@ -361,6 +361,7 @@ class RegistratorController extends Controller
 
      public function ReportesCasosdet(request $request)
     {
+       
        return gestion_casos::reportesdet($request);
         
     }

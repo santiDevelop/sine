@@ -19,7 +19,7 @@
   <link href="/css/skins/skin-blue.css" rel="stylesheet">
   <!-- Select2 -->
   <link href="/dist/css/select2.min.css" rel="stylesheet">
-
+  
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -141,6 +141,10 @@
 <!-- page script -->
 <!-- Select 2 script -->
 <script src="/dist/js/select2.min.js"></script>
+<!-- cdn for modernizr, if you haven't included it already -->
+<script src="http://cdn.jsdelivr.net/webshim/1.12.4/extras/modernizr-custom.js"></script>
+<!-- polyfiller file to detect and load polyfills -->
+<script src="http://cdn.jsdelivr.net/webshim/1.12.4/polyfiller.js"></script>
 @yield('personal_scripts')
 
       @if(session('notification'))        
@@ -157,5 +161,10 @@
      Both of these plugins are recommended to enhance the
      user experience. Slimscroll is required when using the
      fixed layout. -->
+  <script>
+  webshims.setOptions('waitReady', false);
+  webshims.setOptions('forms-ext', {types: 'date'});
+  webshims.polyfill('forms forms-ext');
+</script>
 </body>
 </html>
