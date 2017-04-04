@@ -29,7 +29,11 @@
             'csrfToken' => csrf_token(),
         ]) !!};
     </script>
-
+<style type="text/css">
+  #reporte{
+    margin-top: 50%;
+  }
+</style>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
         

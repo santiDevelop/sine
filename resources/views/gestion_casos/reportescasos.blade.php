@@ -112,7 +112,7 @@
                            
 
                   </td>
-                  <td><button type="submit" class="btn btn-success">Reportar</button></td>
+                  <td><button id="reporte" type="submit" class="btn btn-success">Reportar</button></td>
                 </tr>
                   </form>
 
@@ -123,29 +123,14 @@
                 <input type="hidden" name="rep2" value="2">
                 <tr>
                   <td>2.</td>
-                  <td>Reporte Necesidades de equipos - Resumen</td>
+                  <td >Reporte Consolidado Por estados</td>
                   <td>
-                    <div class="col-md-3"><p>Por Cuerpo de bombero:</p> 
-                            <select class="form-control"  id="cbombero" name="cbombero">
-                              <option value="0" selected >Todos</option>
-                                 @foreach ($cbomberos as $cbombero)
-                                  <option value="{{$cbombero->id}}"> {{$cbombero->nomcbombero}} </option>
-                                   @endforeach
-                            </select> </div>
-
-                            <div class="col-md-3"> <p>Por Estacion:</p><select class="form-control"  id="estacion2" name="estacion">
-                            <option value="0" selected >Todos</option> 
-                            </select>
+                    
+                  <div class="col-md-3"> <p>Fecha Inicio:</p><input type="date" class="form-control" name="feini" id='feini' required>
                             </div>
-
-                            <div class="col-md-3"> <p>Por Tip Emergencia:</p><select class="form-control js-example-basic-single" id="emergencia_id" name="emergencia_id" required>
-                                    <option value='0'>--Todos--</option>
-                                    @foreach ($tipo as $t)
-                                    <option {{ old('emergencia_id')==$t->id ? 'selected="selected"' : '' }} value="{{$t->id}}">{{$t->nomcatemerg}}</option>
-                                    @endforeach
-                                    </select>
-                            </div>
-
+                              
+                  <div class="col-md-3"> <p>Fecha Fin:</p><input type="date" class="form-control" name="fefin" id='fefin' required> 
+                  </div>
 
 
                   </td>
@@ -159,79 +144,50 @@
                 <input type="hidden" name="rep3" value="3">
                 <tr>
                   <td>3.</td>
-                  <td>Reporte Necesidades de equipos - Resumen</td>
+                  <td>Reporte Consolidado Por Bomberos</td>
                   <td>
-                    <div class="col-md-3"><p>Por Cuerpo de bombero:</p> 
-                            <select class="form-control"  id="cbombero" name="cbombero">
-                              <option value="0" selected >Todos</option>
-                                 @foreach ($cbomberos as $cbombero)
-                                  <option value="{{$cbombero->id}}"> {{$cbombero->nomcbombero}} </option>
+                    <div class="col-md-12"><p>Por Bomberos:</p> 
+                            <select class="form-control js-example-basic-multiple"  id="personal[]" name="personal[]" multiple="multiple">
+                              
+                                 @foreach ($personal as $p)
+                                  <option value="{{$p->id}}"> {{number_format($p->cedbombero,0,',','.')}} - {{$p->nombombero}} {{$p->apebombero}}</option>
                                    @endforeach
                             </select> </div>
 
-                            <div class="col-md-3"> <p>Por Estacion:</p><select class="form-control"  id="estacion2" name="estacion">
-                            <option value="0" selected >Todos</option> 
-                            </select>
-                            </div>
+                  <div class="col-md-3"> <p>Fecha Inicio:</p><input type="date" class="form-control" name="feini" id='feini' required>
+                        </div>
+                              
+                  <div class="col-md-3"> <p>Fecha Fin:</p><input type="date" class="form-control" name="fefin" id='fefin' required> 
+                  </div>
+                            
 
 
                   </td>
-                  <td><button type="submit" class="btn btn-success">Reportar</button></td>
+                  <td><button id="reporte" type="submit" class="btn btn-success">Reportar</button></td>
                 </tr>
                 </form>
 
 
                  <form action="/reportecasos" method="POST">
                 {{ csrf_field() }}
-                <input type="hidden" name="rep2" value="2">
+                <input type="hidden" name="rep4" value="4">
                 <tr>
                   <td>4.</td>
-                  <td>Reporte Necesidades de equipos - Resumen</td>
+                  <td>Reporte detallado de Casos</td>
                   <td>
-                    <div class="col-md-3"><p>Por Cuerpo de bombero:</p> 
+                    <div class="col-md-3"><p>Por Numero de Caso:</p> 
                             <select class="form-control"  id="cbombero" name="cbombero">
                               <option value="0" selected >Todos</option>
                                  @foreach ($cbomberos as $cbombero)
                                   <option value="{{$cbombero->id}}"> {{$cbombero->nomcbombero}} </option>
                                    @endforeach
                             </select> </div>
-
-                            <div class="col-md-3"> <p>Por Estacion:</p><select class="form-control"  id="estacion2" name="estacion">
-                            <option value="0" selected >Todos</option> 
-                            </select>
-                            </div>
-
-
                   </td>
-                  <td><button type="submit" class="btn btn-success">Reportar</button></td>
+                  <td><button  type="submit" class="btn btn-success">Reportar</button></td>
                 </tr>
                 </form>
 
-                 <form action="/reportecasos" method="POST">
-                {{ csrf_field() }}
-                <input type="hidden" name="rep2" value="2">
-                <tr>
-                  <td>5.</td>
-                  <td>Reporte Necesidades de equipos - Resumen</td>
-                  <td>
-                    <div class="col-md-3"><p>Por Cuerpo de bombero:</p> 
-                            <select class="form-control"  id="cbombero" name="cbombero">
-                              <option value="0" selected >Todos</option>
-                                 @foreach ($cbomberos as $cbombero)
-                                  <option value="{{$cbombero->id}}"> {{$cbombero->nomcbombero}} </option>
-                                   @endforeach
-                            </select> </div>
-
-                            <div class="col-md-3"> <p>Por Estacion:</p><select class="form-control"  id="estacion2" name="estacion">
-                            <option value="0" selected >Todos</option> 
-                            </select>
-                            </div>
-
-
-                  </td>
-                  <td><button type="submit" class="btn btn-success">Reportar</button></td>
-                </tr>
-                </form>
+                 
   
               <!--  <form action="/reportecasos" method="POST">
                 {{ csrf_field() }}
@@ -260,7 +216,7 @@
                             </select>
                             </div>
                   </td>
-                  <td><button type="submit" class="btn btn-success">Reportar</button></td>
+                  <td><button id="reporte" type="submit" class="btn btn-success">Reportar</button></td>
                 </tr>
                 </form>
                 -->
