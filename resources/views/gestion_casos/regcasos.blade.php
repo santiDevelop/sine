@@ -143,7 +143,7 @@
                                     <div class="form-group{{ $errors->has('condicion') ? ' has-error' : '' }}">
                                     <label for="condicion" class="col-md-3 control-label">Condicion del Evento:</label>
                                     <div class="col-md-5">
-                                    <select @if(auth()->user()->typeuser!='1') {{"disabled"}} @endif class="form-control js-example-basic-single" id="condicion" name="condicion">
+                                    <select class="form-control js-example-basic-single" id="condicion" name="condicion">
                                     <option value="1" {{ old('condicion')=='1' ? 'selected="selected"' : '' }} >Atendido</option>
                                     <option value="2" {{ old('condicion')=='2' ? 'selected="selected"' : '' }} >Rechazado</option>
                                     <option value="3" {{ old('condicion')=='3' ? 'selected="selected"' : '' }} >Transferido</option>

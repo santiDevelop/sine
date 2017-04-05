@@ -65,23 +65,15 @@ Route::group(['middleware'=>'Registrador','namespace'=>'Registrador'],function()
 	Route::get('/editarpersonal/{id}', 'RegistratorController@editPer');
 	Route::post('/editarpersonal/{id}', 'RegistratorController@updatePer');
 	Route::get('/borrarpersonal/{id}/eliminar', 'RegistratorController@borrarpersonal');
-
-
 	Route::get('/regdata', 'RegistratorController@getRegdata');
 	Route::post('/regdata', 'RegistratorController@postRegdata');
 	Route::get('/regnecesidades', 'RegistratorController@getGestionNecesidades');
-	Route::post('/regnecesidades', 'RegistratorController@postGestionNecesidades');
-	Route::get('/reportespersonal','RegistratorController@ReportesPersonal');
-	Route::post('/reportespersonal','RegistratorController@detpersonal');
+	Route::post('/regnecesidades', 'RegistratorController@postGestionNecesidades');	
 	Route::get('/relementos', 'RegistratorController@getRelementos');
 	Route::post('/relementos', 'RegistratorController@postRelementos');
 	Route::get('/editelemento/{id}', 'RegistratorController@editarElemento');
 	Route::post('/editelemento/{id}', 'RegistratorController@updateElemento');
 	Route::get('/editelemento/{id}/eliminar', 'RegistratorController@borrarElemento');
-
-	Route::get('/reportecasos', 'RegistratorController@ReportesCasos');
-	Route::post('/reportecasos', 'RegistratorController@ReportesCasosdet');
-
 	Route::get('/regcasos', 'RegistratorController@getGestionCasos');
 	Route::post('/regcasos', 'RegistratorController@postGestionCasos');
 });
@@ -90,7 +82,10 @@ Route::group(['middleware'=>'Registrador','namespace'=>'Registrador'],function()
 Route::group(['middleware'=>'Reportes','namespace'=>'Reportes'],function(){
 	Route::get('/reportesgestion', 'ReportesController@reportesgestion');
 	Route::post('/reportesgestion', 'ReportesController@tipoReporte');
-
+	Route::get('/reportespersonal','ReportesController@ReportesPersonal');
+	Route::post('/reportespersonal','ReportesController@detpersonal');
+	Route::get('/reportecasos', 'ReportesController@ReportesCasos');
+	Route::post('/reportecasos', 'ReportesController@ReportesCasosdet');
 });
 
 

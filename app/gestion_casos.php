@@ -265,7 +265,7 @@ class gestion_casos extends Model
               $personal=gestion_casos_det::select('gestion_casos_dets.bombero_id','crear_personals.*')->join('crear_personals','crear_personals.id','=','gestion_casos_dets.bombero_id')->join('rangos','crear_personals.rango_id','=','rangos.id')->join('maestro_cuerpo_bomberos','maestro_cuerpo_bomberos.id','=','crear_personals.mcbombero_id')->join('crear_estaciones','crear_estaciones.id','=','crear_personals.estacion_id')->where('gestion_casos_dets.caso_id',$request->caso)->get();
 
               //dd($personal);
-              $pdf=PDF::loadView('reportes.gestion_casos_detalle',compact('datos','personal','status'))->setPaper('a4', 'landscape')->setWarnings(false);
+              $pdf=PDF::loadView('reportes.gestion_casos_detalle',compact('datos','personal','status'))->setPaper('letter', 'portrait')->setWarnings(false);
               return $pdf->stream('reporteconsolidadobombero.pdf');
             } 
 

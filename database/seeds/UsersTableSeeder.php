@@ -15,7 +15,7 @@ class UsersTableSeeder extends Seeder
         	'user'=>'administrador',
         	'status'=>'1',
 			'name'=>'Usuario Administrador',
-			'cedula'=>'999999',
+			'cedula'=>'999',
 			'cargo'=>'3',
 			'typeuser'=>'1',
 			'cbombero'=>'1',
@@ -26,13 +26,35 @@ class UsersTableSeeder extends Seeder
         	'user'=>'usuario',
         	'status'=>'1',
 			'name'=>'Usuario Regular',
-			'cedula'=>'111999',
+			'cedula'=>'999',
 			'cargo'=>'3',
 			'typeuser'=>'2',
 			'cbombero'=>'1',
 			'password'=>bcrypt('123456')
 
         	]);
+            User::create([
+            'user'=>'jefe',
+            'status'=>'1',
+            'name'=>'jefe',
+            'cedula'=>'999',
+            'cargo'=>'3',
+            'typeuser'=>'3',
+            'cbombero'=>'1',
+            'password'=>bcrypt('123456')
+
+            ]);
+             User::create([
+            'user'=>'fonbe',
+            'status'=>'1',
+            'name'=>'fonbe',
+            'cedula'=>'999',
+            'cargo'=>'3',
+            'typeuser'=>'4',
+            'cbombero'=>'1',
+            'password'=>bcrypt('123456')
+
+            ]);
     }
 }
 

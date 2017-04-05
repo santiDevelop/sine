@@ -58,7 +58,7 @@
                         <li class="treeview">
                         <a href="/mcemergencia">
                           <i class="fa fa-bullhorn"></i>
-                          <span>Maestro de categorización <br/>de emergencias</span>
+                          <span>Maestro tipo emergencias</span>
                         </a>
                         </li>
                         @endif
@@ -99,7 +99,7 @@
           <ul class="treeview-menu">
             
             <li class="treeview">
-          <a href="#"><i class="fa fa-universal-access"></i> <span>Gestión humana</span>
+          <a href="#"><i class="fa fa-users"></i> <span>Gestión humana</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>                     
@@ -123,7 +123,7 @@
           </ul>
         </li>
         <li class="treeview">
-          <a href="#"><i class="fa fa-binoculars"></i> <span>Gestión de recursos y equipos</span>
+          <a href="#"><i class="fa fa-cube"></i> <span>Gestión de recursos y equipos</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
@@ -150,14 +150,14 @@
           </ul>
         </li>
             <li class="treeview">
-          <a href="#"><i class="fa fa-ticket"></i> <span>Gestión de casos</span>
+          <a href="#"><i class="fa fa-ambulance"></i> <span>Gestión de casos</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
           <li class="treeview" ><a href="/regcasos"><i class="fa fa-flag"></i><span>Registro de casos atendidos</span></a></li>
-          <li class="treeview" ><a href="/reportecasos"><i class="fa fa-map-marker"></i><span>Reportes</span></a></li>
+          <li class="treeview" ><a href="/reportecasos"><i class="fa fa-bar-chart"></i><span>Reportes</span></a></li>
           </ul>
         </li>
 
