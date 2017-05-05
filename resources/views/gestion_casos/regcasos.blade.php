@@ -83,7 +83,7 @@
 
 
                                     <div class="form-group{{ $errors->has('mcbombero_id') ? ' has-error' : '' }}">
-                                      <label for="mcbombero_id" class="col-md-3 control-label">Cuerpo de Bombero Registrador</label>
+                                      <label for="mcbombero_id" class="col-md-3 control-label">Cuerpo de Bombero </label>
                                           <div class="col-md-5">
                                           <select class="form-control" id="mcbombero_id" name="mcbombero_id" required>
                                                         @foreach ($mcbomberos as $mcbombero)

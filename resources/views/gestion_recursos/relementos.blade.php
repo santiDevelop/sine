@@ -7,7 +7,7 @@
        <div class="hidden-xs hidden-sm">
        <section class="content-header">
         <h1>
-        Elementos de Tipo de equipamiento
+        Registro Elementos de Tipo de equipamiento
         <small>Elementos de Tipo de equipamiento</small>
       </h1>
       <ol class="breadcrumb">
@@ -107,7 +107,7 @@
                   <td>{{$e->nomtipequip}}</td>
                   <td>{{$e->id}}</td>
                   <td>{{$e->nomelemento}} </td>
-                  <td><a href="/editelemento/{{$e->id}}" title="Editar Elemento"><i class="fa fa-pencil"></i></a> <a type="button" data-toggle="modal" data-target="#model-{{ $e->id }}" title="Borrar Elemento"><i class="fa fa-trash"></i></a></td>
+                  <td><a href="/editarMcbombero/{{$e->id}}" title="Editar Elemento"><i class="fa fa-pencil"></i></a> <a type="button" data-toggle="modal" data-target="#model-{{ $e->id }}" title="Borrar Elemento"><i class="fa fa-trash"></i></a></td>
                 </tr>
                 <div class="modal fade" id="model-{{ $e->id }}" tabindex="-1" role="dialog" aria-labelledby="confirmarLabel">
                   <div class="modal-dialog" role="document">
@@ -123,7 +123,7 @@
                       <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
                         
-                        <a href="/editelemento/{{$e->id}}/eliminar" type="button" class="btn btn-primary">Si, Eliminar</a>
+                        <a href="/editarMcbombero/{{$e->id}}/eliminar" type="button" class="btn btn-primary">Si, Eliminar</a>
                         
                         
                       </div>

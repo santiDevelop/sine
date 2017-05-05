@@ -71,6 +71,7 @@
                                             <button type="submit" class="btn btn-primary">
                                                 Registrar
                                             </button>
+                                            <a class="btn btn-default " href="/home" role="button">Regresar al menu</a>
                                         </div>
                                     </div>
                               </form>
@@ -88,6 +89,7 @@
                                     <tr>
                                      <th>Numero Cuerpo bombero</th>
                                       <th>Nombre Cuerpo de Bombero</th>
+                                      <th width="10%">Editar o Borrar</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -95,7 +97,29 @@
                                     <tr>
                                       <td width="30%">{{$h->numcbomb}}</td>
                                       <td>{{$h->nomcbombero}}</td>
+                                     <td><a href="#" title="Editar Elemento"><i class="fa fa-pencil"></i></a> <a type="button" data-toggle="modal" data-target="#model-{{ $h->id }}" title="Borrar Elemento"><i class="fa fa-trash"></i></a></td>
                                     </tr>
+                                    <div class="modal fade" id="model-{{ $h->id }}" tabindex="-1" role="dialog" aria-labelledby="confirmarLabel">
+                                      <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                          <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                            <h4 class="modal-title" id="myModalLabel">Confirmación </h4>
+                                          </div>
+                                          <div class="modal-body">
+                                            <p>¿Está seguro de eliminar el Cuerpo de Bombero "{{$h->nomcbombero}}"?</p>
+                                            <small>De ser así se borrara para siempre a este elemento de la base de datos.</small>
+                                          </div>
+                                          <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                                            
+                                            <a href="#" type="button" class="btn btn-primary">Si, Eliminar</a>
+                                            
+                                            
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div><!-- /.modal -->
                                     @endforeach
                                     </tbody>
                                   </table>

@@ -33,6 +33,11 @@
   #reporte{
     margin-top: 50%;
   }
+  #logo_principal{
+  
+    margin-left: 30%;
+
+  }
 </style>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">

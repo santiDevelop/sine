@@ -152,6 +152,7 @@
                           <button type="submit" class="btn btn-primary">
                               Solicitar
                           </button>
+                          <a class="btn btn-default " href="/necesidadespersonal" role="button">Regresar al menu</a>
                       </div>
                   </div>
             </form>
