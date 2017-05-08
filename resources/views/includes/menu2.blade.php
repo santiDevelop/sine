@@ -87,6 +87,7 @@
                             </a>
                           </li> 
                       </ul>
+
             </li>
           </ul>
         </li>
@@ -167,6 +168,13 @@
                             <a href="/resetpw">
                             <i class="fa fa-key"></i>
                             <span>Cambio de clave</span>
+                            </a>
+                          </li> 
+
+                            <li class="treeview">
+                            <a href="/mapa">
+                            <i class="fa fa-location-arrow"></i>
+                            <span>Mapa</span>
                             </a>
                           </li> 
                       </ul>

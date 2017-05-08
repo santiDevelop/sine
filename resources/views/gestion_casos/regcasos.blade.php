@@ -123,7 +123,7 @@
                                     <select class="form-control js-example-basic-single" id="emergencia_id" name="emergencia_id" required>
                                     <option value='0'>--Seleccione--</option>
                                     @foreach ($tipo as $t)
-                                    <option {{ old('emergencia_id')==$t->id ? 'selected="selected"' : '' }} value="{{$t->id}}">{{$t->nomcatemerg}}</option>
+                                    <option {{ old('emergencia_id')==$t->id ? 'selected="selected"' : '' }} value="{{$t->id}}">{{$t->id}} : {{$t->nomcatemerg}}</option>
                                     @endforeach
                                     </select>
                                     @if ($errors->has('emergencia_id'))

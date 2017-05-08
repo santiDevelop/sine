@@ -19,6 +19,7 @@ Auth::routes();
 
 // Rutas Comunes sin Necesidad de perfil Especifico
 Route::get('/home', 'HomeController@index');
+Route::get('/mapa', 'HomeController@mapa');
 Route::get('/resetpw', 'HomeController@resetpw');
 Route::post('/resetpw', 'HomeController@cambiopw');
 
@@ -75,6 +76,7 @@ Route::group(['middleware'=>'Registrador','namespace'=>'Registrador'],function()
 	Route::post('/editelemento/{id}', 'RegistratorController@updateElemento');
 	Route::get('/editelemento/{id}/eliminar', 'RegistratorController@borrarElemento');
 	Route::get('/regcasos', 'RegistratorController@getGestionCasos');
+	Route::post('/regcasos', 'RegistratorController@postGestionCasos');
 	Route::post('/regcasos', 'RegistratorController@postGestionCasos');
 });
 

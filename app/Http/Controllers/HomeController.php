@@ -28,7 +28,11 @@ class HomeController extends Controller
         return view('home');
     }
 
-    
+      public function mapa()
+    {
+        return view('mapa');
+    }
+
 
 
 

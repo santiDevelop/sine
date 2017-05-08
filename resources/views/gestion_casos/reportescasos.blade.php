@@ -186,12 +186,37 @@
                   <td><button  type="submit" class="btn btn-success">Reportar</button></td>
                 </tr>
                 </form>
-
+                
+                <form action="/reportecasos" method="POST">
+                {{ csrf_field() }}
+                <input type="hidden" name="rep5" value="5">
+                <tr>
+                  <td>5.</td>
+                  <td>Cuadros Mensuales</td>
+                  <td>
+                    <div class="col-md-3"><p>Tipo de estadísticas:</p> 
+                            <select class="form-control"  id="tipo" name="tipo" required>
+                                   <option value="1" selected>Por Casos</option>
+                                   <option value="2">Por Estados</option>
+                                   <option value="3">Por Estaciones</option>
+                            </select> 
+                     </div>
+                      <div class="col-md-3"><p>Año a Reportar:</p> 
+                            <select class="form-control"  id="year" name="year" required>
+                                   <option value="2017" selected>2017</option>
+                                   <option value="2018">2018</option>
+                                   <option value="2019">2019</option>
+                            </select> 
+                     </div>
+                  </td>
+                  <td><button  type="submit" class="btn btn-success">Reportar</button></td>
+                </tr>
+                </form>
                  
   
               <!--  <form action="/reportecasos" method="POST">
                 {{ csrf_field() }}
-                <input type="hidden" name="rep4" value="4">
+                <input type="hidden" name="rep5" value="4">
                 <tr>
                   <td>4.</td>
                   <td>Reporte Necesidades Cursos</td>

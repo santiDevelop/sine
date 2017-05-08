@@ -13,6 +13,7 @@ use App\gestion_casos_det;
 use PDF;
 use DB;
 use DateTime;
+use Carbon\Carbon;
 class gestion_casos extends Model
 {
       public static  $rules=[
@@ -127,6 +128,9 @@ class gestion_casos extends Model
    public static function reportesdet($request){
 
          //dd($request);
+         $now = Carbon::now();
+         $year= $now->year;
+
         $cuerpo=maestro_cuerpo_bomberos::find($request->cbombero);
         $estacion=CrearEstaciones::find($request->estacion);
         $estado=estados::find($request->estado);
@@ -140,8 +144,6 @@ class gestion_casos extends Model
               $flag=false;      
             }
         }
-
-
 
 
         if($request->emergencia_id){
@@ -268,6 +270,107 @@ class gestion_casos extends Model
               $pdf=PDF::loadView('reportes.gestion_casos_detalle',compact('datos','personal','status'))->setPaper('letter', 'portrait')->setWarnings(false);
               return $pdf->stream('reporteconsolidadobombero.pdf');
             } 
+             if($request->rep5){
+
+              if($request->tipo==1){
+             $datos=DB::table('gestion_casos')->select(array('maestro_cat_emergencias.nomcatemerg', DB::raw('count(gestion_casos.id) as Suma'), DB::raw("SUM(CASE MONTH(fecha) WHEN 1 THEN 1 ELSE 0 END) AS 'Ene'"),
+             DB::raw("SUM(CASE MONTH(fecha) WHEN 2 THEN 1 ELSE 0 END) AS 'Feb'"),
+              DB::raw("SUM(CASE MONTH(fecha) WHEN 3 THEN 1 ELSE 0 END) AS 'Mar'"),
+               DB::raw("SUM(CASE MONTH(fecha) WHEN 4 THEN 1 ELSE 0 END) AS 'Abr'"),
+                DB::raw("SUM(CASE MONTH(fecha) WHEN 5 THEN 1 ELSE 0 END) AS 'May'"),
+                 DB::raw("SUM(CASE MONTH(fecha) WHEN 6 THEN 1 ELSE 0 END) AS 'Jun'"),
+                  DB::raw("SUM(CASE MONTH(fecha) WHEN 7 THEN 1 ELSE 0 END) AS 'Jul'"),
+                   DB::raw("SUM(CASE MONTH(fecha) WHEN 8 THEN 1 ELSE 0 END) AS 'Ago'"),
+                    DB::raw("SUM(CASE MONTH(fecha) WHEN 9 THEN 1 ELSE 0 END) AS 'Sep'"),
+                     DB::raw("SUM(CASE MONTH(fecha) WHEN 10 THEN 1 ELSE 0 END) AS 'Oct'"),
+                      DB::raw("SUM(CASE MONTH(fecha) WHEN 11 THEN 1 ELSE 0 END) AS 'Nov'"),
+                       DB::raw("SUM(CASE MONTH(fecha) WHEN 12 THEN 1 ELSE 0 END) AS 'Dic'")))->join('maestro_cat_emergencias','maestro_cat_emergencias.id','=','gestion_casos.emergencia_id')
+                       ->whereRaw("YEAR(fecha)=".$year)->groupby('maestro_cat_emergencias.nomcatemerg')->get();
+
+              $totales=DB::table('gestion_casos')->select(array(DB::raw('count(gestion_casos.id) as Suma'), DB::raw("SUM(CASE MONTH(fecha) WHEN 1 THEN 1 ELSE 0 END) AS 'Ene'"),
+                 DB::raw("SUM(CASE MONTH(fecha) WHEN 2 THEN 1 ELSE 0 END) AS 'Feb'"),
+                  DB::raw("SUM(CASE MONTH(fecha) WHEN 3 THEN 1 ELSE 0 END) AS 'Mar'"),
+                   DB::raw("SUM(CASE MONTH(fecha) WHEN 4 THEN 1 ELSE 0 END) AS 'Abr'"),
+                    DB::raw("SUM(CASE MONTH(fecha) WHEN 5 THEN 1 ELSE 0 END) AS 'May'"),
+                     DB::raw("SUM(CASE MONTH(fecha) WHEN 6 THEN 1 ELSE 0 END) AS 'Jun'"),
+                      DB::raw("SUM(CASE MONTH(fecha) WHEN 7 THEN 1 ELSE 0 END) AS 'Jul'"),
+                       DB::raw("SUM(CASE MONTH(fecha) WHEN 8 THEN 1 ELSE 0 END) AS 'Ago'"),
+                        DB::raw("SUM(CASE MONTH(fecha) WHEN 9 THEN 1 ELSE 0 END) AS 'Sep'"),
+                         DB::raw("SUM(CASE MONTH(fecha) WHEN 10 THEN 1 ELSE 0 END) AS 'Oct'"),
+                          DB::raw("SUM(CASE MONTH(fecha) WHEN 11 THEN 1 ELSE 0 END) AS 'Nov'"),
+                           DB::raw("SUM(CASE MONTH(fecha) WHEN 12 THEN 1 ELSE 0 END) AS 'Dic'")))
+                 ->whereRaw("YEAR(fecha)=".$year)->get();
+              $pdf=PDF::loadView('reportes.gestion_casos_mensual',compact('datos','totales','year'))->setPaper('letter','landscape')->setWarnings(false);
+              return $pdf->stream('reporteMensual.pdf');
+              }
+
+              if($request->tipo==2){
+             $datos=DB::table('gestion_casos')->select(array('estados.estado', DB::raw('count(gestion_casos.id) as Suma'), DB::raw("SUM(CASE MONTH(fecha) WHEN 1 THEN 1 ELSE 0 END) AS 'Ene'"),
+             DB::raw("SUM(CASE MONTH(fecha) WHEN 2 THEN 1 ELSE 0 END) AS 'Feb'"),
+              DB::raw("SUM(CASE MONTH(fecha) WHEN 3 THEN 1 ELSE 0 END) AS 'Mar'"),
+               DB::raw("SUM(CASE MONTH(fecha) WHEN 4 THEN 1 ELSE 0 END) AS 'Abr'"),
+                DB::raw("SUM(CASE MONTH(fecha) WHEN 5 THEN 1 ELSE 0 END) AS 'May'"),
+                 DB::raw("SUM(CASE MONTH(fecha) WHEN 6 THEN 1 ELSE 0 END) AS 'Jun'"),
+                  DB::raw("SUM(CASE MONTH(fecha) WHEN 7 THEN 1 ELSE 0 END) AS 'Jul'"),
+                   DB::raw("SUM(CASE MONTH(fecha) WHEN 8 THEN 1 ELSE 0 END) AS 'Ago'"),
+                    DB::raw("SUM(CASE MONTH(fecha) WHEN 9 THEN 1 ELSE 0 END) AS 'Sep'"),
+                     DB::raw("SUM(CASE MONTH(fecha) WHEN 10 THEN 1 ELSE 0 END) AS 'Oct'"),
+                      DB::raw("SUM(CASE MONTH(fecha) WHEN 11 THEN 1 ELSE 0 END) AS 'Nov'"),
+                       DB::raw("SUM(CASE MONTH(fecha) WHEN 12 THEN 1 ELSE 0 END) AS 'Dic'")))->join('estados','estados.id','=','gestion_casos.estado_id')
+                       ->whereRaw("YEAR(fecha)=".$year)->groupby('estados.estado')->get();
+
+              $totales=DB::table('gestion_casos')->select(array(DB::raw('count(gestion_casos.id) as Suma'), DB::raw("SUM(CASE MONTH(fecha) WHEN 1 THEN 1 ELSE 0 END) AS 'Ene'"),
+                 DB::raw("SUM(CASE MONTH(fecha) WHEN 2 THEN 1 ELSE 0 END) AS 'Feb'"),
+                  DB::raw("SUM(CASE MONTH(fecha) WHEN 3 THEN 1 ELSE 0 END) AS 'Mar'"),
+                   DB::raw("SUM(CASE MONTH(fecha) WHEN 4 THEN 1 ELSE 0 END) AS 'Abr'"),
+                    DB::raw("SUM(CASE MONTH(fecha) WHEN 5 THEN 1 ELSE 0 END) AS 'May'"),
+                     DB::raw("SUM(CASE MONTH(fecha) WHEN 6 THEN 1 ELSE 0 END) AS 'Jun'"),
+                      DB::raw("SUM(CASE MONTH(fecha) WHEN 7 THEN 1 ELSE 0 END) AS 'Jul'"),
+                       DB::raw("SUM(CASE MONTH(fecha) WHEN 8 THEN 1 ELSE 0 END) AS 'Ago'"),
+                        DB::raw("SUM(CASE MONTH(fecha) WHEN 9 THEN 1 ELSE 0 END) AS 'Sep'"),
+                         DB::raw("SUM(CASE MONTH(fecha) WHEN 10 THEN 1 ELSE 0 END) AS 'Oct'"),
+                          DB::raw("SUM(CASE MONTH(fecha) WHEN 11 THEN 1 ELSE 0 END) AS 'Nov'"),
+                           DB::raw("SUM(CASE MONTH(fecha) WHEN 12 THEN 1 ELSE 0 END) AS 'Dic'")))
+                 ->whereRaw("YEAR(fecha)=".$year)->get();
+              $pdf=PDF::loadView('reportes.gestion_casos_mensual_estados',compact('datos','totales','year'))->setPaper('letter','landscape')->setWarnings(false);
+              return $pdf->stream('reporteMensualEstados.pdf');
+              }
+
+
+               if($request->tipo==3){
+             $datos=DB::table('gestion_casos')->select(array('crear_estaciones.nomestacion', DB::raw('count(gestion_casos.id) as Suma'), DB::raw("SUM(CASE MONTH(fecha) WHEN 1 THEN 1 ELSE 0 END) AS 'Ene'"),
+             DB::raw("SUM(CASE MONTH(fecha) WHEN 2 THEN 1 ELSE 0 END) AS 'Feb'"),
+              DB::raw("SUM(CASE MONTH(fecha) WHEN 3 THEN 1 ELSE 0 END) AS 'Mar'"),
+               DB::raw("SUM(CASE MONTH(fecha) WHEN 4 THEN 1 ELSE 0 END) AS 'Abr'"),
+                DB::raw("SUM(CASE MONTH(fecha) WHEN 5 THEN 1 ELSE 0 END) AS 'May'"),
+                 DB::raw("SUM(CASE MONTH(fecha) WHEN 6 THEN 1 ELSE 0 END) AS 'Jun'"),
+                  DB::raw("SUM(CASE MONTH(fecha) WHEN 7 THEN 1 ELSE 0 END) AS 'Jul'"),
+                   DB::raw("SUM(CASE MONTH(fecha) WHEN 8 THEN 1 ELSE 0 END) AS 'Ago'"),
+                    DB::raw("SUM(CASE MONTH(fecha) WHEN 9 THEN 1 ELSE 0 END) AS 'Sep'"),
+                     DB::raw("SUM(CASE MONTH(fecha) WHEN 10 THEN 1 ELSE 0 END) AS 'Oct'"),
+                      DB::raw("SUM(CASE MONTH(fecha) WHEN 11 THEN 1 ELSE 0 END) AS 'Nov'"),
+                       DB::raw("SUM(CASE MONTH(fecha) WHEN 12 THEN 1 ELSE 0 END) AS 'Dic'")))->join('crear_estaciones','crear_estaciones.id','=','gestion_casos.estacion_id')
+                       ->whereRaw("YEAR(fecha)=".$year)->groupby('crear_estaciones.nomestacion')->get();
+
+              $totales=DB::table('gestion_casos')->select(array(DB::raw('count(gestion_casos.id) as Suma'), DB::raw("SUM(CASE MONTH(fecha) WHEN 1 THEN 1 ELSE 0 END) AS 'Ene'"),
+                 DB::raw("SUM(CASE MONTH(fecha) WHEN 2 THEN 1 ELSE 0 END) AS 'Feb'"),
+                  DB::raw("SUM(CASE MONTH(fecha) WHEN 3 THEN 1 ELSE 0 END) AS 'Mar'"),
+                   DB::raw("SUM(CASE MONTH(fecha) WHEN 4 THEN 1 ELSE 0 END) AS 'Abr'"),
+                    DB::raw("SUM(CASE MONTH(fecha) WHEN 5 THEN 1 ELSE 0 END) AS 'May'"),
+                     DB::raw("SUM(CASE MONTH(fecha) WHEN 6 THEN 1 ELSE 0 END) AS 'Jun'"),
+                      DB::raw("SUM(CASE MONTH(fecha) WHEN 7 THEN 1 ELSE 0 END) AS 'Jul'"),
+                       DB::raw("SUM(CASE MONTH(fecha) WHEN 8 THEN 1 ELSE 0 END) AS 'Ago'"),
+                        DB::raw("SUM(CASE MONTH(fecha) WHEN 9 THEN 1 ELSE 0 END) AS 'Sep'"),
+                         DB::raw("SUM(CASE MONTH(fecha) WHEN 10 THEN 1 ELSE 0 END) AS 'Oct'"),
+                          DB::raw("SUM(CASE MONTH(fecha) WHEN 11 THEN 1 ELSE 0 END) AS 'Nov'"),
+                           DB::raw("SUM(CASE MONTH(fecha) WHEN 12 THEN 1 ELSE 0 END) AS 'Dic'")))
+                 ->whereRaw("YEAR(fecha)=".$year)->get();
+              $pdf=PDF::loadView('reportes.gestion_casos_mensual_estaciones',compact('datos','totales','year'))->setPaper('letter','landscape')->setWarnings(false);
+              return $pdf->stream('reporteMensualEstaciones.pdf');
+              }
+
+
+            }
 
    
   }
